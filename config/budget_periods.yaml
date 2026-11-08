@@ -1,0 +1,42 @@
+# Budget periods and the first-90-day cash ceiling (task P1-36).
+# Approved 2026-11-07: PD-01 (pre-Day-1 spend counts inside the ceiling),
+# PD-02 ($20 LLM cap for Days 31-60), PD-07 ($10 voice cap per window).
+# Caps are per plan window, not per calendar month. Cash amounts are INR; caps are USD.
+
+inr_per_usd: 88            # planning convention from the business plan
+ceiling_inr: 15000         # whole preparation window + Days 1-90
+freeze:
+  threshold_inr: 10000     # freeze optional spend if actual spend passes this...
+  before_day: 60           # ...before Day 60
+day1: null                 # experiment Day 1 (YYYY-MM-DD); set when gate G1 passes
+llm_daily_cap_usd: 1.50
+
+periods:
+  - id: preparation        # everything before Day 1 (bake-offs)
+    first_day: null
+    last_day: 0
+    llm_cap_usd: 7
+    tts_cap_usd: 8
+  - id: days_1_30
+    first_day: 1
+    last_day: 30
+    llm_cap_usd: 10
+    tts_cap_usd: 10
+  - id: days_31_60
+    first_day: 31
+    last_day: 60
+    llm_cap_usd: 20        # PD-02 interim cap
+    tts_cap_usd: 10
+  - id: days_61_90
+    first_day: 61
+    last_day: 90
+    llm_cap_usd: 35
+    tts_cap_usd: 10
+
+# Fixed cash items that API caps don't cover (worst case, INR). Log real spend in
+# finance/cash-ledger.csv with the same item name.
+#   one_off:   once any payment is logged, the unused allowance is released
+#   recurring: the allowance stays reserved until fully used (e.g. monthly VPS)
+planned_cash:
+  domain: {max_inr: 2500, kind: one_off}
+  vps: {max_inr: 1200, kind: recurring}

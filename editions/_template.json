@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "issue_key": "ADB-2026-01-01",
+  "issue_date": "2026-01-01",
+  "timezone": "Asia/Kolkata",
+  "cutoff_at": "2026-01-01T17:00:00+05:30",
+  "status": "draft",
+  "production_epoch": 1,
+  "is_quiet_day": false,
+  "daily_thesis": "REPLACE: one sentence on the day's most important verified shift",
+  "seo": {
+    "title": "AI Daily Brief, 1 January 2026",
+    "description": "REPLACE: one-line issue description"
+  },
+  "stories": [
+    {
+      "story_id": "publisher-slug:YYYY-MM-DD:short-slug",
+      "rank": 1,
+      "category": "model_release",
+      "headline": "REPLACE: our original headline",
+      "summary": "REPLACE: two to four sentences grounded in evidence. Second sentence.",
+      "why_it_matters": "REPLACE: labelled analysis, separate from fact",
+      "technical_notes": null,
+      "limitations": null,
+      "publisher": "REPLACE: publisher name",
+      "source_type": "rss",
+      "source_tier": 1,
+      "primary_source_url": "https://example.com/REPLACE-primary-source",
+      "supporting_source_urls": [],
+      "published_at": "2026-01-01T00:00:00+05:30",
+      "event_at": null,
+      "event_at_basis": "unknown",
+      "collected_at": "2026-01-01T00:00:00+05:30",
+      "selected_reason": null,
+      "score": null,
+      "claims": [
+        {
+          "claim_text": "REPLACE: one atomic factual claim",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "unverified",
+          "confidence": null,
+          "evidence": [
+            {
+              "url": "https://example.com/REPLACE-primary-source",
+              "publisher": "REPLACE: publisher name",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "REPLACE: short verbatim excerpt (max 300 chars)",
+              "retrieved_at": "2026-01-01T00:00:00+05:30"
+            }
+          ],
+          "verified_by": null,
+          "verified_at": null
+        }
+      ],
+      "card_text": null,
+      "narration": null,
+      "sponsored": false,
+      "disclosure": null
+    }
+  ],
+  "script": null,
+  "caption": null,
+  "hashtags": [],
+  "issue_url": null,
+  "sponsor_flag": false,
+  "review": {
+    "regime": "full",
+    "regime_reason": "experiment edition (private; not counted toward the first 30, PD-03)",
+    "reviewer": null,
+    "decision": "pending",
+    "checklist": {},
+    "reviewed_at": null
+  },
+  "corrections": [],
+  "media": null,
+  "deployment": null,
+  "publication": null,
+  "production_log": {
+    "minutes_research": null,
+    "minutes_verify": null,
+    "minutes_script": null,
+    "minutes_render": null,
+    "minutes_site": null,
+    "minutes_review": null,
+    "minutes_publish": null,
+    "minutes_audit": null
+  },
+  "experiment": {
+    "day": null,
+    "candidates": [],
+    "eligible_count": null,
+    "quiet_day": false,
+    "notes": null
+  }
+}

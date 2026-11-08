@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "issue_key": "ADB-2026-11-23",
+  "issue_date": "2026-11-23",
+  "timezone": "Asia/Kolkata",
+  "cutoff_at": "2026-11-23T11:30:00+00:00",
+  "status": "published",
+  "production_epoch": 1,
+  "is_quiet_day": true,
+  "daily_thesis": "A quiet day: safety documentation and a quick open-source fix.",
+  "seo": {
+    "title": "AI Daily Brief, 23 November 2026 (quiet day)",
+    "description": "Nimbus-2 safety notes and an Example Toolkit streaming fix."
+  },
+  "stories": [
+    {
+      "story_id": "example-labs:2026-11-21:nimbus-2-safety-notes",
+      "rank": 1,
+      "category": "model_release",
+      "headline": "Example Labs publishes Nimbus-2 safety notes",
+      "summary": "On Saturday, Example Labs published safety notes for Nimbus-2. The notes describe the evaluations the company ran before release.",
+      "why_it_matters": "Release-time safety documentation helps teams judge where the model needs extra checks.",
+      "limitations": "The notes are the company's own account, not an independent audit.",
+      "publisher": "Example Labs",
+      "source_type": "rss",
+      "source_tier": 1,
+      "primary_source_url": "https://example.com/labs/news/nimbus-2-safety-notes",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-22T03:00:00+00:00",
+      "event_at": "2026-11-21T08:00:00+00:00",
+      "event_at_basis": "stated",
+      "collected_at": "2026-11-23T03:00:00+00:00",
+      "selected_reason": "Weekend development inside Monday's edition window (Fri 17:00 to Mon 17:00).",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 15,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 11,
+        "novelty": 7,
+        "audience_fit": 4,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example Labs published safety notes for Nimbus-2 on Saturday 21 November 2026, describing its pre-release evaluations.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/labs/news/nimbus-2-safety-notes",
+              "publisher": "Example Labs",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "Published Saturday 21 November: Nimbus-2 safety notes and pre-release evaluations",
+              "retrieved_at": "2026-11-23T09:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-23T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Nimbus-2 safety notes are out",
+      "narration": "On Saturday, Example Labs published safety notes for Nimbus-2, describing the evaluations it ran before release. The notes are the company's own account rather than an independent audit, so they show what was tested, not how well the model behaves in your setting."
+    },
+    {
+      "story_id": "example-toolkit:2026-11-23:v3-0-1",
+      "rank": 2,
+      "category": "open_source",
+      "headline": "Example Toolkit 3.0.1 fixes a streaming bug",
+      "summary": "The Example Toolkit project released version 3.0.1 today. It fixes a streaming bug introduced in 3.0.",
+      "why_it_matters": "Anyone who upgraded to 3.0 for streaming should take the fix.",
+      "publisher": "Example Toolkit maintainers",
+      "source_type": "github_releases",
+      "source_tier": 1,
+      "primary_source_url": "https://example.com/example-toolkit/releases/tag/v3.0.1",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-23T05:00:00+00:00",
+      "event_at": "2026-11-23T05:00:00+00:00",
+      "event_at_basis": "same_as_published",
+      "collected_at": "2026-11-23T05:30:00+00:00",
+      "selected_reason": "Follow-up fix to a story covered on Friday; material update.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 10,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 13,
+        "novelty": 4,
+        "audience_fit": 5,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example Toolkit 3.0.1 fixes a streaming bug introduced in 3.0.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/example-toolkit/releases/tag/v3.0.1",
+              "publisher": "Example Toolkit maintainers",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "3.0.1: fix streaming regression introduced in 3.0",
+              "retrieved_at": "2026-11-23T09:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-23T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Example Toolkit 3.0.1 patches streaming",
+      "narration": "The Example Toolkit project released version 3.0.1 today. It fixes a streaming bug introduced in 3.0, so if you upgraded to 3.0 for the new streaming support, take this patch before you rely on it in production."
+    }
+  ],
+  "script": {
+    "version": 1,
+    "hook": "A quiet day, so just two AI developments worth your time this Monday.",
+    "outro": "Full stories and original links: link in bio."
+  },
+  "caption": "AI Daily Brief, Monday 23 November 2026 (quiet day)\n\n1. Example Labs publishes Nimbus-2 safety notes (Example Labs)\n2. Example Toolkit 3.0.1 fixes a streaming bug (Example Toolkit maintainers)\n\nFull stories and original links: link in bio.",
+  "hashtags": [
+    "#AI",
+    "#AINews"
+  ],
+  "issue_url": "https://example.pages.dev/issues/2026-11-23/",
+  "sponsor_flag": false,
+  "review": {
+    "regime": "full",
+    "regime_reason": "experiment edition (private; not counted toward the first 30, PD-03)",
+    "reviewer": "Founder",
+    "decision": "approved",
+    "checklist": {
+      "headlines_match_sources": true,
+      "script_matches_evidence": true,
+      "dates_and_time_words_correct": true,
+      "caption_page_reel_agree": true,
+      "audio_video_quality_ok": true,
+      "no_unlicensed_media_or_undisclosed_promotion": true
+    },
+    "reviewed_at": "2026-11-23T12:50:00+00:00"
+  },
+  "corrections": [],
+  "media": {
+    "narration": [
+      {
+        "segment": 0,
+        "file": "cache/tts/ADB-2026-11-23-0.mp3",
+        "sha256": "8dacc3c93ec64b3033f1390f957322f3bce41113b683e7214ee2672d271cea6e",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 1,
+        "file": "cache/tts/ADB-2026-11-23-1.mp3",
+        "sha256": "a998317e4eeb8beb830519a85f6411369ad39742d350e7a001375b4d421c101d",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 2,
+        "file": "cache/tts/ADB-2026-11-23-2.mp3",
+        "sha256": "b32b515e18d6ed6ca9f8bc5473b15bb2b1c9d67c3860c114bbd1dcb716d76cdd",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 3,
+        "file": "cache/tts/ADB-2026-11-23-3.mp3",
+        "sha256": "48ffad3edff8ee0eaea3ac1a4002a1ce07ad917ddb21ffe4e19e6e0d513f9882",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      }
+    ],
+    "mp4": {
+      "key": "reels/ADB-2026-11-23.mp4",
+      "sha256": "e6562b0e4708dd3c872008673275d394a8988364c5435390feb123c218c29bb8"
+    },
+    "cover": {
+      "key": "covers/ADB-2026-11-23.png",
+      "sha256": "11df3f8d9867e20a6e506a3b8fdbfd78003596e6b0877cc6b21e90129662d117"
+    }
+  },
+  "deployment": {
+    "preview_url": "https://preview.example.pages.dev/issues/2026-11-23/",
+    "production_deploy_id": "dep-0004",
+    "deployed_at": "2026-11-23T13:05:00+00:00",
+    "linkcheck": "pass"
+  },
+  "publication": {
+    "platform": "none",
+    "method": "private",
+    "permalink": null,
+    "media_id": null,
+    "published_at": "2026-11-23T13:10:00+00:00"
+  },
+  "production_log": {
+    "minutes_research": 50,
+    "minutes_verify": 30,
+    "minutes_script": 20,
+    "minutes_render": 15,
+    "minutes_site": 10,
+    "minutes_review": 15,
+    "minutes_publish": 10,
+    "minutes_audit": 15
+  },
+  "experiment": {
+    "day": 6,
+    "eligible_count": 2,
+    "quiet_day": true,
+    "notes": "Quiet day: fewer than 3 eligible stories.",
+    "candidates": []
+  }
+}

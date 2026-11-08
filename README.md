@@ -33,6 +33,10 @@ uv run brief doctor
 
 ```sh
 uv run brief --help                     # CLI
+uv run brief validate editions/2026-12-01.json --stage draft   # editorial checks (draft|review|published)
+uv run brief linkcheck editions/2026-12-01.json               # every source link must return HTTP 200 (uses the internet)
+uv run brief cost report                                       # spend vs caps and the ₹15,000 ceiling
+uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test
 uv run ruff check . && uv run ruff format --check .

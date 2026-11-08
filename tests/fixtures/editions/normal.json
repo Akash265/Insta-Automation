@@ -1,0 +1,525 @@
+{
+  "schema_version": "1.0",
+  "issue_key": "ADB-2026-11-20",
+  "issue_date": "2026-11-20",
+  "timezone": "Asia/Kolkata",
+  "cutoff_at": "2026-11-20T11:30:00+00:00",
+  "status": "published",
+  "production_epoch": 1,
+  "is_quiet_day": false,
+  "daily_thesis": "Longer-context models reached general availability while open tooling and policy kept pace.",
+  "seo": {
+    "title": "AI Daily Brief, 20 November 2026",
+    "description": "Nimbus-2 API launch, small-model reasoning, Example Toolkit 3.0, an enterprise rollout and an incident-reporting consultation."
+  },
+  "stories": [
+    {
+      "story_id": "example-labs:2026-11-20:nimbus-2-api",
+      "rank": 1,
+      "category": "model_release",
+      "headline": "Example Labs makes Nimbus-2 available through its API",
+      "summary": "Example Labs released Nimbus-2 through its public API today. The company says the model handles 200,000 tokens of context. Pricing starts at $3 per million input tokens.",
+      "why_it_matters": "Developers can try long-document work without joining a waitlist.",
+      "limitations": "Context and speed figures are vendor-reported and not independently verified.",
+      "publisher": "Example Labs",
+      "source_type": "rss",
+      "source_tier": 1,
+      "primary_source_url": "https://example.com/labs/news/nimbus-2",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-20T04:30:00+00:00",
+      "event_at": "2026-11-20T04:30:00+00:00",
+      "event_at_basis": "same_as_published",
+      "collected_at": "2026-11-20T05:10:00+00:00",
+      "selected_reason": "Lead: new model generally available today from a primary source.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 22,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 13,
+        "novelty": 8,
+        "audience_fit": 4,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Nimbus-2 is available through the Example Labs public API from today.",
+          "claim_type": "availability",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/labs/news/nimbus-2",
+              "publisher": "Example Labs",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "Nimbus-2 is available today through our public API.",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        },
+        {
+          "claim_text": "Example Labs says Nimbus-2 supports 200,000 tokens of context and costs $3 per million input tokens.",
+          "claim_type": "vendor_claim",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/labs/news/nimbus-2",
+              "publisher": "Example Labs",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "a 200,000-token context window, priced from $3 per million input tokens",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Nimbus-2 is live in the Example Labs API",
+      "narration": "Example Labs made Nimbus-2 available through its public API today. The company says it handles 200,000 tokens of context, priced from $3 per million input tokens. Those figures are vendor-reported, so test it on your own documents before switching."
+    },
+    {
+      "story_id": "example-university:2026-11-19:small-model-reasoning",
+      "rank": 2,
+      "category": "research",
+      "headline": "New preprint tests reasoning in small open models",
+      "summary": "Researchers at Example University posted a preprint comparing small open models on reasoning tasks. They report that the best 8B model solved 61% of problems. The paper has not been peer reviewed yet.",
+      "why_it_matters": "Small models are cheaper to run locally, so better reasoning there widens practical options.",
+      "limitations": "Preprint; not yet peer reviewed.",
+      "publisher": "Example University",
+      "source_type": "arxiv",
+      "source_tier": 1,
+      "primary_source_url": "https://example.org/abs/2611.00001",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-19T14:00:00+00:00",
+      "event_at": "2026-11-19T14:00:00+00:00",
+      "event_at_basis": "same_as_published",
+      "collected_at": "2026-11-20T03:00:00+00:00",
+      "selected_reason": "Research with direct practical relevance to local inference.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 17,
+        "source_confidence": 25,
+        "freshness": 14,
+        "practical_relevance": 13,
+        "novelty": 7,
+        "audience_fit": 5,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example University researchers posted a preprint comparing small open models on reasoning tasks.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.org/abs/2611.00001",
+              "publisher": "Example University",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "We compare small open models on a suite of reasoning tasks.",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        },
+        {
+          "claim_text": "The preprint reports that the best 8B model solved 61% of problems.",
+          "claim_type": "benchmark_independent",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.org/abs/2611.00001",
+              "publisher": "Example University",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "the best 8B model solves 61% of problems",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Small open models put to a reasoning test",
+      "narration": "Researchers at Example University posted a preprint testing small open models on reasoning. They report that the best 8B model solved 61% of problems. It is not peer reviewed yet, so treat it as early evidence."
+    },
+    {
+      "story_id": "example-toolkit:2026-11-20:v3-0",
+      "rank": 3,
+      "category": "open_source",
+      "headline": "Example Toolkit 3.0 adds built-in streaming",
+      "summary": "The Example Toolkit project released version 3.0 with built-in streaming. The release notes list breaking changes to the configuration format.",
+      "why_it_matters": "Streaming support removes a common workaround, but upgrades need a config migration.",
+      "publisher": "Example Toolkit maintainers",
+      "source_type": "github_releases",
+      "source_tier": 1,
+      "primary_source_url": "https://example.com/example-toolkit/releases/tag/v3.0",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-20T02:00:00+00:00",
+      "event_at": "2026-11-20T02:00:00+00:00",
+      "event_at_basis": "same_as_published",
+      "collected_at": "2026-11-20T03:30:00+00:00",
+      "selected_reason": "Widely used open-source tool; breaking change affects builders.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 14,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 14,
+        "novelty": 7,
+        "audience_fit": 5,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example Toolkit version 3.0 adds built-in streaming.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/example-toolkit/releases/tag/v3.0",
+              "publisher": "Example Toolkit maintainers",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "v3.0 adds built-in streaming",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        },
+        {
+          "claim_text": "Version 3.0 changes the configuration format in breaking ways.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.com/example-toolkit/releases/tag/v3.0",
+              "publisher": "Example Toolkit maintainers",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "Breaking: the configuration format has changed",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Example Toolkit 3.0: streaming built in",
+      "narration": "The open-source Example Toolkit shipped version 3.0 with built-in streaming. Read the release notes before upgrading: the configuration format has breaking changes."
+    },
+    {
+      "story_id": "example-news:2026-11-20:corp-support-assistant",
+      "rank": 4,
+      "category": "business",
+      "headline": "Example Corp rolls out an AI assistant to its support teams",
+      "summary": "Example News reports that Example Corp has rolled out an AI assistant to its customer-support teams. The company confirmed the rollout but has not published usage figures.",
+      "why_it_matters": "It is a deployment signal from a large employer, not yet evidence of impact.",
+      "publisher": "Example News",
+      "source_type": "rss",
+      "source_tier": 2,
+      "primary_source_url": "https://example.net/news/example-corp-assistant",
+      "supporting_source_urls": [
+        "https://example.com/corp/blog/support-assistant"
+      ],
+      "published_at": "2026-11-20T06:00:00+00:00",
+      "event_at": "2026-11-20T05:00:00+00:00",
+      "event_at_basis": "stated",
+      "collected_at": "2026-11-20T06:20:00+00:00",
+      "selected_reason": "Adoption story with a primary confirmation.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 12,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 8,
+        "novelty": 6,
+        "audience_fit": 3,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example Corp has rolled out an AI assistant to its customer-support teams.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.net/news/example-corp-assistant",
+              "publisher": "Example News",
+              "source_tier": 2,
+              "stance": "supports",
+              "excerpt": "Example Corp has rolled out an AI assistant to its customer-support teams",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            },
+            {
+              "url": "https://example.com/corp/blog/support-assistant",
+              "publisher": "Example Corp",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "we have rolled out an assistant across our support teams",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Example Corp puts an AI assistant in support",
+      "narration": "Example News reports that Example Corp has rolled out an AI assistant across its customer-support teams, and the company confirmed it. There are no usage figures yet, so read this as a deployment signal rather than proof of impact."
+    },
+    {
+      "story_id": "example-agency:2026-11-20:incident-consultation",
+      "rank": 5,
+      "category": "policy",
+      "headline": "Example Agency opens a consultation on AI incident reporting",
+      "summary": "Example Agency opened a public consultation on how companies should report serious AI incidents. Responses are due by 31 January 2027.",
+      "why_it_matters": "Incident-reporting rules would shape how AI products are monitored after launch.",
+      "publisher": "Example Agency",
+      "source_type": "html_page",
+      "source_tier": 1,
+      "primary_source_url": "https://example.org/agency/consultations/ai-incidents",
+      "supporting_source_urls": [],
+      "published_at": "2026-11-20T06:00:00+00:00",
+      "event_at": "2026-11-20T06:00:00+00:00",
+      "event_at_basis": "same_as_published",
+      "collected_at": "2026-11-20T07:00:00+00:00",
+      "selected_reason": "Primary regulatory document with a response deadline.",
+      "score": {
+        "rubric_version": "1.1",
+        "significance": 15,
+        "source_confidence": 25,
+        "freshness": 20,
+        "practical_relevance": 10,
+        "novelty": 7,
+        "audience_fit": 4,
+        "origin": {
+          "significance": "editor",
+          "source_confidence": "rule",
+          "freshness": "rule",
+          "practical_relevance": "editor",
+          "novelty": "editor",
+          "audience_fit": "editor"
+        }
+      },
+      "claims": [
+        {
+          "claim_text": "Example Agency opened a public consultation on reporting serious AI incidents; responses are due by 31 January 2027.",
+          "claim_type": "fact",
+          "materiality": "material",
+          "status": "supported",
+          "confidence": "high",
+          "evidence": [
+            {
+              "url": "https://example.org/agency/consultations/ai-incidents",
+              "publisher": "Example Agency",
+              "source_tier": 1,
+              "stance": "supports",
+              "excerpt": "Responses are invited until 31 January 2027",
+              "retrieved_at": "2026-11-20T10:00:00+00:00"
+            }
+          ],
+          "verified_by": "Founder",
+          "verified_at": "2026-11-20T11:40:00+00:00"
+        }
+      ],
+      "card_text": "Have your say on AI incident reporting",
+      "narration": "Example Agency opened a public consultation on how companies should report serious AI incidents. Responses are due by 31 January 2027, so teams shipping AI products have a short window to comment."
+    }
+  ],
+  "script": {
+    "version": 1,
+    "hook": "Five AI developments worth knowing this Friday, each linked to its source.",
+    "outro": "Full stories and original links: link in bio."
+  },
+  "caption": "AI Daily Brief, Friday 20 November 2026\n\n1. Example Labs makes Nimbus-2 available through its API (Example Labs)\n2. New preprint tests reasoning in small open models (Example University)\n3. Example Toolkit 3.0 adds built-in streaming (Example Toolkit maintainers)\n4. Example Corp rolls out an AI assistant to its support teams (Example News)\n5. Example Agency opens a consultation on AI incident reporting (Example Agency)\n\nFull stories and original links: link in bio.",
+  "hashtags": [
+    "#AI",
+    "#AINews"
+  ],
+  "issue_url": "https://example.pages.dev/issues/2026-11-20/",
+  "sponsor_flag": false,
+  "review": {
+    "regime": "full",
+    "regime_reason": "experiment edition (private; not counted toward the first 30, PD-03)",
+    "reviewer": "Founder",
+    "decision": "approved",
+    "checklist": {
+      "headlines_match_sources": true,
+      "script_matches_evidence": true,
+      "dates_and_time_words_correct": true,
+      "caption_page_reel_agree": true,
+      "audio_video_quality_ok": true,
+      "no_unlicensed_media_or_undisclosed_promotion": true
+    },
+    "reviewed_at": "2026-11-20T12:50:00+00:00"
+  },
+  "corrections": [],
+  "media": {
+    "narration": [
+      {
+        "segment": 0,
+        "file": "cache/tts/ADB-2026-11-20-0.mp3",
+        "sha256": "8dacc3c93ec64b3033f1390f957322f3bce41113b683e7214ee2672d271cea6e",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 1,
+        "file": "cache/tts/ADB-2026-11-20-1.mp3",
+        "sha256": "a998317e4eeb8beb830519a85f6411369ad39742d350e7a001375b4d421c101d",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 2,
+        "file": "cache/tts/ADB-2026-11-20-2.mp3",
+        "sha256": "b32b515e18d6ed6ca9f8bc5473b15bb2b1c9d67c3860c114bbd1dcb716d76cdd",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 3,
+        "file": "cache/tts/ADB-2026-11-20-3.mp3",
+        "sha256": "48ffad3edff8ee0eaea3ac1a4002a1ce07ad917ddb21ffe4e19e6e0d513f9882",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 4,
+        "file": "cache/tts/ADB-2026-11-20-4.mp3",
+        "sha256": "8b14d7f63112b47971fde748826b1249403126febbfb30fbb97f2715e28a6f75",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 5,
+        "file": "cache/tts/ADB-2026-11-20-5.mp3",
+        "sha256": "5aff8520a48099f1e5f34b73ff271909796e572d25937c5622081930b7f10222",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      },
+      {
+        "segment": 6,
+        "file": "cache/tts/ADB-2026-11-20-6.mp3",
+        "sha256": "9bc24fd31e3c944edf86855503d9e0b7b158561e4422a387d84c649e62a2f097",
+        "tts_provider": "example-tts",
+        "tts_model": "example-model-1",
+        "voice": "example-voice"
+      }
+    ],
+    "mp4": {
+      "key": "reels/ADB-2026-11-20.mp4",
+      "sha256": "862c4ec62defaadafbf7638961214d286015c38ed4ccc7b10d52bdf434e5bee1"
+    },
+    "cover": {
+      "key": "covers/ADB-2026-11-20.png",
+      "sha256": "3fa405a8301ace34d11cf44a816080b8f0e49a48fbd048b8aef1543a8c58bdb6"
+    }
+  },
+  "deployment": {
+    "preview_url": "https://preview.example.pages.dev/issues/2026-11-20/",
+    "production_deploy_id": "dep-0001",
+    "deployed_at": "2026-11-20T13:05:00+00:00",
+    "linkcheck": "pass"
+  },
+  "publication": {
+    "platform": "none",
+    "method": "private",
+    "permalink": null,
+    "media_id": null,
+    "published_at": "2026-11-20T13:10:00+00:00"
+  },
+  "production_log": {
+    "minutes_research": 50,
+    "minutes_verify": 30,
+    "minutes_script": 20,
+    "minutes_render": 15,
+    "minutes_site": 10,
+    "minutes_review": 15,
+    "minutes_publish": 10,
+    "minutes_audit": 15
+  },
+  "experiment": {
+    "day": 3,
+    "eligible_count": 6,
+    "quiet_day": false,
+    "notes": null,
+    "candidates": [
+      {
+        "url": "https://example.com/labs/news/nimbus-2",
+        "title": "Nimbus-2 now available",
+        "publisher": "Example Labs",
+        "source_type": "rss",
+        "published_at": "2026-11-20T04:30:00+00:00",
+        "event_at": "2026-11-20T04:30:00+00:00",
+        "collected_at": "2026-11-20T05:10:00+00:00",
+        "rule_code": null,
+        "eligible": true
+      },
+      {
+        "url": "https://example.net/news/old-launch-recap",
+        "title": "A look back at last spring's launch",
+        "publisher": "Example News",
+        "source_type": "rss",
+        "published_at": "2026-11-20T03:00:00+00:00",
+        "event_at": "2026-04-02T09:00:00+00:00",
+        "collected_at": "2026-11-20T05:15:00+00:00",
+        "rule_code": "R03",
+        "eligible": false
+      }
+    ]
+  }
+}

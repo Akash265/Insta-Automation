@@ -1,0 +1,1365 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "collected_at": {
+          "format": "date-time",
+          "title": "Collected At",
+          "type": "string"
+        },
+        "eligible": {
+          "title": "Eligible",
+          "type": "boolean"
+        },
+        "event_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event At"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "publisher": {
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "rule_code": {
+          "anyOf": [
+            {
+              "pattern": "^R(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rule Code"
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "minLength": 9,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "publisher",
+        "source_type",
+        "collected_at",
+        "eligible"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "Category": {
+      "enum": [
+        "model_release",
+        "research",
+        "open_source",
+        "business",
+        "policy"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_text": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ClaimType"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "materiality": {
+          "enum": [
+            "material",
+            "minor"
+          ],
+          "title": "Materiality",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/ClaimStatus",
+          "default": "unverified"
+        },
+        "verified_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified At"
+        },
+        "verified_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified By"
+        }
+      },
+      "required": [
+        "claim_text",
+        "claim_type",
+        "materiality"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "ClaimStatus": {
+      "enum": [
+        "unverified",
+        "supported",
+        "contested",
+        "unsupported",
+        "withdrawn"
+      ],
+      "title": "ClaimStatus",
+      "type": "string"
+    },
+    "ClaimType": {
+      "enum": [
+        "fact",
+        "vendor_claim",
+        "benchmark_vendor",
+        "benchmark_independent",
+        "availability",
+        "interpretation",
+        "forecast",
+        "quote"
+      ],
+      "title": "ClaimType",
+      "type": "string"
+    },
+    "Correction": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_by": {
+          "minLength": 1,
+          "title": "Approved By",
+          "type": "string"
+        },
+        "corrected_at": {
+          "format": "date-time",
+          "title": "Corrected At",
+          "type": "string"
+        },
+        "corrected_text": {
+          "minLength": 1,
+          "title": "Corrected Text",
+          "type": "string"
+        },
+        "original_text": {
+          "minLength": 1,
+          "title": "Original Text",
+          "type": "string"
+        },
+        "public_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Public Note"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "material",
+            "minor"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "story_rank": {
+          "anyOf": [
+            {
+              "maximum": 7,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Story Rank"
+        }
+      },
+      "required": [
+        "severity",
+        "original_text",
+        "corrected_text",
+        "reason",
+        "approved_by",
+        "corrected_at"
+      ],
+      "title": "Correction",
+      "type": "object"
+    },
+    "Deployment": {
+      "additionalProperties": false,
+      "properties": {
+        "deployed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Deployed At"
+        },
+        "linkcheck": {
+          "default": "not_run",
+          "enum": [
+            "pass",
+            "fail",
+            "not_run"
+          ],
+          "title": "Linkcheck",
+          "type": "string"
+        },
+        "preview_url": {
+          "anyOf": [
+            {
+              "maxLength": 2048,
+              "minLength": 9,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preview Url"
+        },
+        "production_deploy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Production Deploy Id"
+        }
+      },
+      "title": "Deployment",
+      "type": "object"
+    },
+    "EventAtBasis": {
+      "enum": [
+        "stated",
+        "inferred",
+        "same_as_published",
+        "unknown"
+      ],
+      "title": "EventAtBasis",
+      "type": "string"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "excerpt": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Excerpt",
+          "type": "string"
+        },
+        "publisher": {
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved At"
+        },
+        "source_tier": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Source Tier",
+          "type": "integer"
+        },
+        "stance": {
+          "enum": [
+            "supports",
+            "contradicts",
+            "context"
+          ],
+          "title": "Stance",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "minLength": 9,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "publisher",
+        "source_tier",
+        "stance",
+        "excerpt"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Experiment": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "title": "Candidates",
+          "type": "array"
+        },
+        "day": {
+          "anyOf": [
+            {
+              "maximum": 14,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Day"
+        },
+        "eligible_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eligible Count"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "quiet_day": {
+          "default": false,
+          "title": "Quiet Day",
+          "type": "boolean"
+        }
+      },
+      "title": "Experiment",
+      "type": "object"
+    },
+    "Media": {
+      "additionalProperties": false,
+      "properties": {
+        "cover": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MediaRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mp4": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MediaRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "narration": {
+          "items": {
+            "$ref": "#/$defs/NarrationRef"
+          },
+          "title": "Narration",
+          "type": "array"
+        }
+      },
+      "title": "Media",
+      "type": "object"
+    },
+    "MediaRef": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "minLength": 1,
+          "title": "Key",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "sha256"
+      ],
+      "title": "MediaRef",
+      "type": "object"
+    },
+    "NarrationRef": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "minLength": 1,
+          "title": "File",
+          "type": "string"
+        },
+        "segment": {
+          "minimum": 0,
+          "title": "Segment",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "tts_model": {
+          "minLength": 1,
+          "title": "Tts Model",
+          "type": "string"
+        },
+        "tts_provider": {
+          "minLength": 1,
+          "title": "Tts Provider",
+          "type": "string"
+        },
+        "voice": {
+          "minLength": 1,
+          "title": "Voice",
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment",
+        "file",
+        "sha256",
+        "tts_provider",
+        "tts_model",
+        "voice"
+      ],
+      "title": "NarrationRef",
+      "type": "object"
+    },
+    "ProductionLog": {
+      "additionalProperties": false,
+      "properties": {
+        "minutes_audit": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Audit"
+        },
+        "minutes_publish": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Publish"
+        },
+        "minutes_render": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Render"
+        },
+        "minutes_research": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Research"
+        },
+        "minutes_review": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Review"
+        },
+        "minutes_script": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Script"
+        },
+        "minutes_site": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Site"
+        },
+        "minutes_verify": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minutes Verify"
+        }
+      },
+      "title": "ProductionLog",
+      "type": "object"
+    },
+    "Publication": {
+      "additionalProperties": false,
+      "description": "Where the edition went. During the private experiment: method 'private'.",
+      "properties": {
+        "media_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Id"
+        },
+        "method": {
+          "enum": [
+            "private",
+            "manual",
+            "api"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "permalink": {
+          "anyOf": [
+            {
+              "maxLength": 2048,
+              "minLength": 9,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Permalink"
+        },
+        "platform": {
+          "enum": [
+            "instagram",
+            "none"
+          ],
+          "title": "Platform",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        }
+      },
+      "required": [
+        "platform",
+        "method"
+      ],
+      "title": "Publication",
+      "type": "object"
+    },
+    "Review": {
+      "additionalProperties": false,
+      "properties": {
+        "checklist": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "title": "Checklist",
+          "type": "object"
+        },
+        "decision": {
+          "default": "pending",
+          "enum": [
+            "pending",
+            "approved",
+            "changes_requested",
+            "rejected"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "regime": {
+          "enum": [
+            "full",
+            "exception"
+          ],
+          "title": "Regime",
+          "type": "string"
+        },
+        "regime_reason": {
+          "minLength": 1,
+          "title": "Regime Reason",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed At"
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewer"
+        }
+      },
+      "required": [
+        "regime",
+        "regime_reason"
+      ],
+      "title": "Review",
+      "type": "object"
+    },
+    "Score": {
+      "additionalProperties": false,
+      "description": "Rubric v1.1 sub-scores (docs/EDITORIAL_PIPELINE.md §5).",
+      "properties": {
+        "audience_fit": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Audience Fit",
+          "type": "integer"
+        },
+        "freshness": {
+          "maximum": 20,
+          "minimum": 0,
+          "title": "Freshness",
+          "type": "integer"
+        },
+        "novelty": {
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Novelty",
+          "type": "integer"
+        },
+        "origin": {
+          "additionalProperties": {
+            "enum": [
+              "rule",
+              "llm",
+              "editor"
+            ],
+            "type": "string"
+          },
+          "title": "Origin",
+          "type": "object"
+        },
+        "practical_relevance": {
+          "maximum": 15,
+          "minimum": 0,
+          "title": "Practical Relevance",
+          "type": "integer"
+        },
+        "rubric_version": {
+          "default": "1.1",
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "significance": {
+          "maximum": 25,
+          "minimum": 0,
+          "title": "Significance",
+          "type": "integer"
+        },
+        "source_confidence": {
+          "maximum": 25,
+          "minimum": 0,
+          "title": "Source Confidence",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "significance",
+        "source_confidence",
+        "freshness",
+        "practical_relevance",
+        "novelty",
+        "audience_fit"
+      ],
+      "title": "Score",
+      "type": "object"
+    },
+    "Script": {
+      "additionalProperties": false,
+      "properties": {
+        "hook": {
+          "minLength": 1,
+          "title": "Hook",
+          "type": "string"
+        },
+        "outro": {
+          "minLength": 1,
+          "title": "Outro",
+          "type": "string"
+        },
+        "version": {
+          "minimum": 1,
+          "title": "Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "version",
+        "hook",
+        "outro"
+      ],
+      "title": "Script",
+      "type": "object"
+    },
+    "Seo": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 70,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ],
+      "title": "Seo",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "rss",
+        "atom",
+        "github_releases",
+        "arxiv",
+        "html_page",
+        "apify",
+        "manual"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "Story": {
+      "additionalProperties": false,
+      "properties": {
+        "card_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Card Text"
+        },
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "collected_at": {
+          "format": "date-time",
+          "title": "Collected At",
+          "type": "string"
+        },
+        "disclosure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Disclosure"
+        },
+        "event_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event At"
+        },
+        "event_at_basis": {
+          "$ref": "#/$defs/EventAtBasis"
+        },
+        "headline": {
+          "minLength": 1,
+          "title": "Headline",
+          "type": "string"
+        },
+        "limitations": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Limitations"
+        },
+        "narration": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Narration"
+        },
+        "primary_source_url": {
+          "maxLength": 2048,
+          "minLength": 9,
+          "title": "Primary Source Url",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "publisher": {
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "rank": {
+          "maximum": 7,
+          "minimum": 1,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Score"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "selected_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Selected Reason"
+        },
+        "source_tier": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Source Tier",
+          "type": "integer"
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "sponsored": {
+          "default": false,
+          "title": "Sponsored",
+          "type": "boolean"
+        },
+        "story_id": {
+          "minLength": 1,
+          "title": "Story Id",
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "supporting_source_urls": {
+          "items": {
+            "maxLength": 2048,
+            "minLength": 9,
+            "type": "string"
+          },
+          "title": "Supporting Source Urls",
+          "type": "array"
+        },
+        "technical_notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Technical Notes"
+        },
+        "why_it_matters": {
+          "minLength": 1,
+          "title": "Why It Matters",
+          "type": "string"
+        }
+      },
+      "required": [
+        "story_id",
+        "rank",
+        "category",
+        "headline",
+        "summary",
+        "why_it_matters",
+        "publisher",
+        "source_type",
+        "source_tier",
+        "primary_source_url",
+        "event_at_basis",
+        "collected_at"
+      ],
+      "title": "Story",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "caption": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Caption"
+    },
+    "corrections": {
+      "items": {
+        "$ref": "#/$defs/Correction"
+      },
+      "title": "Corrections",
+      "type": "array"
+    },
+    "cutoff_at": {
+      "format": "date-time",
+      "title": "Cutoff At",
+      "type": "string"
+    },
+    "daily_thesis": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Daily Thesis"
+    },
+    "deployment": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Deployment"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "experiment": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Experiment"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "hashtags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Hashtags",
+      "type": "array"
+    },
+    "is_quiet_day": {
+      "default": false,
+      "title": "Is Quiet Day",
+      "type": "boolean"
+    },
+    "issue_date": {
+      "format": "date",
+      "title": "Issue Date",
+      "type": "string"
+    },
+    "issue_key": {
+      "title": "Issue Key",
+      "type": "string"
+    },
+    "issue_url": {
+      "anyOf": [
+        {
+          "maxLength": 2048,
+          "minLength": 9,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Issue Url"
+    },
+    "media": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Media"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "production_epoch": {
+      "default": 1,
+      "enum": [
+        1,
+        2
+      ],
+      "title": "Production Epoch",
+      "type": "integer"
+    },
+    "production_log": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProductionLog"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "publication": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Publication"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Review"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "script": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Script"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "seo": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Seo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "sponsor_flag": {
+      "default": false,
+      "title": "Sponsor Flag",
+      "type": "boolean"
+    },
+    "status": {
+      "default": "draft",
+      "enum": [
+        "draft",
+        "in_review",
+        "approved",
+        "published",
+        "skipped"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "stories": {
+      "items": {
+        "$ref": "#/$defs/Story"
+      },
+      "maxItems": 7,
+      "title": "Stories",
+      "type": "array"
+    },
+    "timezone": {
+      "default": "Asia/Kolkata",
+      "title": "Timezone",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issue_key",
+    "issue_date",
+    "cutoff_at"
+  ],
+  "title": "AI Daily Brief edition",
+  "type": "object"
+}

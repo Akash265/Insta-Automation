@@ -5,6 +5,9 @@ description = "AI Daily Brief: editorial, media and publishing toolkit"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "httpx>=0.28.1",
+    "pydantic>=2.14.1",
+    "pyyaml>=6.0.3",
     "typer>=0.27.3",
 ]
 
@@ -44,7 +47,9 @@ addopts = "-q"
 
 [dependency-groups]
 dev = [
+    "jsonschema>=4.26.0",
     "mypy>=2.4.0",
     "pytest>=9.1.1",
+    "pytest-httpserver>=1.2.0",
     "ruff>=0.17.2",
 ]

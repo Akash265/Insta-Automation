@@ -127,16 +127,16 @@ It supersedes the decision-review draft (₹5,190 / ₹12,480 / 349 h) and the f
 | Days 31–60 | Automation development (Phases 2–3) | ≈ 22 |
 | Days 61–90 | Phase 4 and deploy automation; automated workflow after its gates; 90-day review | ≈ 22 |
 
-**PD-01 (approved):** all preparation-window spend counts **inside** the ₹15,000 ceiling. That is about ₹900 expected for the two bake-offs (₹1,300 max), plus the domain if it is bought before Day 1.
+**PD-01 (approved):** all preparation-window spend counts **inside** the ₹15,000 ceiling. That is about ₹900 expected for the two bake-offs (₹1,320 max), plus the domain if it is bought before Day 1.
 
 ### 6.2 One-time setup (cash)
 | Item | When | Expected | Max | How the max is enforced |
 |---|---|---:|---:|---|
 | Domain, year 1 | Before G4 (Day 15); may be bought earlier | ₹1,500 | ₹2,500 | Business plan range *(verify registrar)* |
-| Voice (TTS) bake-off, about 100k characters across vendors | Preparation | ₹450 | ₹700 | Preparation voice cap of $8, plus vendor spend limits (P1-27) |
-| LLM bake-off: 10 stories × Haiku, Sonnet, Opus (evaluation) × about 3 runs; local models free | Preparation | ₹450 | ₹600 | Preparation LLM cap of $7, plus the Anthropic Console spend limit (P1-26) |
+| Voice (TTS) bake-off, about 100k characters across vendors | Preparation | ₹450 | ₹704 | Preparation voice cap of $8, plus vendor spend limits (P1-27) |
+| LLM bake-off: 10 stories × Haiku, Sonnet, Opus (evaluation) × about 3 runs; local models free | Preparation | ₹450 | ₹616 | Preparation LLM cap of $7, plus the Anthropic Console spend limit (P1-26) |
 | Brand assets (OFL fonts, built by the founder); Meta developer setup | — | ₹0 | ₹0 | — |
-| **Subtotal** | | **₹2,400** | **₹3,800** | |
+| **Subtotal** | | **₹2,400** | **₹3,820** | (exact cap conversion: $7 → ₹616, $8 → ₹704; corrected 2026-11-08 by `brief cost report`) |
 
 ### 6.3 Recurring infrastructure (cash)
 | Item | Days 1–30 | Days 31–60 | Days 61–90 | Expected | Max | Basis |
@@ -203,26 +203,26 @@ Apify is ₹0: the free-plan credit blocks rather than bills, and the MVP may us
 ### 6.7 90-day totals vs the ₹15,000 ceiling
 | Cash category | Expected | Worst case (every approved cap hit) |
 |---|---:|---:|
-| One-time setup (includes pre-Day-1 bake-offs) | ₹2,400 | ₹3,800 |
+| One-time setup (includes pre-Day-1 bake-offs) | ₹2,400 | ₹3,820 |
 | Recurring infrastructure | ₹900 | ₹1,200 |
 | LLM API ($10 / $20 / $35) | ₹1,990 | ₹5,720 |
 | Voice generation ($10 per window) | ₹400 | ₹2,640 |
-| **Total cash** | **₹5,690** | **₹13,360** |
-| **Headroom under ₹15,000** | ₹9,310 | **₹1,640** |
+| **Total cash** | **₹5,690** | **₹13,380** |
+| **Headroom under ₹15,000** | ₹9,310 | **₹1,620** |
 
 By window (expected): preparation ₹900 · Days 1–30 ₹1,800 (including the domain) · Days 31–60 ₹1,240 · Days 61–90 ₹1,750.
 
-**The worst case is within the ceiling, so no forecast reduction is needed.** One interpretation check: the sign-off instruction "retain the existing $35 cap for other approved periods" is read as **$35 for Days 61–90 only**, with the existing approved **$10 for Days 1–30**. If Days 1–30 were also given $35, the worst case would be **₹15,560**, exceeding the ceiling by ₹560. The specific reduction needed is to keep Days 1–30 at ≤ $28 (or keep the approved $10). The plan uses $10.
+**The worst case is within the ceiling, so no forecast reduction is needed.** One interpretation check: the sign-off instruction "retain the existing $35 cap for other approved periods" is read as **$35 for Days 61–90 only**, with the existing approved **$10 for Days 1–30**. If Days 1–30 were also given $35, the worst case would be **₹15,580**, exceeding the ceiling by ₹580. The specific reduction needed is to keep Days 1–30 at ≤ $28 (or keep the approved $10). The plan uses $10.
 
 **Spending safeguards (retained):**
-1. An optional item is approved only if the **projected max**, meaning actual spend to date plus every remaining cap, stays at or below ₹15,000. Before any actuals exist, headroom is ₹1,640, so the ₹5,000 designer cannot be approved yet. Rule 1 is re-applied at the **Day 45 review** (P1-35).
+1. An optional item is approved only if the **projected max**, meaning actual spend to date plus every remaining cap, stays at or below ₹15,000. Before any actuals exist, headroom is ₹1,620, so the ₹5,000 designer cannot be approved yet. Rule 1 is re-applied at the **Day 45 review** (P1-35).
 2. If actual spend passes **₹10,000 before Day 60, all optional spend is frozen.**
 3. Caps are enforced in code per budget period (LLM and voice), plus vendor spend limits on every paid account, plus Apify per-run caps. `brief cost report` shows actual spend by category and the projected max against ₹15,000 (P1-36).
 
 ### 6.8 Fully loaded cost: the honest total
 | | Expected | Worst case |
 |---|---:|---:|
-| Cash | ₹5,690 | ₹13,360 |
+| Cash | ₹5,690 | ₹13,380 |
 | Founder time (433 h × ₹500) | ₹2,16,500 | ₹2,16,500 |
 | **Fully loaded, preparation + 90 days** | **≈ ₹2.22 lakh** | **≈ ₹2.30 lakh** |
 
@@ -251,13 +251,13 @@ Everything else is **unverified** until its task records a source and date ([TAS
 ### 6.11 Sign-off reconciliation checks (2026-11-07)
 | Check | Result |
 |---|---|
-| Pre-Day-1 spend included (PD-01) | **Yes.** The bake-offs (₹900 expected, ₹1,300 max) are in §6.2, and the domain is counted once whatever its purchase date |
+| Pre-Day-1 spend included (PD-01) | **Yes.** The bake-offs (₹900 expected, ₹1,320 max) are in §6.2, and the domain is counted once whatever its purchase date |
 | Interim LLM cap applied only to Days 31–60 (PD-02) | **Yes.** $10 / $20 / $35 by budget period; the preparation bake-off has its own $7 cap inside §6.2 |
 | API and voice not double-counted | **Yes.** Bake-off spend appears only in §6.2; §6.4 covers pipeline usage in Days 1–90 only; LLM and voice are separate lines; budget periods match the rows one-to-one |
-| ₹15,000 ceiling enforced | **Yes.** Worst case ₹13,360, headroom ₹1,640; projected-max rule; code caps and vendor spend limits |
+| ₹15,000 ceiling enforced | **Yes.** Worst case ₹13,380, headroom ₹1,620; projected-max rule; code caps and vendor spend limits |
 | Optional spend freeze retained | **Yes.** Frozen if actual spend passes ₹10,000 before Day 60 |
 | Founder labour reported separately at ₹500/h | **Yes.** ≈ 433 h, ≈ ₹2,16,500, never mixed into cash |
-| Forecast not reduced to fit | **Yes.** Expected unchanged at ₹5,690; the worst case fell from ₹14,680 to ₹13,360 only because of the approved PD-02 cap |
+| Forecast not reduced to fit | **Yes.** Expected unchanged at ₹5,690; the worst case fell from ₹14,680 to ₹13,380 only because of the approved PD-02 cap |
 
 ## 7. Top risks
 

@@ -42,7 +42,7 @@ Every other price or limit is **unverified** and marked *(verify)*.
 | Epoch rule, the 10-edition error trigger, exception-based review | **Approved**; counting rule approved at sign-off (PD-03: public editions only) |
 | Panel Y/N questions | **Changed:** every rated item now uses the 1–5 scale; thresholds mapped without loosening |
 | Paid auditor and panel vouchers as options | **Not needed / not approved** (volunteer auditor; unpaid panel) |
-| 90-day cash ₹5,190 expected / ₹12,480 max; 349 h | **Recalculated and signed off:** **₹5,690 expected / ₹13,360 worst case** (including pre-Day-1 spend); **≈ 433 h** (reconciled in STRATEGY §6.5 and §6.11) |
+| 90-day cash ₹5,190 expected / ₹12,480 max; 349 h | **Recalculated and signed off:** **₹5,690 expected / ₹13,380 worst case** (including pre-Day-1 spend); **≈ 433 h** (reconciled in STRATEGY §6.5 and §6.11) |
 
 ## 2. Editorial workload (summary)
 
@@ -83,18 +83,18 @@ The full model and reconciliation checks are in [STRATEGY §6](IMPLEMENTATION_ST
 
 | Category | Expected | Worst case (every approved cap hit) |
 |---|---:|---:|
-| One-time (domain; voice and LLM bake-offs before Day 1) | ₹2,400 | ₹3,800 |
+| One-time (domain; voice and LLM bake-offs before Day 1) | ₹2,400 | ₹3,820 |
 | Recurring infrastructure (VPS from Day 31; others on free plans) | ₹900 | ₹1,200 |
 | LLM API ($10 Days 1–30 · **$20 Days 31–60** · $35 Days 61–90) | ₹1,990 | ₹5,720 |
 | Voice generation ($10 per window, PD-07) | ₹400 | ₹2,640 |
-| **Cash total** | **₹5,690** | **₹13,360** |
-| Headroom under ₹15,000 | ₹9,310 | ₹1,640 |
+| **Cash total** | **₹5,690** | **₹13,380** |
+| Headroom under ₹15,000 | ₹9,310 | ₹1,620 |
 | Optional spend | Only via spending rule 1 (projected max ≤ ₹15,000); frozen if actual spend > ₹10,000 before Day 60 | |
 | **Founder time (not cash)** | **≈ 433 h** = 255 engineering + 136 editorial + 42 review/ops (89 h of it in preparation) | |
 | **Imputed labour at ₹500/h** | **≈ ₹2,16,500** | |
 | **Fully loaded total** | **≈ ₹2.22 lakh** | ≈ ₹2.30 lakh |
 
-The project does **not** cost ₹5,690–13,360; that is only the cash part. Earlier estimates are replaced but kept on record: 349 h / ₹1.75 lakh (proposal), then 428 h / ₹2.14 lakh (finalisation), now **433 h / ₹2.17 lakh** (sign-off; +5 h for the readiness gate, rubric sign-off, budget tracker and voice-cap review).
+The project does **not** cost ₹5,690–13,380; that is only the cash part. Earlier estimates are replaced but kept on record: 349 h / ₹1.75 lakh (proposal), then 428 h / ₹2.14 lakh (finalisation), now **433 h / ₹2.17 lakh** (sign-off; +5 h for the readiness gate, rubric sign-off, budget tracker and voice-cap review).
 
 ## 6. Key assumptions
 
@@ -116,7 +116,7 @@ The project does **not** cost ₹5,690–13,360; that is only the cash part. Ear
 | ID | Approved decision | Effect | Recorded in |
 |---|---|---|---|
 | **PD-01** | All pre-Day-1 expenditure (about ₹900 expected) counts inside the ₹15,000 first-90-day ceiling | The bake-offs (and the domain, if bought early) sit inside the ceiling | STRATEGY §6.1, §6.11 |
-| **PD-02** | Interim **$20/month LLM cap for Days 31–60**; $35 kept for other approved periods (Days 61–90; $10 stays for Days 1–30), always under the ₹15,000 ceiling | Worst case ₹14,680 → **₹13,360** | ADR-003, STRATEGY §6.4 |
+| **PD-02** | Interim **$20/month LLM cap for Days 31–60**; $35 kept for other approved periods (Days 61–90; $10 stays for Days 1–30), always under the ₹15,000 ceiling | Worst case ₹14,680 → **₹13,380** | ADR-003, STRATEGY §6.4 |
 | **PD-03** | The first 30 manual editions count **public editions only**; private prototypes and experiment drafts don't count | Sets when the manual full-review period ends (FR-M) | EDITORIAL_PIPELINE §9.2, TASKS §D |
 | **PD-04** | Whether to return to 7 editions a week is decided **at the Day-90 review**; no cadence change before then | 5 a week until G9 | ADR-017, TASKS §C |
 | **PD-05** | The final-five-day threshold is **median ≤ 130 minutes** | H3 definition fixed | VALIDATION_EXPERIMENT §3 |
@@ -130,7 +130,7 @@ The project does **not** cost ₹5,690–13,360; that is only the cash part. Ear
 | 1 | The approved roadmap puts the experiment at Days 1–14, but it needs about 12 engineering days of tooling first | Added a **preparation window (Day −18 to 0)** with readiness gate G1; Days count from experiment Day 1; preparation cost and time are shown separately (PD-01) |
 | 2 | Days 31–60 cannot hold all the requested automation (about 29 engineering days plus stability windows) | Kept the approved order; Phase 2 starts in Days 15–30; narration, render and deploy automation expected in Days 61–75; **gates, not dates**; logged as R24 |
 | 3 | The first 30 automated editions can't all happen in Days 61–90 at 5 a week | Documented: about 11–18 by Day 90; full review continues beyond; G9 states that its evidence is partial |
-| 4 | The approved $35 cap during Phase 3 development leaves ₹320 headroom in the worst case | **Resolved:** PD-02 approved ($20 for Days 31–60), giving ₹1,640 headroom. Note: giving Days 1–30 $35 as well would reach ₹15,560 (> ceiling), so $10 is kept |
+| 4 | The approved $35 cap during Phase 3 development leaves ₹320 headroom in the worst case | **Resolved:** PD-02 approved ($20 for Days 31–60), giving ₹1,620 headroom. Note: giving Days 1–30 $35 as well would reach ₹15,580 (> ceiling), so $10 is kept |
 | 5 | Gates written as "10 consecutive days" vs a 5-a-week cadence | Editorial gates are measured in consecutive editions (stricter in calendar time); ingestion stays in days |
 | 6 | Yes/No panel items vs the required 1–5 scale | Mapped to "share rating ≥ 4" with the same percentages |
 | 7 | The approved must-pass says "zero unresolved material errors", while v1 also capped total errors at ≤ 1 | Both kept: 0 unresolved is the must-pass; total ≥ 2 still triggers stop rule 1; corrected errors stay in the append-only log (**not loosened**) |
@@ -153,7 +153,7 @@ The project does **not** cost ₹5,690–13,360; that is only the cash part. Ear
 | Item | Status |
 |---|---|
 | All founder decisions (§0) and PD-01 to PD-07 (§7) | **Approved and recorded** in every relevant document |
-| 90-day cash | **₹5,690 expected / ₹13,360 worst case**, within ₹15,000 (₹1,640 worst-case headroom); no forecast reduction needed |
+| 90-day cash | **₹5,690 expected / ₹13,380 worst case**, within ₹15,000 (₹1,620 worst-case headroom); no forecast reduction needed |
 | Founder time | **≈ 433 h ≈ ₹2,16,500** at ₹500/h, reported separately from cash |
 | Day-1 gate | [G1 checklist](gates/G1_DAY1_READINESS.md): 18 mandatory items, 6 optional |
 | External verification | V-01 to V-05 verified on official pages; V-06 to V-22 still unverified ([TASKS §F](../TASKS.md#f-verification-tracker)) |

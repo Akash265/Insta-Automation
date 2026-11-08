@@ -424,7 +424,7 @@ IX: `(provider, occurred_at)`. Budget checks run `SUM(cost_usd)` for the current
 
 ## 7. Edition JSON (Phase 1 file format = `daily_issues.edition_json`)
 
-`schemas/edition.schema.json` is generated from `brief/edition/schema.py`. The shape is illustrative and normative for Phase 1:
+`schemas/edition.schema.json`, generated from `brief/edition/schema.py` (P1-02), is the **authoritative** definition, and a test fails if it drifts. The example below is illustrative; the template is `editions/_template.json` and full worked examples are in `tests/fixtures/editions/`:
 
 ```json
 {
