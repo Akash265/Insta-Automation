@@ -61,13 +61,15 @@ Every `dead` job writes an outbox event `job_dead`, which raises an alert. Opera
 | `brief validate <edition.json>` | 1 | Schema plus checks C01–C12 |
 | `brief report phase1` | 1 | Averages from `production_log` for the Phase 1 gate (H1, H3, H6) |
 | `brief report experiment` | 1 | H2, H4 and H5 from the `experiment/*.csv` files ([VALIDATION_EXPERIMENT §9](VALIDATION_EXPERIMENT.md#9-data-captured)) |
+| `brief experiment log-error \| resolve-error` | 1 | Append to the hash-chained error log; a correction is a new row, never an edit |
+| `brief experiment sample-audit <edition.json>` | 1 | The 2 stories the auditor checks, seeded from the issue key |
 | `brief render <edition.json \| --date D> [--out DIR]` | 1 | Narration, cards, subtitles, MP4, ffprobe report |
 | `brief tts synth <edition.json \| --date D>` | 1 | Narration only (cached) |
 | `brief script draft <edition.json \| --date D>` | 1 | LLM draft of script and copy from verified claims |
 | `brief site build [--editions DIR \| --from-db]` | 1 | Static site into `dist/` |
 | `brief site deploy --preview\|--production [--date D]` | 1 | wrangler deploy plus HTTP verification |
 | `brief linkcheck <edition.json \| --date D>` | 1 | Check C02 |
-| `brief caption <edition.json \| --date D>` | 1 | Prints the caption for manual upload (Phase 1) |
+| `brief caption <edition.json> [--write] [--posting]` | 1 | Caption generated from the edition record (fixed format that C10 checks); `--write` stores it; `--posting` adds hashtags for pasting into Instagram |
 | `brief db migrate` | 2 | Applies `migrations/` |
 | `brief issue import <edition.json>` / `brief issue export --date D` | 2 | Phase 1 JSON ↔ DB |
 | `brief sources sync` | 2 | `sources.yaml` → `sources` table |

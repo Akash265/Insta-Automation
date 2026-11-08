@@ -36,6 +36,10 @@ uv run brief --help                     # CLI
 uv run brief validate editions/2026-12-01.json --stage draft   # editorial checks (draft|review|published)
 uv run brief linkcheck editions/2026-12-01.json               # every source link must return HTTP 200 (uses the internet)
 uv run brief cost report                                       # spend vs caps and the ₹15,000 ceiling
+uv run brief caption editions/2026-12-01.json --write          # caption from the edition record
+uv run brief report phase1                                     # completion, supply, time, stability
+uv run brief report experiment                                 # accuracy, panel, distinctiveness, audits
+uv run brief experiment log-error --help                       # append-only error log (never edit the CSV)
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test

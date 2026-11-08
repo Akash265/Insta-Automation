@@ -133,7 +133,7 @@ The founder has confirmed an independent volunteer (P1-23). The auditor **does n
 5. **Escalate material or critical issues before publication where possible** (§6.3), otherwise immediately after.
 
 ### 6.2 Coverage
-- **Next-morning audit:** 2 randomly sampled stories per edition (seeded from the edition date), about 15–20 min. **Target: ≥ 10 of 14 editions audited by the independent auditor.** On days the auditor is unavailable, the founder self-audits the next morning, marked `auditor_type = self`. Self-audits are reported separately as weaker evidence.
+- **Next-morning audit:** 2 randomly sampled stories per edition, seeded from the issue key (`brief experiment sample-audit editions/<date>.json`), about 15–20 min. **Target: ≥ 10 of 14 editions audited by the independent auditor.** On days the auditor is unavailable, the founder self-audits the next morning, marked `auditor_type = self`. Self-audits are reported separately as weaker evidence.
 - **Pre-publication spot check (optional, when available):** the auditor gets the preview link at about 18:15 and checks the lead story. During the experiment, panel distribution goes ahead at 18:40, but any material issue raised before then **holds** the edition. During the soft launch, the 20:00 publish target leaves a window from 18:45 to 19:45.
 - Audit coverage (number of editions and stories audited, by auditor type) is reported in the gate document.
 
@@ -148,7 +148,7 @@ The founder has confirmed an independent volunteer (P1-23). The auditor **does n
 ### 6.4 Audit record (`experiment/audit-log.csv`, one row per checked claim)
 `date, issue_key, story_rank, audit_type (pre_publication | next_morning), auditor_type (independent | self), claim_text, source_url_checked, finding (supported | unsupported | misleading_framing | missing_context | wrong_attribution | date_error | number_error | other), severity (none | minor | material | critical), evidence_url, evidence_excerpt, escalated_at, resolution, correction_ref, notes`
 
-Every confirmed error is also appended to `experiment/error-log.csv`, which is **append-only**: corrections add `resolved_at` and `correction_ref` rows. Nothing is deleted.
+Every confirmed error is also appended to `experiment/error-log.csv` with `brief experiment log-error`. The log is **append-only and tamper-evident**: each row stores the previous row's hash and its own hash. A correction is a **new** row, added with `brief experiment resolve-error --refers-to E000n`, that points to the error. Nothing is edited or deleted. `brief report experiment` refuses to run if any row was changed, removed or reordered.
 
 ## 7. Day 7 checkpoint (60 minutes)
 
@@ -200,9 +200,10 @@ Everything lives in git, with no secrets and no personal data.
 | File | Contents |
 |---|---|
 | `editions/YYYY-MM-DD.json` | The full edition with its audit trail ([EDITORIAL_PIPELINE §14](EDITORIAL_PIPELINE.md#14-mandatory-editorial-audit-trail)): `production_log`, and an `experiment` block (`candidates[]` with rule codes, `eligible_count`, `quiet_day`) |
+| `experiment/panel-roster.csv` | `panel_code, segment, joined_on, active` (codes only; names stay outside the repo) |
 | `experiment/panel-responses.csv` | `date, panel_code, watched_full, D1…D6, W1…W4` |
 | `experiment/audit-log.csv` | §6.4 |
-| `experiment/error-log.csv` | Append-only: `logged_at, issue_key, story_rank, source (auditor / self / panel / founder), severity, description, evidence_url, caught_pre_publication, resolved_at, correction_ref` |
+| `experiment/error-log.csv` | Append-only, hash-chained: `entry_id, kind (error / resolution), logged_at, issue_key, story_rank, source (auditor / self / panel / founder), severity, description, evidence_url, caught_pre_publication, refers_to, correction_ref, prev_hash, row_hash` |
 | `experiment/coverage-misses.csv` | `date, reference_roundup, missed_story_url, met_our_rules (Y/N), reason` |
 | `experiment/daily-notes.md` | Three lines a day |
 | `docs/gates/phase-1.md` | Pre-registered thresholds (copied before Day 1), results, decision |

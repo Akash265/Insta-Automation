@@ -92,6 +92,8 @@
     "candidates": [],
     "eligible_count": null,
     "quiet_day": false,
+    "render_attempts": null,
+    "render_manual_fix": null,
     "notes": null
   }
 }

@@ -299,6 +299,10 @@ class Experiment(_Model):
     candidates: list[Candidate] = Field(default_factory=list)
     eligible_count: int | None = Field(default=None, ge=0)
     quiet_day: bool = False
+    # H6 (render stability): attempts until a render passed validation, and whether a
+    # manual FFmpeg/template fix was needed.
+    render_attempts: int | None = Field(default=None, ge=1)
+    render_manual_fix: bool | None = None
     notes: str | None = None
 
 

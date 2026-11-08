@@ -183,36 +183,40 @@ The video pipeline never imports an engine. It only sees `NarrationAudio` object
 # brief/tts/base.py (P1-06)
 @dataclass(frozen=True)
 class VoiceSpec:
-    provider: str          # "kokoro" | "piper" | "<paid vendor>"
-    model: str             # e.g. "Kokoro-82M", "en_GB-cori-medium"
-    model_version: str     # weights hash or release tag, pinned in config/tts.yaml
-    voice: str             # e.g. "af_heart"
+    provider: str  # "kokoro" | "piper" | "<paid vendor>"
+    model: str  # e.g. "Kokoro-82M", "en_GB-cori-medium"
+    model_version: str  # weights hash or release tag, pinned in config/tts.yaml
+    voice: str  # e.g. "af_heart"
     speed: float = 1.0
 
+
 @dataclass(frozen=True)
-class LicenceRecord:       # required before a provider may be used
+class LicenceRecord:  # required before a provider may be used
     code_licence: str
     weights_licence: str
     voice_data_licence: str
     commercial_use_ok: bool
-    sources: tuple[str, ...]   # URLs
+    sources: tuple[str, ...]  # URLs
     verified_on: date
 
+
 @dataclass(frozen=True)
-class NarrationAudio:      # the only thing render/subtitles consume
-    path: Path             # WAV, PCM16 mono, provider's native rate
+class NarrationAudio:  # the only thing render/subtitles consume
+    path: Path  # WAV, PCM16 mono, provider's native rate
     sample_rate: int
     duration_s: float
     sha256: str
     voice: VoiceSpec
-    cost_usd: float        # 0.0 for local engines
+    cost_usd: float  # 0.0 for local engines
     word_timings: tuple[tuple[str, float, float], ...] | None
+
 
 class TTSProvider(Protocol):
     name: str
     is_paid: bool
+
     def licence(self) -> LicenceRecord: ...
-    def healthcheck(self) -> None: ...               # model present, loads, offline-capable
+    def healthcheck(self) -> None: ...  # model present, loads, offline-capable
     def synthesize(self, text: str, voice: VoiceSpec, out: Path) -> NarrationAudio: ...
 ```
 

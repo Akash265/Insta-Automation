@@ -26,6 +26,7 @@ from zoneinfo import ZoneInfo
 
 from pydantic import ValidationError
 
+from brief.edition.caption import caption_for_posting
 from brief.edition.schema import CHECKLIST_KEYS, ClaimStatus, ClaimType, Edition, Story
 
 Severity = Literal["blocking", "warning"]
@@ -485,8 +486,10 @@ def c09_lengths(edition: Edition, stage: Stage) -> Iterable[Issue]:
         n = _sentences(s.summary)
         if not 2 <= n <= 4:
             yield Issue("C09", w, f"summary has {n} sentences (expected 2-4)", s.rank)
-    if edition.caption and len(edition.caption) > 2200:
-        yield Issue("C09", w, f"caption is {len(edition.caption)} chars (max 2,200)")
+    if edition.caption:
+        posted = len(caption_for_posting(edition))
+        if posted > 2200:
+            yield Issue("C09", w, f"caption with hashtags is {posted} chars (max 2,200)")
     if len(edition.hashtags) > 5:
         yield Issue("C09", w, f"{len(edition.hashtags)} hashtags (max 5)")
     if edition.script and all(s.narration for s in edition.stories):

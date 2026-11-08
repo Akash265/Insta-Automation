@@ -453,6 +453,31 @@
           "default": false,
           "title": "Quiet Day",
           "type": "boolean"
+        },
+        "render_attempts": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Render Attempts"
+        },
+        "render_manual_fix": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Render Manual Fix"
         }
       },
       "title": "Experiment",
