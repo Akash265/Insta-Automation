@@ -1,0 +1,130 @@
+{
+  "hardware": {
+    "cpu": "Apple M5",
+    "memory_gb": "16",
+    "macos": "26.6.2",
+    "python": "3.12.16"
+  },
+  "candidates": {
+    "kokoro-af_heart-cpu": {
+      "sample_rate": 24000,
+      "load_and_warmup_seconds": 11.31,
+      "full_script_median_seconds": 14.861,
+      "audio_seconds": 82.08,
+      "deterministic_across_3_runs": false,
+      "peak_rss_mb": 2402.0,
+      "clipped_samples_main": 0,
+      "main_wav_probe": {
+        "codec": "pcm_s16le",
+        "sample_rate": 24000,
+        "channels": 1,
+        "duration_s": 82.08
+      },
+      "main_raw_loudness": {
+        "integrated_lufs": -25.5,
+        "true_peak_dbtp": -5.6
+      },
+      "main_after_loudnorm_minus14": {
+        "integrated_lufs": -14.8,
+        "true_peak_dbtp": -1.0
+      },
+      "offline_20_runs": "20/20"
+    },
+    "kokoro-am_adam-cpu": {
+      "sample_rate": 24000,
+      "load_and_warmup_seconds": 6.72,
+      "full_script_median_seconds": 12.333,
+      "audio_seconds": 79.28,
+      "deterministic_across_3_runs": false,
+      "peak_rss_mb": 2276.2,
+      "clipped_samples_main": 0,
+      "main_wav_probe": {
+        "codec": "pcm_s16le",
+        "sample_rate": 24000,
+        "channels": 1,
+        "duration_s": 79.28
+      },
+      "main_raw_loudness": {
+        "integrated_lufs": -21.2,
+        "true_peak_dbtp": -1.7
+      },
+      "main_after_loudnorm_minus14": {
+        "integrated_lufs": -15.9,
+        "true_peak_dbtp": -1.0
+      },
+      "offline_20_runs": "20/20"
+    },
+    "kokoro-bf_emma-cpu": {
+      "sample_rate": 24000,
+      "load_and_warmup_seconds": 6.44,
+      "full_script_median_seconds": 12.361,
+      "audio_seconds": 78.85,
+      "deterministic_across_3_runs": false,
+      "peak_rss_mb": 2239.3,
+      "clipped_samples_main": 0,
+      "main_wav_probe": {
+        "codec": "pcm_s16le",
+        "sample_rate": 24000,
+        "channels": 1,
+        "duration_s": 78.85
+      },
+      "main_raw_loudness": {
+        "integrated_lufs": -23.5,
+        "true_peak_dbtp": -4.3
+      },
+      "main_after_loudnorm_minus14": {
+        "integrated_lufs": -15.2,
+        "true_peak_dbtp": -1.0
+      },
+      "offline_20_runs": "20/20"
+    },
+    "kokoro-af_heart-mps": {
+      "sample_rate": 24000,
+      "load_and_warmup_seconds": 18.5,
+      "full_script_median_seconds": 8.023,
+      "audio_seconds": 82.08,
+      "deterministic_across_3_runs": false,
+      "peak_rss_mb": 900.6,
+      "clipped_samples_main": 0,
+      "main_wav_probe": {
+        "codec": "pcm_s16le",
+        "sample_rate": 24000,
+        "channels": 1,
+        "duration_s": 82.08
+      },
+      "main_raw_loudness": {
+        "integrated_lufs": -25.8,
+        "true_peak_dbtp": -6.0
+      },
+      "main_after_loudnorm_minus14": {
+        "integrated_lufs": -14.7,
+        "true_peak_dbtp": -1.0
+      },
+      "offline_20_runs": "20/20"
+    },
+    "piper-en_GB-cori-medium-cpu": {
+      "sample_rate": 22050,
+      "load_and_warmup_seconds": 1.72,
+      "full_script_median_seconds": 2.812,
+      "audio_seconds": 71.89,
+      "deterministic_across_3_runs": false,
+      "peak_rss_mb": 468.7,
+      "clipped_samples_main": 16,
+      "main_wav_probe": {
+        "codec": "pcm_s16le",
+        "sample_rate": 22050,
+        "channels": 1,
+        "duration_s": 71.89
+      },
+      "main_raw_loudness": {
+        "integrated_lufs": -15.4,
+        "true_peak_dbtp": 0.1
+      },
+      "main_after_loudnorm_minus14": {
+        "integrated_lufs": -14.8,
+        "true_peak_dbtp": -1.0
+      },
+      "offline_20_runs": "20/20"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "files": [
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "config.json",
+      "bytes": 2351,
+      "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/config.json"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "kokoro-v1_0.pth",
+      "bytes": 327212226,
+      "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/kokoro-v1_0.pth"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "voices/af_heart.pt",
+      "bytes": 523425,
+      "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/voices/af_heart.pt"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "voices/am_adam.pt",
+      "bytes": 523420,
+      "sha256": "ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/voices/am_adam.pt"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "voices/bf_emma.pt",
+      "bytes": 523420,
+      "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/voices/bf_emma.pt"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "README.md",
+      "bytes": 6348,
+      "sha256": "91dcabced89db6f109b8786642f50402d3ee87450e8189589b6f85520e7f4d78",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/README.md"
+    },
+    {
+      "repo": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "file": "VOICES.md",
+      "bytes": 7625,
+      "sha256": "ec7e4941ad7e194af61e3455928528a9ff5360c7c505e412efab27d6a69ea106",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/VOICES.md"
+    },
+    {
+      "repo": "rhasspy/piper-voices",
+      "revision": "e7229f7d33a10e145e109b886d661984201ac3c4",
+      "file": "en/en_GB/cori/medium/en_GB-cori-medium.onnx",
+      "bytes": 63531379,
+      "sha256": "1899f98e5fb8310154f3c2973f4b8a929ba7245e722b3d3a85680b833d95f10d",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--rhasspy--piper-voices/snapshots/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_GB/cori/medium/en_GB-cori-medium.onnx"
+    },
+    {
+      "repo": "rhasspy/piper-voices",
+      "revision": "e7229f7d33a10e145e109b886d661984201ac3c4",
+      "file": "en/en_GB/cori/medium/en_GB-cori-medium.onnx.json",
+      "bytes": 4966,
+      "sha256": "e262c16d7f192f69d4edd6b4ef8a5915379e67495fcc402f1ab15eeb33da3d36",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--rhasspy--piper-voices/snapshots/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_GB/cori/medium/en_GB-cori-medium.onnx.json"
+    },
+    {
+      "repo": "rhasspy/piper-voices",
+      "revision": "e7229f7d33a10e145e109b886d661984201ac3c4",
+      "file": "en/en_GB/cori/medium/MODEL_CARD",
+      "bytes": 474,
+      "sha256": "38d76dfde845837b184668f8bab1c6426ad740b1af0fcebc349037822739e536",
+      "local_path": "/Users/ak265/.cache/huggingface/hub/models--rhasspy--piper-voices/snapshots/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_GB/cori/medium/MODEL_CARD"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "candidate": "kokoro-am_adam-cpu",
+  "spec": {
+    "engine": "kokoro",
+    "voice": "am_adam",
+    "lang": "a",
+    "device": "cpu"
+  },
+  "sample_rate": 24000,
+  "load_and_warmup_seconds": 6.72,
+  "full_script_runs": [
+    {
+      "seconds": 12.514,
+      "audio_seconds": 79.28,
+      "pcm_sha256": "fa5aa138d17fe3b35d726231941778e3c10164787cf4a06a64423d6cc6d14b60",
+      "clipped_samples": 0
+    },
+    {
+      "seconds": 12.323,
+      "audio_seconds": 79.28,
+      "pcm_sha256": "88f2deac46219e4eea4e59123224489852286218b8c4d2ed7525dff8c556efdc",
+      "clipped_samples": 0
+    },
+    {
+      "seconds": 12.333,
+      "audio_seconds": 79.28,
+      "pcm_sha256": "cb6b7a9d179e65b4363d6c7c349c06178498fdc19b13fe45e6054fd168d0325d",
+      "clipped_samples": 0
+    }
+  ],
+  "full_script_median_seconds": 12.333,
+  "deterministic_across_3_runs": false,
+  "main_wav_sha256": "fa5aa138d17fe3b35d726231941778e3c10164787cf4a06a64423d6cc6d14b60",
+  "names_clipped_samples": 0,
+  "names_audio_seconds": 50.4,
+  "phonemes_by_sentence": {
+    "OpenAI and Anthropic both updated their developer guides this week.": "ˌOpᵊnˈAˌI ænd ænθɹˈɑpɪk bˈOθ ˈʌpdˌATᵻd ðɛɹ dəvˈɛləpəɹ ɡˈIdz ðɪs wˈik.",
+    "Claude now appears next to Gemini in several comparison tables.": "klˈɔd nˈW əpˈɪɹz nˈɛkst tə ʤˈɛmənˌI ɪn sˈɛvəɹəl kəmpˈɛɹəsᵊn tˈAbᵊlz.",
+    "Researchers at Google DeepMind shared new evaluation notes.": "ɹəsˈɜɹʧəɹz æt ɡˈuɡᵊl dˌipmˈInd ʃˈɛɹd nˈu əvˌæljʊˈAʃən nˈOts.",
+    "Teams testing Llama, Mistral and Qwen models posted their results.": "tˈimz tˈɛstɪŋ lˈɑmə, mˈɪstɹᵊl ænd kjˈuwˈɛn mˈɑdᵊlz pˈOstᵻd ðɛɹ ɹəzˈʌlts.",
+    "DeepSeek released new open weights on Hugging Face.": "dˌipsˈik ɹəlˈist nˈu ˈOpᵊn wˈAts ˌɔn hˈʌɡɪŋ fˈAs.",
+    "Early users run them with PyTorch on a single NVIDIA card using CUDA.": "ˈɜɹli jˈuzəɹz ɹˈʌn ðˌɛm wɪð pˈI tˈɔɹʧ ˌɔn ɐ sˈɪŋɡᵊl ɛnvˈɪdiə kˈɑɹd jˈuzɪŋ sˌijˌudˌiˈA.",
+    "The full paper is available on arXiv.": "ðə fˈʊl pˈApəɹ ɪz əvˈAləbᵊl ˌɔn ˈɑɹkˌIv.",
+    "Several guides still use GPT-4o as their baseline.": "sˈɛvəɹəl ɡˈIdz stˈɪl jˈuz ʤˌipˌitˈi fˈɔɹ ˈO æz ðɛɹ bˈAslˌIn.",
+    "Ollama makes local models easy to try, and vLLM speeds up serving.": "ɑlˈɑmə mˌAks lˈOkəl mˈɑdᵊlz ˈizi tə tɹˈI, ænd vˌiˌɛlˌɛlˈɛm spˈidz ˌʌp sˈɜɹvɪŋ.",
+    "LangChain helps connect models to your own data.": "lˈæŋ ʧˈAn hˈɛlps kənˈɛkt mˈɑdᵊlz tə jʊɹ ˈOn dˈATə.",
+    "Perplexity expanded its answer engine, and small voice models such as Kokoro run on a laptop.": "pəɹplˈɛksəTi ɪkspˈændᵻd ɪts ˈænsəɹ ˈɛnʤən, ænd smˈɔl vˈYs mˈɑdᵊlz sˈʌʧ æz kəkˈɔɹO ɹˈʌn ˌɔn ɐ lˈæptˌɑp."
+  },
+  "offline_reliability": {
+    "generations": 20,
+    "succeeded": 20,
+    "runs": [
+      {
+        "n": 1,
+        "ok": true,
+        "seconds": 0.706,
+        "error": null
+      },
+      {
+        "n": 2,
+        "ok": true,
+        "seconds": 2.677,
+        "error": null
+      },
+      {
+        "n": 3,
+        "ok": true,
+        "seconds": 2.165,
+        "error": null
+      },
+      {
+        "n": 4,
+        "ok": true,
+        "seconds": 1.607,
+        "error": null
+      },
+      {
+        "n": 5,
+        "ok": true,
+        "seconds": 2.206,
+        "error": null
+      },
+      {
+        "n": 6,
+        "ok": true,
+        "seconds": 2.166,
+        "error": null
+      },
+      {
+        "n": 7,
+        "ok": true,
+        "seconds": 0.534,
+        "error": null
+      },
+      {
+        "n": 8,
+        "ok": true,
+        "seconds": 0.745,
+        "error": null
+      },
+      {
+        "n": 9,
+        "ok": true,
+        "seconds": 0.68,
+        "error": null
+      },
+      {
+        "n": 10,
+        "ok": true,
+        "seconds": 0.671,
+        "error": null
+      },
+      {
+        "n": 11,
+        "ok": true,
+        "seconds": 0.702,
+        "error": null
+      },
+      {
+        "n": 12,
+        "ok": true,
+        "seconds": 0.56,
+        "error": null
+      },
+      {
+        "n": 13,
+        "ok": true,
+        "seconds": 0.82,
+        "error": null
+      },
+      {
+        "n": 14,
+        "ok": true,
+        "seconds": 0.441,
+        "error": null
+      },
+      {
+        "n": 15,
+        "ok": true,
+        "seconds": 0.625,
+        "error": null
+      },
+      {
+        "n": 16,
+        "ok": true,
+        "seconds": 0.766,
+        "error": null
+      },
+      {
+        "n": 17,
+        "ok": true,
+        "seconds": 0.536,
+        "error": null
+      },
+      {
+        "n": 18,
+        "ok": true,
+        "seconds": 0.953,
+        "error": null
+      },
+      {
+        "n": 19,
+        "ok": true,
+        "seconds": 0.712,
+        "error": null
+      },
+      {
+        "n": 20,
+        "ok": true,
+        "seconds": 2.637,
+        "error": null
+      }
+    ]
+  },
+  "peak_rss_mb": 2276.2,
+  "main_wav_probe": {
+    "codec": "pcm_s16le",
+    "sample_rate": 24000,
+    "channels": 1,
+    "duration_s": 79.28
+  },
+  "main_raw_loudness": {
+    "integrated_lufs": -21.2,
+    "true_peak_dbtp": -1.7
+  },
+  "main_after_loudnorm_minus14": {
+    "integrated_lufs": -15.9,
+    "true_peak_dbtp": -1.0
+  }
+}

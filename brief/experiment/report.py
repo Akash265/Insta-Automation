@@ -17,7 +17,7 @@ from pathlib import Path
 
 from brief.edition.checks import load_edition, validate_edition
 from brief.edition.schema import Edition
-from brief.experiment.errorlog import read_rows, summarize, verify
+from brief.experiment.errorlog import full_verify, read_rows, summarize
 
 # Pre-registered thresholds (docs/VALIDATION_EXPERIMENT.md §3). Do not edit after Day 1.
 THRESHOLDS = {
@@ -268,8 +268,8 @@ class ExperimentResult:
 
 def experiment_report(experiment_dir: Path, editions_dir: Path) -> ExperimentResult:
     t = THRESHOLDS
-    rows = read_rows(experiment_dir / "error-log.csv")
-    problems = verify(rows)
+    log = experiment_dir / "error-log.csv"
+    problems, integrity_warnings = full_verify(log)
     title = f"brief report experiment: {experiment_dir}"
     if problems:
         text = (
@@ -277,14 +277,16 @@ def experiment_report(experiment_dir: Path, editions_dir: Path) -> ExperimentRes
                 [
                     title,
                     "",
-                    "REFUSED: the error log is not intact (rows were edited, "
-                    "deleted or reordered). Restore it from git; never rewrite it.",
+                    "REFUSED: the error log or its anchor is not intact (rows edited, "
+                    "deleted, reordered, truncated or rebuilt). Restore from git; "
+                    "never rewrite it.",
                     *[f"  - {p}" for p in problems],
                 ]
             )
             + "\n"
         )
         return ExperimentResult(text, False)
+    rows = read_rows(log)
 
     editions, _ = load_editions(editions_dir)
     exp = _experiment_editions(editions)
@@ -389,4 +391,5 @@ def experiment_report(experiment_dir: Path, editions_dir: Path) -> ExperimentRes
     ]
     sections.append(s)
 
-    return ExperimentResult(render_sections(title, sections, [CAVEAT]), True)
+    footer = [f"WARNING: {w}" for w in integrity_warnings] + [CAVEAT]
+    return ExperimentResult(render_sections(title, sections, footer), True)

@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-11-08T09:20:14.369074+00:00",
+  "clips": {
+    "A": {
+      "candidate": "piper-en_GB-cori-medium-cpu",
+      "main_sha256": "1dcf03cbdd3ed799dca8f35d2836d5b1ec90ba429722678ce1a94043d2c4c32c",
+      "names_sha256": "89ff366950f9f5c60b719065b1eae44a8a7b5892c62234be4e806b0b92c71696"
+    },
+    "B": {
+      "candidate": "kokoro-af_heart-cpu",
+      "main_sha256": "4281ac7f05eb340520329c4887c3301c48d5bc7443c5726964451136e24ed453",
+      "names_sha256": "b5dad97cea7e8363e6572d002f78600e4b57d38f120131d3cd7f3d0d480777f0"
+    },
+    "C": {
+      "candidate": "kokoro-am_adam-cpu",
+      "main_sha256": "50df7a525478ce03446704b9aaabf67c27bfa283489f1c6c76d0e36af00c1762",
+      "names_sha256": "5336ba42ef25e01c8a884f2d006ecbe9405afe3a21bbfcdb6067bb699cdbfbbc"
+    },
+    "D": {
+      "candidate": "kokoro-bf_emma-cpu",
+      "main_sha256": "04bb2a98bc863616450c37a543a731a1894bb6832a094d09ab1cb090257023f6",
+      "names_sha256": "3c4267f92f070e397bc444d3663b65de4255667ef592905ea0e7369b3d413841"
+    }
+  }
+}

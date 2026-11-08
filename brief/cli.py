@@ -24,7 +24,14 @@ from brief.doctor import render, run_checks
 from brief.edition.caption import build_caption, caption_for_posting
 from brief.edition.checks import STAGES, load_edition, validate_file
 from brief.edition.schema import json_schema_text
-from brief.experiment.errorlog import ErrorLogIntegrityError, append_error, append_resolution
+from brief.experiment.errorlog import (
+    ErrorLogIntegrityError,
+    add_checkpoint,
+    append_error,
+    append_resolution,
+    full_verify,
+    init_anchor,
+)
 from brief.experiment.report import experiment_report, phase1_report
 from brief.experiment.sampler import sample_story_ranks
 from brief.linkcheck import check_links, collect_links, render_linkcheck
@@ -256,3 +263,44 @@ def experiment_sample_audit(
         raise typer.Exit(code=2)
     ranks = sample_story_ranks(edition.issue_key, [s.rank for s in edition.stories], k)
     typer.echo(f"{edition.issue_key}: audit stories {', '.join(map(str, ranks))}")
+
+
+@experiment_app.command("init-log")
+def experiment_init_log(
+    log: Annotated[Path, typer.Option()] = EXPERIMENT_DIR / "error-log.csv",
+) -> None:
+    """Create the error log's random genesis anchor once, before the first entry."""
+    try:
+        anchor = init_anchor(log, datetime.now(IST))
+    except ErrorLogIntegrityError as exc:
+        typer.echo(f"error: {exc}")
+        raise typer.Exit(code=1) from exc
+    typer.echo(f"anchor created (genesis {anchor.genesis[:12]}...); commit it now")
+
+
+@experiment_app.command("checkpoint")
+def experiment_checkpoint(
+    log: Annotated[Path, typer.Option()] = EXPERIMENT_DIR / "error-log.csv",
+) -> None:
+    """Record the current row count and head hash in the anchor (then commit it)."""
+    try:
+        cp = add_checkpoint(log, datetime.now(IST))
+    except ErrorLogIntegrityError as exc:
+        typer.echo(f"error: {exc}")
+        raise typer.Exit(code=1) from exc
+    typer.echo(f"checkpoint at row {cp['count']}; commit the anchor" if cp else "nothing new")
+
+
+@experiment_app.command("verify-log")
+def experiment_verify_log(
+    log: Annotated[Path, typer.Option()] = EXPERIMENT_DIR / "error-log.csv",
+) -> None:
+    """Check the chain, the anchor (genesis + checkpoints) and the anchor's git history."""
+    problems, warnings = full_verify(log)
+    for w in warnings:
+        typer.echo(f"warning: {w}")
+    for p in problems:
+        typer.echo(f"problem: {p}")
+    typer.echo("error log intact" if not problems else "error log NOT intact")
+    if problems:
+        raise typer.Exit(code=1)

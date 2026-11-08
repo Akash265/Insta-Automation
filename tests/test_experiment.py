@@ -12,7 +12,7 @@ from typer.testing import CliRunner
 
 from brief.budget import IST
 from brief.cli import app
-from brief.experiment.errorlog import COLUMNS, append_error, append_resolution
+from brief.experiment.errorlog import COLUMNS, append_error, append_resolution, init_anchor
 from brief.experiment.report import THRESHOLDS, experiment_report, phase1_report
 from brief.experiment.sampler import sample_story_ranks
 from tests.conftest import FIXTURES
@@ -174,6 +174,7 @@ def make_experiment(directory: Path, d1: int = 4, responders: int = 8) -> None:
         audits,
     )
     log = directory / "error-log.csv"
+    init_anchor(log, NOW)
     append_error(
         log,
         issue_key="ADB-2026-12-03",

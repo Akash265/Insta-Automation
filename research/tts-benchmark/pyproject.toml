@@ -1,0 +1,20 @@
+# Isolated environment for the P1-05 local TTS benchmark only.
+# Not part of the `brief` package: no engine is enabled for production narration.
+[project]
+name = "tts-benchmark"
+version = "0.1.0"
+description = "P1-05 controlled local TTS benchmark (Kokoro, Piper)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "kokoro",
+    "soundfile",
+    "piper-tts",
+    # spaCy English model used by misaki (Kokoro's English G2P). Pinned here so misaki
+    # never runs `spacy.cli.download` (an unpinned pip install) at runtime.
+    "en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+]
+
+[tool.uv]
+package = false
+# Same supply-chain guard as the main project.
+exclude-newer = "2026-10-25T00:00:00Z"

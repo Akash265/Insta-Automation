@@ -251,6 +251,14 @@ The **same fixed script** is used for every candidate: about 180 words (about 70
 - Among engines that pass **every** row, the highest naturalness mean becomes **primary**, with ties going to the faster engine. The runner-up that also passes becomes the **alternative**. Both are recorded in `config/tts.yaml` and this ADR.
 - If **no** local engine passes, the founder decides: improve the lexicon or voice and re-test, or approve the paid fallback within the existing $10 cap.
 
+### Benchmark run 1 (2026-11-08): machine results
+Run on the founder's M5 (16 GB, macOS 26.6.2) in the isolated environment `research/tts-benchmark/`. Full data: `research/tts-benchmark/results.md`.
+- **Kokoro** (kokoro 0.9.4, Kokoro-82M pinned revision; `af_heart`, `am_adam`, `bf_emma`): the 188-word script (~79–82 s of audio) took 12.3–14.9 s on CPU and 8.0 s on MPS. Load plus warm-up ≤ 18.5 s, peak RSS ≈ 2.2–2.4 GB, 24 kHz, 20/20 offline runs. **Every machine-checkable criterion and the licence gate pass.**
+- **Piper** (piper-tts 1.8.0, `en_GB-cori-medium`): 2.8 s for ~72 s of audio, ≈ 0.5 GB, 22.05 kHz, 20/20 offline runs. Raw output touches full scale (fine after normalising). Repeat runs vary in length (stochastic prosody), and **the licence gate is not passed** (V-24).
+- **espeak-ng (V-23):** both engines use an espeak-ng build bundled in their Python packages (`espeakng-loader` for Kokoro, `piper-tts` for Piper). espeak-ng itself is GPL-3.0-or-later, and `espeakng-loader` declares no licence of its own (see `licences.md`). The Homebrew `espeak-ng` 1.52.0 was installed but neither engine used it. GPL applies to distributing software, not to the audio.
+- **Pronunciation:** both engines produce "Q-wen" phonemes for *Qwen*, so a lexicon entry is likely needed. Everything else is pending the blind listening test (P1-40).
+- **Status:** unchanged. Both engines stay **provisional** and **neither is enabled for production** (no `config/tts.yaml` yet). The paid fallback stays disabled and expected voice spend stays ₹0. Selection waits for P1-40 and, for Piper, V-24.
+
 ### Costs
 - **Expected voice spend: ₹0.** The local benchmark replaces the paid vendor bake-off.
 - The existing caps stay as **contingency** until local testing succeeds: **$8** in preparation and **$10** per window (PD-07). The worst case is unchanged, and P1-39 reconsiders the caps after measured use.

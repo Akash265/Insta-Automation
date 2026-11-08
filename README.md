@@ -40,6 +40,7 @@ uv run brief caption editions/2026-12-01.json --write          # caption from th
 uv run brief report phase1                                     # completion, supply, time, stability
 uv run brief report experiment                                 # accuracy, panel, distinctiveness, audits
 uv run brief experiment log-error --help                       # append-only error log (never edit the CSV)
+uv run brief experiment verify-log                             # chain, genesis, checkpoints, committed anchor
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test
