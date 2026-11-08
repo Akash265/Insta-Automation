@@ -1,0 +1,46 @@
+# AI Daily Brief
+
+A daily, source-linked AI-news brief: one reviewed edition record becomes a short Reel, a web issue page and (later) an email. Planning and decisions live in [`docs/`](docs/) and the backlog in [`TASKS.md`](TASKS.md). Start with [`docs/IMPLEMENTATION_STRATEGY.md`](docs/IMPLEMENTATION_STRATEGY.md).
+
+**Status:** preparation window (Phase 0–1 toolkit). Nothing is published yet.
+
+## Setup (macOS)
+
+```sh
+# 1. Tools (Homebrew)
+brew install uv gitleaks ffmpeg
+
+# 2. Python 3.12 and project dependencies (system Python 3.9 is not used)
+uv python install 3.12
+uv sync
+
+# 3. Pinned Node tooling (wrangler for Cloudflare Pages)
+npm ci
+
+# 4. Secret scanning on every commit
+git config core.hooksPath .githooks
+
+# 5. Local configuration — never commit .env
+cp .env.example .env
+
+# 6. Check everything
+uv run brief doctor
+```
+
+`brief doctor` exits non-zero if a required tool is missing or the wrangler version doesn't match its pin in `package.json`. A missing FFmpeg subtitle filter is reported as a warning only; the subtitle method is decided in task P1-08.
+
+## Everyday commands
+
+```sh
+uv run brief --help                     # CLI
+uv run pytest                           # all tests
+uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test
+uv run ruff check . && uv run ruff format --check .
+uv run mypy
+```
+
+## Dependency policy
+
+- Python packages resolve only versions published before `tool.uv.exclude-newer` in `pyproject.toml` (a ~14-day supply-chain buffer). Move it forward deliberately when upgrading.
+- Node tooling is pinned exactly in `package.json` and locked in `package-lock.json`.
+- Every new dependency needs a one-line justification in its change (see `docs/SYSTEM_ARCHITECTURE.md` §10).

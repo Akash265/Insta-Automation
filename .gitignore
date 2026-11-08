@@ -1,0 +1,41 @@
+# Secrets — never commit (see docs/RISKS_AND_OPERATIONS.md §3.1)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+
+# Node (wrangler)
+node_modules/
+
+# Build and media outputs (media lives in R2, not git)
+dist/
+out/
+cache/
+*.mp4
+*.wav
+*.mp3
+*.m4a
+
+# Experiment private data (panel code→name mapping must never be in the repo)
+experiment/private/
+
+# Confidential business plan: kept locally, never committed (founder decision 2026-11-08)
+AI_Daily_Brief_Business_Plan_Revised.pdf
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

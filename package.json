@@ -1,0 +1,8 @@
+{
+  "name": "ai-daily-brief-tools",
+  "private": true,
+  "description": "Pinned Node tooling for AI Daily Brief (Cloudflare Pages deploys via wrangler).",
+  "devDependencies": {
+    "wrangler": "4.152.0"
+  }
+}
