@@ -259,6 +259,13 @@ Run on the founder's M5 (16 GB, macOS 26.6.2) in the isolated environment `resea
 - **Pronunciation:** both engines produce "Q-wen" phonemes for *Qwen*, so a lexicon entry is likely needed. Everything else is pending the blind listening test (P1-40).
 - **Status:** unchanged. Both engines stay **provisional** and **neither is enabled for production** (no `config/tts.yaml` yet). The paid fallback stays disabled and expected voice spend stays ₹0. Selection waits for P1-40 and, for Piper, V-24.
 
+### Founder decisions after run 1 (2026-11-08)
+- **Kokoro stays the provisional primary.** The initial production configuration will use **Kokoro on CPU**: it meets the time limit with room to spare and avoids depending on the GPU, which the Mac also uses for rendering. **Apple GPU (MPS) is an optional optimisation** for later, not a requirement.
+- **Piper is on hold.** No more time goes into investigating or integrating it for now. P1-06 builds no Piper provider, and V-24 stays open but is not being worked on. Without a passing alternative, the fallback for a Kokoro failure is the documented one: skip the Reel and publish web-only that day (EDITORIAL_PIPELINE quiet-day policy). The paid fallback is not used.
+- **Paid TTS stays disabled**, and expected voice spend stays **₹0** (the contingency caps are unchanged).
+- **No `config/tts.yaml` and no production narration** until the P1-40 blind-listening results are in. The blind clips and the sealed key are kept unchanged. Results are analysed with `research/tts-benchmark/analyse_listening.py`, which reads the key only with `--reveal`.
+- **Loudness is handled at render (P1-10, ADR-015)**, not in the TTS engine: the raw engine level does not matter as long as the assembled video passes the final-output checks.
+
 ### Costs
 - **Expected voice spend: ₹0.** The local benchmark replaces the paid vendor bake-off.
 - The existing caps stay as **contingency** until local testing succeeds: **$8** in preparation and **$10** per window (PD-07). The worst case is unchanged, and P1-39 reconsiders the caps after measured use.
@@ -372,6 +379,17 @@ At about 100 jobs a day, Postgres is far more than enough.
 - Simple motion is done in FFmpeg filters (Ken Burns zoom, crossfades, progress bar).
 - Subtitles are ASS files burned in. Timing comes from segment durations (ffprobe), split into phrase chunks proportional to characters, or from provider word timestamps when available. No speech-to-text.
 - Output: H.264 High, 30 fps, AAC 48 kHz, −14 LUFS loudness, 60–90 s, with a cover frame exported.
+- **Loudness (two-pass, decided 2026-11-08 from the P1-05 measurements):** a single `loudnorm` pass landed at −14.7 to −15.9 LUFS on the benchmark narration, which misses the target. P1-10 therefore uses two passes on the **assembled narration track** (all segments, joined with their pauses):
+  1. **Measure:** `loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json`, reading `input_i`, `input_tp`, `input_lra`, `input_thresh` and `target_offset`.
+  2. **Apply:** the same targets, with `measured_I/TP/LRA/thresh`, `offset` and `linear=true`, so the gain is constant and does not pump. If loudnorm falls back to dynamic mode (it reports `normalization_type`), the render logs it.
+  - The true-peak target is −1.5 dBTP, which leaves margin for AAC encoding to push peaks up.
+- **Final-output checks, on the encoded MP4 (not the raw TTS):** `ebur128=peak=true` on the final file's audio stream. Every render must have:
+  - integrated loudness **−14 ± 1 LUFS**;
+  - true peak **≤ −1.0 dBTP**;
+  - **no clipped samples** (decoded audio |x| < 0.999);
+  - AAC at 48 kHz;
+  - audio and video duration within 100 ms of each other.
+  A render that fails is **not uploaded**. It is re-rendered once with the true-peak target 0.5 dB lower, and if it fails again the job fails (no Reel that day; the site still publishes). The measured values go into the render's ffprobe/validation report and the edition's media record.
 - Fonts: OFL-licensed (e.g. Inter, Noto) stored in the repo with their licences.
 - Music: none in the MVP, or one licensed track recorded in `media_assets.license`.
 - No company logos or product screenshots unless the rights are documented.

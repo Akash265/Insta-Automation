@@ -1,6 +1,20 @@
 # P1-05 local TTS benchmark: results (run 1, 2026-11-08)
 
 **Status: machine measurements complete. Human listening (P1-40) pending. No engine is enabled for production.**
+
+**Founder decisions (2026-11-08):**
+- Kokoro is the provisional primary, on **CPU** for the initial production configuration; Apple GPU (MPS) is an optional optimisation.
+- Piper is **on hold** (no further work).
+- Paid TTS stays disabled, with ₹0 expected voice spend.
+- No `config/tts.yaml` or production narration until the listening results are in.
+- Loudness is fixed at render with two-pass normalisation, checked on the final MP4 (ADR-015, P1-10).
+
+**Related records:**
+- [`licences.md`](licences.md): licence evidence per combination.
+- [`results/model-manifest.json`](results/model-manifest.json): model revisions and SHA-256.
+- [`listening/INSTRUCTIONS.md`](listening/INSTRUCTIONS.md): the blind test.
+- [`analyse_listening.py`](analyse_listening.py): listening analysis.
+- [ADR-004](../../docs/TECHNICAL_DECISIONS.md#adr-004): the decision record.
 Paid TTS fallback: disabled. Voice spend: ₹0 (no paid API used); contingency caps unchanged.
 
 ## Setup
@@ -22,7 +36,7 @@ Paid TTS fallback: disabled. Voice spend: ₹0 (no paid API used); contingency c
 
 Notes:
 - **Memory (MPS run):** RSS may not include memory the Apple GPU allocates through MPS, so the MPS figure is a lower bound.
-- **Loudness:** single-pass `loudnorm` landed at −14.7 to −15.9 LUFS. The render step (P1-10) should use two-pass linear normalisation to hit −14 ± 1 LUFS. True peak was −1.0 dBTP for every candidate.
+- **Loudness:** single-pass `loudnorm` landed at −14.7 to −15.9 LUFS. The render step (P1-10) therefore uses two-pass linear normalisation and checks the encoded MP4, not the raw TTS (ADR-015). True peak was −1.0 dBTP for every candidate.
 - **Piper output** touches full scale (16 samples at |x| ≥ 0.999, raw true peak +0.1 dBTP) before normalisation. Listeners should check for audible distortion.
 - **Kokoro repeat runs** have identical durations but differ at the byte level (floating-point variation). Perceptual identity needs listening.
 - **Piper repeat runs** vary in length by up to 2.6 s: prosody is randomised with default settings. Re-test with Piper's noise parameters fixed before treating it as repeatable.
@@ -71,3 +85,4 @@ These are the phonemes each engine produced for the 11 sentences containing the 
 - `results/<candidate>/metrics.json`: all timings, PCM hashes per run, phonemes, the 20 offline runs. WAV files are local only.
 - `results/summary.json`: machine summary including hardware.
 - `listening/`: blind clips (local only), the sealed key, `INSTRUCTIONS.md`, `scoring-sheet.csv`.
+- `analyse_listening.py`: turns `results/listening-scores.csv` into `results/listening-analysis.md` (blind by default; `--reveal` maps letters to engines after checking clip hashes).
