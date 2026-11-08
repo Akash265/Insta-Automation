@@ -49,7 +49,7 @@ flowchart LR
 
 | Window | Objective | Entry gate / dependencies | Work | Exit evidence |
 |---|---|---|---|---|
-| **Preparation (Day −18 to 0)** | Make the experiment possible | Approved decisions; user accounts created (TASKS §A) | P0-01–P0-03; P1-02–P1-12 toolkit; P1-05 and P1-09 bake-offs; P1-19 instruments; panel (P1-18, P1-21, P1-22) and auditor (P1-23) | **G1 readiness gate**: every mandatory item in the [Day-1 readiness checklist](gates/G1_DAY1_READINESS.md) |
+| **Preparation (Day −18 to 0)** | Make the experiment possible | Approved decisions; user accounts created (TASKS §A) | P0-01–P0-03; P1-02–P1-12 toolkit; P1-05 local TTS benchmark and P1-09 LLM bake-offs; P1-19 instruments; panel (P1-18, P1-21, P1-22) and auditor (P1-23) | **G1 readiness gate**: every mandatory item in the [Day-1 readiness checklist](gates/G1_DAY1_READINESS.md) |
 | **Days 1–14: editorial validation** | Test accuracy, usefulness, distinctiveness and sustainability | G1 passed | ≥ 10 editions; 8–12 reader panel; independent auditor; production time, errors and improvements logged; **G2** Day 7 checkpoint | **G3** gate (P1-17): continue / pivot / stop under the pre-registered rules |
 | **Days 15–30: public soft launch** | Start audience learning without automation risk | G3 = continue **and** G4 soft-launch readiness: brand and domain (P0-05), Instagram account (P1-15), policy pages (P1-20 / P1-20U), `noindex` removed | 5 editions a week, manual upload; public issue pages with source links; audience feedback and available metrics (Instagram Insights in-app, Cloudflare Web Analytics); full review of manual editions; **Phase 2 engineering starts** (staging) | ≈ 11 public editions; weekly review notes |
 | **Days 31–60: automation development** | Automate ingestion, dedupe, evidence collection and editorial assistance | Phase 2 work started; VPS and Supabase accounts (user); P1-09 model decisions | Phase 2 (P2-01…P2-17), Phase 3 (P3-01…P3-15). Failure handling, budget ladder (LLM cap **$20** for this window, PD-02) and audit logging are tested. **Human approval stays mandatory** | **G5** Phase 2 gate (10 consecutive days of ingestion); **G6** Phase 3 gate (10 consecutive editions), targeted at about Day 60–65 |
@@ -87,7 +87,7 @@ flowchart LR
 | Components | `brief/edition/` (schema, checks), `brief/net.py`, `brief/tts/`, `brief/media/` (cards, subtitles, render, probe), `brief/site/` (build, deploy), `brief/llm/` (minimal), `site_templates/`, `video_templates/`, `editions/` |
 | Tasks | P1-01 … P1-17 |
 | Acceptance (per tool) | See TASKS. In short: `brief validate` blocks bad editions; `brief render` produces a spec-valid MP4 deterministically; `brief site build` and `deploy` publish `/today` |
-| Testing | Unit tests per check; golden PNGs and a golden ffprobe manifest; fixture editions; recorded HTTP cassettes for TTS and LLM |
+| Testing | Unit tests per check; golden PNGs and a golden ffprobe manifest; fixture editions; a fake `TTSProvider` for pipeline tests; recorded HTTP cassettes for the LLM |
 | Risks | Tooling takes so long that the editorial test is delayed. **Mitigation:** the run can start with `validate` + `render` + `site build`; the LLM draft (P1-13) is optional. A second risk is that the TTS voice is poor on AI names; the P1-05 bake-off and lexicon address that |
 | Effort | 8–10 engineering days to build, then the 14-day run at about 2.5 h/day editorial |
 | Public exposure | During the experiment: private (reader panel, `noindex` site). If the gate says **continue**: a public **soft launch at 5 editions a week** with manual upload ([ADR-017](TECHNICAL_DECISIONS.md#adr-017), **approved**), after gate G4 (brand and domain, Instagram account, policy pages P1-20 / P1-20U) |
@@ -145,7 +145,7 @@ flowchart LR
 | Tasks | P4-01 … P4-06 |
 | Acceptance | Identical inputs ⇒ no re-render; any spec violation blocks `rendered`; any unlicensed asset blocks the render |
 | Testing | Golden manifest; spec rule tests; fallback-provider test |
-| Risks | The Mac is asleep at render time (heartbeat alert, `caffeinate`); provider voice drift (pin the model and voice IDs) |
+| Risks | The Mac is asleep at render time (heartbeat alert, `caffeinate`); local model or voice drift (pin model versions and file hashes in `config/tts.yaml`) |
 | Effort | 3–4 engineering days |
 | **Exit gate (P4-06)** | **10 consecutive automated renders** with no manual fix; p95 render time recorded (target under 10 minutes including TTS) |
 
@@ -216,7 +216,7 @@ flowchart TD
   P0_02[P0-02 scaffold] --> P1_02[P1-02 schema]
   P1_02 --> P1_03[P1-03 validate]
   P1_02 --> P1_11[P1-11 site build]
-  P1_05[P1-05 TTS bake-off] --> P1_06[P1-06 TTS synth]
+  P1_05[P1-05 local TTS benchmark] --> P1_06[P1-06 TTSProvider + local engines]
   P1_06 --> P1_10[P1-10 render]
   P1_07[P1-07 cards] --> P1_10
   P1_08[P1-08 subtitles] --> P1_10

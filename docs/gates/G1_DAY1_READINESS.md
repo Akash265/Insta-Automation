@@ -18,14 +18,14 @@ Related: [VALIDATION_EXPERIMENT](../VALIDATION_EXPERIMENT.md) · [TASKS §A](../
 | M8 | **Evidence and claim records working** | `brief validate` **blocks** a material claim without evidence, an evidence URL that wasn't fetched, and an edition missing any audit-trail field (C01, C03) | Test run output | Eng | P1-02, P1-03 | ☐ |
 | M9 | **Daily issue template ready** | `editions/_template.json` (all audit-trail fields) and the issue-page template render a fixture edition | Template file + rendered fixture page | Eng | P1-02, P1-11 | ☐ |
 | M10 | **Script and caption workflow ready** | The script template (hook, segments, outro) is in the edition record; `brief caption` produces the caption from the **same** record; both pass C09 and C10 | Fixture caption output | Eng | P1-13 (caption part) | ☐ |
-| M11 | **Narration and rendering tested** | Voice vendor chosen (bake-off done); the pronunciation lexicon exists; **3 consecutive fixture renders** pass validation (1080×1920, 30 fps, H.264/AAC, 35–90 s, A/V difference < 100 ms, −14 ± 1 LUFS); one render of **real** content watched in full | ffprobe reports; bake-off report | Eng + user | P1-05, P1-06, P1-08, P1-10 | ☐ |
+| M11 | **Narration and rendering tested** | Local TTS engine confirmed by the P1-05 benchmark (all acceptance criteria in ADR-004, including the commercial-licence gate); the pronunciation lexicon exists; **3 consecutive fixture renders** pass validation (1080×1920, 30 fps, H.264/AAC, 35–90 s, A/V difference < 100 ms, −14 ± 1 LUFS); one render of **real** content watched in full | ffprobe reports; bake-off report | Eng + user | P1-05, P1-06, P1-08, P1-10 | ☐ |
 | M12 | **Source links validated** | `brief linkcheck` runs on a real dry-run edition, and every link returns 200 or is fixed | Linkcheck output | Eng | P1-04 | ☐ |
 | M13 | **Issue page deployed** | Preview and production deploys work on `*.pages.dev` with `noindex`; `/today` resolves to the latest issue | Two URLs | Eng + user | P1-11, P1-12, P1-12U | ☐ |
 | M14 | **Error log operational** | `experiment/error-log.csv` exists, append-only; `brief report experiment` refuses edited or deleted rows (test) | Test output | Eng | P1-19 | ☐ |
 | M15 | **Experiment tracking sheet ready** | Templates for panel responses, audit log and coverage misses, plus `daily-notes.md`; `brief report experiment` dry run computes every §3 metric from fixture data | Dry-run report | Eng | P1-19, P1-14 | ☐ |
 | M16 | **Daily time blocks scheduled** | 16:00–18:45 IST on 14 evenings, 15 min each morning, and the Day 7 checkpoint are in the calendar | Calendar | User | P1-31 | ☐ |
 | M17 | **Pre-registered thresholds signed** *(added: required by the approved plan)* | VALIDATION_EXPERIMENT §3, including PD-05 (median of the final five editions ≤ 130 min), copied unchanged into `docs/gates/phase-1.md`, signed and dated | Signed section | User + eng | P1-25 | ☐ |
-| M18 | **Spend limits and budget tracker in place** *(added: required to enforce the ₹15,000 ceiling from Day 1)* | Every paid account has a vendor spend limit; `config/budget_periods.yaml` caps are LLM $10 and voice $10 for Days 1–30; `brief cost report` shows actual spend plus the projected max against ₹15,000, including preparation spend | Cost report output | User + eng | P1-26, P1-27, P1-36 | ☐ |
+| M18 | **Spend limits and budget tracker in place** *(added: required to enforce the ₹15,000 ceiling from Day 1)* | Every paid account in use has a vendor spend limit (no voice account is needed unless the paid fallback is approved); `config/budget_periods.yaml` caps are LLM $10 and voice $10 for Days 1–30; `brief cost report` shows actual spend plus the projected max against ₹15,000, including preparation spend | Cost report output | User + eng | P1-26, P1-27, P1-36 | ☐ |
 
 ## Optional improvements (they do not block Day 1)
 
@@ -35,7 +35,7 @@ Related: [VALIDATION_EXPERIMENT](../VALIDATION_EXPERIMENT.md) · [TASKS §A](../
 | O2 | The auditor is available for pre-publication spot checks on at least 3 days a week, or a backup volunteer is found | More errors caught before distribution; higher audit coverage |
 | O3 | One timed **dress-rehearsal edition**, run end to end and not counted | Finds workflow friction before Day 1 |
 | O4 | LLM-assisted drafting ready (P1-13). If used, it must be used **on all days or none** | Faster scripts. Optional by design |
-| O5 | The pronunciation lexicon covers all 20 bake-off test terms | Fewer narration fixes |
+| O5 | The pronunciation lexicon covers all 20 benchmark test terms | Fewer narration fixes |
 | O6 | The two reference roundups' recent issues are saved for comparison | Makes coverage-miss checks faster |
 
 ## Sign-off

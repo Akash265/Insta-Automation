@@ -211,7 +211,7 @@ Everything lives in git, with no secrets and no personal data.
 
 | Item | Cash | Founder time |
 |---|---|---|
-| TTS for 14 editions | About ₹50–100 (cap $10/month) | — |
+| Voice for 14 editions | **₹0** (local engine; $10 contingency cap) | — |
 | LLM drafting (optional) | About ₹100 (Phase 1 cap $10/month) | — |
 | Panel and auditor | **₹0** (unpaid, approved) | Recruitment and briefing about 4 h (preparation window) |
 | Edition production | — | 14 × ≤ 150 min ≈ 35 h |

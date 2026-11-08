@@ -31,6 +31,7 @@ Every other price or limit is **unverified** and marked *(verify)*.
 | News cutoff / publish target | **17:00 IST / 20:00 IST** | WORKFLOWS §4, ADR-017 |
 | Editorial audit trail | **Mandatory for every edition** (14 items) | EDITORIAL_PIPELINE §14 |
 | PD-01 to PD-07 | Approved at sign-off (§7) | All documents |
+| Voice generation (2026-11-08) | **Self-hosted open-source TTS by default**: Kokoro primary, Piper `en_GB-cori-medium` alternative, provisional until the P1-05 benchmark; paid API optional; ₹0 expected voice spend with the $10 contingency cap kept | ADR-004, STRATEGY §6 |
 
 ## 1. What changed from the proposal
 
@@ -69,7 +70,7 @@ Approved decisions are in §0. The open decisions that remain are **not needed b
 | ID | Decision | Recommended default | Alternatives | Cost implication | Dependencies |
 |---|---|---|---|---|---|
 | OD-01 | Brand, handle, domain | Working title for the private experiment; settle before gate G4 | Register now (risk of renaming after a pivot) | ₹1,000–2,500/yr *(verify)* | P0-05 → P1-20, P1-15 |
-| OD-02 | TTS vendor | Bake-off: OpenAI `gpt-4o-mini-tts`, Google Cloud TTS, Kokoro; ElevenLabs only if all fail pronunciation | Azure; Kokoro only | About ₹100–150/month (lower-cost tier) *(verify)* | P1-05 → P1-06 |
+| OD-02 | TTS engine | **Decided 2026-11-08: self-hosted**, Kokoro primary and Piper `en_GB-cori-medium` alternative, both **provisional until the P1-05 benchmark** (ADR-004) | Paid API (now an optional fallback only) | ₹0 expected; $10 contingency cap kept | P1-05 → P1-06 |
 | OD-04 | Supabase Free → Pro | Free through Day 90 with own backups; Pro at the Phase 5 gate | Pro from Phase 2 (+₹4,400, breaks the ceiling); self-hosted Postgres | ₹0 in the window | P2-01, P2-14 |
 | OD-05 | VPS | Hetzner entry plan *(verify)* | Other providers; n8n on the Mac (rejected: the scheduler stops whenever the Mac sleeps) | ₹900 in the window | P2-12 |
 | OD-07 | Instagram Login vs Facebook Login | Instagram Login | Facebook Login | ₹0 | P6-01 (after Day 90) |
@@ -83,18 +84,18 @@ The full model and reconciliation checks are in [STRATEGY §6](IMPLEMENTATION_ST
 
 | Category | Expected | Worst case (every approved cap hit) |
 |---|---:|---:|
-| One-time (domain; voice and LLM bake-offs before Day 1) | ₹2,400 | ₹3,820 |
+| One-time (domain; LLM bake-off before Day 1; the voice benchmark is local and free) | ₹1,950 | ₹3,820 |
 | Recurring infrastructure (VPS from Day 31; others on free plans) | ₹900 | ₹1,200 |
 | LLM API ($10 Days 1–30 · **$20 Days 31–60** · $35 Days 61–90) | ₹1,990 | ₹5,720 |
-| Voice generation ($10 per window, PD-07) | ₹400 | ₹2,640 |
-| **Cash total** | **₹5,690** | **₹13,380** |
-| Headroom under ₹15,000 | ₹9,310 | ₹1,620 |
+| Voice generation (local; $10 contingency cap per window, PD-07) | ₹0 | ₹2,640 |
+| **Cash total** | **₹4,840** | **₹13,380** |
+| Headroom under ₹15,000 | ₹10,160 | ₹1,620 |
 | Optional spend | Only via spending rule 1 (projected max ≤ ₹15,000); frozen if actual spend > ₹10,000 before Day 60 | |
 | **Founder time (not cash)** | **≈ 433 h** = 255 engineering + 136 editorial + 42 review/ops (89 h of it in preparation) | |
 | **Imputed labour at ₹500/h** | **≈ ₹2,16,500** | |
-| **Fully loaded total** | **≈ ₹2.22 lakh** | ≈ ₹2.30 lakh |
+| **Fully loaded total** | **≈ ₹2.21 lakh** | ≈ ₹2.30 lakh |
 
-The project does **not** cost ₹5,690–13,380; that is only the cash part. Earlier estimates are replaced but kept on record: 349 h / ₹1.75 lakh (proposal), then 428 h / ₹2.14 lakh (finalisation), now **433 h / ₹2.17 lakh** (sign-off; +5 h for the readiness gate, rubric sign-off, budget tracker and voice-cap review).
+The project does **not** cost ₹4,840–13,380; that is only the cash part. Earlier estimates are replaced but kept on record: 349 h / ₹1.75 lakh (proposal), then 428 h / ₹2.14 lakh (finalisation), now **433 h / ₹2.17 lakh** (sign-off; +5 h for the readiness gate, rubric sign-off, budget tracker and voice-cap review).
 
 ## 6. Key assumptions
 
@@ -103,7 +104,7 @@ The project does **not** cost ₹5,690–13,380; that is only the cash part. Ear
 | Planning FX | ₹88 = $1 | Business plan convention |
 | Anthropic prices and Batch discount | V-01, V-02 | **Verified (official)** |
 | Token volumes per edition | ADR-003 table | **Assumed until measured** (P1-09, first 10 automated editions) |
-| TTS characters per edition | About 1.7k including re-renders | Assumed |
+| Voice generation | Local engine on the existing Mac; ₹0 cash; electricity not modelled | ADR-004 (engine provisional until P1-05) |
 | All other provider prices and limits | V-06 to V-22 | **Unverified** |
 | Engineering effort | Toolkit 12 days; Phase 2 10; Phase 3 11; Phase 4 4; deploy jobs 4; fixes 1 (6 h days) | Estimate |
 | Editorial minutes per edition | 150 (experiment) → 130 → 120 → about 90 (mixed manual and automated) | Model; measured from Day 1 |
@@ -153,7 +154,7 @@ The project does **not** cost ₹5,690–13,380; that is only the cash part. Ear
 | Item | Status |
 |---|---|
 | All founder decisions (§0) and PD-01 to PD-07 (§7) | **Approved and recorded** in every relevant document |
-| 90-day cash | **₹5,690 expected / ₹13,380 worst case**, within ₹15,000 (₹1,620 worst-case headroom); no forecast reduction needed |
+| 90-day cash | **₹4,840 expected (₹5,690 before voice moved to local engines on 2026-11-08) / ₹13,380 worst case**, within ₹15,000 (₹1,620 worst-case headroom); no forecast reduction needed |
 | Founder time | **≈ 433 h ≈ ₹2,16,500** at ₹500/h, reported separately from cash |
 | Day-1 gate | [G1 checklist](gates/G1_DAY1_READINESS.md): 18 mandatory items, 6 optional |
 | External verification | V-01 to V-05 verified on official pages; V-06 to V-22 still unverified ([TASKS §F](../TASKS.md#f-verification-tracker)) |

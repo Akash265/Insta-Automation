@@ -22,7 +22,7 @@ Status: **Planning baseline v1** (2026-11-07). Prepared from `AI_Daily_Brief_Bus
 
 **What we are building.** A daily AI-news product. One reviewed edition record produces a 60–90 s faceless Instagram Reel, a source-linked web issue (`/today`), a searchable archive and, later, an email. The core is an **editorial engine**: source tiers, freshness rules, a transparent 100-point rubric, hard rejection rules, and claim-to-evidence verification. Automation produces the outputs; it does not decide what is true.
 
-**How.** A single tested Python package, `brief`, runs everything. Postgres (Supabase) is the system of record and the job queue. A Mac worker does the heavy media work. A thin n8n layer on a small VPS provides schedules, editor forms and alerts. The site is static on Cloudflare Pages, with media on R2. LLM calls use **approved hybrid routing**: local Ollama for tagging and duplicates (kept only if it passes measured benchmarks), Haiku 5.5 for ranking suggestions, Sonnet 5.5 for claims, script and second-pass verification, and Opus for evaluation only, under a $35/month cap. TTS is a paid API with a hash cache. Instagram publishing goes only through Meta's official API, with idempotency and reconciliation.
+**How.** A single tested Python package, `brief`, runs everything. Postgres (Supabase) is the system of record and the job queue. A Mac worker does the heavy media work. A thin n8n layer on a small VPS provides schedules, editor forms and alerts. The site is static on Cloudflare Pages, with media on R2. LLM calls use **approved hybrid routing**: local Ollama for tagging and duplicates (kept only if it passes measured benchmarks), Haiku 5.5 for ranking suggestions, Sonnet 5.5 for claims, script and second-pass verification, and Opus for evaluation only, under a $35/month cap. TTS is **self-hosted open-source** (Kokoro primary, Piper alternative, both provisional until benchmarked) behind a provider-independent interface; a paid API is only an optional fallback (ADR-004). Instagram publishing goes only through Meta's official API, with idempotency and reconciliation.
 
 **What we are building first.** Phase 1 is a manual 14-day prototype supported by a small toolkit: `brief validate`, `brief render`, `brief site build`/`deploy`, plus an optional LLM draft. It has no database and no n8n. Its purpose is to prove the editorial value and the time cost before anything is automated. It runs as a pre-registered [14-day validation experiment](VALIDATION_EXPERIMENT.md), with a reader panel, an accuracy audit and explicit continue / pivot / stop rules. If it passes, an **approved public soft launch at 5 editions a week** follows from about Day 15, while automation is built ([ADR-017](TECHNICAL_DECISIONS.md#adr-017)). Human approval stays mandatory for every edition.
 
@@ -47,7 +47,7 @@ Status: **Planning baseline v1** (2026-11-07). Prepared from `AI_Daily_Brief_Bus
 | Local environment (verified 2026-11-07) | Apple M5, 16 GB RAM, macOS. Present: Docker, git, Node 24.15, system Python **3.9.6** (too old; the plan uses Python 3.12 via `uv`). Missing: ffmpeg, ollama, psql, n8n, gh |
 | Dependency inventory | None yet. The target inventory with a justification per dependency is in [SYSTEM_ARCHITECTURE §10](SYSTEM_ARCHITECTURE.md#10-technology-inventory-target) |
 | Missing capabilities | Everything: ingestion, editorial engine, media, site, publishing, email, analytics, ops |
-| Configuration / env | Defined in [SYSTEM_ARCHITECTURE §9](SYSTEM_ARCHITECTURE.md#9-configuration--environment-variables). Phase 1 needs only the LLM key (optional), TTS key, Cloudflare token/account and R2 keys |
+| Configuration / env | Defined in [SYSTEM_ARCHITECTURE §9](SYSTEM_ARCHITECTURE.md#9-configuration--environment-variables). Phase 1 needs only the LLM key (optional), Cloudflare token/account and R2 keys (no TTS key: voice is generated locally) |
 | Security / deployment concerns | No secrets exist yet, which is the right moment to set the policy (P0-01: gitleaks, `.env` ignored). Key future concerns: the Instagram token lifecycle, n8n exposure, Supabase free-tier backup gaps, R2's lack of a hard spend cap, and prompt injection from scraped text |
 | Technical debt | None in code. Planning debt was found in the business plan and the original CLAUDE.md (below) |
 | Discrepancies | 9 conflicts between the business plan, the original CLAUDE.md and the founder's choices. Each is resolved in the [conflict register](TECHNICAL_DECISIONS.md#conflict-register-where-this-plan-departs-from-the-business-plan-or-the-original-claudemd). The most consequential: n8n-centric logic → Python core; local LLM/TTS → APIs; page published before the QA gate → preview-then-approve; mixed state list → separate state machines |
@@ -75,7 +75,7 @@ See [SYSTEM_ARCHITECTURE](SYSTEM_ARCHITECTURE.md) for diagrams. The key choices,
 | Heavy compute | Mac worker (launchd), cutoff 17:00 IST | ₹0 and enough CPU; outbound-only | 005 |
 | Collection | RSS/Atom, GitHub and arXiv APIs; Apify only for allow-listed feedless sources | Cheapest and most auditable; MCP for research only | 014 |
 | LLM | **Hybrid routing:** local Ollama (~8B) for tagging and same-event checks; Haiku 5.5 for triage; Sonnet 5.5 for claims, script and critic (Opus only if it earns it); structured output; $35/month cap with a degradation ladder | Pay only where quality matters; resilience for routine tasks | 003 |
-| TTS | API vendor from the bake-off, per-segment hash cache, Kokoro fallback | Quality; negligible cost | 004 |
+| TTS | **Self-hosted**: Kokoro (Apache-2.0 code and weights) primary, Piper `en_GB-cori-medium` alternative, provisional until the P1-05 benchmark; `TTSProvider` interface; per-segment hash cache; paid API optional fallback, off by default | ₹0 expected spend; no vendor lock-in; commercially licensed voices | 004 |
 | Video | Pillow cards + FFmpeg, ASS subtitles | Cheap and deterministic | 015 |
 | Site | Python/Jinja static build → Cloudflare Pages (wrangler direct upload) | One language, free hosting | 006 |
 | Storage | R2: private bucket (MP4s via presigned URL, snapshots, backups) and public bucket (covers after approval) | Nothing public before approval | RISKS §3.4 |
@@ -104,7 +104,7 @@ Detail is in [IMPLEMENTATION_ROADMAP](IMPLEMENTATION_ROADMAP.md), including the 
 - a ₹15,000 cash ceiling that **includes preparation-window spend** (PD-01);
 - 5 editions a week from a passed experiment;
 - hybrid LLM routing with graduated caps: **$10** for Days 1–30, **$20 interim** for Days 31–60 (PD-02), and **$35** for Days 61–90;
-- a voice cap of **$10/month**, retained until measured usage justifies reconsidering it (PD-07);
+- **voice generated locally** (ADR-004, 2026-11-08), so **₹0 expected** voice spend; the **$10/month** voice cap is kept as contingency until local testing succeeds (PD-07);
 - founder time at ₹500/h.
 
 It supersedes the decision-review draft (₹5,190 / ₹12,480 / 349 h) and the finalisation draft (₹14,680 worst case / 428 h). §6.5 and §6.11 reconcile them.
@@ -127,16 +127,16 @@ It supersedes the decision-review draft (₹5,190 / ₹12,480 / 349 h) and the f
 | Days 31–60 | Automation development (Phases 2–3) | ≈ 22 |
 | Days 61–90 | Phase 4 and deploy automation; automated workflow after its gates; 90-day review | ≈ 22 |
 
-**PD-01 (approved):** all preparation-window spend counts **inside** the ₹15,000 ceiling. That is about ₹900 expected for the two bake-offs (₹1,320 max), plus the domain if it is bought before Day 1.
+**PD-01 (approved):** all preparation-window spend counts **inside** the ₹15,000 ceiling. That is about ₹450 expected (the LLM bake-off; the local voice benchmark costs nothing) with ₹1,320 max including the voice contingency cap, plus the domain if it is bought before Day 1.
 
 ### 6.2 One-time setup (cash)
 | Item | When | Expected | Max | How the max is enforced |
 |---|---|---:|---:|---|
 | Domain, year 1 | Before G4 (Day 15); may be bought earlier | ₹1,500 | ₹2,500 | Business plan range *(verify registrar)* |
-| Voice (TTS) bake-off, about 100k characters across vendors | Preparation | ₹450 | ₹704 | Preparation voice cap of $8, plus vendor spend limits (P1-27) |
+| Voice benchmark (P1-05): Kokoro and Piper run locally; paid vendors only if no local engine passes and the founder approves | Preparation | **₹0** | ₹704 | Contingency: preparation voice cap of $8, kept until local testing succeeds |
 | LLM bake-off: 10 stories × Haiku, Sonnet, Opus (evaluation) × about 3 runs; local models free | Preparation | ₹450 | ₹616 | Preparation LLM cap of $7, plus the Anthropic Console spend limit (P1-26) |
 | Brand assets (OFL fonts, built by the founder); Meta developer setup | — | ₹0 | ₹0 | — |
-| **Subtotal** | | **₹2,400** | **₹3,820** | (exact cap conversion: $7 → ₹616, $8 → ₹704; corrected 2026-11-08 by `brief cost report`) |
+| **Subtotal** | | **₹1,950** | **₹3,820** | (exact cap conversion: $7 → ₹616, $8 → ₹704; corrected 2026-11-08 by `brief cost report`) |
 
 ### 6.3 Recurring infrastructure (cash)
 | Item | Days 1–30 | Days 31–60 | Days 61–90 | Expected | Max | Basis |
@@ -157,16 +157,16 @@ It supersedes the decision-review draft (₹5,190 / ₹12,480 / 349 h) and the f
 | Days 61–90 | About 15 automated editions on the hybrid pipeline + about 7 drafted; regression set; one Opus evaluation run | **$35** | ₹1,150 | ₹3,080 |
 | **LLM subtotal** | | | **₹1,990** | **₹5,720** |
 
-**Voice generation (TTS), a separate line from the LLM:**
+**Voice generation (TTS), a separate line from the LLM.** Expected **₹0**: narration is generated by the local engine (ADR-004). The caps remain as contingency for the optional paid fallback:
 
 | Window | Use | Cap | Expected | Max |
 |---|---|---|---:|---:|
 | Days 1–30 | About 25 editions × about 1.7k characters | **$10 (PD-07)** | ₹100 | ₹880 |
 | Days 31–60 | About 22 editions + development re-renders (mostly cache hits) | $10 | ₹150 | ₹880 |
 | Days 61–90 | About 22 editions | $10 | ₹150 | ₹880 |
-| **TTS subtotal** | Lower-cost vendors; a premium voice would be about ₹300–700/month and still within the cap | | **₹400** | **₹2,640** |
+| **TTS subtotal** | Local engine; paid fallback only if approved | | **₹0** | **₹2,640** |
 
-**PD-07 (approved):** the $10 voice cap stays until the vendor comparison is done. A $5 cap is reconsidered only after measured usage (P1-39). That change would lower the max by ₹440 per remaining window.
+**PD-07 (approved, applied to the local-first plan):** the $10 voice cap stays as contingency until local testing succeeds (P1-05 passes and the first editions render). P1-39 then reconsiders it, possibly down to $5 or to $0 if no paid fallback is wanted. Each $5 reduction lowers the max by ₹440 per remaining window.
 
 Apify is ₹0: the free-plan credit blocks rather than bills, and the MVP may use no Actors. Email is ₹0 because it starts in Phase 7, after Day 90.
 
@@ -203,14 +203,14 @@ Apify is ₹0: the free-plan credit blocks rather than bills, and the MVP may us
 ### 6.7 90-day totals vs the ₹15,000 ceiling
 | Cash category | Expected | Worst case (every approved cap hit) |
 |---|---:|---:|
-| One-time setup (includes pre-Day-1 bake-offs) | ₹2,400 | ₹3,820 |
+| One-time setup (includes the pre-Day-1 LLM bake-off; voice benchmark is free) | ₹1,950 | ₹3,820 |
 | Recurring infrastructure | ₹900 | ₹1,200 |
 | LLM API ($10 / $20 / $35) | ₹1,990 | ₹5,720 |
-| Voice generation ($10 per window) | ₹400 | ₹2,640 |
-| **Total cash** | **₹5,690** | **₹13,380** |
-| **Headroom under ₹15,000** | ₹9,310 | **₹1,620** |
+| Voice generation (local; $10 contingency cap per window) | ₹0 | ₹2,640 |
+| **Total cash** | **₹4,840** | **₹13,380** |
+| **Headroom under ₹15,000** | ₹10,160 | **₹1,620** |
 
-By window (expected): preparation ₹900 · Days 1–30 ₹1,800 (including the domain) · Days 31–60 ₹1,240 · Days 61–90 ₹1,750.
+By window (expected): preparation ₹450 · Days 1–30 ₹1,700 (including the domain) · Days 31–60 ₹1,090 · Days 61–90 ₹1,600.
 
 **The worst case is within the ceiling, so no forecast reduction is needed.** One interpretation check: the sign-off instruction "retain the existing $35 cap for other approved periods" is read as **$35 for Days 61–90 only**, with the existing approved **$10 for Days 1–30**. If Days 1–30 were also given $35, the worst case would be **₹15,580**, exceeding the ceiling by ₹580. The specific reduction needed is to keep Days 1–30 at ≤ $28 (or keep the approved $10). The plan uses $10.
 
@@ -222,11 +222,11 @@ By window (expected): preparation ₹900 · Days 1–30 ₹1,800 (including the 
 ### 6.8 Fully loaded cost: the honest total
 | | Expected | Worst case |
 |---|---:|---:|
-| Cash | ₹5,690 | ₹13,380 |
+| Cash | ₹4,840 | ₹13,380 |
 | Founder time (433 h × ₹500) | ₹2,16,500 | ₹2,16,500 |
-| **Fully loaded, preparation + 90 days** | **≈ ₹2.22 lakh** | **≈ ₹2.30 lakh** |
+| **Fully loaded, preparation + 90 days** | **≈ ₹2.21 lakh** | **≈ ₹2.30 lakh** |
 
-Cash is about 3–6% of the real cost. Every monthly report (WF-13) shows **cash contribution** and **fully loaded contribution**.
+Cash is about 2–6% of the real cost. Every monthly report (WF-13) shows **cash contribution** and **fully loaded contribution**.
 
 ### 6.9 Monthly run-rate after Day 90 (planning only; outside the ceiling)
 | Item | Soft launch, automated pipeline, Supabase Free | After moving to Supabase Pro |
@@ -234,9 +234,9 @@ Cash is about 3–6% of the real cost. Every monthly report (WF-13) shows **cash
 | VPS | ₹450–600 | ₹450–600 |
 | Supabase | ₹0 | ₹2,200 *(verify)* |
 | LLM (22 editions + regression and evaluation; $35 cap) | ≈ ₹1,250 | ≈ ₹1,250 |
-| TTS | ₹100–150 (premium voice ≈ ₹300–700) | same |
+| TTS | ₹0 (local; paid fallback only if approved) | same |
 | Domain, amortised | ₹125 | ₹125 |
-| **Total** | **≈ ₹1,900–2,150** | **≈ ₹4,100–4,350** |
+| **Total** | **≈ ₹1,800–2,000** | **≈ ₹4,000–4,200** |
 
 Email (Phase 7, ADR-010) and Apify Starter (only if justified) would be extra. Returning to 7 editions a week, decided only at the Day-90 review (PD-04), would add about ₹350/month in LLM costs and about 15–17 h/month of editorial time.
 
@@ -251,13 +251,13 @@ Everything else is **unverified** until its task records a source and date ([TAS
 ### 6.11 Sign-off reconciliation checks (2026-11-07)
 | Check | Result |
 |---|---|
-| Pre-Day-1 spend included (PD-01) | **Yes.** The bake-offs (₹900 expected, ₹1,320 max) are in §6.2, and the domain is counted once whatever its purchase date |
+| Pre-Day-1 spend included (PD-01) | **Yes.** The LLM bake-off (₹450 expected) and the voice contingency cap (₹1,320 max together) are in §6.2, and the domain is counted once whatever its purchase date |
 | Interim LLM cap applied only to Days 31–60 (PD-02) | **Yes.** $10 / $20 / $35 by budget period; the preparation bake-off has its own $7 cap inside §6.2 |
 | API and voice not double-counted | **Yes.** Bake-off spend appears only in §6.2; §6.4 covers pipeline usage in Days 1–90 only; LLM and voice are separate lines; budget periods match the rows one-to-one |
 | ₹15,000 ceiling enforced | **Yes.** Worst case ₹13,380, headroom ₹1,620; projected-max rule; code caps and vendor spend limits |
 | Optional spend freeze retained | **Yes.** Frozen if actual spend passes ₹10,000 before Day 60 |
 | Founder labour reported separately at ₹500/h | **Yes.** ≈ 433 h, ≈ ₹2,16,500, never mixed into cash |
-| Forecast not reduced to fit | **Yes.** Expected unchanged at ₹5,690; the worst case fell from ₹14,680 to ₹13,380 only because of the approved PD-02 cap |
+| Forecast not reduced to fit | **Yes.** Expected fell to ₹4,840 only because voice moved to local engines (ADR-004, 2026-11-08); at sign-off it was ₹5,690; the worst case fell from ₹14,680 to ₹13,380 only because of the approved PD-02 cap |
 
 ## 7. Top risks
 
@@ -276,7 +276,7 @@ From [RISKS_AND_OPERATIONS §1](RISKS_AND_OPERATIONS.md#1-risk-register):
 - approve the source list and the reference roundups;
 - recruit the panel and create the form;
 - recruit and brief the auditor;
-- create the accounts that must be in your name (Cloudflare; the Anthropic Console with a spend limit, optional for the experiment; TTS bake-off vendors);
+- create the accounts that must be in your name (Cloudflare; the Anthropic Console with a spend limit, optional for the experiment). No voice-vendor account is needed unless the paid fallback is approved;
 - sign off the thresholds;
 - pass the [G1 readiness checklist](gates/G1_DAY1_READINESS.md);
 - block about 3 h each evening for 14 days.
@@ -288,9 +288,9 @@ From [RISKS_AND_OPERATIONS §1](RISKS_AND_OPERATIONS.md#1-risk-register):
 4. **P1-02**: edition pydantic models (including every [audit-trail field](EDITORIAL_PIPELINE.md#14-mandatory-editorial-audit-trail)) + JSON Schema + fixtures
 5. **P1-03**: `brief validate` (blocking and warning checks; C01 enforces the audit trail)
 6. **P1-04**: safe fetcher + `brief linkcheck`
-7. **P1-05**: TTS bake-off → vendor decision
+7. **P1-05**: local TTS benchmark (Kokoro, Piper) against the acceptance criteria → provisional engine confirmed
 8. **P1-07**: card templates (Pillow) with golden tests
-9. **P1-06** + **P1-08**: TTS synth with cache, then subtitles
+9. **P1-06** + **P1-08**: `TTSProvider` interface, local providers and cache, then subtitles
 10. **P1-10**: `brief render` with ffprobe validation
 
 Then come P1-11 and P1-12 (site), P1-19 (experiment instruments) and P1-14 (reports). P1-09 and P1-13 (LLM) are optional.

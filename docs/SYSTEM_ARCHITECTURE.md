@@ -25,7 +25,8 @@ flowchart LR
   APIFY[Apify API - allow-listed Actors]
   LLM[LLM API - economy / standard / premium tiers]
   OLL[Ollama local LLM - Mac localhost]
-  TTS[TTS API - primary + fallback]
+  TTS[Local TTS on the Mac - Kokoro primary / Piper alternative]
+  PTTS[Paid TTS API - optional fallback, off by default]
   META[Meta Instagram API]
   EMAIL[Email provider - Phase 7]
   CF_PAGES[Cloudflare Pages]
@@ -51,6 +52,7 @@ flowchart LR
   WORKER --> LLM
   WORKER --> OLL
   WORKER --> TTS
+  WORKER -.->|only if approved| PTTS
   WORKER --> CF_R2
   WORKER --> CF_PAGES
   WORKER --> META
@@ -72,7 +74,8 @@ flowchart LR
 | Media storage | Cloudflare R2 | Private bucket `brief-private` holds the final MP4 (canonical copy), source snapshots, intermediates and DB backups. Meta fetches the MP4 through a **24 h presigned URL** generated at publish time. Public bucket `brief-public` holds cover/OG images, uploaded only after approval ([RISKS_AND_OPERATIONS §3.4](RISKS_AND_OPERATIONS.md#34-r2-buckets)) | — | Make anything public before `approved` |
 | LLM provider (paid) | API | Hybrid routing ([ADR-003](TECHNICAL_DECISIONS.md#adr-003)): triage (Haiku 5.5, daytime items via the Batch API); claim extraction, script and second-pass verification (Sonnet 5.5). Opus 5.5 is used **for evaluation and testing only** and never in production routing. A fallback vendor is used for outages only | — | Choose tools or URLs; be called without a spend cap |
 | Local LLM (Ollama) | Mac, localhost only | T1 scope, category and entity tagging; T2 same-event adjudication. Automatic Haiku fallback | `brief` worker only | Run during the render window; handle claims or script; listen on a non-loopback interface |
-| TTS provider | API | Narration per story segment, cached by hash ([ADR-004](TECHNICAL_DECISIONS.md#adr-004)) | — | Re-synthesise identical text |
+| TTS engine (local) | Mac, inside the worker process | Narration per segment through the provider-independent `TTSProvider` interface. Kokoro primary, Piper (`en_GB-cori-medium`) alternative, both provisional until the P1-05 benchmark ([ADR-004](TECHNICAL_DECISIONS.md#adr-004)); cached by hash | — (offline after model download) | Use a voice without a commercial-use licence record; re-synthesise identical text |
+| Paid TTS API (optional) | API | Fallback only if no local engine passes, or by founder approval; off by default; capped per budget period | — | Run without `Budget.check`; become a mandatory dependency |
 | Meta Instagram API | API | Reel container → status poll → publish | — | Be called by anything except `brief publish reel` / `reconcile` |
 
 ### Why the work is split this way
@@ -96,7 +99,7 @@ flowchart LR
 │   ├── claims/                  # extract.py, evidence.py, verify.py
 │   ├── edition/                 # assemble.py, schema.py (pydantic), export.py, import_.py
 │   ├── llm/                     # client.py (provider-agnostic interface), prompts/, budget.py
-│   ├── tts/                     # client.py, cache.py
+│   ├── tts/                     # base.py (TTSProvider), service.py, cache.py, providers/ (kokoro, piper, paid)
 │   ├── media/                   # cards.py (Pillow), subtitles.py, render.py (FFmpeg), probe.py
 │   ├── site/                    # build.py (Jinja → static), search_index.py, deploy.py (wrangler)
 │   ├── publish/                 # instagram.py, reconcile.py, tokens.py
@@ -124,7 +127,7 @@ sequenceDiagram
   participant W as brief worker (Mac)
   participant E as Editor
   participant L as LLM API
-  participant T as TTS API
+  participant T as Local TTS (Mac)
   participant P as CF Pages
   participant R as R2
   participant M as Meta API
@@ -224,6 +227,7 @@ flowchart TB
     WK[brief worker]
     FF[ffmpeg / ffprobe]
     WR[wrangler CLI]
+    TTSL[Local TTS engine - Kokoro / Piper]
   end
   subgraph VPS["Small VPS 2 GB - Docker Compose"]
     N8[n8n CE]
@@ -244,6 +248,7 @@ flowchart TB
   WK --> R2PRIV
   WR --> PAGES
   WK --> FF
+  WK --> TTSL
 ```
 
 - **Network:** the Mac makes outbound connections only. n8n is reached through Caddy (TLS) with basic auth plus n8n user accounts, and its editor UI is IP-allowlisted or placed behind Cloudflare Access. Supabase enforces SSL, and its network restrictions are limited to the VPS IP and home IP where practical.
@@ -278,8 +283,8 @@ All values are read by `brief/config.py` (pydantic-settings) from the process en
 | `LLM_ROUTES_FILE` | llm | 1 | Path to `config/llm_routes.yaml`: task → tier → model ID ([ADR-003](TECHNICAL_DECISIONS.md#adr-003)). Model IDs are config, not code |
 | `OLLAMA_BASE_URL` | llm (local tier) | 2 | `http://127.0.0.1:11434` (localhost only) |
 | `HEALTHCHECKS_PING_URLS` | worker, n8n host, backup | 2 | External dead-man's switch ping URLs (healthchecks.io); treated as secrets |
-| `TTS_PROVIDER`, `TTS_API_KEY`, `TTS_VOICE_ID` | tts | 1 | Selected by the P1-05 bake-off |
-| `TTS_MONTHLY_BUDGET_USD` | tts | 1 | Hard cap |
+| `TTS_CONFIG_FILE` | tts | 1 | `config/tts.yaml`: provider chain (default `kokoro`, `piper`), voice, pinned model versions and hashes, lexicon version, `paid_fallback.enabled: false` |
+| `TTS_PAID_API_KEY` | tts (paid fallback) | — | Only if the founder approves the paid fallback; otherwise unset |
 | `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` | media, backups | 1 | Scoped API token: object read/write on the two buckets only |
 | `R2_PUBLIC_BUCKET`, `R2_PRIVATE_BUCKET`, `R2_PUBLIC_BASE_URL` | media | 1 | |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `CF_PAGES_PROJECT` | site deploy | 1 | Token scoped to Pages: Edit on this project only |
@@ -308,6 +313,7 @@ All values are read by `brief/config.py` (pydantic-settings) from the process en
 | HTML → text | trafilatura | 2 | Main-content extraction without JS |
 | DB driver | psycopg 3 (+ pool) | 2 | Plain SQL, no ORM, so the schema stays explicit |
 | Fuzzy matching | rapidfuzz + Postgres `pg_trgm` | 2 | Title clustering; pgvector deferred ([ADR-008](TECHNICAL_DECISIONS.md#adr-008)) |
+| Local TTS | `kokoro` (Apache-2.0, plus espeak-ng) primary; `piper-tts` (GPL-3.0, internal use only) alternative; installed for the P1-05 benchmark | 1 | ₹0 voice generation on the existing Mac ([ADR-004](TECHNICAL_DECISIONS.md#adr-004)) |
 | LLM SDK | `anthropic` (official) | 1 | Structured outputs via JSON Schema; Message Batches for non-urgent work |
 | Local LLM runtime | Ollama (Homebrew) + one ~8B-class model chosen in P1-09 | 2 | Local tier for T1/T2 ([ADR-003](TECHNICAL_DECISIONS.md#adr-003)); called over localhost HTTP with httpx, so no extra SDK |
 | External heartbeat | healthchecks.io (free plan, *verify*) | 2 | Detects a dead Mac, VPS or backup job from outside our infrastructure |

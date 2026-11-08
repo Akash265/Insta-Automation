@@ -9,13 +9,13 @@ Prices and limits below come from searches on **2026-11-07**. Sources often disa
 |---|---|---|---|
 | 1 | n8n is the centre of the pipeline (Code nodes do normalisation, etc.) | Python package `brief` does all logic; n8n only schedules, shows forms and sends alerts | 001 |
 | 2 | Local LLM via Ollama is the default; API is an optional fallback | **Approved hybrid:** local Ollama for tagging and duplicates (kept only if it passes measured benchmarks), Haiku for ranking suggestions, Sonnet for claims, script and second-pass verification; Opus for evaluation only; $35/month cap | 003 |
-| 3 | Kokoro TTS is the default | API TTS is primary (cached by hash); Kokoro is the local fallback and a bake-off entrant | 004 |
+| 3 | Kokoro TTS is the default | **Aligned again (2026-11-08):** self-hosted open-source TTS is the default. Kokoro is primary and Piper (`en_GB-cori-medium`) the alternative, both provisional until the P1-05 benchmark. A paid API is an optional fallback only | 004 |
 | 4 | Issue page goes public at 19:00, quality gate at 19:15 | **Preview** deploy → review → production deploy → Reel. Nothing public before approval | 012 |
 | 5 | One state list mixes story states with edition states | Separate machines for story, issue, publishing job and job | 012 |
 | 6 | Final collection at 17:30 | Cutoff at 17:00 to give the Mac render a buffer | 005 |
 | 7 | Entities `stories`, `story_claims`, `editions`, `edition_stories`, `metrics` | `candidate_stories`, `claims` + `evidence_records`, `daily_issues`, `issue_stories`, `reel_metrics`/`site_metrics` (a superset; mapping in DATABASE_DESIGN) | 009 |
 | 8 | The planning prompt asks for a `newsletter_subscribers` table | The email provider is the system of record; no subscriber PII in our DB unless email is self-hosted | 010 |
-| 9 | Plan budget of ₹1,000–3,500/month (lean MVP) | Soft-launch run-rate ≈ ₹1,900–2,150/month expected (Supabase Free). The signed-off 90-day cash model (including pre-Day-1 spend) is ≈ ₹5,690 expected and ≤ ₹13,380 with every approved cap hit, within the ₹15,000 ceiling. Founder labour ≈ 433 h (≈ ₹2.17 lakh at ₹500/h) is reported separately | 003, Strategy §6 |
+| 9 | Plan budget of ₹1,000–3,500/month (lean MVP) | Soft-launch run-rate ≈ ₹1,800–2,000/month expected (Supabase Free; local TTS). The 90-day cash model (including pre-Day-1 spend) is ≈ ₹4,840 expected after voice moved to local engines (2026-11-08; ₹5,690 at sign-off) and ≤ ₹13,380 with every approved cap hit, within the ₹15,000 ceiling. Founder labour ≈ 433 h (≈ ₹2.17 lakh at ₹500/h) is reported separately | 003, Strategy §6 |
 | 10 | "Daily" publication from launch | **Approved:** public soft launch at **5 editions a week**, starting after a passed experiment (target Day 15), manual upload. A return to 7 a week is decided only at the Day-90 review (PD-04, approved) | 017 |
 | 11 | First-30-editions review | **Approved:** full review for the first 30 manual **and** the first 30 automated editions; any material error → the next 10 editions in full review; human approval is mandatory for every edition | EDITORIAL_PIPELINE §9 |
 | 12 | *Finalisation:* the request places the experiment at Days 1–14 | The experiment needs the Phase 0–1 toolkit (≈ 12 engineering days) first, so there is a **preparation window (Day −18 to Day 0)**. The 90 days count from experiment Day 1 | Roadmap |
@@ -132,7 +132,7 @@ Local inference is **not kept for architectural purity.** At Haiku prices, T1 an
 
 | Period | LLM cap | Voice cap | Notes |
 |---|---:|---:|---|
-| Preparation (Day −18 to 0) | $7 (LLM bake-off) | $8 (voice bake-off) | Counted in the one-time line; vendor spend limits as a backstop |
+| Preparation (Day −18 to 0) | $7 (LLM bake-off) | $8 (voice contingency: the benchmark is local and costs ₹0) | Counted in the one-time line; vendor spend limits as a backstop |
 | Days 1–30 | **$10** | **$10** | Drafting only (experiment + early soft launch) |
 | Days 31–60 | **$20 interim (PD-02)** | $10 | Phase 3 development and replay testing |
 | Days 61–90 | **$35** (approved maximum) | $10 | Automated pipeline running |
@@ -151,21 +151,111 @@ Local inference is **not kept for architectural purity.** At Haiku prices, T1 an
 - Opus in production: not approved, and would need evidence plus a founder decision.
 
 <a id="adr-004"></a>
-## ADR-004 — TTS: API primary, hash cache, Kokoro fallback
-**Status:** Accepted (founder choice). Vendor is **Open** until the P1-05 bake-off.
-**Decision:**
-- `brief/tts/client.py` is a provider interface. Narration is synthesised **per story segment**. Each segment is cached by `sha256(provider‖model‖voice‖settings‖text)` (`media_assets.cache_key`), so a re-render after a small edit only re-synthesises the changed segment.
-- A pronunciation lexicon (`video_templates/lexicon.yaml`) maps tricky AI names to provider-specific SSML or respellings.
-- Kokoro-82M (Apache-2.0 weights, commercial use permitted per the model card) is the offline fallback.
-**Bake-off entrants (P1-05):**
-- OpenAI `gpt-4o-mini-tts`
-- Google Cloud TTS (Neural2 / Chirp 3 HD)
-- ElevenLabs Flash
-- Azure Neural
-- Kokoro
+## ADR-004 — TTS: self-hosted open-source by default; paid API as an optional fallback
+**Status:** **Accepted 2026-11-08** (founder direction). It supersedes "API primary, Kokoro fallback". The **engine choice is provisional** until the P1-05 local benchmark passes on the founder's Mac.
 
-**Criteria:** AI-name pronunciation (20-term test list), naturalness, commercial-use terms, word/segment timestamps, latency and price.
-**Cost:** a 90 s script is about 1,300 characters, so roughly 40k characters a month. At $15–$30 per million characters *(verify per vendor)* that is under $2/month; ElevenLabs might reach ~$4–8 at the quoted rates. Cap: `TTS_MONTHLY_BUDGET_USD = 10`.
+**Context:**
+- The founder wants self-hosted, open-source TTS by default, with no mandatory voice-API dependency.
+- **Hardware:** an Apple M5 with 16 GB unified memory and no NVIDIA GPU. The same Mac renders video and may run Ollama, so TTS must run on CPU or Apple's GPU (MPS) and must not need CUDA.
+
+### Candidate evaluation
+Sources were read on 2026-11-08: each project's GitHub README and LICENSE file, plus Hugging Face model cards. Application (code) licences and model/voice licences are assessed **separately**.
+
+| | **Kokoro** ([hexgrad/kokoro](https://github.com/hexgrad/kokoro), [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)) | **Piper** ([OHF-Voice/piper1-gpl](https://github.com/OHF-Voice/piper1-gpl)) | **F5-TTS** ([SWivid/F5-TTS](https://github.com/SWivid/F5-TTS)) | **VoiceStudio** ([debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio)) |
+|---|---|---|---|---|
+| What it is | Standalone open-weight model (82M parameters) + Python inference library | Local neural TTS engine (VITS voices exported to ONNX); successor of the archived `rhasspy/piper` | Flow-matching model with voice cloning from a reference clip | Desktop/web **app** (Electron + FastAPI) wrapping many engines; default engine k2-fsa/OmniVoice |
+| Code licence | Apache-2.0 | **GPL-3.0** (the archived predecessor was MIT) | MIT | **AGPL-3.0-only** (paid licence for closed-source embedding) |
+| Weights / voice licence | **Apache-2.0**; trained "exclusively on permissive/non-copyrighted audio" (includes CC BY 3.0/4.0 data) | **Per voice.** `en_GB-cori-medium`: dataset **public domain** (LibriVox), trained from scratch. `en_US-ryan`: CC BY-NC-SA 4.0. `lessac`, `amy`, `alan`: licence only linked, not verified | **CC-BY-NC-4.0** (Emilia training data) | Not relicensed by the app; default OmniVoice weights **CC-BY-NC**; "no commercial clearance is asserted" |
+| Commercial use of generated audio | No output restriction stated; the card says it is "deployed in … commercial APIs" | No output restriction on the cori card. **But** Piper's docs say it is "intended for personal use and text to speech research only", so this needs review (V-24) | **Not cleared**: non-commercial weights | **Not cleared** for the default engine |
+| Hardware fit (M5, no CUDA) | CPU; Apple GPU via `PYTORCH_ENABLE_MPS_FALLBACK=1`; small model | ONNX runtime on CPU; small voices | CUDA-oriented install and benchmarks; Apple Silicon support not stated; heavier | Supports Metal (MPS) and CPU; a heavy app stack |
+| Integration | `pip install kokoro` + espeak-ng; Python `KPipeline` API; segment loop | `pip install piper-tts`; Python API, CLI, HTTP server, C API | `pip install f5-tts`; CLI, Gradio, Docker; needs a reference voice clip | Installer, Docker or Bun dev server; local API and batch queue; no pip package |
+| English voices / pronunciation | US English 11F/9M, British English 4F/4M (e.g. `af_heart`, `bm_george`); misaki G2P + espeak-ng fallback; inline phoneme markup seen in examples (unconfirmed) | en_US and en_GB voices; embedded espeak-ng; custom lexicon not stated | Cloned voice; no lexicon controls stated | Engine-dependent; not stated |
+| Speed | Not stated by the project | Not stated | Published only for NVIDIA GPUs | Not stated on the pages read |
+| Maintenance signals | v1.0 weights 27 Jan 2025; active | The foundation is "looking for maintainers" | v1 base model March 2025; active | Very active |
+| **Verdict** | **Primary (provisional)** | **Alternative (provisional), `en_GB-cori-medium` only** | **Excluded**: non-commercial weights | **Excluded** as a pipeline engine: non-commercial default weights, AGPL app, heavy. May be used by hand for listening comparisons only |
+
+**Shared dependency:** espeak-ng is used by Kokoro for out-of-dictionary fallback and is embedded in Piper. Its GPL licence (V-23, to verify) applies to *distributing software*, not to generated audio. The pipeline is an internal service and is not distributed. Review if that ever changes.
+
+### Provider-independent TTS interface
+The video pipeline never imports an engine. It only sees `NarrationAudio` objects. Changing engine is a config change plus a benchmark, never a pipeline rewrite.
+
+```python
+# brief/tts/base.py (P1-06)
+@dataclass(frozen=True)
+class VoiceSpec:
+    provider: str          # "kokoro" | "piper" | "<paid vendor>"
+    model: str             # e.g. "Kokoro-82M", "en_GB-cori-medium"
+    model_version: str     # weights hash or release tag, pinned in config/tts.yaml
+    voice: str             # e.g. "af_heart"
+    speed: float = 1.0
+
+@dataclass(frozen=True)
+class LicenceRecord:       # required before a provider may be used
+    code_licence: str
+    weights_licence: str
+    voice_data_licence: str
+    commercial_use_ok: bool
+    sources: tuple[str, ...]   # URLs
+    verified_on: date
+
+@dataclass(frozen=True)
+class NarrationAudio:      # the only thing render/subtitles consume
+    path: Path             # WAV, PCM16 mono, provider's native rate
+    sample_rate: int
+    duration_s: float
+    sha256: str
+    voice: VoiceSpec
+    cost_usd: float        # 0.0 for local engines
+    word_timings: tuple[tuple[str, float, float], ...] | None
+
+class TTSProvider(Protocol):
+    name: str
+    is_paid: bool
+    def licence(self) -> LicenceRecord: ...
+    def healthcheck(self) -> None: ...               # model present, loads, offline-capable
+    def synthesize(self, text: str, voice: VoiceSpec, out: Path) -> NarrationAudio: ...
+```
+
+- **`brief/tts/service.py`** handles narration for one edition:
+  1. Applies the pronunciation lexicon (`video_templates/lexicon.yaml`, versioned).
+  2. Computes the cache key `sha256(provider‖model‖model_version‖voice‖speed‖lexicon_version‖text)` and reuses cached audio on a hit.
+  3. On a miss, tries the providers in the chain from `config/tts.yaml` (default `[kokoro, piper]`).
+  4. Refuses any provider whose `LicenceRecord.commercial_use_ok` is false.
+  5. Lets a **paid** provider run only if `paid_fallback.enabled: true`, which needs founder approval, and only after `Budget.check("tts", …)`. The cost is logged in the usage ledger.
+- **Segment-level synthesis:** hook, one segment per story, outro. Segments are generated in a batch loop with one model load. Durations drive subtitle timing.
+- **Format contract:** each provider returns WAV. The render step resamples to 48 kHz AAC and normalises to −14 LUFS, so engines can differ in native sample rate.
+- **Provenance:** every edition's `media.narration[]` records `tts_provider`, `tts_model` and `voice`. A voice change mid-epoch is flagged in the review report.
+
+### Benchmark and acceptance criteria (P1-05)
+The **same fixed script** is used for every candidate: about 180 words (about 70–80 s, within the 60–90 s target), adapted from `tests/fixtures/editions/normal.json`. A **20-term AI pronunciation list** (company, model and tool names) is read inside sentences. Everything runs on the founder's M5.
+
+**Candidates:**
+- Kokoro: `af_heart`, `am_adam`, `bf_emma`.
+- Piper: `en_GB-cori-medium`.
+- Excluded: any Piper voice whose licence is non-commercial or unverified, and F5-TTS and VoiceStudio (licence).
+
+| Criterion | Measure | Pass threshold |
+|---|---|---|
+| **Commercial licensing** (hard gate) | Code, weights, voice/dataset licences and any output restriction, each with a source URL and date, recorded in `research/tts-benchmark/licences.md` | Weights and voice data explicitly allow commercial use (e.g. Apache-2.0, MIT, CC-BY, public domain); no non-commercial or research-only term applies to the voice; nothing restricts use of the generated audio. **Any open doubt = fail until resolved** |
+| **Naturalness** | Blind test: the founder + ≥ 3 other listeners rate each clip 1–5 (the panel's scale); random order, engine names hidden | Mean ≥ **3.5**, and no listener rates any clip below 3 |
+| **Pronunciation** | The 20-term list plus every word of the script | ≥ **16/20** correct out of the box; **20/20** after lexicon entries; **0** mispronounced ordinary words |
+| **Generation time** | Full script, model already loaded, on the M5 (CPU or MPS), median of 3 runs | ≤ **60 s** wall time for the full script (faster than real time); first model load ≤ 60 s; peak memory ≤ **4 GB**; no CUDA needed |
+| **Audio quality** | ffprobe + ebur128 + listening | ≥ 22.05 kHz mono; after normalising to −14 LUFS, true peak ≤ −1 dBTP; no glitches, cut-offs or warbling flagged by ≥ 2 listeners |
+| **Reliability and integration** | 20 consecutive segment generations through `TTSProvider`, with the network off | **0** crashes; works offline after the model download; repeat runs give identical or perceptually identical audio; callable from `brief tts synth` |
+
+**Decision rule:**
+- Among engines that pass **every** row, the highest naturalness mean becomes **primary**, with ties going to the faster engine. The runner-up that also passes becomes the **alternative**. Both are recorded in `config/tts.yaml` and this ADR.
+- If **no** local engine passes, the founder decides: improve the lexicon or voice and re-test, or approve the paid fallback within the existing $10 cap.
+
+### Costs
+- **Expected voice spend: ₹0.** The local benchmark replaces the paid vendor bake-off.
+- The existing caps stay as **contingency** until local testing succeeds: **$8** in preparation and **$10** per window (PD-07). The worst case is unchanged, and P1-39 reconsiders the caps after measured use.
+- Local inference uses the existing Mac. There is no new hardware; electricity isn't modelled; model maintenance counts as founder operations time.
+
+**Alternatives considered:**
+- Paid API primary (the previous decision): rejected by the founder; kept only as an optional fallback.
+- F5-TTS and VoiceStudio's default engine: non-commercial weights.
+- Piper `ryan` (CC BY-NC-SA) and other voices with unverified licences: excluded until verified.
 
 <a id="adr-005"></a>
 ## ADR-005 — Render on the Mac worker; cutoff at 17:00

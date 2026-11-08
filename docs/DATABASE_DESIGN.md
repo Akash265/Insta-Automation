@@ -267,7 +267,7 @@ Partial UQ: `(issue_id) WHERE status = 'approved'`. Retention: permanent.
 | storage_bucket, storage_key | text | UQ `(storage_bucket, storage_key)` |
 | public_url | text null | only for the `brief-public` bucket (covers and OG images after approval); MP4s are served to Meta by presigned URL, which is never stored |
 | content_hash | char(64) | |
-| cache_key | char(64) null | TTS: sha256(provider‖model‖voice‖settings‖text); partial UQ where not null |
+| cache_key | char(64) null | TTS: sha256(provider‖model‖model_version‖voice‖speed‖lexicon_version‖text) (ADR-004); partial UQ where not null |
 | mime_type | text, bytes bigint | |
 | duration_ms, width, height | int null | |
 | provider, provider_model | text null | |
@@ -372,7 +372,7 @@ IX: `(entity_type, entity_id, occurred_at)`. Retention: entries tied to issues a
 |---|---|---|
 | id | bigint PK | |
 | occurred_at | timestamptz | |
-| provider | text | `anthropic`, `<fallback>`, `ollama` (local, cost 0), `tts:<vendor>`, `apify` |
+| provider | text | `anthropic`, `<fallback>`, `ollama` (local, cost 0), `tts:kokoro` / `tts:piper` (local, cost 0), `tts:<paid vendor>` (optional fallback), `apify` |
 | tier | text CHECK | `local`, `economy`, `standard`, `premium` (the LLM routing tier, [ADR-003](TECHNICAL_DECISIONS.md#adr-003)); null for non-LLM |
 | batch | bool default false | true when sent through the Anthropic Message Batches API (billed at 50%) |
 | operation | text | `tag_scope`, `same_event`, `triage`, `extract_claims`, `draft_script`, `critic`, `regression`, `tts_segment`, `actor_run` |

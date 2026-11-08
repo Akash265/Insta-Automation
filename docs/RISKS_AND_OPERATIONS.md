@@ -35,6 +35,7 @@ L = likelihood, I = impact (H/M/L).
 | R22 | The volunteer auditor is unavailable on many days, so audit coverage falls | M | M | Coverage target ≥ 10 of 14 editions; self-audits marked and reported separately as weaker; pre-publication checks are optional; recruit a backup volunteer if coverage drops below 70% in week 1 | Audit coverage in `audit-log.csv` | Founder |
 | R23 | A small, friendly panel is over-interpreted as demand | H | M | 3.8/5 is labelled an early qualitative signal; distributions and per-panelist medians are reported; no population claims; demand is tested in the soft launch and at G9 | Gate document wording | Founder |
 | R24 | Schedule compression: Days 31–60 hold about 29 engineering days of scope plus editorial work (about 32 h/week) | H | M | Gates, not dates; Phase 2 starts in Days 15–30; if weekly hours exceed plan by > 20% for 2 weeks, engineering scope moves later. Editorial quality, review and cadence are never cut to save time | Weekly hours; task slip | Founder |
+| R25 | The local TTS engine fails on quality, pronunciation or speed, or a voice licence proves non-commercial | M | M | P1-05 benchmark with hard licence gate; an alternative engine behind the same interface; pronunciation lexicon; paid fallback available but off; never use a voice without a commercial-use licence record | Benchmark results; review flags | Founder |
 
 ## 2. Facts to re-verify before relying on them
 
@@ -53,8 +54,10 @@ Each item has a V-ID in the [TASKS.md verification tracker](../TASKS.md#f-verifi
 | V-05 | Ollama JSON-schema output | `format` accepts a JSON schema | **Verified (official)** 2026-11-07, docs.ollama.com | — |
 | V-06 | Ollama model unload / `keep_alive` setting | Not stated on the page read | Unverified | P2-17 |
 | V-07 | Local model fit and quality on a 16 GB M5 (`gemma4:e4b`, `qwen2.5:7b`) | Secondary sources say ~8B at 4-bit fits | Unverified (measure) | P1-09, P2-17 |
-| V-08 | TTS vendor prices and commercial terms (OpenAI, Google, Azure, ElevenLabs) | $4–30 per million characters (lower-cost tier), ~$100–200 (premium), from aggregators | Unverified | P1-05 |
-| V-09 | Kokoro licence | Apache-2.0 per search summaries of the model card | Unverified (read the model card) | P1-05 |
+| V-08 | Paid TTS vendor prices and terms (optional fallback only) | Aggregator figures only; relevant only if the paid fallback is approved | Unverified | Only if the fallback is needed |
+| V-09 | Kokoro licences | Code Apache-2.0 (LICENSE file); weights Apache-2.0, permissive training data (model card) | **Verified (official)** 2026-11-08 | Re-check at P1-05 |
+| V-23 | espeak-ng licence (used by Kokoro and Piper) | Believed GPL; affects distributing software, not audio | Unverified | P1-05 |
+| V-24 | Piper `en_GB-cori-medium` commercial use | Voice dataset public domain (LibriVox; model card). Piper docs say "intended for personal use and text to speech research only" | Unverified; needs review | P1-05 |
 | V-10 | Domain price | ₹1,000–2,500 a year (business plan) | Unverified | P0-05 |
 | V-11 | Cloudflare Pages limits (direct uploads) and R2 free tier | 500 builds/month; R2 10 GB-month, 1M Class A, 10M Class B, no egress fees, **no hard spend cap** | Unverified (seen only in search summaries) | P1-12 |
 | V-12 | Supabase Free limits, backups, pausing; Pro price | 7-day inactivity pause; backups not reliably included; Pro $25/month | Unverified | P2-01 |
@@ -120,7 +123,7 @@ See [EDITORIAL_PIPELINE §8](EDITORIAL_PIPELINE.md#8-llm-safety-and-prompt-injec
 | Provider | Cap (start) | Enforcement | Warn at |
 |---|---|---|---|
 | LLM | $1.50/day; per plan window (approved): **$7** preparation bake-off · **$10** Days 1–30 · **$20** Days 31–60 (PD-02) · **$35** Days 61–90; plus the [budget ladder](TECHNICAL_DECISIONS.md#adr-003) | `brief/llm/budget.py` checks `usage_ledger` before each call; blocked calls are logged with status `blocked_by_budget` | 80% (WF-09) |
-| TTS | **$8** preparation bake-off; **$10** per window (approved, PD-07), reconsidered for $5 only after measured usage (P1-39) | Same pattern + vendor spend limits | 80% |
+| TTS | **₹0 expected** (local engines). Contingency caps kept until local testing succeeds: **$8** preparation, **$10** per window (PD-07); P1-39 reconsiders | Same pattern; the paid fallback is off by default | 80% |
 | Apify | Free plan ($5 credit); $0.50 per run | Code allow-list + `maxItems`; the free plan blocks at its limit | 80% of credit |
 | R2 | Expected $0 | Lifecycle rules; weekly usage check | 8 GB stored |
 | Supabase | Free through Day 90 → Pro ($25, unverified) at the Phase 5 gate (OD-04, proposed) | Plan choice | DB size 400 MB |
@@ -148,7 +151,7 @@ Each runbook ends with the issue in an explicit state (never stuck in a silent "
 | Malformed LLM output | Schema validation fails twice | Job `dead`; issue `held` | Write the copy by hand (form or JSON edit), or retry after a prompt fix (logged) |
 | LLM provider outage | 5xx or timeouts | Retry, then the fallback provider (outage only) | If both are down, edit manually |
 | LLM budget cap hit | `blocked_by_budget` | Call blocked; alert | Edit manually or raise the cap with a reason |
-| TTS error | Provider error | Retry, then the fallback voice provider or Kokoro (the lexicon still applies) | If the voice changed, note it; accept or delay |
+| TTS error | Local engine error or invalid audio | Retry once, then the next local engine in the chain (Kokoro → Piper); the lexicon still applies | If the voice changed, flag it in review. Use the paid fallback only if the founder has enabled it; otherwise delay the edition |
 | Render failure (FFmpeg) | Non-zero exit or ffprobe check fails | Retry once; keep intermediates and the log in private R2 | Inspect the log; re-render; fall back to the last known-good template version |
 | Mac offline at cutoff | Heartbeat older than 10 min at 16:45 | Alert | Wake the Mac or run the worker on a backup machine; otherwise the issue is web-only |
 | Preview deploy or link check fails | `deploy_preview` dead; C02 fail | Retry; a dead link is retried once | Replace the dead source with an authoritative one or drop the story |

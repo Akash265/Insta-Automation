@@ -1,6 +1,9 @@
 # Budget periods and the first-90-day cash ceiling (task P1-36).
 # Approved 2026-11-07: PD-01 (pre-Day-1 spend counts inside the ceiling),
 # PD-02 ($20 LLM cap for Days 31-60), PD-07 ($10 voice cap per window).
+# Voice is generated locally (ADR-004, 2026-11-08): expected voice spend is 0. The
+# tts caps below are contingency for the optional paid fallback, kept until local
+# testing succeeds (reviewed in P1-39).
 # Caps are per plan window, not per calendar month. Cash amounts are INR; caps are USD.
 
 inr_per_usd: 88            # planning convention from the business plan
