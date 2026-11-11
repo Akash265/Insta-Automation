@@ -1,0 +1,24 @@
+# Visual identity v1 (P1-07, founder choice 2026-11-11: dark, one accent).
+# Working title until OD-01 (brand, handle, domain) is settled.
+version: 1
+brand: AI DAILY BRIEF
+canvas: {width: 1080, height: 1920}
+# Instagram's Reels UI covers the top bar, the caption/buttons at the bottom and the
+# icon column on the right, so text stays inside this box.
+safe_area: {left: 90, right: 960, top: 250, bottom: 1500}
+colours:
+  background: "#0B0D12"
+  text: "#FFFFFF"
+  muted: "#9AA3B2"
+  accent: "#2F80FF"
+  track: "#2A2F3A"
+  subtitle_box: "#000000B4"   # black at ~70% opacity behind subtitles
+fonts:                         # Inter v4.1, SIL OFL 1.1 (fonts/LICENSE.txt)
+  bold: fonts/Inter-Bold.ttf
+  semibold: fonts/Inter-SemiBold.ttf
+  regular: fonts/Inter-Regular.ttf
+subtitles:
+  top: 1250                    # band from here to the safe-area bottom
+  size: 46
+  max_chars_per_line: 42
+  max_lines: 2

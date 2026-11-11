@@ -402,7 +402,11 @@ At about 100 jobs a day, Postgres is far more than enough.
 - No company logos or product screenshots unless the rights are documented.
 
 **Rejected:** browser/Remotion rendering (heavier toolchain) and generative video (cost, plus the risk of misleading visuals).
-**Open item found at setup (2026-11-08):** the standard Homebrew FFmpeg 9.0.2 has no `ass`/`subtitles` filter (no libass), so burning in ASS subtitles needs `ffmpeg-full`. The recommended alternative is to render subtitle chunks as transparent PNGs with Pillow and overlay them with timed FFmpeg `overlay` filters. That adds no dependency and stays deterministic. Decided in P1-08.
+**Subtitles (decided 2026-11-11, P1-08):** the standard Homebrew FFmpeg 9.0.2 has no `ass`/`subtitles` filter. Subtitle chunks are therefore drawn as transparent PNGs by Pillow and overlaid with timed FFmpeg `overlay` filters, not burned in from ASS. This adds no dependency and stays deterministic.
+
+**Loudness, as built (2026-11-11, P1-10):** the first real render showed that two-pass loudnorm alone can't reach −14 LUFS on Kokoro narration. Its peak-to-loudness ratio is about 20 dB, so a constant gain would break the true-peak target, loudnorm fell back to dynamic mode and landed at −16 LUFS (the final checks refused it). The render therefore adds a **pre-stage**: resample to 48 kHz, apply gain, then a fast peak limiter (`alimiter`, ceiling −2 dBFS, 1 ms attack, 30 ms release). The gain is raised by 1.5× the measured shortfall, up to 4 rounds, until the track is within 0.3 LU of −14. The **two-pass linear** loudnorm then makes only a small, constant correction. On the fixture this gave linear mode and −14.0 LUFS / −4.3 dBTP on the final MP4. Every step's measurements go into the render report. A compressor was tried first and barely reduced the peak ratio, because the peaks are fast transients.
+
+**Fonts and style (2026-11-11, P1-07):** Inter v4.1 (SIL OFL 1.1), with provenance in `video_templates/fonts/FONTS.md`. The look, chosen by the founder, is dark with one blue accent. The working title stays until OD-01.
 
 <a id="adr-017"></a>
 ## ADR-017 — Public soft launch at 5 editions a week after a passed experiment

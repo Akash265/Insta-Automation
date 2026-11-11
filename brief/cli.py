@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from datetime import date, datetime
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Any
 
 import typer
 
@@ -23,7 +23,7 @@ from brief.budget import (
 from brief.doctor import render, run_checks
 from brief.edition.caption import build_caption, caption_for_posting
 from brief.edition.checks import STAGES, load_edition, validate_file
-from brief.edition.schema import json_schema_text
+from brief.edition.schema import Edition, json_schema_text
 from brief.experiment.errorlog import (
     ErrorLogIntegrityError,
     add_checkpoint,
@@ -35,6 +35,10 @@ from brief.experiment.errorlog import (
 from brief.experiment.report import experiment_report, phase1_report
 from brief.experiment.sampler import sample_story_ranks
 from brief.linkcheck import check_links, collect_links, render_linkcheck
+from brief.media.cards import CardOverflowError, render_cards
+from brief.media.render import RenderFailedError, render_reel
+from brief.media.subtitles import build_subtitles
+from brief.media.theme import DEFAULT_THEME, ThemeError, load_theme
 from brief.tts.base import TTSProviderError
 from brief.tts.config import (
     ALLOWED_VOICES,
@@ -49,6 +53,7 @@ from brief.tts.service import (
     Segment,
     build_service,
     edition_segments,
+    file_sha256,
     narration_refs,
 )
 
@@ -429,3 +434,82 @@ def tts_synth(
         data["media"]["narration"] = narration_refs(audio)
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         typer.echo(f"recorded {len(audio)} segments in {path}")
+
+
+_RENDER_ERRORS = (*_TTS_ERRORS, RenderFailedError, CardOverflowError, ThemeError, ValueError)
+
+
+def _edition_or_exit(path: Path) -> Edition:
+    edition, issues = load_edition(path)
+    if edition is None:
+        typer.echo("error: " + "; ".join(i.message for i in issues), err=True)
+        raise typer.Exit(1)
+    return edition
+
+
+@app.command("cards")
+def cards_cmd(
+    path: Annotated[Path, typer.Argument(help="Edition JSON file.")],
+    out: Annotated[Path, typer.Option(help="Output folder.")] = Path("out"),
+    theme: Annotated[Path, typer.Option()] = DEFAULT_THEME,
+) -> None:
+    """Draw the intro, story and outro cards (1080x1920 PNG) for review."""
+    edition = _edition_or_exit(path)
+    try:
+        cards = render_cards(load_theme(theme), edition, out / edition.issue_key / "cards")
+    except _RENDER_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    for card in cards:
+        typer.echo(f"{card.kind:5}  {card.path}")
+
+
+@app.command("render")
+def render_cmd(
+    path: Annotated[Path, typer.Argument(help="Edition JSON file.")],
+    write: Annotated[
+        bool, typer.Option(help="Record narration, MP4 and cover in the edition.")
+    ] = False,
+    out: Annotated[Path, typer.Option(help="Output folder.")] = Path("out"),
+    theme: Annotated[Path, typer.Option()] = DEFAULT_THEME,
+    config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG,
+) -> None:
+    """Narrate (cached), draw cards and subtitles, and render the checked Reel MP4."""
+    edition = _edition_or_exit(path)
+    target = out / edition.issue_key
+    try:
+        th = load_theme(theme)
+        segments = edition_segments(edition)
+        audio = build_service(load_tts_config(config)).narrate_all(segments)
+        cards = render_cards(th, edition, target / "cards")
+
+        def subtitles_for(timeline: list[tuple[float, float]]) -> list[Any]:
+            spans = [(s.text, start, spoken)
+                     for s, (start, spoken) in zip(segments, timeline, strict=True)]  # fmt: skip
+            return build_subtitles(th, spans, target / "subs")
+
+        result = render_reel(cards, [a.path for a in audio], subtitles_for, target,
+                             edition.issue_key, (th.width, th.height, th.subtitle_top))  # fmt: skip
+    except _RENDER_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        typer.echo("render failed: no Reel today; publish web-only", err=True)
+        raise typer.Exit(1) from exc
+    c = result.checks
+    typer.echo(f"{result.mp4}  ({c.manifest['format_duration']} s, {c.integrated_lufs:.1f} LUFS, "
+               f"true peak {c.true_peak_dbtp:.1f} dBTP, attempts {result.attempts}, "
+               f"{result.seconds:.0f} s to render)")  # fmt: skip
+    typer.echo(f"cover: {result.cover}\nreport: {result.report}")
+    if write:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        media = data.get("media") or {}
+        media["narration"] = narration_refs(audio)
+        media["mp4"] = {"key": f"reels/{edition.issue_key}.mp4", "sha256": file_sha256(result.mp4)}
+        media["cover"] = {
+            "key": f"covers/{edition.issue_key}.png",
+            "sha256": file_sha256(result.cover),
+        }
+        data["media"] = media
+        if data.get("experiment") is not None:
+            data["experiment"]["render_attempts"] = result.attempts
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        typer.echo(f"recorded media in {path}")
