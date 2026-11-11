@@ -41,6 +41,7 @@ uv run brief report phase1                                     # completion, sup
 uv run brief report experiment                                 # accuracy, panel, distinctiveness, audits
 uv run brief experiment log-error --help                       # append-only error log (never edit the CSV)
 uv run brief experiment verify-log                             # chain, genesis, checkpoints, committed anchor
+uv run brief tts voice [--set B|C|D]                           # narration voice (default C = Kokoro am_adam)
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test

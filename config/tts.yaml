@@ -1,0 +1,39 @@
+# Narration voice (ADR-004). Founder decision 2026-11-11: voice C, no listening test.
+# To change the voice, run `uv run brief tts voice --set B|C|D` (or edit `active_voice`).
+# Only B, C and D are allowed; nothing else in the pipeline changes when you switch.
+version: 1
+engine: kokoro
+device: cpu            # "mps" (Apple GPU) is an optional optimisation
+paid_fallback: false   # paid TTS stays disabled; expected voice spend is ₹0
+active_voice: C
+
+model:
+  repo: hexgrad/Kokoro-82M
+  revision: f3ff3571791e39611d31c381e3a41a3af07b4987
+  weights_file: kokoro-v1_0.pth
+  weights_sha256: 496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4
+
+licence:
+  code: Apache-2.0
+  weights: Apache-2.0
+  commercial_use_ok: true
+  record: research/tts-benchmark/licences.md
+  verified_on: 2026-11-08
+
+# Letters are the blind-test labels from the P1-05 benchmark (A was Piper, which is on hold).
+voices:
+  B:
+    voice_id: af_heart
+    lang_code: a        # US English
+    file: voices/af_heart.pt
+    sha256: 0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff
+  C:
+    voice_id: am_adam
+    lang_code: a        # US English
+    file: voices/am_adam.pt
+    sha256: ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34
+  D:
+    voice_id: bf_emma
+    lang_code: b        # British English
+    file: voices/bf_emma.pt
+    sha256: d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701

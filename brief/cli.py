@@ -35,6 +35,13 @@ from brief.experiment.errorlog import (
 from brief.experiment.report import experiment_report, phase1_report
 from brief.experiment.sampler import sample_story_ranks
 from brief.linkcheck import check_links, collect_links, render_linkcheck
+from brief.tts.config import (
+    ALLOWED_VOICES,
+    DEFAULT_TTS_CONFIG,
+    TTSConfigError,
+    load_tts_config,
+    set_active_voice,
+)
 
 SCHEMA_PATH = Path("schemas/edition.schema.json")
 
@@ -49,6 +56,8 @@ experiment_app = typer.Typer(
 )
 app.add_typer(report_app, name="report")
 app.add_typer(experiment_app, name="experiment")
+tts_app = typer.Typer(help="Narration voice (ADR-004).", no_args_is_help=True)
+app.add_typer(tts_app, name="tts")
 EXPERIMENT_DIR = Path("experiment")
 EDITIONS_DIR = Path("editions")
 
@@ -304,3 +313,25 @@ def experiment_verify_log(
     typer.echo("error log intact" if not problems else "error log NOT intact")
     if problems:
         raise typer.Exit(code=1)
+
+
+@tts_app.command("voice")
+def tts_voice(
+    set_: Annotated[
+        str | None, typer.Option("--set", help=f"Switch to voice {'/'.join(ALLOWED_VOICES)}.")
+    ] = None,
+    config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG,
+) -> None:
+    """Show the narration voice, or switch it between B, C and D."""
+    try:
+        if set_ is not None:
+            set_active_voice(set_, config)
+        cfg = load_tts_config(config)
+    except TTSConfigError as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    for letter, v in cfg.voices.items():
+        mark = "*" if v is cfg.active else " "
+        typer.echo(f"{mark} {letter}  {cfg.engine} {v.voice_id} (lang {v.lang_code})")
+    typer.echo(f"active: {cfg.active.letter} ({cfg.active.voice_id}), device {cfg.device}, "
+               "paid fallback off")  # fmt: skip

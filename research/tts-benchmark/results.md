@@ -2,6 +2,8 @@
 
 **Status: machine measurements complete. Human listening (P1-40) pending. No engine is enabled for production.**
 
+**Voice chosen (2026-11-11, founder decision):** the listening test was waived. Voice **C = Kokoro `am_adam`** (CPU) is set in `config/tts.yaml`; B (`af_heart`) and D (`bf_emma`) remain switchable with `brief tts voice --set B|C|D`. The key was opened only to make this mapping.
+
 **Founder decisions (2026-11-08):**
 - Kokoro is the provisional primary, on **CPU** for the initial production configuration; Apple GPU (MPS) is an optional optimisation.
 - Piper is **on hold** (no further work).

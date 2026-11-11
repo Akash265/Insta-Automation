@@ -266,6 +266,12 @@ Run on the founder's M5 (16 GB, macOS 26.6.2) in the isolated environment `resea
 - **No `config/tts.yaml` and no production narration** until the P1-40 blind-listening results are in. The blind clips and the sealed key are kept unchanged. Results are analysed with `research/tts-benchmark/analyse_listening.py`, which reads the key only with `--reveal`.
 - **Loudness is handled at render (P1-10, ADR-015)**, not in the TTS engine: the raw engine level does not matter as long as the assembled video passes the final-output checks.
 
+### Voice selection (2026-11-11, founder decision)
+- **The listening test (P1-40) is waived.** The founder chose blind voice **C**, which the key maps to **Kokoro `am_adam`** (US English). The other mappings are B = `af_heart` and D = `bf_emma`; A was Piper, which is on hold.
+- `config/tts.yaml` records the engine (`kokoro`), device (`cpu`), the pinned model revision, weight and voice hashes (matching `research/tts-benchmark/results/model-manifest.json`, checked by a test), the licence record, and `active_voice: C`.
+- **Switching** is limited to **B, C or D**: `uv run brief tts voice --set B|C|D`. Nothing else in the pipeline changes. The loader refuses any other voice, any engine other than Kokoro, a missing commercial-use licence record, and `paid_fallback: true`.
+- **Risk accepted:** naturalness and pronunciation were not rated by listeners. Mitigations are the pronunciation lexicon (P1-06; *Qwen* first) and watching one real render in full before Day 1 (G1 M11).
+
 ### Costs
 - **Expected voice spend: ₹0.** The local benchmark replaces the paid vendor bake-off.
 - The existing caps stay as **contingency** until local testing succeeds: **$8** in preparation and **$10** per window (PD-07). The worst case is unchanged, and P1-39 reconsiders the caps after measured use.

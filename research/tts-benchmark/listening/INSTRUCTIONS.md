@@ -1,5 +1,7 @@
 # P1-40 blind listening test (TTS benchmark)
 
+> **Waived 2026-11-11 (founder decision).** Voice C (Kokoro `am_adam`) was chosen without listener ratings. These materials are kept in case a test is ever run; note the key has now been opened.
+
 **Who:** at least 3 independent listeners (reader-panel volunteers are fine), codes L1, L2, L3…
 The founder may also score, using code **F**. That sheet is included in the results but does not count toward the 3.
 **Time:** about 15 minutes per listener.
