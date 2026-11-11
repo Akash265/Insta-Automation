@@ -1,0 +1,15 @@
+# Pronunciation lexicon (ADR-004, P1-06). Applied to narration text before synthesis.
+# Each `term` is replaced, as a whole word and case-sensitively, by `say`: a plain-English
+# respelling that any engine can read. Editing this file changes the cache key, so the
+# affected segments are re-synthesised automatically.
+#
+# Add an entry only after hearing the engine get a name wrong. Evidence for the current
+# entries: Kokoro phonemes from the P1-05 benchmark (research/tts-benchmark/results.md).
+version: 1
+entries:
+  - term: CUDA
+    say: Kooda          # Kokoro spelled it out as "C U D A"
+    added: 2026-11-11
+  - term: Qwen
+    say: Kwen           # Kokoro said "Q-wen"; founder to confirm "Kwen" vs "Chwen"
+    added: 2026-11-11

@@ -42,6 +42,9 @@ uv run brief report experiment                                 # accuracy, panel
 uv run brief experiment log-error --help                       # append-only error log (never edit the CSV)
 uv run brief experiment verify-log                             # chain, genesis, checkpoints, committed anchor
 uv run brief tts voice [--set B|C|D]                           # narration voice (default C = Kokoro am_adam)
+uv sync --extra tts                                            # install Kokoro (optional; PyTorch)
+uv run --extra tts brief tts synth editions/2026-12-01.json --write   # narrate an edition (cached)
+uv run --extra tts brief tts say "Qwen runs on CUDA"           # hear one line (lexicon applied)
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test

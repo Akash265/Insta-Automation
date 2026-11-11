@@ -10,15 +10,19 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from typing import Any
 
 import yaml  # type: ignore[import-untyped]
 
+from brief.tts.base import LicenceRecord, VoiceSpec
+
 DEFAULT_TTS_CONFIG = Path("config/tts.yaml")
 ALLOWED_VOICES = ("B", "C", "D")
 DEVICES = ("cpu", "mps")
 _ACTIVE_LINE = re.compile(r"^active_voice:\s*\S+", re.MULTILINE)
+_SHA = re.compile(r"[0-9a-f]{64}")
 
 
 class TTSConfigError(ValueError):
@@ -35,22 +39,52 @@ class Voice:
 
 
 @dataclass(frozen=True)
+class ModelFiles:
+    name: str
+    repo: str
+    revision: str
+    weights_file: str
+    weights_sha256: str
+    config_file: str
+    config_sha256: str
+
+
+@dataclass(frozen=True)
 class TTSConfig:
     engine: str
     device: str
     paid_fallback: bool
-    model_repo: str
-    model_revision: str
-    weights_sha256: str
+    speed: float
+    lexicon: Path
+    cache_dir: Path
+    model: ModelFiles
+    licence: LicenceRecord
     licence_record: str
     voices: dict[str, Voice]
     active: Voice
+
+    def voice_spec(self) -> VoiceSpec:
+        return VoiceSpec(
+            provider=self.engine,
+            model=self.model.name,
+            model_version=f"{self.model.revision}:{self.model.weights_sha256[:16]}",
+            voice=self.active.voice_id,
+            lang_code=self.active.lang_code,
+            speed=self.speed,
+        )
 
 
 def _require(raw: dict[str, Any], key: str) -> Any:
     if key not in raw:
         raise TTSConfigError(f"missing {key!r}")
     return raw[key]
+
+
+def _sha(value: Any, what: str) -> str:
+    text = str(value)
+    if not _SHA.fullmatch(text):
+        raise TTSConfigError(f"{what}: sha256 must be 64 hex characters")
+    return text
 
 
 def load_tts_config(path: Path = DEFAULT_TTS_CONFIG) -> TTSConfig:
@@ -67,31 +101,59 @@ def load_tts_config(path: Path = DEFAULT_TTS_CONFIG) -> TTSConfig:
         raise TTSConfigError(f"device must be one of {DEVICES}")
     if _require(raw, "paid_fallback") is not False:
         raise TTSConfigError("paid_fallback must stay false (founder decision, ADR-004)")
-    licence = _require(raw, "licence")
-    if licence.get("commercial_use_ok") is not True or not licence.get("record"):
+    lic = _require(raw, "licence")
+    if lic.get("commercial_use_ok") is not True or not lic.get("record"):
         raise TTSConfigError("a voice needs a commercial-use licence record (ADR-004)")
+    verified = lic.get("verified_on")
+    if not isinstance(verified, date):
+        raise TTSConfigError("licence.verified_on must be a date")
+    licence = LicenceRecord(
+        code_licence=str(lic["code"]),
+        weights_licence=str(lic["weights"]),
+        voice_data_licence=str(lic.get("voice_data", "")),
+        commercial_use_ok=True,
+        sources=tuple(str(s) for s in lic.get("sources", [])),
+        verified_on=verified,
+    )
     voices_raw = _require(raw, "voices")
     if set(voices_raw) != set(ALLOWED_VOICES):
         raise TTSConfigError(f"voices must be exactly {ALLOWED_VOICES}, found {sorted(voices_raw)}")
-    voices = {}
-    for letter in ALLOWED_VOICES:
-        v = voices_raw[letter]
-        sha = str(v["sha256"])
-        if not re.fullmatch(r"[0-9a-f]{64}", sha):
-            raise TTSConfigError(f"voice {letter}: sha256 must be 64 hex characters")
-        voices[letter] = Voice(letter, str(v["voice_id"]), str(v["lang_code"]), str(v["file"]), sha)
+    voices = {
+        letter: Voice(
+            letter,
+            str(v["voice_id"]),
+            str(v["lang_code"]),
+            str(v["file"]),
+            _sha(v["sha256"], f"voice {letter}"),
+        )
+        for letter, v in ((k, voices_raw[k]) for k in ALLOWED_VOICES)
+    }
     active = str(_require(raw, "active_voice")).upper()
     if active not in ALLOWED_VOICES:
         raise TTSConfigError(f"active_voice must be one of {ALLOWED_VOICES}, not {active!r}")
-    model = _require(raw, "model")
+    speed = float(raw.get("speed", 1.0))
+    if not 0.5 <= speed <= 2.0:
+        raise TTSConfigError("speed must be between 0.5 and 2.0")
+    m = _require(raw, "model")
+    model = ModelFiles(
+        name=str(m["name"]),
+        repo=str(m["repo"]),
+        revision=str(m["revision"]),
+        weights_file=str(m["weights_file"]),
+        weights_sha256=_sha(m["weights_sha256"], "model weights"),
+        config_file=str(m["config_file"]),
+        config_sha256=_sha(m["config_sha256"], "model config"),
+    )
     return TTSConfig(
         engine="kokoro",
         device=device,
         paid_fallback=False,
-        model_repo=str(model["repo"]),
-        model_revision=str(model["revision"]),
-        weights_sha256=str(model["weights_sha256"]),
-        licence_record=str(licence["record"]),
+        speed=speed,
+        lexicon=Path(str(_require(raw, "lexicon"))),
+        cache_dir=Path(str(_require(raw, "cache_dir"))),
+        model=model,
+        licence=licence,
+        licence_record=str(lic["record"]),
         voices=voices,
         active=voices[active],
     )

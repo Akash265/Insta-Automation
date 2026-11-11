@@ -38,7 +38,7 @@ def test_hashes_match_the_benchmark_manifest() -> None:
     )
     hashes = {f["file"]: f["sha256"] for f in manifest["files"]}
     c = load_tts_config(CONFIG)
-    assert c.weights_sha256 == hashes["kokoro-v1_0.pth"]
+    assert c.model.weights_sha256 == hashes["kokoro-v1_0.pth"]
     for v in c.voices.values():
         assert v.sha256 == hashes[v.file]
 

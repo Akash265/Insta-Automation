@@ -270,6 +270,7 @@ Run on the founder's M5 (16 GB, macOS 26.6.2) in the isolated environment `resea
 - **The listening test (P1-40) is waived.** The founder chose blind voice **C**, which the key maps to **Kokoro `am_adam`** (US English). The other mappings are B = `af_heart` and D = `bf_emma`; A was Piper, which is on hold.
 - `config/tts.yaml` records the engine (`kokoro`), device (`cpu`), the pinned model revision, weight and voice hashes (matching `research/tts-benchmark/results/model-manifest.json`, checked by a test), the licence record, and `active_voice: C`.
 - **Switching** is limited to **B, C or D**: `uv run brief tts voice --set B|C|D`. Nothing else in the pipeline changes. The loader refuses any other voice, any engine other than Kokoro, a missing commercial-use licence record, and `paid_fallback: true`.
+- **Built (P1-06, 2026-11-11):** `brief/tts/` follows the interface above. Kokoro is an optional extra (`uv sync --extra tts`, same versions as the benchmark). Every model file is hash-checked against `config/tts.yaml` before use, synthesis runs with the Hugging Face hub offline, and downloading is a separate explicit step (`brief tts fetch-model`). The chain currently has one provider (Kokoro). If it fails, `brief tts synth` exits non-zero with "skip the Reel and publish web-only".
 - **Risk accepted:** naturalness and pronunciation were not rated by listeners. Mitigations are the pronunciation lexicon (P1-06; *Qwen* first) and watching one real render in full before Day 1 (G1 M11).
 
 ### Costs

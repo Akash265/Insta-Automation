@@ -35,12 +35,21 @@ from brief.experiment.errorlog import (
 from brief.experiment.report import experiment_report, phase1_report
 from brief.experiment.sampler import sample_story_ranks
 from brief.linkcheck import check_links, collect_links, render_linkcheck
+from brief.tts.base import TTSProviderError
 from brief.tts.config import (
     ALLOWED_VOICES,
     DEFAULT_TTS_CONFIG,
     TTSConfigError,
     load_tts_config,
     set_active_voice,
+)
+from brief.tts.lexicon import LexiconError
+from brief.tts.service import (
+    NarrationFailedError,
+    Segment,
+    build_service,
+    edition_segments,
+    narration_refs,
 )
 
 SCHEMA_PATH = Path("schemas/edition.schema.json")
@@ -335,3 +344,88 @@ def tts_voice(
         typer.echo(f"{mark} {letter}  {cfg.engine} {v.voice_id} (lang {v.lang_code})")
     typer.echo(f"active: {cfg.active.letter} ({cfg.active.voice_id}), device {cfg.device}, "
                "paid fallback off")  # fmt: skip
+
+
+_TTS_ERRORS = (TTSConfigError, TTSProviderError, NarrationFailedError, LexiconError)
+
+
+@tts_app.command("fetch-model")
+def tts_fetch_model(config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG) -> None:
+    """Download (once) and hash-check the pinned Kokoro files for voices B, C and D."""
+    from brief.tts.kokoro import fetch_model
+
+    try:
+        paths = fetch_model(load_tts_config(config))
+    except _TTS_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    for name in paths:
+        typer.echo(f"ok  {name} (sha256 matches)")
+
+
+@tts_app.command("check")
+def tts_check(config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG) -> None:
+    """Verify model hashes and load the engine offline (no audio is written)."""
+    from brief.tts.kokoro import KokoroProvider
+
+    try:
+        cfg = load_tts_config(config)
+        KokoroProvider(cfg).healthcheck()
+    except _TTS_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"ok: {cfg.engine} {cfg.active.voice_id} (voice {cfg.active.letter}) "
+               f"loads offline on {cfg.device}")  # fmt: skip
+
+
+@tts_app.command("say")
+def tts_say(
+    text: Annotated[str, typer.Argument(help="Text to speak (the lexicon is applied).")],
+    out: Annotated[Path, typer.Option(help="Copy the WAV here for listening.")] = Path(
+        "cache/tts/say.wav"
+    ),
+    config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG,
+) -> None:
+    """Synthesise one line with the active voice, to listen to a voice or a lexicon fix."""
+    try:
+        audio = build_service(load_tts_config(config)).narrate(Segment(0, text))
+    except _TTS_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(audio.path.read_bytes())
+    typer.echo(f"{out} ({audio.duration_s:.1f} s, voice {audio.voice.voice})")
+
+
+@tts_app.command("synth")
+def tts_synth(
+    path: Annotated[Path, typer.Argument(help="Edition JSON file.")],
+    write: Annotated[
+        bool, typer.Option(help="Record the narration in the edition's media.narration.")
+    ] = False,
+    config: Annotated[Path, typer.Option()] = DEFAULT_TTS_CONFIG,
+) -> None:
+    """Narrate an edition: hook, one segment per story, outro. Unchanged text is cached."""
+    try:
+        edition, issues = load_edition(path)
+        if edition is None:
+            raise NarrationFailedError("; ".join(i.message for i in issues) or "invalid edition")
+        service = build_service(load_tts_config(config))
+        audio = service.narrate_all(edition_segments(edition))
+    except _TTS_ERRORS as exc:
+        typer.echo(f"error: {exc}", err=True)
+        typer.echo("narration failed: skip the Reel and publish web-only", err=True)
+        raise typer.Exit(1) from exc
+    total = 0.0
+    for n, a in enumerate(audio):
+        total += a.duration_s
+        state = "cached" if a.cached else "new"
+        typer.echo(f"segment {n}: {a.duration_s:5.1f} s  {state:6}  {a.path}")
+    typer.echo(f"total narration: {total:.1f} s, voice {audio[0].voice.voice}")
+    if write:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data.setdefault("media", {})
+        data["media"] = data["media"] or {}
+        data["media"]["narration"] = narration_refs(audio)
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        typer.echo(f"recorded {len(audio)} segments in {path}")

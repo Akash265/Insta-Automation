@@ -11,12 +11,26 @@ dependencies = [
     "typer>=0.27.3",
 ]
 
+[project.optional-dependencies]
+# Local narration engine (ADR-004): `uv sync --extra tts`. Kept optional so tests and CI
+# don't need PyTorch. Versions match the P1-05 benchmark.
+tts = [
+    "kokoro==0.9.4",
+    "misaki==0.9.4",
+    "soundfile==0.14.0",
+    # spaCy English model for misaki, pinned so misaki never runs `spacy.cli.download`.
+    "en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+]
+
 [project.scripts]
 brief = "brief.cli:app"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true  # the pinned spaCy model wheel above
 
 [tool.hatch.build.targets.wheel]
 packages = ["brief"]
@@ -40,6 +54,12 @@ select = ["E", "F", "I", "B", "UP", "S", "SIM", "RUF"]
 python_version = "3.12"
 strict = true
 packages = ["brief"]
+
+[[tool.mypy.overrides]]
+# Optional `tts` extra: untyped, and absent when the extra isn't installed.
+module = ["kokoro", "kokoro.*", "soundfile", "numpy", "numpy.*", "huggingface_hub"]
+ignore_missing_imports = true
+follow_imports = "skip"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

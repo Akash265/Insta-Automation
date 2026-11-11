@@ -6,18 +6,28 @@ engine: kokoro
 device: cpu            # "mps" (Apple GPU) is an optional optimisation
 paid_fallback: false   # paid TTS stays disabled; expected voice spend is ₹0
 active_voice: C
+speed: 1.0
+lexicon: video_templates/lexicon.yaml   # pronunciation fixes, applied before synthesis
+cache_dir: cache/tts                    # git-ignored; audio is reused when nothing changed
 
 model:
+  name: Kokoro-82M
   repo: hexgrad/Kokoro-82M
   revision: f3ff3571791e39611d31c381e3a41a3af07b4987
   weights_file: kokoro-v1_0.pth
   weights_sha256: 496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4
+  config_file: config.json
+  config_sha256: 5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f
 
 licence:
   code: Apache-2.0
   weights: Apache-2.0
+  voice_data: permissive/non-copyrighted audio, incl. CC BY 3.0/4.0 (attribution recommended)
   commercial_use_ok: true
   record: research/tts-benchmark/licences.md
+  sources:
+    - https://huggingface.co/hexgrad/Kokoro-82M
+    - https://github.com/hexgrad/kokoro
   verified_on: 2026-11-08
 
 # Letters are the blind-test labels from the P1-05 benchmark (A was Piper, which is on hold).
