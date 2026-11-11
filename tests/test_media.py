@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import itertools
 import json
 import math
 import os
@@ -11,7 +12,7 @@ import wave
 from pathlib import Path
 
 import pytest
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageStat
 from typer.testing import CliRunner
 
 import brief.tts.service as service_mod
@@ -19,7 +20,7 @@ from brief.cli import app
 from brief.edition.schema import Edition
 from brief.media.cards import Card, CardOverflowError, render_cards, story_card
 from brief.media.probe import check_output
-from brief.media.render import RenderFailedError, render_reel, segment_frames
+from brief.media.render import RenderFailedError, render_reel, segment_frames, zoom_frame
 from brief.media.subtitles import (
     Chunk,
     build_subtitles,
@@ -175,6 +176,18 @@ def render_inputs(
 
 def no_subs(_timeline: list[tuple[float, float]]) -> list[tuple[Chunk, Path]]:
     return []
+
+
+def test_zoom_moves_smoothly_and_never_stops(tmp_path: Path) -> None:
+    """Regression: zoompan moved in whole pixels (stutter) and stopped at its cap mid-card."""
+    card = Image.open(render_cards(THEME, edition(), tmp_path)[1].path).convert("RGB")
+    box = (90, 420, 990, 1120)  # headline area
+    frames = [zoom_frame(card, i, 60).crop(box).convert("L") for i in range(0, 60, 3)]
+    changes = [
+        ImageStat.Stat(ImageChops.difference(a, b)).mean[0] for a, b in itertools.pairwise(frames)
+    ]
+    assert min(changes) > 0  # no frozen frames, right up to the end of the card
+    assert max(changes) < 2.5 * (sum(changes) / len(changes))  # no jumps
 
 
 def test_segment_frames_end_with_the_audio() -> None:

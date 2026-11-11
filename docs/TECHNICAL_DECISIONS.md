@@ -383,7 +383,7 @@ At about 100 jobs a day, Postgres is far more than enough.
 **Status:** Accepted.
 **Decision:**
 - Each story card is a 1080×1920 PNG rendered by Pillow (headline, publisher, date, category chip, key phrase).
-- Simple motion is done in FFmpeg filters (Ken Burns zoom, crossfades, progress bar).
+- Simple motion: a slow push-in on each card. **Changed 2026-11-11:** FFmpeg's `zoompan` moved in whole pixels, so the zoom stuttered (about half the frames frozen, the rest jumping), and it stopped at its 4% cap after about 6.7 s of a 10–17 s card. Frames are now drawn by Pillow with a sub-pixel affine zoom of 3% spread over each card's whole duration. Subtitles are composited on the same frames, cards are encoded in parallel and joined without re-encoding, and a loudness retry only redoes the audio. Measured on the fixture: 0 frozen frames, even motion, about 52 s per render on the M5.
 - Subtitles are ASS files burned in. Timing comes from segment durations (ffprobe), split into phrase chunks proportional to characters, or from provider word timestamps when available. No speech-to-text.
 - Output: H.264 High, 30 fps, AAC 48 kHz, −14 LUFS loudness, 60–90 s, with a cover frame exported.
 - **Loudness (two-pass, decided 2026-11-08 from the P1-05 measurements):** a single `loudnorm` pass landed at −14.7 to −15.9 LUFS on the benchmark narration, which misses the target. P1-10 therefore uses two passes on the **assembled narration track** (all segments, joined with their pauses):

@@ -5,9 +5,12 @@ Steps:
    the timeline: segment n starts at `starts[n]`.
 2. Loudness: measure, pre-gain to about -14 LUFS with a peak limiter at 48 kHz, then
    two-pass `loudnorm` with `linear=true` (I -14 LUFS, TP -1.5 dBTP). See `normalise`.
-3. One FFmpeg run: each card is shown for its segment's frames with a slow zoom, the
-   subtitle PNGs are overlaid in their time windows, and the result is encoded as
-   H.264 High 30 fps + AAC 48 kHz.
+3. Video, drawn by Pillow (not FFmpeg's zoompan, which moves in whole pixels and made
+   the zoom stutter): each card gets a continuous sub-pixel push-in spread over its whole
+   duration, the subtitle PNGs are composited in their time windows, and every card is
+   encoded to H.264 High 30 fps in parallel. The pieces are joined without re-encoding
+   and muxed with the AAC 48 kHz narration. The video is drawn once; a loudness retry
+   only redoes the audio.
 4. Final checks on the **encoded MP4** (`probe.py`). A failing render is never kept as
    the output. It is retried once with the true-peak target 0.5 dB lower; if that also
    fails, `RenderFailedError` is raised (no Reel that day; the site still publishes).
@@ -17,14 +20,18 @@ from __future__ import annotations
 
 import itertools
 import json
+import os
 import shutil
 import subprocess
 import time
 import wave
 from collections.abc import Sequence
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+from PIL import Image
 
 from brief.media.cards import Card
 from brief.media.probe import FinalChecks, check_output
@@ -35,8 +42,9 @@ PAUSE_S = 0.4
 TARGET_I = -14.0
 TARGET_TP = -1.5
 RETRY_TP_STEP = 0.5
-ZOOM_PER_FRAME = 0.0002  # slow push-in, max 4%
-ZOOM_MAX = 1.04
+ZOOM_TOTAL = 0.03  # push-in over each card's whole duration (never stops mid-card)
+X264 = ["-c:v", "libx264", "-profile:v", "high", "-preset", "medium", "-crf", "20",
+        "-pix_fmt", "yuv420p", "-threads", "2", "-r", str(FPS)]  # fmt: skip
 
 
 class RenderFailedError(Exception):
@@ -165,53 +173,95 @@ def normalise(src: Path, out: Path, tp: float) -> dict[str, Any]:
     }
 
 
-def _video_args(
+def zoom_frame(card: Image.Image, index: int, count: int) -> Image.Image:
+    """Card scaled about its centre by 1 + ZOOM_TOTAL * progress, with sub-pixel accuracy."""
+    progress = index / (count - 1) if count > 1 else 0.0
+    a = 1 / (1 + ZOOM_TOTAL * progress)
+    cx, cy = card.width / 2, card.height / 2
+    return card.transform(
+        card.size,
+        Image.Transform.AFFINE,
+        (a, 0, cx * (1 - a), 0, a, cy * (1 - a)),
+        resample=Image.Resampling.BILINEAR,
+    )
+
+
+def render_segment(
+    card_path: str,
+    count: int,
+    first_frame: int,
+    subs: list[tuple[int, int, str]],
+    subtitle_top: int,
+    out: str,
+) -> str:
+    """Encode one card's frames (zoom + subtitles) to H.264. Runs in a worker process.
+
+    `subs` are (first frame, end frame, PNG path) in whole-video frame numbers.
+    """
+    card = Image.open(card_path).convert("RGB")
+    overlays = [(a, b, Image.open(p).convert("RGBA")) for a, b, p in subs]
+    proc = subprocess.Popen(  # noqa: S603 - fixed ffmpeg arguments, no shell
+        ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo",  # noqa: S607
+         "-pix_fmt", "rgb24", "-s", f"{card.width}x{card.height}", "-r", str(FPS), "-i", "-",
+         *X264, "-fflags", "+bitexact", "-map_metadata", "-1", out],
+        stdin=subprocess.PIPE, stderr=subprocess.PIPE,
+    )  # fmt: skip
+    if proc.stdin is None:
+        raise RenderFailedError("could not open a pipe to ffmpeg")
+    try:
+        for i in range(count):
+            frame = zoom_frame(card, i, count)
+            n = first_frame + i
+            for a, b, img in overlays:
+                if a <= n < b:
+                    frame.paste(img, (0, subtitle_top), img)
+            proc.stdin.write(frame.tobytes())
+        proc.stdin.close()
+    except BrokenPipeError:
+        pass
+    err = proc.stderr.read().decode() if proc.stderr else ""
+    if proc.wait() != 0:
+        raise RenderFailedError(f"encoding {Path(out).name} failed: {err.strip()[-400:]}")
+    return out
+
+
+def render_video(
     cards: Sequence[Card],
     frames: Sequence[int],
     subs: Sequence[tuple[Chunk, Path]],
-    audio: Path,
-    out: Path,
     subtitle_top: int,
-    width: int,
-    height: int,
-) -> list[str]:
-    args = ["ffmpeg", "-hide_banner", "-nostats", "-y"]
-    for card in cards:
-        args += ["-i", str(card.path)]
-    for _chunk, png in subs:
-        args += ["-i", str(png)]
-    args += ["-i", str(audio)]
-    graph = []
-    for n, count in enumerate(frames):
-        graph.append(
-            f"[{n}:v]scale={width}:{height},setsar=1,"
-            f"zoompan=z='min(1+{ZOOM_PER_FRAME}*on,{ZOOM_MAX})':d={count}"
-            f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={width}x{height}:fps={FPS},"
-            f"trim=end_frame={count},setpts=PTS-STARTPTS[c{n}]"
-        )
-    graph.append(
-        "".join(f"[c{n}]" for n in range(len(cards))) + f"concat=n={len(cards)}:v=1:a=0[v0]"
-    )
-    last = "v0"
-    for i, (chunk, _png) in enumerate(subs):
-        idx = len(cards) + i
-        graph.append(
-            f"[{last}][{idx}:v]overlay=0:{subtitle_top}:"
-            f"enable='between(t,{chunk.start:.3f},{chunk.end:.3f})'[v{i + 1}]"
-        )
-        last = f"v{i + 1}"
-    graph.append(f"[{last}]format=yuv420p[vout]")
-    audio_idx = len(cards) + len(subs)
-    args += [
-        "-filter_complex", ";".join(graph),
-        "-map", "[vout]", "-map", f"{audio_idx}:a",
-        "-r", str(FPS), "-c:v", "libx264", "-profile:v", "high", "-preset", "medium",
-        "-crf", "20", "-pix_fmt", "yuv420p", "-threads", "4",
-        "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
-        "-movflags", "+faststart", "-shortest", "-fflags", "+bitexact",
-        "-map_metadata", "-1", str(out),
-    ]  # fmt: skip
-    return args
+    work: Path,
+) -> Path:
+    """Silent H.264 video of all cards, segments encoded in parallel and joined losslessly."""
+    starts = [0, *itertools.accumulate(frames)]
+    jobs = []
+    for n, (card, count) in enumerate(zip(cards, frames, strict=True)):
+        lo, hi = starts[n], starts[n + 1]
+        windows = []
+        for chunk, png in subs:
+            a, b = round(chunk.start * FPS), round(chunk.end * FPS)
+            if a < hi and b > lo:
+                windows.append((a, b, str(png)))
+        jobs.append((str(card.path), count, lo, windows, subtitle_top,
+                     str(work / f"segment-{n:02d}.mp4")))  # fmt: skip
+    workers = max(1, min(len(jobs), (os.cpu_count() or 2) // 2))
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        parts = list(pool.map(render_segment, *zip(*jobs, strict=True)))
+    listing = work / "segments.txt"
+    listing.write_text("".join(f"file '{Path(p).name}'\n" for p in parts), encoding="utf-8")
+    video = work / "video.mp4"
+    _run(["ffmpeg", "-hide_banner", "-nostats", "-y", "-f", "concat", "-safe", "0",
+          "-i", str(listing), "-c", "copy", "-fflags", "+bitexact", "-map_metadata", "-1",
+          str(video)])  # fmt: skip
+    return video
+
+
+def mux(video: Path, audio: Path, out: Path) -> None:
+    _run(["ffmpeg", "-hide_banner", "-nostats", "-y", "-i", str(video), "-i", str(audio),
+          "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+          "-movflags", "+faststart", "-shortest", "-fflags", "+bitexact",
+          "-map_metadata", "-1", str(out)])  # fmt: skip
 
 
 def segment_frames(timeline: Sequence[tuple[float, float]], total_s: float) -> list[int]:
@@ -243,13 +293,14 @@ def render_reel(
         total_s = w.getnframes() / w.getframerate()
     frames = segment_frames(timeline, total_s)
     subs = subtitles_for(timeline)
+    video = render_video(cards, frames, subs, subtitle_top, work)
     mp4 = out_dir / f"{issue_key}.mp4"
     failures: list[str] = []
     for attempt, tp in enumerate((TARGET_TP, TARGET_TP - RETRY_TP_STEP), start=1):
         norm = work / "narration-48k.wav"
         loud = normalise(joined, norm, tp)
         candidate = work / f"attempt-{attempt}.mp4"
-        _run(_video_args(cards, frames, subs, norm, candidate, subtitle_top, width, height))
+        mux(video, norm, candidate)
         checks = check_output(candidate, expected=(width, height, FPS))
         if checks.passed:
             candidate.replace(mp4)
