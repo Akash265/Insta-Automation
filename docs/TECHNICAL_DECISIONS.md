@@ -300,6 +300,7 @@ Run on the founder's M5 (16 GB, macOS 26.6.2) in the isolated environment `resea
 - Deploys use `wrangler pages deploy` direct upload. Previews use a branch alias.
 - JSON-LD `NewsArticle` per story and `CollectionPage` per issue. No thin pages: topic and company pages exist only once they have 3 or more stories.
 **Alternatives:** Astro or Hugo (another toolchain), or Pagefind for full-text search (can be added later as a post-build step if users ask for it).
+**Implemented in P1-11 (2026-11-11):** `brief/site/build.py`, `site_templates/`, `config/site.yaml`. Phase 1 builds `/`, `/issues/YYYY-MM-DD/`, `/today/`, `/archive/`, `/corrections/`, the policy stubs, `404.html`, `sitemap.xml`, `feed.xml`, `search-index.json`, `robots.txt`, `_headers` (security headers, plus `X-Robots-Tag: noindex` while `noindex: true`) and `_redirects`. The archive filter runs on the server-rendered list (it works without JavaScript and needs no fetch); `search-index.json` is still published for later search. Topic, company and source pages wait for Phase 5, because under the 3-story rule they would be empty during the experiment. No cookies, no third-party requests, system fonts only. The output is deterministic.
 **Facts *(verify)*:** the Pages free plan allows 500 builds/month and one concurrent build; static requests and bandwidth are unlimited. Direct uploads don't use Pages' build system, but confirm how they are counted in P1-12.
 
 <a id="adr-007"></a>

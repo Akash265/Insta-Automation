@@ -22,6 +22,7 @@ node_modules/
 
 # Build and media outputs (media lives in R2, not git)
 dist/
+dist.building/
 out/
 cache/
 *.mp4

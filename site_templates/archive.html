@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Archive</h1>
+<form class="filters" id="filters" hidden>
+  <label>Search <input type="search" id="q" autocomplete="off" placeholder="Headline or publisher"></label>
+  <label>Topic
+    <select id="category">
+      <option value="">All topics</option>
+      {% for c in categories %}<option>{{ c }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Source
+    <select id="publisher">
+      <option value="">All sources</option>
+      {% for p in publishers %}<option>{{ p }}</option>{% endfor %}
+    </select>
+  </label>
+  <p class="muted" id="count" aria-live="polite"></p>
+</form>
+{% if issues %}
+<ol class="archive" id="archive">
+  {% for i in issues %}
+  <li class="archive-issue">
+    <h2><a href="{{ i.url }}"><time datetime="{{ i.date }}">{{ i.day }}</time></a>{% if i.preview %} <span class="badge badge-warn">Preview</span>{% endif %}</h2>
+    <ul>
+      {% for s in i.stories %}
+      <li data-category="{{ s.category }}" data-publisher="{{ s.publisher }}"><a href="{{ i.url }}#story-{{ s.rank }}">{{ s.headline }}</a> <span class="muted">{{ s.category }} · {{ s.publisher }}</span></li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p>No issues yet.</p>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ static['archive.js'] }}" defer></script>
+{% endblock %}

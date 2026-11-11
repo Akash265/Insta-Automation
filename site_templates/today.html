@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{# Fallback for hosts without _redirects (and local previews): Pages answers /today with a 302. #}
+{% block head %}
+<meta http-equiv="refresh" content="0; url={{ latest.url }}">
+{% endblock %}
+{% block main %}
+<h1>Today’s issue</h1>
+<p><a href="{{ latest.url }}">{{ latest.title }}</a></p>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title != site.site_name %}{{ title }} · {% endif %}{{ site.site_name }}</title>
+<meta name="description" content="{{ description }}">
+{% if noindex %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.site_name }}" href="/feed.xml">
+<link rel="stylesheet" href="{{ static['site.css'] }}">
+<meta property="og:site_name" content="{{ site.site_name }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta name="theme-color" content="#0B0D12">
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">{{ site.site_name }}</a>
+    <nav aria-label="Main">
+      <a href="/today/"{% if path == '/today/' %} aria-current="page"{% endif %}>Today</a>
+      <a href="/archive/"{% if path == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
+    </nav>
+  </div>
+</header>
+{% if preview_build %}
+<p class="banner wrap" role="status">Preview build: not yet approved for publication.</p>
+{% endif %}
+<main id="main" class="wrap">
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav aria-label="Policies">
+      {% for link in policy_links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
+      <a href="/corrections/">Corrections</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+    <p>Every story links to its original source. Corrections are always published.</p>
+  </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

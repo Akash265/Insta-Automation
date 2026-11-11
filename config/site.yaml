@@ -1,0 +1,15 @@
+# Static site settings (P1-11, ADR-006). Read by `brief site build`.
+
+# Absolute site URL, no trailing slash. Placeholder until the Pages project exists
+# (P1-12) and the domain is chosen (OD-01). Edition `issue_url` values must match it.
+base_url: https://example.pages.dev
+
+# Working title until OD-01 is settled (same as video_templates/theme.yaml).
+site_name: AI Daily Brief
+description: A short daily brief on AI news, with every story linked to its original source.
+language: en
+
+# true during the private validation experiment: every page carries `noindex`, robots.txt
+# disallows crawling and Pages sends `X-Robots-Tag: noindex`. Set false only for the
+# soft-launch build after gate G4 (P1-20).
+noindex: true

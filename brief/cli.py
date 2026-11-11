@@ -39,6 +39,7 @@ from brief.media.cards import CardOverflowError, render_cards
 from brief.media.render import RenderFailedError, render_reel
 from brief.media.subtitles import build_subtitles
 from brief.media.theme import DEFAULT_THEME, ThemeError, load_theme
+from brief.site.build import SiteBuildError, build_site, load_site_config
 from brief.tts.base import TTSProviderError
 from brief.tts.config import (
     ALLOWED_VOICES,
@@ -72,6 +73,10 @@ app.add_typer(report_app, name="report")
 app.add_typer(experiment_app, name="experiment")
 tts_app = typer.Typer(help="Narration voice (ADR-004).", no_args_is_help=True)
 app.add_typer(tts_app, name="tts")
+site_app = typer.Typer(help="Static website (ADR-006).", no_args_is_help=True)
+app.add_typer(site_app, name="site")
+DEFAULT_SITE_CONFIG = Path("config/site.yaml")
+SITE_TEMPLATES = Path("site_templates")
 EXPERIMENT_DIR = Path("experiment")
 EDITIONS_DIR = Path("editions")
 
@@ -513,3 +518,32 @@ def render_cmd(
             data["experiment"]["render_attempts"] = result.attempts
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         typer.echo(f"recorded media in {path}")
+
+
+@site_app.command("build")
+def site_build(
+    editions: Annotated[Path, typer.Option(help="Folder of YYYY-MM-DD.json editions.")] = Path(
+        "editions"
+    ),
+    out: Annotated[Path, typer.Option(help="Output folder (replaced).")] = Path("dist"),
+    preview: Annotated[
+        bool, typer.Option(help="Also build in-review editions, marked as previews (noindex).")
+    ] = False,
+    config: Annotated[Path, typer.Option()] = DEFAULT_SITE_CONFIG,
+    templates: Annotated[Path, typer.Option()] = SITE_TEMPLATES,
+) -> None:
+    """Build the static site (issues, /today, /archive, feeds) from edition records."""
+    try:
+        result = build_site(editions, out, load_site_config(config), templates, preview)
+    except (SiteBuildError, OSError) as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    for name, reason in result.skipped:
+        typer.echo(f"skipped {name}: {reason}")
+    kind = "preview" if result.preview else "production"
+    typer.echo(f"built {len(result.issues)} issue(s), {len(result.files)} files into "
+               f"{result.out} ({kind} build)")  # fmt: skip
+    if result.latest:
+        typer.echo(f"/today -> /issues/{result.latest}/")
+    else:
+        typer.echo("no publishable editions yet: /today is not built")

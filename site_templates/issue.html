@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{{ ld }}
+</script>
+{% endblock %}
+{% block main %}
+<article class="issue">
+  <header class="issue-head">
+    <p class="kicker"><time datetime="{{ issue.date }}">{{ issue.day }}</time></p>
+    <h1>{{ issue.title }}</h1>
+    {% if issue.thesis %}<p class="lede">{{ issue.thesis }}</p>{% endif %}
+    {% if issue.preview %}<p class="badge badge-warn">Preview: not yet approved</p>{% endif %}
+    {% if issue.quiet_day %}
+    <p class="note">A quiet day: fewer stories than usual. We never pad an edition.</p>
+    {% endif %}
+  </header>
+  {% for c in top_corrections %}
+  <aside class="correction correction-top" role="note">
+    <strong>Correction</strong> <span class="muted">({{ c.when }})</span>: {{ c.text }}
+  </aside>
+  {% endfor %}
+  <ol class="stories">
+    {% for s in stories %}
+    <li class="story" id="{{ s.anchor }}">
+      <p class="meta"><span class="chip">{{ s.category }}</span>{% if s.sponsored %} <span class="chip chip-sponsored">Sponsored</span>{% endif %}</p>
+      <h2>{{ s.headline }}</h2>
+      <p>{{ s.summary }}</p>
+      <p class="why"><strong>Why it matters:</strong> {{ s.why_it_matters }}</p>
+      {% if s.technical_notes %}<p><strong>Technical notes:</strong> {{ s.technical_notes }}</p>{% endif %}
+      {% if s.limitations %}<p class="limits"><strong>Limitations:</strong> {{ s.limitations }}</p>{% endif %}
+      {% if s.sponsored and s.disclosure %}<p class="disclosure">{{ s.disclosure }}</p>{% endif %}
+      {% for c in s.corrections %}
+      <aside class="correction" role="note">
+        <strong>Correction</strong> <span class="muted">({{ c.when }})</span>: {{ c.text }}
+      </aside>
+      {% endfor %}
+      <p class="source">
+        <span class="publisher">{{ s.publisher }}</span>
+        {% for d in s.dates %}<span class="dot" aria-hidden="true">·</span> <span>{{ d }}</span>{% endfor %}
+      </p>
+      <p><a class="read" href="{{ s.url }}" rel="noopener external">Read original<span class="sr"> at {{ s.publisher }}: {{ s.headline }}</span></a></p>
+      {% if s.supporting %}
+      <p class="also">Also:
+        {% for u in s.supporting %}<a href="{{ u.url }}" rel="noopener external">{{ u.domain }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+      </p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="issue-foot"><a href="/archive/">All issues</a> · <a href="/corrections/">Corrections</a></p>
+</article>
+{% endblock %}

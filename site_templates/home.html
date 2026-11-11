@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+<h1 class="sr">{{ site.site_name }}</h1>
+<p class="lede">{{ site.description }}</p>
+{% if latest %}
+<section class="latest" aria-labelledby="latest-h">
+  <p class="kicker">Latest · <time datetime="{{ latest.date }}">{{ latest.day }}</time></p>
+  <h2 id="latest-h"><a href="{{ latest.url }}">{{ latest.title }}</a></h2>
+  {% if latest.thesis %}<p>{{ latest.thesis }}</p>{% endif %}
+  <ol class="headlines">
+    {% for s in latest.stories %}<li><a href="{{ latest.url }}#story-{{ s.rank }}">{{ s.headline }}</a> <span class="muted">{{ s.publisher }}</span></li>{% endfor %}
+  </ol>
+</section>
+{% if recent %}
+<section aria-labelledby="recent-h">
+  <h2 id="recent-h">Recent issues</h2>
+  <ul class="issue-list">
+    {% for i in recent %}<li><a href="{{ i.url }}">{{ i.day }}</a> <span class="muted">{{ i.stories|length }} {{ 'story' if i.stories|length == 1 else 'stories' }}</span></li>{% endfor %}
+  </ul>
+  <p><a href="/archive/">All issues</a></p>
+</section>
+{% endif %}
+{% else %}
+<p>The first issue is on its way.</p>
+{% endif %}
+{% endblock %}

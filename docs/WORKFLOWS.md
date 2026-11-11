@@ -66,7 +66,7 @@ Every `dead` job writes an outbox event `job_dead`, which raises an alert. Opera
 | `brief render <edition.json> [--out DIR] [--write]` | 1 | Narration (cached), cards, subtitles, MP4, cover, render report; refuses an MP4 that fails the final checks. `brief cards <edition.json>` draws the cards only |
 | `brief tts synth <edition.json> [--write]` | 1 | Narration only (cached by text, voice and lexicon); `--write` records `media.narration[]`. Also `brief tts voice [--set B\|C\|D]`, `fetch-model`, `check`, `say` |
 | `brief script draft <edition.json \| --date D>` | 1 | LLM draft of script and copy from verified claims |
-| `brief site build [--editions DIR \| --from-db]` | 1 | Static site into `dist/` |
+| `brief site build [--editions DIR] [--out DIR] [--preview]` (`--from-db` in Phase 5) | 1 | Static site into `dist/` (P1-11): issue pages, `/today` (302 via `_redirects`), `/archive` (filters), `/corrections`, policy stubs, `sitemap.xml`, `feed.xml`, `search-index.json`. Builds `approved`/`published` editions with an approved review; `--preview` adds `in_review` ones, marked and noindex. Refuses an edition that fails the schema, a blocking draft-stage check or the `issue_url` match. Settings in `config/site.yaml` (`noindex: true` during the experiment) |
 | `brief site deploy --preview\|--production [--date D]` | 1 | wrangler deploy plus HTTP verification |
 | `brief linkcheck <edition.json \| --date D>` | 1 | Check C02 |
 | `brief caption <edition.json> [--write] [--posting]` | 1 | Caption generated from the edition record (fixed format that C10 checks); `--write` stores it; `--posting` adds hashtags for pasting into Instagram |
@@ -223,8 +223,8 @@ Each step is timed into `production_log` in the edition JSON. During the 14-day 
 2. **Verify (≤30 min):** for each material claim, add evidence (URL, excerpt, tier). Then run `brief validate editions/D.json`.
 3. **Script (≤20 min):** run `brief script draft editions/D.json` (LLM, budget-capped) or write it by hand. Edit the draft, then run `brief validate`.
 4. **Render (≤15 min, mostly unattended):** run `brief render editions/D.json` and watch the MP4 in full.
-5. **Site (≤10 min):** `brief site build`, then `brief site deploy --preview`, then `brief linkcheck`.
-6. **Review (≤15 min):** fill the `review` checklist block, then run `brief site deploy --production`.
+5. **Site (≤10 min):** set `status` to `in_review`, run `brief site build --preview`, then `brief site deploy --preview`, then `brief linkcheck`.
+6. **Review (≤15 min):** fill the `review` checklist block (decision `approved`, `status` `approved`), then run `brief site build` and `brief site deploy --production`.
 7. **Publish / distribute (≤10 min):** during the experiment, send the private page and MP4 links to the reader panel. During the soft launch, run `brief caption editions/D.json`, upload the MP4 by hand in the Instagram app, then paste the permalink into the JSON.
 8. Commit `editions/D.json` (it contains no secrets).
 

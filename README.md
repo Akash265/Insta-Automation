@@ -47,6 +47,8 @@ uv run --extra tts brief tts synth editions/2026-12-01.json --write   # narrate 
 uv run --extra tts brief tts say "Qwen runs on CUDA"           # hear one line (lexicon applied)
 uv run brief cards editions/2026-12-01.json                    # draw the cards for review (out/)
 uv run --extra tts brief render editions/2026-12-01.json --write   # checked Reel MP4 + cover + report in out/
+uv run brief site build --preview                              # site incl. in-review editions (noindex) into dist/
+uv run brief site build                                        # approved/published editions only
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test

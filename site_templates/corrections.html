@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Corrections</h1>
+<p>When we get something wrong we correct the page and say so here. Minor typo fixes are logged but not listed. See the <a href="/corrections-policy/">corrections policy</a>.</p>
+{% if corrections %}
+<ol class="corrections">
+  {% for c in corrections %}
+  <li>
+    <p><a href="{{ c.issue.url }}{% if c.story_rank %}#story-{{ c.story_rank }}{% endif %}">{{ c.issue.day }}</a>{% if c.story_rank %}, story {{ c.story_rank }}{% endif %} <span class="muted">· corrected {{ c.when }}</span></p>
+    <p>{{ c.text }}</p>
+    <p class="muted">Was: “{{ c.original }}” · Now: “{{ c.corrected }}”</p>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p>No corrections so far.</p>
+{% endif %}
+{% endblock %}
