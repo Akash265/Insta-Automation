@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p39",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is an arXiv research paper on LLM diversity in educational content, while Item B is a monthly roundup of Google's AI announcements; they describe different events."
+ },
+ "input_tokens": 628,
+ "output_tokens": 68,
+ "cost_usd": 9.680000000000001e-05,
+ "latency_s": 1.543,
+ "request_id": "req_011Cgzb9YS6itTfdLK8JCpAg",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

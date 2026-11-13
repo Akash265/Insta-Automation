@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p24",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about Google Cloud and Hugging Face, while Item B is about Google and fashion designers."
+ },
+ "input_tokens": 269,
+ "output_tokens": 33,
+ "cost_usd": 0.0,
+ "latency_s": 1.291,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.006697709
+ },
+ "error": null
+}

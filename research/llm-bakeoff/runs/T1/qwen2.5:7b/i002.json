@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i002",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "MITRA-Swarm",
+   "gemma-4-26B-A4B-it",
+   "gemma-2-mitra-it",
+   "arXiv"
+  ]
+ },
+ "input_tokens": 318,
+ "output_tokens": 55,
+ "cost_usd": 0.0,
+ "latency_s": 5.706,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00162375
+ },
+ "error": null
+}

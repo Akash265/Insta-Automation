@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p13",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses the diversity of LLMs in education, while Item B discusses ASR leaderboards for specific languages."
+ },
+ "input_tokens": 362,
+ "output_tokens": 35,
+ "cost_usd": 0.0,
+ "latency_s": 1.44,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.031087458
+ },
+ "error": null
+}

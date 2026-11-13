@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i037",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "policy",
+  "entities": [
+   "Project ProtoStar"
+  ]
+ },
+ "input_tokens": 175,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 2.8,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003479875
+ },
+ "error": null
+}

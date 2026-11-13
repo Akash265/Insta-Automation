@@ -1,0 +1,89 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "s05-lerobot",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Hugging Face says LeRobot v0.7.0 adds interactive rollouts, letting users switch subtasks, ask questions and autosteer a running robot from the terminal.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Add --interactive=true to lerobot-rollout, and the robot connection, policy weights and processors stay loaded between instructions."
+   },
+   {
+    "claim_text": "The Hugging Face Hub now hosts almost 300 TB of open Physical AI data in LeRobot format.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The Hugging Face Hub now hosts almost 300 TB of open Physical AI data in LeRobot format"
+   },
+   {
+    "claim_text": "Hugging Face says v0.7.0 lets users train on datasets streamed from the Hub, a Storage Bucket or LanceDB without downloading them first.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "You can now train on these datasets directly from the Hub, a Storage Bucket or LanceDB, without downloading the datasets first."
+   },
+   {
+    "claim_text": "Hugging Face says the new streaming reader gives 2.1–2.5x more samples per second when using four DataLoader workers.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The reader supports DataLoader workers, with 2.1–2.5x more samples per second when using four workers."
+   },
+   {
+    "claim_text": "Hugging Face says GPU image augmentation makes ACT train 2.8x faster on an H100 and 3.3x faster on an A100.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Set --dataset.image_transforms.backend=gpu: ACT trains 2.8x faster on an H100 and 3.3x faster on an A100."
+   },
+   {
+    "claim_text": "Hugging Face says that on an 8×H200 node with a 6B FastWAM, distributed checkpoints save 3x faster and resume peak memory falls from 143 GB to 42 GB per GPU.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "On an 8×H200 node with a 6B FastWAM, DCP saves checkpoints 3x faster, and resuming peaks go from 143 GB to 42 GB per GPU."
+   },
+   {
+    "claim_text": "LeRobot v0.7.0 adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM) and four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5).",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "It adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM), four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5)"
+   },
+   {
+    "claim_text": "Hugging Face says Cosmos 3 Nano (16.5B parameters) and Cosmos 3 Edge (4.6B) reach 97.90% and 97.95% average success on LIBERO.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Cosmos 3 Nano (16.5B parameters) and Cosmos 3 Edge (4.6B), which reach 97.90% and 97.95% average success on LIBERO."
+   },
+   {
+    "claim_text": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0."
+   },
+   {
+    "claim_text": "Hugging Face says lerobot-policy-server lets the model run on a remote GPU workstation while the robot's computer handles cameras, motors, teleoperation and recording, and it replaces the removed lerobot.async_inference module.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Remote inference replaces the lerobot.async_inference module and the lerobot[async] extra, which are removed in v0.7.0."
+   }
+  ]
+ },
+ "input_tokens": 9160,
+ "output_tokens": 1767,
+ "cost_usd": 0.03599,
+ "latency_s": 10.169,
+ "request_id": "req_011CgzbjQRbfSU11ez3mxRkE",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

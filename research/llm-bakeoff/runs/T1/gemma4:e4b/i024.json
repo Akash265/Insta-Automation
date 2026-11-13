@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i024",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Token Pooling-Aware Training"
+  ]
+ },
+ "input_tokens": 293,
+ "output_tokens": 23,
+ "cost_usd": 0.0,
+ "latency_s": 0.897,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00519075
+ },
+ "error": null
+}

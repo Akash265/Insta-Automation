@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s01-ripple",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Ricursive Intelligence released Ripple-65B Preview, an open-weight model that it says sets a U.S. open-weight state of the art on agentic coding.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Today, we release Ripple-65B Preview, a general-purpose variant of the proprietary model that powers our AI chip design platform."
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview scores 80.52 on TerminalBench 2.1, which it describes as the U.S. open-weight state of the art.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "achieving U.S. open-weight state-of-the-art (80.52) on TerminalBench 2.1"
+   },
+   {
+    "claim_text": "Ricursive reports that Ripple-65B Preview outscores Reflection Beam 501B (80.1), Meta Muse Spark Open 816B (76.4), Thinking Machines Inkling 975B (63.8) and NVIDIA Nemotron 3 Ultra 550B (56.4) on TerminalBench 2.1.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "surpassing significantly larger US open-weight models such as Reflection Beam 501B (80.1), Meta Muse Spark Open 816B (76.4), Thinking Machines Inkling 975B (63.8), and NVIDIA Nemotron 3 Ultra 550B (56.4)."
+   },
+   {
+    "claim_text": "The model was pretrained on 12 trillion tokens and supports up to a 1M-token context length.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "The model is pretrained on 12 trillion tokens with support for up to 1M context length."
+   },
+   {
+    "claim_text": "Ricursive says it spent $32M on full R&D to develop Ripple-65B Preview, about one-tenth the cost of the previous open-weight SOTA on agentic coding, by its own estimate.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "we developed and trained Ripple-65B Preview for only $32M, which is one-tenth the cost of the previous open-weight SOTA on agentic coding, as estimated to the best of our knowledge."
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview reached its TerminalBench 2.1 score of 80.5 using only 1.4M rollouts, roughly 70x fewer than Reflection Beam.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "We reached a TerminalBench 2.1 score of 80.5 with only 1.4M rollouts, roughly 70x fewer rollouts than Reflection Beam, the prior SOTA."
+   },
+   {
+    "claim_text": "Ripple-65B Preview is a dense Transformer with 80 layers and a d_model of 5120, rather than a Mixture-of-Experts design.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Ripple-65B Preview uses a thin-and-deep model aspect ratio, with a narrow d_model (5120) and 80 total layers."
+   },
+   {
+    "claim_text": "Ripple-65B Preview is available on Hugging Face, Together AI, GMI Cloud, OpenRouter, and Fireworks.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Ripple-65B Preview is available on Hugging Face, Together AI, GMI Cloud, OpenRouter, and Fireworks."
+   },
+   {
+    "claim_text": "Ricursive says the model's compute efficiency on code is up to 16x better than the Olmo 3 ladder at 4B scale, as measured by dolma_stack CE.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Together, the compounded changes improved compute efficiency on code as measured by dolma_stack CE by up to 16x at 4B model scale."
+   },
+   {
+    "claim_text": "Ricursive says the model's small parameter count lets it run efficiently on local devices such as NVIDIA DGX Spark.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "The model's small parameter envelope also enables it to run efficiently on local devices such as NVIDIA DGX Spark"
+   }
+  ]
+ },
+ "input_tokens": 3533,
+ "output_tokens": 1680,
+ "cost_usd": 0.0011933,
+ "latency_s": 5.989,
+ "request_id": "req_011CgzbPxqSQHUnc74uZuete",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

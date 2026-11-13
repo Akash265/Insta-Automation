@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p35",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is a software release update, while Item B is a blog post announcing a specific AI model."
+ },
+ "input_tokens": 336,
+ "output_tokens": 44,
+ "cost_usd": 0.0,
+ "latency_s": 2.369,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.025253166
+ },
+ "error": null
+}

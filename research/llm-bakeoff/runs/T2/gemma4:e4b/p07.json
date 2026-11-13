@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p07",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses the capabilities of a new Gemini AI model, while Item B discusses the expansion of Google's AI & Economy team."
+ },
+ "input_tokens": 336,
+ "output_tokens": 50,
+ "cost_usd": 0.0,
+ "latency_s": 2.248,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.010639833
+ },
+ "error": null
+}

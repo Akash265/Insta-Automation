@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i085",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini Intelligence"
+  ]
+ },
+ "input_tokens": 311,
+ "output_tokens": 23,
+ "cost_usd": 0.0,
+ "latency_s": 1.117,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003189209
+ },
+ "error": null
+}

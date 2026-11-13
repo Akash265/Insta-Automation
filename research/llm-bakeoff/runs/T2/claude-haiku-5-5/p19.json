@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p19",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is the release of the Gemini 4 Hydrogen model from Google, while Item B is a separate launch of a Gemini product for healthcare by Google Cloud; these are different announcements."
+ },
+ "input_tokens": 565,
+ "output_tokens": 79,
+ "cost_usd": 9.6e-05,
+ "latency_s": 1.328,
+ "request_id": "req_011Cgzb7Hd56BA1oNk3pXJEP",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

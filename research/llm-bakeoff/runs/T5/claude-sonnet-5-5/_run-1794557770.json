@@ -1,0 +1,8 @@
+{
+ "model": "claude-sonnet-5-5",
+ "task": "T5",
+ "started": 1794557770.5714922,
+ "finished": 1794557856.46404,
+ "done": 10,
+ "skipped": 0
+}

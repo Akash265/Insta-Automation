@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i001",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Kalai"
+  ]
+ },
+ "input_tokens": 458,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 2.061,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.004945875
+ },
+ "error": null
+}

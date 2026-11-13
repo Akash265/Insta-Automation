@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p23",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "One item discusses a Microsoft outage, while the other discusses the launch of the UN System Data Commons by Google and the UN."
+ },
+ "input_tokens": 331,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 1.673,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.011552541
+ },
+ "error": null
+}

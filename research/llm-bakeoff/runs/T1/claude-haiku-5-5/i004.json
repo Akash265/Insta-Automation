@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i004",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "MDU"
+  ]
+ },
+ "input_tokens": 752,
+ "output_tokens": 29,
+ "cost_usd": 8.97e-05,
+ "latency_s": 1.223,
+ "request_id": "req_011CgzatRg8fzVNA5HAkRTYp",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

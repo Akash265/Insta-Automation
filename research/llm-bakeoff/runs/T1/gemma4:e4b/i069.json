@@ -1,0 +1,28 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i069",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "GREP.AI",
+   "AgentRun",
+   "Pi",
+   "Claude Agents",
+   "Codex"
+  ]
+ },
+ "input_tokens": 444,
+ "output_tokens": 67,
+ "cost_usd": 0.0,
+ "latency_s": 2.356,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.010635792
+ },
+ "error": null
+}

@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i057",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Brave Search"
+  ]
+ },
+ "input_tokens": 353,
+ "output_tokens": 21,
+ "cost_usd": 0.0,
+ "latency_s": 1.195,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002018709
+ },
+ "error": null
+}

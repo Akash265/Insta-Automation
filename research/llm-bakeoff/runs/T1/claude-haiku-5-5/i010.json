@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i010",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Jev",
+   "GPT-6.1",
+   "arXiv"
+  ]
+ },
+ "input_tokens": 731,
+ "output_tokens": 44,
+ "cost_usd": 9.510000000000001e-05,
+ "latency_s": 1.734,
+ "request_id": "req_011Cgzau2Mxd9uFUG725pCER",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i014",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "CoLFA"
+  ]
+ },
+ "input_tokens": 413,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 1.694,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.028954667
+ },
+ "error": null
+}

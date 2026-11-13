@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p12",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about 'Decision Models' on Hugging Face, while Item B is Apple's Foundation Models framework; these are unrelated announcements from different companies and products."
+ },
+ "input_tokens": 483,
+ "output_tokens": 71,
+ "cost_usd": 8.380000000000002e-05,
+ "latency_s": 1.756,
+ "request_id": "req_011Cgzb6P3iXbj8QgNZZNYtx",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

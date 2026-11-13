@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p01",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items report on the same issue of Microsoft Outlook/365 being down, with one providing more details about the timeline and impact."
+ },
+ "input_tokens": 298,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 7.625,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 2.8055915
+ },
+ "error": null
+}

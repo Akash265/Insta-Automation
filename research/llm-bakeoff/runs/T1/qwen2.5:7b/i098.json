@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i098",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Google",
+   "Jane Wade",
+   "Sergio Hudson",
+   "Google Flow"
+  ]
+ },
+ "input_tokens": 192,
+ "output_tokens": 38,
+ "cost_usd": 0.0,
+ "latency_s": 3.754,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00106325
+ },
+ "error": null
+}

@@ -1,0 +1,9 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p18",
+ "prompt": "same_event.v1",
+ "data": null,
+ "error": "InvalidOutputError: output is not JSON: Expecting value: line 1 column 1 (char 0)"
+}

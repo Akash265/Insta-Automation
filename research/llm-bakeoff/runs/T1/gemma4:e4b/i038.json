@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i038",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Mistral Large 4",
+   "Hugging Face"
+  ]
+ },
+ "input_tokens": 296,
+ "output_tokens": 30,
+ "cost_usd": 0.0,
+ "latency_s": 1.067,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00448425
+ },
+ "error": null
+}

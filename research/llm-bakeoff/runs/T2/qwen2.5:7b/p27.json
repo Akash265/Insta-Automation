@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p27",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The two items describe unrelated events: one about languages joining a leaderboard, and the other about an online archive of an artist's life and work."
+ },
+ "input_tokens": 186,
+ "output_tokens": 42,
+ "cost_usd": 0.0,
+ "latency_s": 3.93,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001520375
+ },
+ "error": null
+}

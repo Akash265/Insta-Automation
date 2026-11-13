@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i029",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "ToyBlocks"
+  ]
+ },
+ "input_tokens": 171,
+ "output_tokens": 25,
+ "cost_usd": 0.0,
+ "latency_s": 2.371,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001716208
+ },
+ "error": null
+}

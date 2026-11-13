@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p39",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is a specific academic paper about LLM diversity in education, while Item B is a general announcement of Google's AI updates from September 2026."
+ },
+ "input_tokens": 378,
+ "output_tokens": 58,
+ "cost_usd": 0.0,
+ "latency_s": 5.149,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.017614834
+ },
+ "error": null
+}

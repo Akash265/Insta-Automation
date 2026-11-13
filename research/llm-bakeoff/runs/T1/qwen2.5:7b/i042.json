@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i042",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Ricursive Intelligence",
+   "Ripple Preview",
+   "ollama",
+   "Claude Code"
+  ]
+ },
+ "input_tokens": 311,
+ "output_tokens": 42,
+ "cost_usd": 0.0,
+ "latency_s": 4.52,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002805667
+ },
+ "error": null
+}

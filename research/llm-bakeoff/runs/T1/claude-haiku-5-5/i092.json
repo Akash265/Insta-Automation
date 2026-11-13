@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i092",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini 4 Argon"
+  ]
+ },
+ "input_tokens": 576,
+ "output_tokens": 38,
+ "cost_usd": 7.659999999999999e-05,
+ "latency_s": 1.23,
+ "request_id": "req_011Cgzb3bZxDkczBVaoWqJkY",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

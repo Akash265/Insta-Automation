@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p40",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses the announcement of Project ProtoStar, while Item B introduces Gemini 4 Hydrogen, which are different projects."
+ },
+ "input_tokens": 231,
+ "output_tokens": 38,
+ "cost_usd": 0.0,
+ "latency_s": 4.017,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001359709
+ },
+ "error": null
+}

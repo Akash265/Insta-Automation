@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i047",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Qwen3.5"
+  ]
+ },
+ "input_tokens": 315,
+ "output_tokens": 25,
+ "cost_usd": 0.0,
+ "latency_s": 1.099,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003945333
+ },
+ "error": null
+}

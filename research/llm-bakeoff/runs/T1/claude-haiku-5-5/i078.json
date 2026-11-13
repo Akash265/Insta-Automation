@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i078",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Nvidia",
+   "Jensen Huang",
+   "The New York Times"
+  ]
+ },
+ "input_tokens": 654,
+ "output_tokens": 43,
+ "cost_usd": 8.690000000000001e-05,
+ "latency_s": 1.811,
+ "request_id": "req_011Cgzb2BstoHyZBJKJ2m8sQ",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

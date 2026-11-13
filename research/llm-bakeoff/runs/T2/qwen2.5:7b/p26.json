@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p26",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item discusses the release of Google's new Gemini model, while the second item talks about the expansion of Google Beam into new regions and partnerships."
+ },
+ "input_tokens": 255,
+ "output_tokens": 43,
+ "cost_usd": 0.0,
+ "latency_s": 4.34,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001036875
+ },
+ "error": null
+}

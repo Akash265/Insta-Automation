@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p14",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses employees petitioning for Jensen Huang's return, while Item B reports on his resignation due to personal scandals."
+ },
+ "input_tokens": 374,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 2.829,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000929833
+ },
+ "error": null
+}

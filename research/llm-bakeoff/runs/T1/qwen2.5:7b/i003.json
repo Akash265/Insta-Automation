@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i003",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "arXiv"
+  ]
+ },
+ "input_tokens": 282,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 3.013,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001453375
+ },
+ "error": null
+}

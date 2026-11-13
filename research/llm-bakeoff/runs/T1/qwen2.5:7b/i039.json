@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i039",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "AnySpeechRecognizer",
+   "AnyDecisionModel",
+   "Apple"
+  ]
+ },
+ "input_tokens": 180,
+ "output_tokens": 35,
+ "cost_usd": 0.0,
+ "latency_s": 3.563,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003105292
+ },
+ "error": null
+}

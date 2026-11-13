@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p06",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The two items discuss completely unrelated topics: one about large language models and education, the other about an online archive of an artist's life and work."
+ },
+ "input_tokens": 304,
+ "output_tokens": 43,
+ "cost_usd": 0.0,
+ "latency_s": 4.364,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00358275
+ },
+ "error": null
+}

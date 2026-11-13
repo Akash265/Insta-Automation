@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i044",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "MiMo V2.6",
+   "Ollama",
+   "AutoTrust"
+  ]
+ },
+ "input_tokens": 457,
+ "output_tokens": 58,
+ "cost_usd": 0.0,
+ "latency_s": 2.112,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.0040495
+ },
+ "error": null
+}

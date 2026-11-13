@@ -1,0 +1,22 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i014",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "CoLFA",
+   "arXiv"
+  ]
+ },
+ "input_tokens": 732,
+ "output_tokens": 37,
+ "cost_usd": 9.17e-05,
+ "latency_s": 1.72,
+ "request_id": "req_011CgzauXqzNLjFtaTEw4caw",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

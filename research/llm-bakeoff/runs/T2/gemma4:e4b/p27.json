@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p27",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about language models, while Item B is about an artist's online archive."
+ },
+ "input_tokens": 267,
+ "output_tokens": 31,
+ "cost_usd": 0.0,
+ "latency_s": 1.553,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.024193625
+ },
+ "error": null
+}

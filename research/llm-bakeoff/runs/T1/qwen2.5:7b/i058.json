@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i058",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Nvidia"
+  ]
+ },
+ "input_tokens": 228,
+ "output_tokens": 25,
+ "cost_usd": 0.0,
+ "latency_s": 2.471,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001085667
+ },
+ "error": null
+}

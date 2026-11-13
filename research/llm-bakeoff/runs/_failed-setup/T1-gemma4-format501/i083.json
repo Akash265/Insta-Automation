@@ -1,0 +1,9 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i083",
+ "prompt": "tag.v1",
+ "data": null,
+ "error": "LLMError: gemma4:e4b: HTTPStatusError: Server error '501 Not Implemented' for url 'http://127.0.0.1:11434/api/chat'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501"
+}

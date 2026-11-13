@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i001",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "arXiv",
+   "Kalai et al."
+  ]
+ },
+ "input_tokens": 342,
+ "output_tokens": 32,
+ "cost_usd": 0.0,
+ "latency_s": 9.563,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 5.110569834
+ },
+ "error": null
+}

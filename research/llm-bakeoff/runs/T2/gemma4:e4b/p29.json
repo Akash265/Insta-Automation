@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p29",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses a new evaluation framework for discharge summary generation, while Item B is about fine-tuning guides for 3D generation models."
+ },
+ "input_tokens": 361,
+ "output_tokens": 51,
+ "cost_usd": 0.0,
+ "latency_s": 2.504,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.009155834
+ },
+ "error": null
+}

@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p16",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A describes a specific research paper (MITRA-Swarm) about classical machine translation, while Item B refers to the general Apple Foundation Models framework."
+ },
+ "input_tokens": 442,
+ "output_tokens": 54,
+ "cost_usd": 0.0,
+ "latency_s": 2.887,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.014801958
+ },
+ "error": null
+}

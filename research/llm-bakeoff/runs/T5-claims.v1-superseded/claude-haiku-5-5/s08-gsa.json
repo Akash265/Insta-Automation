@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s08-gsa",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Anthropic says its expanded GSA agreement gives government partners a 40% discount on Claude Enterprise, Claude for Government, and the Claude API.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "gives government partners a 40% discount on Claude Enterprise, Claude for Government, and the Claude API"
+   },
+   {
+    "claim_text": "Anthropic says the discounts under the agreement are estimated to save the government $1 billion.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "The discounts offered through the agreement are estimated to save the government $1 billion."
+   },
+   {
+    "claim_text": "Anthropic says approximately 500 US federal, state, and local government organizations now use Claude.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Approximately 500 US federal, state, and local government organizations now use Claude."
+   },
+   {
+    "claim_text": "Anthropic says weekly Claude for Government active users are up about eightfold since February.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Weekly Claude for Government active users are up about eightfold since February"
+   },
+   {
+    "claim_text": "Anthropic says agencies are not bound by a minimum spend commitment and can pay only for the usage they consume.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Agencies are not bound by a minimum spend commitment and will be able to pay for the usage they consume."
+   },
+   {
+    "claim_text": "Anthropic says Claude for Government was made generally available on September 30 and provides near-feature parity with commercial offerings at a FedRAMP High authorization level.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "provides near-feature parity with commercial offerings at a FedRAMP High authorization level, was made generally available on September 30."
+   },
+   {
+    "claim_text": "Anthropic says Utah gave Claude Code to 34 developers across 10 state agencies, and 71% of them reported saving 20+ hours by the end of a four-week pilot.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Utah gave Claude Code to 34 developers across 10 state agencies. 80% had a working environment within 30 minutes, 71% reported saving 20+ hours by the end of the four-week pilot."
+   },
+   {
+    "claim_text": "Anthropic says on Amazon Bedrock Claude is authorized for FedRAMP High, with select models authorized for DoD IL4 and IL5 workloads in AWS GovCloud.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "On Bedrock, Claude is authorized for FedRAMP High, with select models authorized for DoD IL4 and IL5 workloads in AWS GovCloud."
+   },
+   {
+    "claim_text": "Anthropic says Claude Enterprise is in process for FedRAMP Moderate authorization through the FedRAMP 20x program, meaning it is not yet authorized.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Claude Enterprise is in process for FedRAMP Moderate authorization through the FedRAMP 20x program"
+   },
+   {
+    "claim_text": "Anthropic says a US state CIO confirmed their team responded to a ransomware attack in 8 minutes versus the usual 2-3 days thanks to Claude.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "A US state CIO confirmed their team was able to respond to a ransomware attack in 8 minutes vs. the usual 2-3 days thanks to Claude."
+   }
+  ]
+ },
+ "input_tokens": 2215,
+ "output_tokens": 1525,
+ "cost_usd": 0.000984,
+ "latency_s": 5.588,
+ "request_id": "req_011CgzbELmGn6omtwNqq5bhQ",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

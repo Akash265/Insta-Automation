@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i002",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "MITRA-Swarm",
+   "gemma-4-26B-A4B-it",
+   "gemma-2-mitra-it"
+  ]
+ },
+ "input_tokens": 445,
+ "output_tokens": 74,
+ "cost_usd": 0.0,
+ "latency_s": 2.617,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.006615
+ },
+ "error": null
+}

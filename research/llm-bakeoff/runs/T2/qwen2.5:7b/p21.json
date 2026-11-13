@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p21",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A introduces Gemini 4 Hydrogen, a new model, while Item B describes Gemini Decisions API, which seems to be a different product or update."
+ },
+ "input_tokens": 251,
+ "output_tokens": 45,
+ "cost_usd": 0.0,
+ "latency_s": 4.345,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001217959
+ },
+ "error": null
+}

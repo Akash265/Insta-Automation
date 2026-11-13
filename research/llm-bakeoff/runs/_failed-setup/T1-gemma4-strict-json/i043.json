@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i043",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "MLX"
+  ]
+ },
+ "input_tokens": 352,
+ "output_tokens": 20,
+ "cost_usd": 0.0,
+ "latency_s": 1.197,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.019237166
+ },
+ "error": null
+}

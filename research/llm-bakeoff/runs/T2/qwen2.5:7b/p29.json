@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p29",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item discusses a new framework for evaluating discharge summaries, while the second item is about a guide for fine-tuning 3D generation models, which are unrelated topics."
+ },
+ "input_tokens": 283,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 4.948,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001326583
+ },
+ "error": null
+}

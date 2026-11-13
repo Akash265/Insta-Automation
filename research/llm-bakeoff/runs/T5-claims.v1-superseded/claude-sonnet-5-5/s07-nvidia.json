@@ -1,0 +1,25 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "job": "s07-nvidia",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "NVIDIA, Rebellions and SK Telecom today announced a collaboration to advance Korea’s sovereign AI infrastructure — using NVIDIA NVLink Fusion™ to bring together"
+   }
+  ]
+ },
+ "input_tokens": 6946,
+ "output_tokens": 257,
+ "cost_usd": 0.016462,
+ "latency_s": 2.968,
+ "request_id": "req_011CgzbJiQPNDhM6SCBbytoz",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

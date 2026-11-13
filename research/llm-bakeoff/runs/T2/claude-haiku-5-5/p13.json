@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p13",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is an arXiv paper on diversity and homogenization of LLM-generated educational content, while Item B announces dialect-specific English datasets joining an ASR leaderboard; these are unrelated events."
+ },
+ "input_tokens": 622,
+ "output_tokens": 83,
+ "cost_usd": 0.0001037,
+ "latency_s": 1.506,
+ "request_id": "req_011Cgzb6WZA6fYVyCuHHcGci",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i048",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "ollama",
+   "Claude",
+   "OpenAI"
+  ]
+ },
+ "input_tokens": 419,
+ "output_tokens": 53,
+ "cost_usd": 0.0,
+ "latency_s": 2.188,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002811792
+ },
+ "error": null
+}

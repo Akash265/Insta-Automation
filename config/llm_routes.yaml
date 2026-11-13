@@ -1,0 +1,35 @@
+# LLM models and routes (ADR-003). Read by brief/llm/client.py.
+#
+# Prices: Anthropic pricing page, read 2026-11-07 (ADR-003), USD per million tokens.
+# Thinking tokens are billed as output. Haiku 5.5 is billed at the long-context price
+# for the whole request above 100,000 input tokens, so the client refuses such prompts.
+#
+# Routes are PROPOSED until the P1-09 bake-off results are recorded (then v1).
+
+models:
+  claude-haiku-5-5:
+    provider: anthropic
+    input_usd_per_mtok: 0.10
+    output_usd_per_mtok: 0.50
+    max_input_tokens: 100000      # Haiku guard: stay under the long-context price
+  claude-sonnet-5-5:
+    provider: anthropic
+    input_usd_per_mtok: 2.00
+    output_usd_per_mtok: 10.00
+  claude-opus-5-5:
+    provider: anthropic
+    input_usd_per_mtok: 4.00
+    output_usd_per_mtok: 20.00
+    evaluation_only: true         # never allowed in a production route
+  gemma4:e4b:
+    provider: ollama
+  qwen2.5:7b:
+    provider: ollama
+
+routes:                           # proposed (ADR-003 allocation); confirmed by P1-09
+  T1_tagging: {primary: local, fallback: claude-haiku-5-5}
+  T2_same_event: {primary: local, fallback: claude-haiku-5-5}
+  T4_triage: {primary: claude-haiku-5-5}
+  T5_claims: {primary: claude-sonnet-5-5}
+  T6_script: {primary: claude-sonnet-5-5}
+  T7_critic: {primary: claude-sonnet-5-5}

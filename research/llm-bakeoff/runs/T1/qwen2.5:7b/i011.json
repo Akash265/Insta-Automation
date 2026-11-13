@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i011",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Hy ASR 3.0"
+  ]
+ },
+ "input_tokens": 296,
+ "output_tokens": 30,
+ "cost_usd": 0.0,
+ "latency_s": 3.52,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001018917
+ },
+ "error": null
+}

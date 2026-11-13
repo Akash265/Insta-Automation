@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i015",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Qwen3.6-27B",
+   "GPT-OSS-20B",
+   "Gemma-4-31B"
+  ]
+ },
+ "input_tokens": 324,
+ "output_tokens": 52,
+ "cost_usd": 0.0,
+ "latency_s": 5.379,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000716625
+ },
+ "error": null
+}

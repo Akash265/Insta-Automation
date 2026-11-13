@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i036",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Granite Switch"
+  ]
+ },
+ "input_tokens": 175,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 2.841,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001218083
+ },
+ "error": null
+}

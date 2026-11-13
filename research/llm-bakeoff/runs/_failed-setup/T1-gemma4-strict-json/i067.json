@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i067",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Postgres"
+  ]
+ },
+ "input_tokens": 397,
+ "output_tokens": 20,
+ "cost_usd": 0.0,
+ "latency_s": 1.82,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.006998791
+ },
+ "error": null
+}

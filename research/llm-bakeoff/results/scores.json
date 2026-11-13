@@ -1,0 +1,345 @@
+{
+ "generated": "2026-11-13T08:38:28+00:00",
+ "T5": {
+  "claude-haiku-5-5": {
+   "stories": 10,
+   "claims": 86,
+   "claims_per_story": 8.6,
+   "url_ok": "100% (86/86)",
+   "excerpt_exact": "99% (85/86)",
+   "excerpt_loose": "100% (86/86)",
+   "excerpt_le_300": "100% (86/86)",
+   "material": "58% (50/86)",
+   "types": {
+    "vendor_claim": 12,
+    "benchmark_vendor": 21,
+    "fact": 40,
+    "availability": 10,
+    "quote": 1,
+    "interpretation": 1,
+    "forecast": 1
+   },
+   "usage": {
+    "calls": 10,
+    "failed": 0,
+    "mean_in": 5758.3,
+    "mean_out": 2243.9,
+    "cost": 0.0169778,
+    "p50_s": 7.8735,
+    "p95_s": 12.492,
+    "max_s": 12.492,
+    "total_s": 82.328
+   }
+  },
+  "claude-sonnet-5-5": {
+   "stories": 10,
+   "claims": 76,
+   "claims_per_story": 7.6,
+   "url_ok": "100% (76/76)",
+   "excerpt_exact": "100% (76/76)",
+   "excerpt_loose": "100% (76/76)",
+   "excerpt_le_300": "100% (76/76)",
+   "material": "64% (49/76)",
+   "types": {
+    "fact": 22,
+    "vendor_claim": 19,
+    "benchmark_vendor": 14,
+    "availability": 15,
+    "interpretation": 2,
+    "forecast": 3,
+    "quote": 1
+   },
+   "usage": {
+    "calls": 10,
+    "failed": 0,
+    "mean_in": 5758.3,
+    "mean_out": 1331.5,
+    "cost": 0.248316,
+    "p50_s": 8.8935,
+    "p95_s": 12.238,
+    "max_s": 12.238,
+    "total_s": 85.856
+   }
+  },
+  "claude-sonnet-5-5@high": {
+   "stories": 10,
+   "claims": 88,
+   "claims_per_story": 8.8,
+   "url_ok": "100% (88/88)",
+   "excerpt_exact": "100% (88/88)",
+   "excerpt_loose": "100% (88/88)",
+   "excerpt_le_300": "100% (88/88)",
+   "material": "65% (57/88)",
+   "types": {
+    "fact": 33,
+    "vendor_claim": 23,
+    "benchmark_vendor": 15,
+    "availability": 10,
+    "forecast": 3,
+    "quote": 2,
+    "interpretation": 2
+   },
+   "usage": {
+    "calls": 10,
+    "failed": 0,
+    "mean_in": 5758.3,
+    "mean_out": 1598,
+    "cost": 0.274966,
+    "p50_s": 9.5,
+    "p95_s": 12.837,
+    "max_s": 12.837,
+    "total_s": 91.927
+   }
+  }
+ },
+ "T6": {
+  "claude-haiku-5-5": {
+   "editions": {
+    "E1": {
+     "narration_words": 197,
+     "check_issues": [
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 1)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
+     ],
+     "limit_issues": []
+    },
+    "E2": {
+     "narration_words": 195,
+     "check_issues": [
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
+     ],
+     "limit_issues": []
+    }
+   },
+   "usage": {
+    "calls": 2,
+    "failed": 0,
+    "mean_in": 4197,
+    "mean_out": 7888.5,
+    "cost": 0.0087279,
+    "p50_s": 30.8555,
+    "p95_s": 34.684,
+    "max_s": 34.684,
+    "total_s": 61.711
+   }
+  },
+  "claude-sonnet-5-5@high": {
+   "editions": {
+    "E1": {
+     "narration_words": 213,
+     "check_issues": [
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 1)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
+     ],
+     "limit_issues": []
+    },
+    "E2": {
+     "narration_words": 207,
+     "check_issues": [
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
+      "C07 blocking: vendor claim is not attributed (e.g. 'the company says') (story 3)",
+      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)",
+      "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
+     ],
+     "limit_issues": []
+    }
+   },
+   "usage": {
+    "calls": 2,
+    "failed": 0,
+    "mean_in": 4197,
+    "mean_out": 5616.5,
+    "cost": 0.129118,
+    "p50_s": 35.7855,
+    "p95_s": 36.401,
+    "max_s": 36.401,
+    "total_s": 71.571
+   }
+  }
+ },
+ "T7": {
+  "claude-haiku-5-5": {
+   "planted_found": "100% (7/7)",
+   "missed": [],
+   "flags_on_clean_scripts": 6,
+   "usage": {
+    "calls": 4,
+    "failed": 0,
+    "mean_in": 5503.25,
+    "mean_out": 2543.5,
+    "cost": 0.0072883,
+    "p50_s": 11.5475,
+    "p95_s": 12.98,
+    "max_s": 12.98,
+    "total_s": 45.299
+   }
+  },
+  "claude-sonnet-5-5@high": {
+   "planted_found": "100% (7/7)",
+   "missed": [],
+   "flags_on_clean_scripts": 4,
+   "usage": {
+    "calls": 4,
+    "failed": 0,
+    "mean_in": 5503.25,
+    "mean_out": 1395.75,
+    "cost": 0.099856,
+    "p50_s": 10.623000000000001,
+    "p95_s": 14.002,
+    "max_s": 14.002,
+    "total_s": 41.854
+   }
+  }
+ },
+ "T1": {
+  "claude-haiku-5-5": {
+   "usage": {
+    "calls": 100,
+    "failed": 0,
+    "mean_in": 626.04,
+    "mean_out": 38.3,
+    "cost": 0.008175400000000001,
+    "p50_s": 1.2805,
+    "p95_s": 1.918,
+    "max_s": 4.531,
+    "total_s": 144.593
+   }
+  },
+  "qwen2.5:7b": {
+   "agreement_with_haiku": {
+    "in_scope": "89% (89/100)",
+    "category": "67% (67/100)"
+   },
+   "usage": {
+    "calls": 100,
+    "failed": 0,
+    "mean_in": 233.71,
+    "mean_out": 28.35,
+    "cost": 0,
+    "p50_s": 2.738,
+    "p95_s": 4.564,
+    "max_s": 9.563,
+    "total_s": 303.252
+   },
+   "failures_and_invalid": "0% (0/100)",
+   "first_call_load_s": 5.110569834,
+   "unloaded_after": true,
+   "memory_loaded": "NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              \nqwen2.5:7b    845dbda0ea48    4.8 GB    100% GPU     4096       llamacpp    9 minutes from now",
+   "swap_before_after": [
+    "total = 9216.00M  used = 8364.38M  free = 851.62M  (encrypted)",
+    "total = 13312.00M  used = 11947.81M  free = 1364.19M  (encrypted)"
+   ]
+  },
+  "gemma4:e4b": {
+   "agreement_with_haiku": {
+    "in_scope": "89% (89/100)",
+    "category": "74% (74/100)"
+   },
+   "usage": {
+    "calls": 100,
+    "failed": 0,
+    "mean_in": 356.35,
+    "mean_out": 29.23,
+    "cost": 0,
+    "p50_s": 1.2000000000000002,
+    "p95_s": 2.368,
+    "max_s": 3.655,
+    "total_s": 137.921
+   },
+   "failures_and_invalid": "0% (0/100)",
+   "first_call_load_s": 0.004945875,
+   "unloaded_after": true,
+   "memory_loaded": "NAME          ID              SIZE     PROCESSOR    CONTEXT    RUNNER    UNTIL              \ngemma4:e4b    eb2177adf764    12 GB    100% GPU     4096       mlx       9 minutes from now",
+   "swap_before_after": [
+    "total = 13312.00M  used = 11996.06M  free = 1315.94M  (encrypted)",
+    "total = 16384.00M  used = 15319.50M  free = 1064.50M  (encrypted)"
+   ]
+  }
+ },
+ "T2": {
+  "claude-haiku-5-5": {
+   "usage": {
+    "calls": 40,
+    "failed": 0,
+    "mean_in": 596.2,
+    "mean_out": 80,
+    "cost": 0.0039848,
+    "p50_s": 1.5245,
+    "p95_s": 2.352,
+    "max_s": 2.937,
+    "total_s": 66.629
+   }
+  },
+  "qwen2.5:7b": {
+   "agreement_with_haiku": {
+    "same_event": "98% (39/40)"
+   },
+   "usage": {
+    "calls": 40,
+    "failed": 0,
+    "mean_in": 267.45,
+    "mean_out": 43.925,
+    "cost": 0,
+    "p50_s": 4.4239999999999995,
+    "p95_s": 5.29,
+    "max_s": 7.625,
+    "total_s": 180.418
+   },
+   "failures_and_invalid": "0% (0/40)",
+   "first_call_load_s": 2.8055915,
+   "unloaded_after": true,
+   "memory_loaded": "NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              \nqwen2.5:7b    845dbda0ea48    4.8 GB    100% GPU     4096       llamacpp    9 minutes from now",
+   "swap_before_after": [
+    "total = 13312.00M  used = 11891.81M  free = 1420.19M  (encrypted)",
+    "total = 13312.00M  used = 11796.00M  free = 1516.00M  (encrypted)"
+   ]
+  },
+  "gemma4:e4b": {
+   "agreement_with_haiku": {
+    "same_event": "92% (37/40)"
+   },
+   "usage": {
+    "calls": 40,
+    "failed": 0,
+    "mean_in": 349.3,
+    "mean_out": 45.325,
+    "cost": 0,
+    "p50_s": 2.314,
+    "p95_s": 5.149,
+    "max_s": 9.11,
+    "total_s": 106.711
+   },
+   "failures_and_invalid": "0% (0/40)",
+   "first_call_load_s": 6.021196458,
+   "unloaded_after": true,
+   "memory_loaded": "NAME          ID              SIZE     PROCESSOR    CONTEXT    RUNNER    UNTIL              \ngemma4:e4b    eb2177adf764    10 GB    100% GPU     4096       mlx       9 minutes from now",
+   "swap_before_after": [
+    "total = 16384.00M  used = 15063.44M  free = 1320.56M  (encrypted)",
+    "total = 15360.00M  used = 14099.00M  free = 1261.00M  (encrypted)"
+   ]
+  }
+ },
+ "per_edition_cost": {
+  "claude-haiku-5-5": {
+   "T5_per_story": 0.00169778,
+   "T6": 0.00436395,
+   "T7": 0.001822075,
+   "core": 0.023163825,
+   "with_assumed_repairs": 0.02779659,
+   "month_22_editions": 0.61152498
+  },
+  "claude-sonnet-5-5": {},
+  "claude-sonnet-5-5@high": {
+   "T5_per_story": 0.0274966,
+   "T6": 0.064559,
+   "T7": 0.024964,
+   "core": 0.36448899999999995,
+   "with_assumed_repairs": 0.4373867999999999,
+   "month_22_editions": 9.622509599999997
+  },
+  "claude-opus-5-5": {}
+ }
+}

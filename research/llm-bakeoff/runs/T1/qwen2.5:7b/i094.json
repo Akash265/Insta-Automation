@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i094",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Google"
+  ]
+ },
+ "input_tokens": 187,
+ "output_tokens": 25,
+ "cost_usd": 0.0,
+ "latency_s": 2.606,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000705208
+ },
+ "error": null
+}

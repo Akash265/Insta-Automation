@@ -1,0 +1,10 @@
+{
+ "E1": {
+  "A": "claude-haiku-5-5",
+  "B": "claude-sonnet-5-5@high"
+ },
+ "E2": {
+  "A": "claude-haiku-5-5",
+  "B": "claude-sonnet-5-5@high"
+ }
+}

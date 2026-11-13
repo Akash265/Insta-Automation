@@ -1,0 +1,9 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i001",
+ "prompt": "tag.v1",
+ "data": null,
+ "error": "LLMError: gemma4:e4b: timed out after 15 s"
+}

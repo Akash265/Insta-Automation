@@ -1,0 +1,25 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "job": "s02-fable52",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Anthropic says Claude Fable and Claude Mythos 5.2 are the same underlying model, with Fable carrying strong cybersecurity and biology safeguards so it can be offered to all users, while Mythos is available to organizations that apply through its verification programs.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Claude Fable and Claude Mythos are the same underlying model. Fable has strong cybersecurity and biology safeguards to guard against misuse, which allows us to make it available to all users."
+   }
+  ]
+ },
+ "input_tokens": 15594,
+ "output_tokens": 227,
+ "cost_usd": 0.033458,
+ "latency_s": 3.992,
+ "request_id": "req_011CgzbWfxdQGB7qCQZXnAtT",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

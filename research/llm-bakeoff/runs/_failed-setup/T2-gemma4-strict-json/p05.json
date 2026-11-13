@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p05",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about a fine-tuning guide for 3D generation models, while Item B is about new customization features for Xbox consoles."
+ },
+ "input_tokens": 314,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 2.172,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.0200505
+ },
+ "error": null
+}

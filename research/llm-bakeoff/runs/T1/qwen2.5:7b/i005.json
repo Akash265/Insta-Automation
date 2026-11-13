@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i005",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "arXiv",
+   "multimodal LLM"
+  ]
+ },
+ "input_tokens": 323,
+ "output_tokens": 33,
+ "cost_usd": 0.0,
+ "latency_s": 3.713,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001246
+ },
+ "error": null
+}

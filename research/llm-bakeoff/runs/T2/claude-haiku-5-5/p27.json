@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p27",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "One item reports the addition of Egyptian and Nigerian English to an ASR (speech recognition) leaderboard, while the other covers a Google Arts & Culture online archive of Esther Mahlangu's art; these are unrelated events."
+ },
+ "input_tokens": 480,
+ "output_tokens": 93,
+ "cost_usd": 9.45e-05,
+ "latency_s": 1.435,
+ "request_id": "req_011Cgzb89XS1KE19jaRDTpsN",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

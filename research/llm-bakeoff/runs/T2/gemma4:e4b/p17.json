@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p17",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items report on the release and capabilities of Google's new Gemini 4 Hydrogen model."
+ },
+ "input_tokens": 339,
+ "output_tokens": 42,
+ "cost_usd": 0.0,
+ "latency_s": 1.643,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.041227542
+ },
+ "error": null
+}

@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i088",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Gemini Omni 1.2 Flash"
+  ]
+ },
+ "input_tokens": 203,
+ "output_tokens": 32,
+ "cost_usd": 0.0,
+ "latency_s": 3.029,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000889334
+ },
+ "error": null
+}

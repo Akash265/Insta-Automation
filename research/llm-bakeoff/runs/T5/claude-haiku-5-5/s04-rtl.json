@@ -1,0 +1,46 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s04-rtl",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The paper presents Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting, and implementation-level evaluation, and continuously improves through reusable optimization skills.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "We present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting, and implementation-level evaluation, while continuously improving through reusable optimization skills."
+   },
+   {
+    "claim_text": "The authors report that Dr. RTL, evaluated on 20 real-world RTL designs, achieves average WNS/TNS improvements of 21%/17% with a 6% area reduction over commercial synthesis.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "Evaluated on 20 real-world RTL designs, Dr.~RTL achieves average WNS/TNS improvements of 21\\%/17\\% with a 6\\% area reduction over commercial synthesis."
+   },
+   {
+    "claim_text": "The paper is an ASP-DAC'27 invited paper, submitted to arXiv on 10 November 2026.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "ASP-DAC'27 Invited Paper"
+   },
+   {
+    "claim_text": "The paper is authored by Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "Authors:Wenji Fang, Yao Lu, Jinghua Wang, Zhiyao Xie"
+   }
+  ]
+ },
+ "input_tokens": 2890,
+ "output_tokens": 1387,
+ "cost_usd": 0.0009825,
+ "latency_s": 6.551,
+ "request_id": "req_011CgzbRv3KbBNrAY5SzNgpZ",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

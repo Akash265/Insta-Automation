@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i010",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Jev",
+   "GPT-6.1"
+  ]
+ },
+ "input_tokens": 416,
+ "output_tokens": 49,
+ "cost_usd": 0.0,
+ "latency_s": 1.915,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001390541
+ },
+ "error": null
+}

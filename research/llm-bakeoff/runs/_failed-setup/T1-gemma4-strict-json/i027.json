@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i027",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Nemotron-Personas-Finance-Japan"
+  ]
+ },
+ "input_tokens": 305,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 1.334,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.004240708
+ },
+ "error": null
+}

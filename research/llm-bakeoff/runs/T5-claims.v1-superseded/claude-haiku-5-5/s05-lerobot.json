@@ -1,0 +1,74 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s05-lerobot",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The Hugging Face Hub now holds almost 300 TB of open Physical AI data in LeRobot format, according to the LeRobot v0.7.0 release post.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The Hub now holds almost 300 TB of open Physical AI data in LeRobot format, with some of the largest datasets released in just the past few months."
+   },
+   {
+    "claim_text": "LeRobot v0.7.0 adds --interactive=true to lerobot-rollout, which keeps the robot connection, policy weights and processors loaded between instructions.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Add --interactive=true to lerobot-rollout, and the robot connection, policy weights and processors stay loaded between instructions."
+   },
+   {
+    "claim_text": "With lerobot-policy-server, the model can run on a GPU workstation elsewhere in the lab while the robot's laptop or single-board computer handles cameras and motors.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "With lerobot-policy-server, you can keep a laptop or single-board computer beside the robot and run the model on a GPU workstation across the lab."
+   },
+   {
+    "claim_text": "Cosmos 3 Nano and Cosmos 3 Edge reach 97.90% and 97.95% average success on LIBERO, according to the release post.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "It comes in two sizes, Cosmos 3 Nano (16.5B parameters) and Cosmos 3 Edge (4.6B), which reach 97.90% and 97.95% average success on LIBERO."
+   },
+   {
+    "claim_text": "LingBot-VLA 2.0 reports 93.5% success on RoboTwin 2.0 (clean), against 82.7% for π0.5, according to upstream reporting cited by LeRobot.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Upstream, it reports 93.5% success on RoboTwin 2.0 (clean), against 82.7% for π0.5."
+   },
+   {
+    "claim_text": "The LaWAM LIBERO fine-tune scores 98.5%, which the release post says is 1,970 of 2,000 episodes.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "the LIBERO fine-tune scores 98.5% (1,970 of 2,000 episodes)."
+   },
+   {
+    "claim_text": "In LeRobot, ACT trains 2.8x faster on an H100 and 3.3x faster on an A100 when image augmentation runs on the GPU.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "ACT trains 2.8x faster on an H100 and 3.3x faster on an A100."
+   },
+   {
+    "claim_text": "The G0.5 code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0."
+   }
+  ]
+ },
+ "input_tokens": 9081,
+ "output_tokens": 2681,
+ "cost_usd": 0.0022486,
+ "latency_s": 10.383,
+ "request_id": "req_011CgzbChFG1n1K3MCQFML82",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

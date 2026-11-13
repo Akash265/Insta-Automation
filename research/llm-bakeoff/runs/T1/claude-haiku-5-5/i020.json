@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i020",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Stack Overflow",
+   "Stack Exchange",
+   "ChatGPT",
+   "arXiv"
+  ]
+ },
+ "input_tokens": 749,
+ "output_tokens": 56,
+ "cost_usd": 0.00010290000000000001,
+ "latency_s": 1.272,
+ "request_id": "req_011CgzavBkY9xgH6Rrq4UBkt",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

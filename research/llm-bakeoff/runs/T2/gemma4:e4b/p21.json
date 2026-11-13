@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p21",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items refer to a specific model or API related to Gemini, suggesting they are announcing related features or versions of the same underlying technology."
+ },
+ "input_tokens": 333,
+ "output_tokens": 50,
+ "cost_usd": 0.0,
+ "latency_s": 1.943,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.009915541
+ },
+ "error": null
+}

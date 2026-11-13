@@ -1,0 +1,43 @@
+{
+ "task": "T7",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "E2-planted",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 5,
+    "quote": "It will be free for everyone until the end of 2027.",
+    "type": "unsupported",
+    "explanation": "No claim says anything about pricing or availability of the NIST practices. The statement is invented."
+   },
+   {
+    "rank": 3,
+    "quote": "It is the most capable system of its kind ever released.",
+    "type": "overclaim",
+    "explanation": "The claims contain no support for this superlative about PyTorch 2.15."
+   },
+   {
+    "rank": 4,
+    "quote": "Today, anthropic says a new GSA agreement",
+    "type": "date",
+    "explanation": "The story was published on 2026-10-27 and the edition date is 2026-11-13, so \"Today\" is wrong."
+   },
+   {
+    "rank": 1,
+    "quote": "Anthropic introduces Claude Fable 5.2 and Mythos 5.2 as one model with two access tiers",
+    "type": "name",
+    "explanation": "The claims name \"Claude Fable\" and \"Claude Mythos 5.2\". They give no version number for Fable, so \"Fable 5.2\" is unsupported. The summary repeats this as \"Claude Fable 5.2\"."
+   }
+  ]
+ },
+ "input_tokens": 5058,
+ "output_tokens": 1265,
+ "cost_usd": 0.022766,
+ "latency_s": 9.563,
+ "request_id": "req_011Cgzc9HJ9FxmkVBKvn6RrV",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

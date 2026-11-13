@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p24",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about Hugging Face Hub billing through Google Cloud accounts, while Item B is about Google co-designing fashion tools with designers for New York Fashion Week; these are unrelated announcements."
+ },
+ "input_tokens": 484,
+ "output_tokens": 83,
+ "cost_usd": 8.99e-05,
+ "latency_s": 1.773,
+ "request_id": "req_011Cgzb7pQj5L2tM1NXFCT9H",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

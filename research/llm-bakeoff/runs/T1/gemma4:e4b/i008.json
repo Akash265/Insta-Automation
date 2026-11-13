@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i008",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "FairSumEval"
+  ]
+ },
+ "input_tokens": 406,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 1.65,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.008650167
+ },
+ "error": null
+}

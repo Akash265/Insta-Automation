@@ -1,0 +1,8 @@
+{
+ "model": "claude-haiku-5-5",
+ "task": "T5",
+ "started": 1794557688.205027,
+ "finished": 1794557770.571006,
+ "done": 10,
+ "skipped": 0
+}

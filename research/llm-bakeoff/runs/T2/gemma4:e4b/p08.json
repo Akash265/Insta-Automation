@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p08",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses the general capability improvement of the Gemini 4 Hydrogen model, while Item B focuses specifically on the launch of Gemini for healthcare within Google Cloud."
+ },
+ "input_tokens": 334,
+ "output_tokens": 54,
+ "cost_usd": 0.0,
+ "latency_s": 1.779,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.013569875
+ },
+ "error": null
+}

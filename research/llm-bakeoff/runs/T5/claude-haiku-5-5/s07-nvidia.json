@@ -1,0 +1,74 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s07-nvidia",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "NVIDIA, Rebellions and SK Telecom today announced a collaboration to advance Korea’s sovereign AI infrastructure — using NVIDIA NVLink Fusion™ to bring together NVIDIA’s open infrastructure platform"
+   },
+   {
+    "claim_text": "Rebellions plans to use NVLink Fusion to connect its Rebel R200 neural processing units to the NVIDIA platform.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions will use NVLink Fusion to connect its Rebel R200 neural processing units (NPUs) to the NVIDIA platform, and harness the NVIDIA MGX™ rack architecture"
+   },
+   {
+    "claim_text": "SK Telecom plans to deploy these Rebellions-based systems in its AI data center to support its full-stack sovereign AI strategy.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "SK Telecom plans to deploy these systems, drawing on its AI data center operations expertise, proprietary models and services."
+   },
+   {
+    "claim_text": "Rebellions' R200 systems are expected to be ready for deployment in 2028.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions’ R200 systems are expected to be ready for deployment in 2028."
+   },
+   {
+    "claim_text": "The companies plan to pursue disaggregated inference, using NVIDIA GPUs for prefill and Rebellions NPUs for decode to improve inference throughput and power efficiency.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Their planned work includes using NVIDIA GPUs for prefill and Rebellions NPUs for decode to improve inference throughput and power efficiency."
+   },
+   {
+    "claim_text": "The collaboration is supported by Korea's Ministry of Science and ICT (MSIT).",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Supported by Korea’s Ministry of Science and ICT (MSIT), the collaboration aims to support AI services tailored to Korea’s language, industries and priorities"
+   },
+   {
+    "claim_text": "Rebellions is developing its next-generation R200 NPU, which it says is optimized for low-latency and energy-efficient inference using frontier models, including multitrillion-parameter mixture-of-experts models.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions is developing its next-generation R200 NPU, optimized for low-latency and energy-efficient inference using frontier models, including multitrillion-parameter mixture-of-experts models."
+   },
+   {
+    "claim_text": "SK Telecom plans to connect its infrastructure with its proprietary models, including A.X K2, and public-facing services under Korea's AI for All project.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "By linking SKT’s AI data centers, proprietary AI models including A.X K2, and public-facing AI services developed under the ‘AI for All’ project"
+   }
+  ]
+ },
+ "input_tokens": 7025,
+ "output_tokens": 1789,
+ "cost_usd": 0.001597,
+ "latency_s": 5.73,
+ "request_id": "req_011CgzbToJokYEXW2rBPt6tV",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

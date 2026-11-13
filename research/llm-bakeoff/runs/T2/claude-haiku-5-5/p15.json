@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p15",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is an arXiv paper proposing a distributionally robust extension of BEST-RQ for speech representation learning, while Item B concerns ToyBlocks, a controlled robot learning environment; these are unrelated papers/releases."
+ },
+ "input_tokens": 632,
+ "output_tokens": 93,
+ "cost_usd": 0.0001097,
+ "latency_s": 1.962,
+ "request_id": "req_011Cgzb6irLJcQezvUC4E3LK",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

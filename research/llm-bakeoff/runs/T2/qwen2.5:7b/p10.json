@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p10",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The articles discuss different products from Gemini: one about Gemini 4 Hydrogen and Orchestrator, and the other about Gemini Omni 1.2 Flash."
+ },
+ "input_tokens": 255,
+ "output_tokens": 45,
+ "cost_usd": 0.0,
+ "latency_s": 4.34,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001517958
+ },
+ "error": null
+}

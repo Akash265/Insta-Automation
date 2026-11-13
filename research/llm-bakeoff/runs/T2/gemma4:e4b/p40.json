@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p40",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A announces 'Project ProtoStar,' while Item B is about the 'Gemini 4 Hydrogen' model."
+ },
+ "input_tokens": 313,
+ "output_tokens": 46,
+ "cost_usd": 0.0,
+ "latency_s": 4.339,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.022441333
+ },
+ "error": null
+}

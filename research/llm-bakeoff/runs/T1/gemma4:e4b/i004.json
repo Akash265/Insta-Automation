@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i004",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Vision-Language Models",
+   "MDU"
+  ]
+ },
+ "input_tokens": 420,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 2.18,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.026863084
+ },
+ "error": null
+}

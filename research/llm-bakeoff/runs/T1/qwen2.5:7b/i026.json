@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i026",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Hugging Face"
+  ]
+ },
+ "input_tokens": 166,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 3.154,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001112667
+ },
+ "error": null
+}

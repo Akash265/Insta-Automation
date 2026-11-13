@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i046",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "llama.cpp"
+  ]
+ },
+ "input_tokens": 208,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 2.789,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001944292
+ },
+ "error": null
+}

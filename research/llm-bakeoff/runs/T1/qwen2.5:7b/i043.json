@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i043",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "MLX runner",
+   "Ripple model"
+  ]
+ },
+ "input_tokens": 228,
+ "output_tokens": 32,
+ "cost_usd": 0.0,
+ "latency_s": 3.272,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001936792
+ },
+ "error": null
+}

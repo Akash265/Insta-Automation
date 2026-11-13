@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p40",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A announces Project ProtoStar, an initiative to make publicly funded science AI-ready, while Item B announces a Gemini 4 Hydrogen model release; these are different announcements."
+ },
+ "input_tokens": 531,
+ "output_tokens": 78,
+ "cost_usd": 9.209999999999999e-05,
+ "latency_s": 1.421,
+ "request_id": "req_011Cgzb9f5i3Hfx6stAaZpCo",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

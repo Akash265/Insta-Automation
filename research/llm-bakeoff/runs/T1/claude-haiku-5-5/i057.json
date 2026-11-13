@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i057",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Brave Search API",
+   "Brave",
+   "x402"
+  ]
+ },
+ "input_tokens": 601,
+ "output_tokens": 41,
+ "cost_usd": 8.06e-05,
+ "latency_s": 1.699,
+ "request_id": "req_011CgzayxwxZNh3wtsHZefkc",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

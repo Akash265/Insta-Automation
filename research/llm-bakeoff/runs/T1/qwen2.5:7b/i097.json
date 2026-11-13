@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i097",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Google"
+  ]
+ },
+ "input_tokens": 189,
+ "output_tokens": 24,
+ "cost_usd": 0.0,
+ "latency_s": 2.297,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001133208
+ },
+ "error": null
+}

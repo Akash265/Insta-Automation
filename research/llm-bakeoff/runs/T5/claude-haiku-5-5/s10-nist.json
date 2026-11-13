@@ -1,0 +1,74 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s10-nist",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "NIST CAISSI, the NSA Super Intelligence Security Center, and CISA published ten key practices for managing potential incidents during super intelligence training and evaluation.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "published ten key practices for managing potential incidents during super intelligence (SI) training and evaluation."
+   },
+   {
+    "claim_text": "The publication is a voluntary document meant to help frontier super intelligence industry prevent, prepare for, and respond to incidents during training and evaluation.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "This voluntary document supports the frontier SI industry in preventing, preparing for, and responding to incidents during training and evaluation"
+   },
+   {
+    "claim_text": "The focus is incidents in which one or more super intelligence agents take significant uninstructed actions that compromise policies, controls, or security measures set by the operator.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "particularly incidents in which one or more SI agents take significant uninstructed actions that compromise explicit or implicit policies, controls, or security measures"
+   },
+   {
+    "claim_text": "The ten practices are organized into five stages of the incident management lifecycle: preparation, detection, response, recovery, and reporting.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "The ten key practices are divided into five stages of the incident management lifecycle: preparation, detection, response, recovery, and reporting."
+   },
+   {
+    "claim_text": "The practices are grounded in established cybersecurity incident management frameworks, including NIST SP 800-61r3, and are informed by NIST CAISSI's experience running secure evaluations of frontier super intelligence models.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "These key practices are grounded in longstanding cybersecurity incident management frameworks, including NIST SP 800-61r3"
+   },
+   {
+    "claim_text": "The publication builds on prior work including a May 2026 NIST Workshop on super intelligence incident management.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "It builds on prior work in this area, including the May 2026 NIST Workshop on SI Incident Management"
+   },
+   {
+    "claim_text": "NIST says the publication is a step toward fulfilling a recommendation in the White House's 2025 SI Action Plan.",
+    "claim_type": "interpretation",
+    "materiality": "minor",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "This publication represents a step toward fulfilling the White House’s 2025 SI Action Plan recommendation for NIST"
+   },
+   {
+    "claim_text": "NIST says further work on incident readiness and response in agentic super intelligence training and evaluation will be considered in future phases.",
+    "claim_type": "forecast",
+    "materiality": "minor",
+    "evidence_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+    "excerpt": "Further work on incident readiness and response in agentic SI training and evaluation will be considered in future phases."
+   }
+  ]
+ },
+ "input_tokens": 2225,
+ "output_tokens": 2564,
+ "cost_usd": 0.0015045,
+ "latency_s": 10.028,
+ "request_id": "req_011CgzbVL8ji8zPyC7VFPWBW",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,81 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s09-fractile",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Fractile, a London and Bristol AI hardware startup, has secured backing from the UK Government's Sovereign AI Venture Fund and the British Business Bank as part of a round worth over £500 million.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "has secured backing from the UK Government’s Sovereign AI Venture Fund and the British Business Bank as part of a round worth over £500 million."
+   },
+   {
+    "claim_text": "The funding round values Fractile at over £5 billion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Today’s funding round values the company at over £5 billion."
+   },
+   {
+    "claim_text": "The government does not disclose the specific amount of its investment in Fractile, citing commercial sensitivity.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Like most venture capital funds we do not comment on specific investment figures as they are commercially sensitive"
+   },
+   {
+    "claim_text": "Fractile's Series C round also includes investors CapitalG, Lightspeed and Redpoint.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "it is also being backed through this Series C round by investors including CapitalG, Lightspeed and Redpoint."
+   },
+   {
+    "claim_text": "The government says Fractile's hardware is faster, more energy efficient and less costly; this is the government's characterisation, not an independent measurement.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Fractile is re-inventing the hardware that AI runs on, so that it is faster, more energy efficient, and less costly."
+   },
+   {
+    "claim_text": "Business Secretary Jonathan Reynolds says Fractile has plans to expand its presence in Bristol.",
+    "claim_type": "quote",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "With plans to expand their presence in Bristol, Fractile are helping to put our plans for reindustrialisation into action"
+   },
+   {
+    "claim_text": "The Budget confirmed a further £140 million backing for Sovereign AI, with an additional £60 million for the Fund's investments and £80 million for its R&D Procurement Scheme.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "the Chancellor confirmed a further £140 million backing for Sovereign AI, with an additional £60 million to support the Fund’s investments, plus £80 million for Sovereign AI’s R&D Procurement Scheme."
+   },
+   {
+    "claim_text": "The Budget expanded the British Business Bank's investment capacity by £5 billion to £30.6 billion.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "The Chancellor also expanded the British Business Bank’s investment capacity by £5 billion to £30.6 billion"
+   },
+   {
+    "claim_text": "Sovereign AI's typical equity investments will be worth around £1-10 million, though circumstances vary by company.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Typical equity investments will be worth around £1-10 million, though every company’s circumstances will be different."
+   }
+  ]
+ },
+ "input_tokens": 4118,
+ "output_tokens": 2558,
+ "cost_usd": 0.0016908,
+ "latency_s": 9.196,
+ "request_id": "req_011CgzbUcWxMbNzmgtXBz3Pb",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

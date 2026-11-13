@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i018",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "SimVerb-3500"
+  ]
+ },
+ "input_tokens": 443,
+ "output_tokens": 45,
+ "cost_usd": 0.0,
+ "latency_s": 2.368,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.004144583
+ },
+ "error": null
+}

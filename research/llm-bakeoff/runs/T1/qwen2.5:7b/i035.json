@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i035",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Transformers"
+  ]
+ },
+ "input_tokens": 164,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 2.581,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001256958
+ },
+ "error": null
+}

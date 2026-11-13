@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p35",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item describes a specific code update, while the second item is about a new product release with AI capabilities."
+ },
+ "input_tokens": 250,
+ "output_tokens": 36,
+ "cost_usd": 0.0,
+ "latency_s": 3.802,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001060083
+ },
+ "error": null
+}

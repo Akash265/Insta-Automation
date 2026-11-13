@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i039",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "AnySpeechRecognizer",
+   "AnyDecisionModel",
+   "Apple"
+  ]
+ },
+ "input_tokens": 300,
+ "output_tokens": 31,
+ "cost_usd": 0.0,
+ "latency_s": 1.218,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.010350834
+ },
+ "error": null
+}

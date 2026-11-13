@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p02",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items refer to the introduction of Gemini 4 Hydrogen, with item_b specifying its application to Google Search."
+ },
+ "input_tokens": 252,
+ "output_tokens": 36,
+ "cost_usd": 0.0,
+ "latency_s": 3.827,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001081417
+ },
+ "error": null
+}

@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i009",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "arXiv",
+   "Large language models (LLMs)",
+   "math items",
+   "essay feedback"
+  ]
+ },
+ "input_tokens": 289,
+ "output_tokens": 42,
+ "cost_usd": 0.0,
+ "latency_s": 4.377,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001666666
+ },
+ "error": null
+}

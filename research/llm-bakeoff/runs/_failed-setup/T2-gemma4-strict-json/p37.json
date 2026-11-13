@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p37",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about a new AI model, while Item B is about Nvidia employees petitioning for Jensen Huang's return."
+ },
+ "input_tokens": 317,
+ "output_tokens": 37,
+ "cost_usd": 0.0,
+ "latency_s": 1.759,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.033957709
+ },
+ "error": null
+}

@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p07",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A announces the release of a new Gemini model with improved question understanding, while Item B is about Google expanding its AI & Economy research team with advisors and fellows; these are unrelated announcements."
+ },
+ "input_tokens": 574,
+ "output_tokens": 78,
+ "cost_usd": 9.640000000000001e-05,
+ "latency_s": 1.841,
+ "request_id": "req_011Cgzb5hCMFRSraWKLGcdz6",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

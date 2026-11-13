@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i004",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "arXiv",
+   "Vision-Language Models (VLMs)",
+   "MDU"
+  ]
+ },
+ "input_tokens": 302,
+ "output_tokens": 39,
+ "cost_usd": 0.0,
+ "latency_s": 4.211,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003905042
+ },
+ "error": null
+}

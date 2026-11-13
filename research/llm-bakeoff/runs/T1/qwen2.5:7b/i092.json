@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i092",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini 4 Argon"
+  ]
+ },
+ "input_tokens": 195,
+ "output_tokens": 30,
+ "cost_usd": 0.0,
+ "latency_s": 2.978,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001215667
+ },
+ "error": null
+}

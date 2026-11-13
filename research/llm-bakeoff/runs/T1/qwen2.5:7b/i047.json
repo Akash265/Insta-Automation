@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i047",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "MiMo V2.6",
+   "Qwen3.5"
+  ]
+ },
+ "input_tokens": 193,
+ "output_tokens": 37,
+ "cost_usd": 0.0,
+ "latency_s": 3.637,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001594417
+ },
+ "error": null
+}

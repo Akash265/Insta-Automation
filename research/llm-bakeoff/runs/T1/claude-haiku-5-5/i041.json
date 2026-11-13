@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i041",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Ollama",
+   "llama.cpp",
+   "MLX",
+   "ChatGPT",
+   "OpenCode"
+  ]
+ },
+ "input_tokens": 777,
+ "output_tokens": 60,
+ "cost_usd": 0.0001077,
+ "latency_s": 1.352,
+ "request_id": "req_011CgzaxP9haGUHgGGBe3qbx",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

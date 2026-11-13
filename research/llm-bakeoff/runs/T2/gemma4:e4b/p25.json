@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p25",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about bringing original Xbox games to PC, while Item B is about a new experimental game creation platform called Playground."
+ },
+ "input_tokens": 336,
+ "output_tokens": 37,
+ "cost_usd": 0.0,
+ "latency_s": 1.988,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.005603125
+ },
+ "error": null
+}

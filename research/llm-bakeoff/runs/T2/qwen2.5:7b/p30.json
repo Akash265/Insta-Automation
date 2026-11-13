@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p30",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The items refer to different Gemini models (Gemini 4 Hydrogen vs. Gemini 4 Argon), indicating they are reporting on separate events."
+ },
+ "input_tokens": 251,
+ "output_tokens": 43,
+ "cost_usd": 0.0,
+ "latency_s": 4.019,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001231
+ },
+ "error": null
+}

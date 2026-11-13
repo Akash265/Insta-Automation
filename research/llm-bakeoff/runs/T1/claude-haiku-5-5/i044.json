@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i044",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Xiaomi",
+   "MiMo",
+   "Ollama",
+   "AutoTrust"
+  ]
+ },
+ "input_tokens": 755,
+ "output_tokens": 54,
+ "cost_usd": 0.0001025,
+ "latency_s": 1.171,
+ "request_id": "req_011CgzaxhJ6Y43BFzZTC1Xzj",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

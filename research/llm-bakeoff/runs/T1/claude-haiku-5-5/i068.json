@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i068",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Microsoft 365",
+   "Microsoft",
+   "Downdetector",
+   "Reddit",
+   "Hacker News"
+  ]
+ },
+ "input_tokens": 646,
+ "output_tokens": 54,
+ "cost_usd": 9.16e-05,
+ "latency_s": 1.463,
+ "request_id": "req_011Cgzb17JnEMR52ARGM767g",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

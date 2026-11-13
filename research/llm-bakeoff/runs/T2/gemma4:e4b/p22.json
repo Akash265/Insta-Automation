@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p22",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items report on a service degradation or outage affecting Microsoft 365/Outlook."
+ },
+ "input_tokens": 412,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 2.508,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.010984125
+ },
+ "error": null
+}

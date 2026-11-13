@@ -1,0 +1,37 @@
+{
+ "task": "T7",
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "job": "E2-planted",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 3,
+    "quote": "It is the most capable system of its kind ever released.",
+    "type": "overclaim",
+    "explanation": "The claims describe PyTorch 2.15's features and benchmarks, which are vendor claims. Nothing supports a superlative about it being the most capable system ever released."
+   },
+   {
+    "rank": 4,
+    "quote": "Today, anthropic says a new GSA agreement",
+    "type": "date",
+    "explanation": "The story is dated 2026-10-27, and the edition date is 2026-11-13. Calling it 'today' is a wrong time word. The script also lowercases 'anthropic'."
+   },
+   {
+    "rank": 5,
+    "quote": "It will be free for everyone until the end of 2027.",
+    "type": "unsupported",
+    "explanation": "No claim mentions free access or any end date of 2027 for the guidance. This fact is invented."
+   }
+  ]
+ },
+ "input_tokens": 5058,
+ "output_tokens": 1816,
+ "cost_usd": 0.0014138,
+ "latency_s": 9.224,
+ "request_id": "req_011Cgzc5toDP8QapBAwzQhZ8",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

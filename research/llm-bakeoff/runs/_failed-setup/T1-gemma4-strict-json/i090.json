@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i090",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Google"
+  ]
+ },
+ "input_tokens": 309,
+ "output_tokens": 19,
+ "cost_usd": 0.0,
+ "latency_s": 1.016,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000705833
+ },
+ "error": null
+}

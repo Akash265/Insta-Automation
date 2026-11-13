@@ -1,0 +1,21 @@
+{
+ "model": "qwen2.5:7b",
+ "task": "T2",
+ "started": 1794557000.886411,
+ "memory_before": {
+  "swap": "total = 13312.00M  used = 11891.81M  free = 1420.19M  (encrypted)",
+  "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL"
+ },
+ "memory_loaded": {
+  "swap": "total = 13312.00M  used = 11796.00M  free = 1516.00M  (encrypted)",
+  "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              \nqwen2.5:7b    845dbda0ea48    4.8 GB    100% GPU     4096       llamacpp    9 minutes from now"
+ },
+ "unloaded": true,
+ "memory_after_unload": {
+  "swap": "total = 13312.00M  used = 11811.00M  free = 1501.00M  (encrypted)",
+  "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL"
+ },
+ "finished": 1794557183.539082,
+ "done": 40,
+ "skipped": 0
+}

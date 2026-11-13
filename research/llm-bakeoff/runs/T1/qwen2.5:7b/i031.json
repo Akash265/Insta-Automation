@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i031",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Phonon TTS"
+  ]
+ },
+ "input_tokens": 184,
+ "output_tokens": 29,
+ "cost_usd": 0.0,
+ "latency_s": 3.048,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00086475
+ },
+ "error": null
+}

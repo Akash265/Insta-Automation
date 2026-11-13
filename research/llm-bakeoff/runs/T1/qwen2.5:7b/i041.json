@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i041",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Ollama",
+   "llama.cpp",
+   "MLX",
+   "MLX-C"
+  ]
+ },
+ "input_tokens": 370,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 4.729,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001861459
+ },
+ "error": null
+}

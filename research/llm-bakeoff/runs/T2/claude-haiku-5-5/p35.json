@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p35",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is a software release adding Kimi Code CLI support, while Item B announces a different model, Edge0-145B, so they are unrelated announcements."
+ },
+ "input_tokens": 545,
+ "output_tokens": 65,
+ "cost_usd": 8.7e-05,
+ "latency_s": 1.307,
+ "request_id": "req_011Cgzb99kbUzftpsyK9CAVi",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

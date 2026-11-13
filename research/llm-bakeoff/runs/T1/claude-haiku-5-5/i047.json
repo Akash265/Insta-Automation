@@ -1,0 +1,22 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i047",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "MiMo V2.6",
+   "Qwen3.5"
+  ]
+ },
+ "input_tokens": 551,
+ "output_tokens": 42,
+ "cost_usd": 7.609999999999999e-05,
+ "latency_s": 1.716,
+ "request_id": "req_011Cgzay2gfr9gHpoiPNgd99",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

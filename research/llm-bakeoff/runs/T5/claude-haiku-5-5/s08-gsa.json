@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s08-gsa",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Anthropic is expanding its partnership with the General Services Administration (GSA) through a new agreement giving government partners a 40% discount on Claude Enterprise, Claude for Government, and the Claude API.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "We are expanding our partnership with the General Services Administration (GSA) through a new agreement that gives government partners a 40% discount on Claude Enterprise, Claude for Government, and the Claude API."
+   },
+   {
+    "claim_text": "The discount applies across every product surface, including when agencies buy directly from Anthropic and through cloud providers in the coming months, and also extends to state, local, tribal and territorial governments.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "For the first time, the discount applies across every product surface, including when agencies buy from us directly today and through cloud providers in the coming months. The discount also extends to state, local, tribal and territorial governments."
+   },
+   {
+    "claim_text": "Anthropic estimates the discounts offered through the agreement will save the government $1 billion.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "The discounts offered through the agreement are estimated to save the government $1 billion."
+   },
+   {
+    "claim_text": "Agencies are not bound by a minimum spend commitment and will pay only for the usage they consume.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Agencies are not bound by a minimum spend commitment and will be able to pay for the usage they consume."
+   },
+   {
+    "claim_text": "Anthropic says approximately 500 US federal, state, and local government organizations now use Claude.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Approximately 500 US federal, state, and local government organizations now use Claude."
+   },
+   {
+    "claim_text": "Anthropic says weekly Claude for Government active users are up about eightfold since February, and federal civilian agency usage has grown about 20-fold in a year.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Weekly Claude for Government active users are up about eightfold since February, and usage across federal civilian agencies has grown about 20-fold in a year."
+   },
+   {
+    "claim_text": "Claude for Government was made generally available on September 30 and provides near-feature parity with commercial offerings at a FedRAMP High authorization level.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Claude for Government, which delivers Claude's coding and agentic work capabilities and provides near-feature parity with commercial offerings at a FedRAMP High authorization level, was made generally available on September 30."
+   },
+   {
+    "claim_text": "On Amazon Bedrock, Claude is authorized for FedRAMP High, with select models authorized for DoD IL4 and IL5 workloads in AWS GovCloud; on Google Cloud's Vertex AI, Claude is authorized for FedRAMP High.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "On Bedrock, Claude is authorized for FedRAMP High, with select models authorized for DoD IL4 and IL5 workloads in AWS GovCloud. On Vertex AI, Claude is authorized for FedRAMP High."
+   },
+   {
+    "claim_text": "Claude Enterprise is in process for FedRAMP Moderate authorization through the FedRAMP 20x program, not yet authorized.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Claude Enterprise is in process for FedRAMP Moderate authorization through the FedRAMP 20x program"
+   },
+   {
+    "claim_text": "Government agencies can buy Claude at the OneGov discount through GSA's Multiple Award Schedule starting today.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "excerpt": "Government agencies can buy Claude at the OneGov discount through GSA's Multiple Award Schedule today."
+   }
+  ]
+ },
+ "input_tokens": 2294,
+ "output_tokens": 1623,
+ "cost_usd": 0.0010409,
+ "latency_s": 5.281,
+ "request_id": "req_011CgzbUDqwXJegdESobiHeb",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p12",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The titles and descriptions indicate different entities: one is about Hugging Face and the other is about Apple's Foundation Models framework."
+ },
+ "input_tokens": 200,
+ "output_tokens": 38,
+ "cost_usd": 0.0,
+ "latency_s": 3.664,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000714584
+ },
+ "error": null
+}

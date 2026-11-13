@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p03",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "One item is about Hugging Face Hub billing through Google Cloud accounts, while the other is about Google Cloud launching Gemini for healthcare; these are different announcements."
+ },
+ "input_tokens": 487,
+ "output_tokens": 72,
+ "cost_usd": 8.47e-05,
+ "latency_s": 1.954,
+ "request_id": "req_011Cgzb58MtvTeufNfRCrDZm",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i035",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Transformers"
+  ]
+ },
+ "input_tokens": 286,
+ "output_tokens": 19,
+ "cost_usd": 0.0,
+ "latency_s": 0.57,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.005003416
+ },
+ "error": null
+}

@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p17",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items report on the release of Google's Gemini 4 Hydrogen model, with item_a providing more detailed information about its capabilities."
+ },
+ "input_tokens": 261,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 3.972,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001081708
+ },
+ "error": null
+}

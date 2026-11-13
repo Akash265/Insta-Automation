@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i020",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "ChatGPT"
+  ]
+ },
+ "input_tokens": 444,
+ "output_tokens": 39,
+ "cost_usd": 0.0,
+ "latency_s": 1.958,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001099083
+ },
+ "error": null
+}

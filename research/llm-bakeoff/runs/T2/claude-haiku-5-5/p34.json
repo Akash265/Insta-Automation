@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p34",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about a retail discount on the Oura Ring 4 smart ring, while Item B announces a new experimental gaming platform for creating and sharing custom games; these are unrelated events."
+ },
+ "input_tokens": 563,
+ "output_tokens": 77,
+ "cost_usd": 9.480000000000001e-05,
+ "latency_s": 1.862,
+ "request_id": "req_011Cgzb91q6X5nk7nYRc2NZP",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

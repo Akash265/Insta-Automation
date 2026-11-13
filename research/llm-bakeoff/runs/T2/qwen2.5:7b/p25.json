@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p25",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item is about Microsoft making original Xbox games available on PC for their anniversary, while the second item is about a new gaming platform for creating custom games."
+ },
+ "input_tokens": 257,
+ "output_tokens": 45,
+ "cost_usd": 0.0,
+ "latency_s": 4.597,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001679334
+ },
+ "error": null
+}

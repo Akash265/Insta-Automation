@@ -1,0 +1,74 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s09-fractile",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol startup developing advanced AI chips, as part of a round worth over £500 million.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "has secured backing from the UK Government’s Sovereign AI Venture Fund and the British Business Bank as part of a round worth over £500 million."
+   },
+   {
+    "claim_text": "The government says Fractile's current funding round values the company at over £5 billion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Today’s funding round values the company at over £5 billion."
+   },
+   {
+    "claim_text": "The government says Fractile is being backed in its Series C round by investors including CapitalG, Lightspeed and Redpoint.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "it is also being backed through this Series C round by investors including CapitalG, Lightspeed and Redpoint."
+   },
+   {
+    "claim_text": "Fractile says its approach re-invents AI hardware to be faster, more energy efficient, and less costly.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Fractile is re-inventing the hardware that AI runs on, so that it is faster, more energy efficient, and less costly."
+   },
+   {
+    "claim_text": "The Business Secretary says Fractile plans to expand its presence in Bristol.",
+    "claim_type": "forecast",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "With plans to expand their presence in Bristol"
+   },
+   {
+    "claim_text": "The government says typical Sovereign AI Fund equity investments are worth around £1-10 million.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Typical equity investments will be worth around £1-10 million, though every company’s circumstances will be different."
+   },
+   {
+    "claim_text": "The government says the Chancellor confirmed a further £140 million backing for Sovereign AI at the recent Budget.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "the Chancellor confirmed a further £140 million backing for Sovereign AI"
+   },
+   {
+    "claim_text": "The government says Sovereign AI will expand into a new focus area of Physical and Industrial AI.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Sovereign AI would expand into a new focus area of Physical and Industrial AI"
+   }
+  ]
+ },
+ "input_tokens": 4039,
+ "output_tokens": 2568,
+ "cost_usd": 0.0016879,
+ "latency_s": 10.078,
+ "request_id": "req_011CgzbEkazfn5aRu31Ufdh5",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i023",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "BotPsy"
+  ]
+ },
+ "input_tokens": 179,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 2.554,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001702375
+ },
+ "error": null
+}

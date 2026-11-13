@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i070",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini 4 Hydrogen"
+  ]
+ },
+ "input_tokens": 233,
+ "output_tokens": 30,
+ "cost_usd": 0.0,
+ "latency_s": 2.862,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001841917
+ },
+ "error": null
+}

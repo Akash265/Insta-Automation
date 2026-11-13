@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i030",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Open ASR"
+  ]
+ },
+ "input_tokens": 171,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 2.544,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001239958
+ },
+ "error": null
+}

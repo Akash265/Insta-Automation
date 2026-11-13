@@ -1,0 +1,65 @@
+# P1-09 bake-off: 10 real primary-source stories, approved by the founder 2026-11-13.
+# Found and fetched by a research pass on 2026-11-13 (date and content confirmed).
+# Full source text is cached in cache/llm-bakeoff/ (git-ignored), never committed.
+edition_date: "2026-11-13"   # the date the T6 scripts are written for
+stories:
+  - id: s01-ripple
+    category: model_release
+    publisher: Ricursive Intelligence
+    title: Introducing Ripple-65B Preview, a Frontier Open-Weight Model
+    url: https://www.ricursive.com/ripple
+    published: "2026-11-12"
+  - id: s02-fable52
+    category: model_release
+    publisher: Anthropic
+    title: Introducing Claude Fable 5.2 and Claude Mythos 5.2
+    url: https://www.anthropic.com/claude-fable-and-mythos-5-2
+    published: "2026-11-09"
+  - id: s03-retrace
+    category: research
+    publisher: arXiv
+    title: "ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows"
+    url: https://arxiv.org/abs/2611.14492
+    published: "2026-11-10"
+  - id: s04-rtl
+    category: research
+    publisher: arXiv
+    title: "Toward Autonomous RTL and Synthesis Optimization: Benchmarking and Self-Improving Agents"
+    url: https://arxiv.org/abs/2611.13713
+    published: "2026-11-10"
+  - id: s05-lerobot
+    category: open_source
+    publisher: Hugging Face
+    title: "LeRobot v0.7.0: From Terabytes to Prompting Robots"
+    url: https://huggingface.co/blog/lerobot/lerobot-release-v070
+    published: "2026-11-05"
+  - id: s06-pytorch
+    category: open_source
+    publisher: PyTorch Foundation
+    title: PyTorch 2.15 Release Blog
+    url: https://pytorch.org/blog/pytorch-2-15-release-blog/
+    published: "2026-10-28"
+  - id: s07-nvidia
+    category: business
+    publisher: NVIDIA
+    title: NVIDIA, Rebellions and SK Telecom Announce Collaboration to Advance Sovereign AI Infrastructure With NVIDIA NVLink Fusion
+    url: https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion
+    published: "2026-11-08"
+  - id: s08-gsa
+    category: business
+    publisher: Anthropic
+    title: Expanding our partnership with GSA to bring Claude to all levels of government
+    url: https://www.anthropic.com/news/expanding-partnership-gsa
+    published: "2026-10-27"
+  - id: s09-fractile
+    category: policy
+    publisher: GOV.UK
+    title: Sovereign AI and British Business Bank invest in British firm developing the next generation of AI hardware
+    url: https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware
+    published: "2026-11-11"
+  - id: s10-nist
+    category: policy
+    publisher: NIST
+    title: Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation
+    url: https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training
+    published: "2026-10-16"

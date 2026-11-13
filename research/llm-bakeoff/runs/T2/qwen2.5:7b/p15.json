@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p15",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The two items discuss different topics; one is about a new approach in speech representation learning, while the other is about a controlled world for robot learning and evaluation."
+ },
+ "input_tokens": 285,
+ "output_tokens": 45,
+ "cost_usd": 0.0,
+ "latency_s": 4.809,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00169175
+ },
+ "error": null
+}

@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i084",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": []
+ },
+ "input_tokens": 192,
+ "output_tokens": 22,
+ "cost_usd": 0.0,
+ "latency_s": 2.238,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001162625
+ },
+ "error": null
+}

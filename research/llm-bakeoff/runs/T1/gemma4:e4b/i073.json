@@ -1,0 +1,22 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i073",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": []
+ },
+ "input_tokens": 375,
+ "output_tokens": 31,
+ "cost_usd": 0.0,
+ "latency_s": 1.609,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001881959
+ },
+ "error": null
+}

@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i060",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "silero"
+  ]
+ },
+ "input_tokens": 426,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 1.649,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001143
+ },
+ "error": null
+}

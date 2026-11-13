@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p14",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item discusses employees petitioning to bring back Jensen Huang, while the second item reports on Huang's resignation as CEO."
+ },
+ "input_tokens": 287,
+ "output_tokens": 38,
+ "cost_usd": 0.0,
+ "latency_s": 3.862,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001148041
+ },
+ "error": null
+}

@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p12",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The two items refer to different topics, one mentioning 'Decision Models in Hugging Face' and the other referencing the 'Foundation Models framework' from Apple."
+ },
+ "input_tokens": 285,
+ "output_tokens": 54,
+ "cost_usd": 0.0,
+ "latency_s": 2.414,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.027488458
+ },
+ "error": null
+}

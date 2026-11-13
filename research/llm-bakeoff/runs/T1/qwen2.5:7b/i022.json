@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i022",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "3D Generation Models"
+  ]
+ },
+ "input_tokens": 174,
+ "output_tokens": 28,
+ "cost_usd": 0.0,
+ "latency_s": 2.797,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001751875
+ },
+ "error": null
+}

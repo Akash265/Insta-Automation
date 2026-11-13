@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p30",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The two items refer to different models, Gemini 4 Hydrogen and Gemini 4 Argon."
+ },
+ "input_tokens": 333,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 1.926,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000616542
+ },
+ "error": null
+}

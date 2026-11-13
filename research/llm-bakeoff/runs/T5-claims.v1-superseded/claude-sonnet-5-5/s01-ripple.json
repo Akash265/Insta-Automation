@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "job": "s01-ripple",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Ricursive Intelligence says Ripple-65B Preview achieves U.S. open-weight state-of-the-art on TerminalBench 2.1 with a score of 80.52.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "achieving U.S. open-weight state-of-the-art (80.52) on TerminalBench 2.1"
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview surpasses larger U.S. open-weight models including Reflection Beam 501B (80.1), Meta Muse Spark Open 816B (76.4), Thinking Machines Inkling 975B (63.8) and NVIDIA Nemotron 3 Ultra 550B (56.4).",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "surpassing significantly larger US open-weight models such as Reflection Beam 501B (80.1), Meta Muse Spark Open 816B (76.4), Thinking Machines Inkling 975B (63.8), and NVIDIA Nemotron 3 Ultra 550B (56.4)"
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview was pretrained on 12 trillion tokens and supports up to 1M context length.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "The model is pretrained on 12 trillion tokens with support for up to 1M context length."
+   },
+   {
+    "claim_text": "Ricursive says it developed and trained Ripple-65B Preview for only $32M in full R&D cost, about one-tenth the estimated cost of the previous open-weight SOTA on agentic coding.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "we developed and trained Ripple-65B Preview for only $32M, which is one-tenth the cost of the previous open-weight SOTA on agentic coding, as estimated to the best of our knowledge."
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview is a dense Transformer rather than a Mixture-of-Experts model, and that it maintained about 40% MFU during training.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "we chose to train a modernized dense Transformer model rather than use Mixture-of-Experts (MoE) like other labs."
+   },
+   {
+    "claim_text": "Ricursive says it reached its TerminalBench 2.1 score with only 1.4M rollouts, roughly 70x fewer than Reflection Beam.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "We reached a TerminalBench 2.1 score of 80.5 with only 1.4M rollouts, roughly 70x fewer rollouts than Reflection Beam, the prior SOTA."
+   },
+   {
+    "claim_text": "Ripple-65B Preview is available on Hugging Face, Together AI, GMI Cloud, OpenRouter, and Fireworks.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Ripple-65B Preview is available on Hugging Face, Together AI, GMI Cloud, OpenRouter, and Fireworks."
+   },
+   {
+    "claim_text": "Ricursive says the model's small parameter size lets it run efficiently on local devices such as NVIDIA DGX Spark.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "The model's small parameter envelope also enables it to run efficiently on local devices such as NVIDIA DGX Spark"
+   },
+   {
+    "claim_text": "Ricursive says Ripple-65B Preview is a general-purpose variant of the proprietary model that powers its AI chip design platform.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "Ripple-65B Preview, a general-purpose variant of the proprietary model that powers our AI chip design platform."
+   },
+   {
+    "claim_text": "Ricursive says its model ladder improvements raised compute efficiency on code by up to 16x at 4B scale versus the Olmo 3 ladder.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.ricursive.com/ripple",
+    "excerpt": "improved compute efficiency on code as measured by dolma_stack CE by up to 16x at 4B model scale."
+   }
+  ]
+ },
+ "input_tokens": 3454,
+ "output_tokens": 1651,
+ "cost_usd": 0.023418,
+ "latency_s": 9.59,
+ "request_id": "req_011CgzbFt9SKjoPK71cCthQw",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p11",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items describe the same Microsoft outage affecting Outlook/Microsoft 365 globally on the same day, reported via CNN live coverage and a related article about the elevated-load incident."
+ },
+ "input_tokens": 614,
+ "output_tokens": 77,
+ "cost_usd": 9.99e-05,
+ "latency_s": 2.937,
+ "request_id": "req_011Cgzb6AQTdPCVdUbuuc61m",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

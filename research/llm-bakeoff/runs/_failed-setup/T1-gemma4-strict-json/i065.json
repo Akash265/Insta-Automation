@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i065",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini 4",
+   "Google"
+  ]
+ },
+ "input_tokens": 355,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 1.345,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001353542
+ },
+ "error": null
+}

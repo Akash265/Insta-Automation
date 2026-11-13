@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i060",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "RealtimeVAD",
+   "Silero",
+   "Hacker News"
+  ]
+ },
+ "input_tokens": 730,
+ "output_tokens": 48,
+ "cost_usd": 9.7e-05,
+ "latency_s": 1.755,
+ "request_id": "req_011CgzazLhACkvsPNqPDcMGg",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

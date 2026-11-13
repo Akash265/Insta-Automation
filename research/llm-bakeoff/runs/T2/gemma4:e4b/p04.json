@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p04",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": true,
+  "reason": "Both items refer to the introduction or announcement of Gemini 4 Hydrogen by Google."
+ },
+ "input_tokens": 330,
+ "output_tokens": 39,
+ "cost_usd": 0.0,
+ "latency_s": 2.16,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.057544042
+ },
+ "error": null
+}

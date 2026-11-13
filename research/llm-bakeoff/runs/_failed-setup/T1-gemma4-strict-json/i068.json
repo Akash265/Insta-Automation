@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i068",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Microsoft 365"
+  ]
+ },
+ "input_tokens": 396,
+ "output_tokens": 23,
+ "cost_usd": 0.0,
+ "latency_s": 1.612,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.006606791
+ },
+ "error": null
+}

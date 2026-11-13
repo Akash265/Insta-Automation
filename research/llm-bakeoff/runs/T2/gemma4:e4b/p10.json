@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p10",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses 'Gemini 4 Hydrogen and Orchestrator,' while Item B discusses 'Gemini Omni 1.2 Flash,' indicating different product announcements."
+ },
+ "input_tokens": 341,
+ "output_tokens": 56,
+ "cost_usd": 0.0,
+ "latency_s": 1.906,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.011561125
+ },
+ "error": null
+}

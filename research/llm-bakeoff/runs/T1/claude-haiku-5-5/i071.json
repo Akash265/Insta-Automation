@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i071",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Nvidia",
+   "Jensen Huang",
+   "Tim Cook",
+   "Apple",
+   "Donald Trump"
+  ]
+ },
+ "input_tokens": 644,
+ "output_tokens": 55,
+ "cost_usd": 9.190000000000001e-05,
+ "latency_s": 1.184,
+ "request_id": "req_011Cgzb1SuWDYdeRHMyTxydp",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

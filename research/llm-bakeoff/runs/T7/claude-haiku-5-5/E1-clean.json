@@ -1,0 +1,37 @@
+{
+ "task": "T7",
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "job": "E1-clean",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 1,
+    "quote": "Ricursive Intelligence released Ripple-65B Preview, an open-weight model.",
+    "type": "unsupported",
+    "explanation": "The claims never state that Ripple-65B Preview is open-weight as a fact. They only cite a 'U.S. open-weight state of the art' benchmark and availability on hosting platforms, so the label is presented without support."
+   },
+   {
+    "rank": 2,
+    "quote": "ReTrace: agent runs become workflows, 24% cheaper per task",
+    "type": "attribution",
+    "explanation": "The 24% lower cost per task is a benchmark the authors report on their own platform, but the card presents it as established fact without attribution."
+   },
+   {
+    "rank": 3,
+    "quote": "It says streaming gives two point one to two point five times more samples per second.",
+    "type": "overclaim",
+    "explanation": "The claim gives the 2.1–2.5x speedup only 'when using four DataLoader workers'. The script drops this condition and so overstates the general applicability of the figure."
+   }
+  ]
+ },
+ "input_tokens": 5948,
+ "output_tokens": 3011,
+ "cost_usd": 0.0021003000000000003,
+ "latency_s": 12.98,
+ "request_id": "req_011Cgzc3EhxNJMNgjRuVdfLf",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i042",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Ripple Preview",
+   "Qwen3.8 Flash",
+   "ollama"
+  ]
+ },
+ "input_tokens": 432,
+ "output_tokens": 58,
+ "cost_usd": 0.0,
+ "latency_s": 2.048,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.020635625
+ },
+ "error": null
+}

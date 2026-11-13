@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i038",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Mistral Large 4",
+   "Hugging Face"
+  ]
+ },
+ "input_tokens": 175,
+ "output_tokens": 35,
+ "cost_usd": 0.0,
+ "latency_s": 3.552,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001270042
+ },
+ "error": null
+}

@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s06-pytorch",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "PyTorch 2.15 was released, with the rewritten NCCL backend becoming the default for every nccl process group.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "In PyTorch 2.15, every job that uses nccl runs on our rewritten backend by default."
+   },
+   {
+    "claim_text": "The 2.15 release is composed of 3,117 commits from 583 contributors since PyTorch 2.14.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "This release is composed of 3,117 commits from 583 contributors since PyTorch 2.14."
+   },
+   {
+    "claim_text": "PyTorch 2.15 adds one-sided transports for torch.distributed with NIXL as the first backend, marked API Unstable.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "torch.distributed gains a Python transport API for one-sided data movement, with NIXL as the first backend."
+   },
+   {
+    "claim_text": "On Apple Silicon, PyTorch's new grouped_mm gives 1.32–1.34x higher MoE decode throughput on an M3 Ultra, according to the PyTorch team.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "the new MPS grouped_mm has a gemv path that gives 1.32–1.34x higher MoE decode throughput on an M3 Ultra."
+   },
+   {
+    "claim_text": "The default PyTorch wheel moves to CUDA 13.2, with CUDA 13.4 GA wheels shipping alongside it for Linux x86_64, Linux aarch64 and Windows.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "The default PyTorch wheel moves to CUDA 13.2 (13.2.2 toolkit), with CUDA 13.4 GA wheels shipping alongside it for Linux x86_64, Linux aarch64 and Windows."
+   },
+   {
+    "claim_text": "PyTorch 2.15 requires Python 3.11 or newer, and Python 3.10 is no longer supported.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "Python 3.10 is no longer supported. PyTorch 2.15 requires Python 3.11 or newer"
+   },
+   {
+    "claim_text": "PyTorch 2.15 requires macOS 15 or newer for MPS acceleration, dropping macOS 14 support.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "PyTorch 2.15 requires macOS 15 or newer for MPS (Apple Silicon GPU) acceleration."
+   },
+   {
+    "claim_text": "The rewritten NCCL backend's rollback path is setting TORCH_DIST_USE_NCCL2=0 or using the nccl-legacy backend.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "nccl now selects the rewritten NCCL backend. Set TORCH_DIST_USE_NCCL2=0 or use the nccl-legacy backend to restore the legacy ProcessGroupNCCL."
+   },
+   {
+    "claim_text": "PyTorch's blog says a QR decomposition of a 512 x 512 matrix falls from about 7 seconds to 1.5 ms after solver rewrites.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "QR of a 512 x 512 matrix falls from about 7 seconds to 1.5 ms, and triangular solves are now blocked."
+   },
+   {
+    "claim_text": "The 2.15 release's Q&A webinar is scheduled for Thursday, November 5, 2026, at 11 AM PT.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "Bring any questions you may have about PyTorch 2.15 to our Q&A webinar on Thursday, November 5, 2026, at 11 AM PT."
+   }
+  ]
+ },
+ "input_tokens": 7708,
+ "output_tokens": 1632,
+ "cost_usd": 0.0015868000000000002,
+ "latency_s": 6.504,
+ "request_id": "req_011CgzbTPkivEoUUdHQs1u9D",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

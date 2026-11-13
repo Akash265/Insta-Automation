@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i059",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Edge0"
+  ]
+ },
+ "input_tokens": 240,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 2.548,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.0010985
+ },
+ "error": null
+}

@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i088",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini Omni 1.2 Flash"
+  ]
+ },
+ "input_tokens": 588,
+ "output_tokens": 43,
+ "cost_usd": 8.030000000000001e-05,
+ "latency_s": 1.224,
+ "request_id": "req_011Cgzb3DeqMkTG7cz7P1JQj",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

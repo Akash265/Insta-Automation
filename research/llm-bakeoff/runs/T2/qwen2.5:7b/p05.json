@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p05",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item is about a guide for 3D generation models, while the second item discusses new customization options for Xbox consoles, which are unrelated events."
+ },
+ "input_tokens": 236,
+ "output_tokens": 44,
+ "cost_usd": 0.0,
+ "latency_s": 4.256,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00193
+ },
+ "error": null
+}

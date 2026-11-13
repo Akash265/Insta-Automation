@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i034",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "CWE-bench"
+  ]
+ },
+ "input_tokens": 173,
+ "output_tokens": 28,
+ "cost_usd": 0.0,
+ "latency_s": 2.735,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002593167
+ },
+ "error": null
+}

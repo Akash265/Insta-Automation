@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i073",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Whoop"
+  ]
+ },
+ "input_tokens": 254,
+ "output_tokens": 25,
+ "cost_usd": 0.0,
+ "latency_s": 2.517,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001029459
+ },
+ "error": null
+}

@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i082",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Gemini Decisions API",
+   "Gemini Decision"
+  ]
+ },
+ "input_tokens": 195,
+ "output_tokens": 34,
+ "cost_usd": 0.0,
+ "latency_s": 3.949,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001144833
+ },
+ "error": null
+}

@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i027",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Nemotron-Personas-Finance-Japan"
+  ]
+ },
+ "input_tokens": 182,
+ "output_tokens": 34,
+ "cost_usd": 0.0,
+ "latency_s": 3.229,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003970792
+ },
+ "error": null
+}

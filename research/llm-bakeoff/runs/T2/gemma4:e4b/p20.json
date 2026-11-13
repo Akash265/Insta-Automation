@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p20",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A specifically introduces 'Gemini 4 Hydrogen,' while Item B discusses general 'Gemini Intelligence' features rolling out to more devices."
+ },
+ "input_tokens": 328,
+ "output_tokens": 51,
+ "cost_usd": 0.0,
+ "latency_s": 1.926,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.024433666
+ },
+ "error": null
+}

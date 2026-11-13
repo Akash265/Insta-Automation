@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i071",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Nvidia",
+   "Tim Cook",
+   "Donald Trump"
+  ]
+ },
+ "input_tokens": 354,
+ "output_tokens": 28,
+ "cost_usd": 0.0,
+ "latency_s": 1.455,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.00661775
+ },
+ "error": null
+}

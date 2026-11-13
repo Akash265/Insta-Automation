@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i040",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "LFM3"
+  ]
+ },
+ "input_tokens": 169,
+ "output_tokens": 27,
+ "cost_usd": 0.0,
+ "latency_s": 2.679,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001898125
+ },
+ "error": null
+}

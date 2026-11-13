@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i023",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "BotPsy"
+  ]
+ },
+ "input_tokens": 302,
+ "output_tokens": 22,
+ "cost_usd": 0.0,
+ "latency_s": 0.911,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.004816917
+ },
+ "error": null
+}

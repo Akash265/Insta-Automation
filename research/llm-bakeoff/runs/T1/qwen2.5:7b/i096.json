@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i096",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Google",
+   "Industrious"
+  ]
+ },
+ "input_tokens": 190,
+ "output_tokens": 29,
+ "cost_usd": 0.0,
+ "latency_s": 2.741,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001150084
+ },
+ "error": null
+}

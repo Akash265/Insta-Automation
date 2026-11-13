@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i030",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Open ASR Leaderboard"
+  ]
+ },
+ "input_tokens": 538,
+ "output_tokens": 35,
+ "cost_usd": 7.130000000000001e-05,
+ "latency_s": 1.073,
+ "request_id": "req_011CgzawBsWw8RToY6oA6xLo",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p19",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is about the introduction of a specific model (Gemini 4 Hydrogen), while Item B is about a specific application of Gemini (for healthcare) by Google Cloud."
+ },
+ "input_tokens": 328,
+ "output_tokens": 58,
+ "cost_usd": 0.0,
+ "latency_s": 2.161,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.032850375
+ },
+ "error": null
+}

@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "job": "s09-fractile",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup, as part of a funding round worth over £500 million.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "has secured backing from the UK Government’s Sovereign AI Venture Fund and the British Business Bank as part of a round worth over £500 million."
+   },
+   {
+    "claim_text": "The funding round values Fractile at over £5 billion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Today’s funding round values the company at over £5 billion."
+   },
+   {
+    "claim_text": "The round is a Series C that also includes investors CapitalG, Lightspeed and Redpoint.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "it is also being backed through this Series C round by investors including CapitalG, Lightspeed and Redpoint."
+   },
+   {
+    "claim_text": "The government says Fractile is re-inventing AI hardware to be faster, more energy efficient and less costly, taking a full-stack approach spanning chips, software and machine learning research.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Fractile is re-inventing the hardware that AI runs on, so that it is faster, more energy efficient, and less costly."
+   },
+   {
+    "claim_text": "The government says the investment will strengthen UK sovereign capabilities and reduce dependence on overseas supply chains.",
+    "claim_type": "interpretation",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "reducing dependence on fragile overseas supply chains and ensuring the UK has a greater stake in the hardware that will underpin its future economy"
+   },
+   {
+    "claim_text": "The government says Fractile plans to expand its presence in Bristol.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "With plans to expand their presence in Bristol, Fractile are helping to put our plans for reindustrialisation into action"
+   },
+   {
+    "claim_text": "The Budget confirmed a further £140 million for Sovereign AI, including £60 million for the Fund's investments and £80 million for an R&D Procurement Scheme.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "the Chancellor confirmed a further £140 million backing for Sovereign AI, with an additional £60 million to support the Fund’s investments, plus £80 million for Sovereign AI’s R&D Procurement Scheme."
+   },
+   {
+    "claim_text": "The government says the AI Compute Roadmap involves up to £2 billion of investment over the coming years.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "with up to £2 billion of investment over the coming years, under the AI Compute Roadmap."
+   },
+   {
+    "claim_text": "The government did not disclose the size of the Sovereign AI or British Business Bank investment in Fractile, saying it does not comment on specific investment figures.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "Like most venture capital funds we do not comment on specific investment figures as they are commercially sensitive"
+   },
+   {
+    "claim_text": "Sovereign AI investment partner Joséphine Kant said Fractile's approach has the potential to compete with the very best globally.",
+    "claim_type": "quote",
+    "materiality": "minor",
+    "evidence_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+    "excerpt": "we believe it has the potential to compete with the very best globally."
+   }
+  ]
+ },
+ "input_tokens": 4039,
+ "output_tokens": 1795,
+ "cost_usd": 0.026028,
+ "latency_s": 9.439,
+ "request_id": "req_011CgzbK8uH8BEwiTYEGzk2r",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

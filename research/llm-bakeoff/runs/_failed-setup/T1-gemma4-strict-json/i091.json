@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i091",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "AI"
+  ]
+ },
+ "input_tokens": 331,
+ "output_tokens": 19,
+ "cost_usd": 0.0,
+ "latency_s": 1.017,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001035625
+ },
+ "error": null
+}

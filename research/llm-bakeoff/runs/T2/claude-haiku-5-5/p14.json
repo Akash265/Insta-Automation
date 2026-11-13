@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p14",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A reports an employee petition to bring back Jensen Huang, while Item B reports his resignation announcement and tech leaders' reactions; these are different events (a later petition responding to the resignation rather than the resignation itself)."
+ },
+ "input_tokens": 639,
+ "output_tokens": 89,
+ "cost_usd": 0.0001084,
+ "latency_s": 1.376,
+ "request_id": "req_011Cgzb6cx8N4tPg2wmtJStp",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

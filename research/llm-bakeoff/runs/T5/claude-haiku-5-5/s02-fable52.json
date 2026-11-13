@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s02-fable52",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Anthropic announced upgraded Claude Fable 5.2 and Claude Mythos 5.2 models, which it says show improvements in coding, reasoning and vision.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Claude Fable 5.2 and Claude Mythos 5.2 show improvements in areas like coding, reasoning, and vision."
+   },
+   {
+    "claim_text": "Anthropic says Fable 5.2 and Mythos 5.2 generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "They generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1"
+   },
+   {
+    "claim_text": "Anthropic lists the price of Fable 5.2 and Mythos 5.2 at $8 per million input tokens and $40 per million output tokens.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "they’re available at a lower price: $8 per million input tokens and $40 per million output tokens."
+   },
+   {
+    "claim_text": "Fast mode for Fable 5.2 and Mythos 5.2 is priced at $16 per million input tokens and $80 per million output tokens.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Fast mode is available for $16 per million input tokens and $80 per million output tokens."
+   },
+   {
+    "claim_text": "Claude Fable 5.2 is available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Claude Fable 5.2 is available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure."
+   },
+   {
+    "claim_text": "Claude Mythos 5.2 is not generally available; organizations can apply for access through Anthropic's Cyber and Life Sciences Verification Programs.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Organizations pursuing beneficial applications in cybersecurity or biomedical research can apply for access to Mythos through our recently expanded Life Sciences and Cyber Verification Programs."
+   },
+   {
+    "claim_text": "Anthropic reports that Fable 5.2 reaches 49.1% on FrontierCode 2.0 at Xhigh effort, the highest score of any released model it tested.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "At Xhigh effort, Fable 5.2 reaches 49.1%, the highest score of any released model we’ve tested."
+   },
+   {
+    "claim_text": "Anthropic reports that Fable 5.2 scores 83.5 on BenchCAD 2.1 at Max effort, versus 65.3 for Opus 5.5 and 44.4 for Fable 5.1.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "At Max effort, Fable 5.2 scores 83.5, ahead of Opus 5.5 (65.3) and Fable 5.1 (44.4)."
+   },
+   {
+    "claim_text": "Anthropic says about 1,000 Fable 5.2 agents fully formalized Fermat's Last Theorem in Lean in 30 hours with minimal human intervention.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "a team of 1,000 Fable 5.2 agents fully formalized the theorem in just 30 hours, with minimal human intervention."
+   },
+   {
+    "claim_text": "Anthropic assesses the risk of Fable 5.2 and Mythos 5.2 behaving unsafely in high-stakes situations as low, as with its other recent models.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "we’ve assessed the risk of these models behaving in unsafe ways in high-stakes situations to be low (as with our other recent models)."
+   }
+  ]
+ },
+ "input_tokens": 15594,
+ "output_tokens": 3123,
+ "cost_usd": 0.0031209000000000002,
+ "latency_s": 11.348,
+ "request_id": "req_011CgzbQQAwY14bmDDUi84AY",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

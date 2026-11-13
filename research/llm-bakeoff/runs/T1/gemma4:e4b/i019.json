@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i019",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "LLM"
+  ]
+ },
+ "input_tokens": 429,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 1.952,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.053531875
+ },
+ "error": null
+}

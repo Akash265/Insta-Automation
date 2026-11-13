@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i076",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Microsoft"
+  ]
+ },
+ "input_tokens": 239,
+ "output_tokens": 24,
+ "cost_usd": 0.0,
+ "latency_s": 2.302,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001078208
+ },
+ "error": null
+}

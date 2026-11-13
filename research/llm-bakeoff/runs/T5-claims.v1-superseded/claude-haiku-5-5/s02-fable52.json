@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s02-fable52",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Anthropic says Claude Fable 5.2 and Mythos 5.2 are priced at $8 per million input tokens and $40 per million output tokens.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "they’re available at a lower price: $8 per million input tokens and $40 per million output tokens."
+   },
+   {
+    "claim_text": "Anthropic says Fable 5.2 and Mythos 5.2 generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "They generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1"
+   },
+   {
+    "claim_text": "Anthropic reports that Fable 5.2 scores 49.1% on FrontierCode 2.0 at Xhigh effort, the highest score of any released model it has tested.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "At Xhigh effort, Fable 5.2 reaches 49.1%, the highest score of any released model we’ve tested."
+   },
+   {
+    "claim_text": "Anthropic says a team of 1,000 Fable 5.2 agents fully formalized Fermat’s Last Theorem in Lean in 30 hours with minimal human intervention.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "By contrast, a team of 1,000 Fable 5.2 agents fully formalized the theorem in just 30 hours, with minimal human intervention."
+   },
+   {
+    "claim_text": "Anthropic says Claude Fable 5.2 solved two open problems in theoretical physics concerning black holes.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Claude Fable 5.2 solved two open problems in theoretical physics."
+   },
+   {
+    "claim_text": "Anthropic says Claude Fable 5.2 designed three working electronic devices from scratch during prerelease testing.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "designed three working electronic devices from scratch"
+   },
+   {
+    "claim_text": "Anthropic says Fable 5.2 has about 55% fewer safeguard blocks than Fable 5.1 in early testing.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "we observed about 55% fewer blocks with Fable 5.2 compared with Fable 5.1"
+   },
+   {
+    "claim_text": "Anthropic reports that on its internal CVE Rediscovery evaluation, Claude Mythos 5.2 found 10.2% more vulnerabilities than Claude Opus 5.5 and 14.4% more than Claude Mythos 5.1.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "found 10.2% more vulnerabilities than Claude Opus 5.5 and 14.4% more than Claude Mythos 5.1."
+   },
+   {
+    "claim_text": "Anthropic says Claude Fable 5.2 is available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "Claude Fable 5.2 is available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure."
+   },
+   {
+    "claim_text": "Anthropic says it assessed the risk of Fable 5.2 and Mythos 5.2 behaving in unsafe ways in high-stakes situations as low.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "excerpt": "we’ve assessed the risk of these models behaving in unsafe ways in high-stakes situations to be low"
+   }
+  ]
+ },
+ "input_tokens": 15515,
+ "output_tokens": 3208,
+ "cost_usd": 0.0031555,
+ "latency_s": 11.914,
+ "request_id": "req_011CgzbAak3cvdkYcZkibUmm",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

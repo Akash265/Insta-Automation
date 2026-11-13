@@ -1,0 +1,71 @@
+{
+ "task": "T6",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "E1",
+ "prompt": "script.v1",
+ "data": {
+  "hook": "Ricursive releases an open-weight model it says cost thirty-two million dollars to build, plus robotics, agent and chip news.",
+  "outro": "Sources and full details for every story are on the AI Daily Brief website.",
+  "stories": [
+   {
+    "rank": 1,
+    "story_id": "s01-ripple",
+    "headline": "Ricursive releases Ripple-65B Preview open-weight model, claims $32M R&D cost",
+    "summary": "Ricursive Intelligence released Ripple-65B Preview on Thursday, a general-purpose variant of the proprietary model behind its AI chip design platform. The company says it scored 80.52 on TerminalBench 2.1, ahead of Reflection Beam 501B at 80.1. Ricursive also says the full R&D cost was $32M, about one-tenth the estimated cost of the previous open-weight leader on agentic coding. The model is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks.",
+    "why_it_matters": "Developers who want an open-weight coding model can try it on several hosting platforms, and the company says its small size lets it run on local devices such as NVIDIA DGX Spark.",
+    "limitations": "The benchmark scores, the $32M cost and the efficiency figures are Ricursive's own claims, and the supplied sources include no independent verification.",
+    "card_text": "Ripple-65B: company says $32M build, 80.5 on TerminalBench",
+    "narration": "Ricursive Intelligence released Ripple-65B Preview, an open-weight model. The company says it scored eighty point five on TerminalBench two point one and cost thirty-two million dollars in total research and development."
+   },
+   {
+    "rank": 2,
+    "story_id": "s03-retrace",
+    "headline": "Researchers' ReTrace turns LLM agent runs into code-driven workflows",
+    "summary": "The authors present ReTrace, a method that turns a standard operating procedure and a few logged agent runs into a reusable workflow in which code, not an LLM, selects each next step. They say this targets the latency and cost of calling an LLM at every step. On 79 procedures from their production platform, they report 93.8% completion versus 96.8% for the agent, at 24% lower cost per task. On τ²-Bench they report 75.8% success versus 80.6%, running in 1.3 seconds instead of 170.",
+    "why_it_matters": "Teams running LLM agents at scale could cut per-task cost and latency, in exchange for a small drop in completion rates on the authors' tests.",
+    "limitations": "All results are the authors' own, and ReTrace trails the agent on the reported benchmarks; on SOP-Bench it also trails few-shot generation unless repair is used.",
+    "card_text": "ReTrace: agent runs become workflows, 24% cheaper per task",
+    "narration": "Researchers present ReTrace, which turns a procedure and logged agent runs into a workflow where code picks each step. On their production procedures, they report ninety-three point eight percent completion versus ninety-six point eight for the agent."
+   },
+   {
+    "rank": 3,
+    "story_id": "s05-lerobot",
+    "headline": "Hugging Face's LeRobot v0.7.0 adds streaming training and interactive robot control",
+    "summary": "Hugging Face says LeRobot v0.7.0 adds interactive rollouts, so users can switch subtasks, ask questions and steer a running robot from the terminal. Training can stream datasets from the Hub, a Storage Bucket or LanceDB without downloading them first. The Hub now hosts almost 300 TB of open Physical AI data in LeRobot format. The release also adds four world action models and four new vision-language-action models.",
+    "why_it_matters": "Robotics developers can train on large open datasets without local downloads and run models on a remote GPU workstation while the robot's computer handles cameras and motors.",
+    "limitations": "The speedups, such as 2.1 to 2.5 times more samples per second, are Hugging Face's own figures, and G0.5 is released under a non-commercial license rather than Apache-2.0.",
+    "card_text": "LeRobot v0.7.0: stream robot data, steer robots from the terminal",
+    "narration": "Hugging Face says LeRobot version zero point seven adds streaming datasets and interactive rollouts for controlling a running robot from the terminal. It says streaming gives two point one to two point five times more samples per second."
+   },
+   {
+    "rank": 4,
+    "story_id": "s07-nvidia",
+    "headline": "NVIDIA, Rebellions and SK Telecom plan Korean sovereign AI systems with NVLink Fusion",
+    "summary": "NVIDIA, Rebellions and SK Telecom announced a collaboration on Korea's sovereign AI infrastructure. Rebellions will use NVLink Fusion to connect its Rebel R200 NPUs to the NVIDIA platform and the MGX rack architecture for rack-scale systems. SK Telecom plans to deploy the resulting systems in its AI data center. The companies plan disaggregated inference, with NVIDIA GPUs handling prefill and Rebellions NPUs handling decode.",
+    "why_it_matters": "Korean chipmakers and telecom operators get a path to build sovereign AI infrastructure by combining custom silicon with NVIDIA's platform, with support from Korea's Ministry of Science and ICT.",
+    "limitations": "Rebellions' R200 systems are only expected to be ready for deployment in 2028, and the performance and efficiency benefits are the companies' own claims.",
+    "card_text": "NVIDIA, Rebellions, SK Telecom team up on Korean sovereign AI",
+    "narration": "NVIDIA, Rebellions and SK Telecom announce a collaboration on Korea's sovereign AI infrastructure. Rebellions will connect its Rebel R200 chips to NVIDIA's platform using NVLink Fusion. Systems are expected to be ready for deployment in twenty twenty-eight."
+   },
+   {
+    "rank": 5,
+    "story_id": "s09-fractile",
+    "headline": "UK Sovereign AI fund and British Business Bank back chip startup Fractile",
+    "summary": "The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup. The Series C round is worth over £500 million and values the company at over £5 billion, the government says. CapitalG, Lightspeed and Redpoint also invest. The Chancellor confirmed a further £140 million for Sovereign AI at the Budget.",
+    "why_it_matters": "UK AI hardware startups gain a state-backed investor, and the government and the Business Bank say the investment will reduce reliance on overseas technology.",
+    "limitations": "The amounts invested by Sovereign AI and the British Business Bank are not disclosed because they are described as commercially sensitive.",
+    "card_text": "UK backs AI chip startup Fractile in £500M+ round",
+    "narration": "The UK government's Sovereign AI fund and the British Business Bank have backed chip startup Fractile in a round worth over five hundred million pounds. The government says it values the company at over five billion pounds."
+   }
+  ]
+ },
+ "input_tokens": 4592,
+ "output_tokens": 5561,
+ "cost_usd": 0.064794,
+ "latency_s": 35.17,
+ "request_id": "req_011Cgzbweorx1AWdhAYpGtTq",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

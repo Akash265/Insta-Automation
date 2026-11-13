@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p23",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item reports on a Microsoft global outage, while the second item describes the launch of a new data platform by Google and the UN."
+ },
+ "input_tokens": 242,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 3.989,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.000989666
+ },
+ "error": null
+}

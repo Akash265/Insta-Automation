@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p34",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses a price drop for the Oura Ring 4, while Item B introduces a new gaming platform called Playground."
+ },
+ "input_tokens": 341,
+ "output_tokens": 37,
+ "cost_usd": 0.0,
+ "latency_s": 1.995,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.018826375
+ },
+ "error": null
+}

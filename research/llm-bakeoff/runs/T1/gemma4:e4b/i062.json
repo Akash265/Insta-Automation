@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i062",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Apple"
+  ]
+ },
+ "input_tokens": 379,
+ "output_tokens": 39,
+ "cost_usd": 0.0,
+ "latency_s": 1.429,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.003184667
+ },
+ "error": null
+}

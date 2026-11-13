@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p29",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is an arXiv paper on evaluating discharge summary generation, while Item B is a guide on fine-tuning 3D generation models; they are unrelated publications."
+ },
+ "input_tokens": 644,
+ "output_tokens": 71,
+ "cost_usd": 9.99e-05,
+ "latency_s": 2.075,
+ "request_id": "req_011Cgzb8M6whVPx3yHj1gePa",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

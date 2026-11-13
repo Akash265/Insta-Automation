@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p18",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses new customization features for Xbox consoles, while Item B describes a new collaborative tool from Google Labs called Tabletop."
+ },
+ "input_tokens": 347,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 2.525,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.005605417
+ },
+ "error": null
+}

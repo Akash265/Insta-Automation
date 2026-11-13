@@ -1,0 +1,49 @@
+{
+ "task": "T7",
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "job": "E1-planted",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 1,
+    "quote": "Ricursive Intelligence released Ripple-130B Preview, an open-weight model.",
+    "type": "name",
+    "explanation": "The claims name the model Ripple-65B Preview, not Ripple-130B Preview. The script's model name and parameter count contradict the claims."
+   },
+   {
+    "rank": 2,
+    "quote": "ReTrace: agent runs become workflows, 24% cheaper per task",
+    "type": "attribution",
+    "explanation": "The 24% lower cost per task is a benchmark the authors report, but the card states it as established fact without attribution."
+   },
+   {
+    "rank": 3,
+    "quote": "It is the most capable system of its kind ever released.",
+    "type": "overclaim",
+    "explanation": "The claims contain no comparison supporting a superlative. They only report vendor benchmark results, so this 'most capable' claim is unsupported."
+   },
+   {
+    "rank": 4,
+    "quote": "Today, nVIDIA, Rebellions and SK Telecom announce a collaboration",
+    "type": "date",
+    "explanation": "The story was published 2026-11-08, while the edition date is 2026-11-13. 'Today' does not match the dates given."
+   },
+   {
+    "rank": 5,
+    "quote": "It will be free for everyone until the end of 2027.",
+    "type": "unsupported",
+    "explanation": "No claim says anything about Fractile or the Sovereign AI fund making anything free or about any end date. This fact is invented."
+   }
+  ]
+ },
+ "input_tokens": 5982,
+ "output_tokens": 2552,
+ "cost_usd": 0.0018742000000000001,
+ "latency_s": 11.336,
+ "request_id": "req_011Cgzc4BvnhWUjXDEUVMKFf",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

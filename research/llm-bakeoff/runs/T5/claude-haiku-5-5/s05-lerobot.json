@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s05-lerobot",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "LeRobot v0.7.0 adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM) and four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5).",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "It adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM), four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5)"
+   },
+   {
+    "claim_text": "The Hugging Face Hub now hosts almost 300 TB of open Physical AI data in LeRobot format.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The Hub now holds almost 300 TB of open Physical AI data in LeRobot format, with some of the largest datasets released in just the past few months."
+   },
+   {
+    "claim_text": "NVIDIA's Cosmos 3 Nano and Cosmos 3 Edge reach 97.90% and 97.95% average success on LIBERO, according to the article's reporting of the model results.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "which reach 97.90% and 97.95% average success on LIBERO."
+   },
+   {
+    "claim_text": "LingBot-VLA 2.0 reports 93.5% success on RoboTwin 2.0 (clean), against 82.7% for π0.5, per upstream figures from Robbyant.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Upstream, it reports 93.5% success on RoboTwin 2.0 (clean), against 82.7% for π0.5."
+   },
+   {
+    "claim_text": "The RPC LaWAM LIBERO fine-tune scores 98.5%, which is 1,970 of 2,000 episodes.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "the LIBERO fine-tune scores 98.5% (1,970 of 2,000 episodes)."
+   },
+   {
+    "claim_text": "Long-WAM's two modes both land around 99% average success on LIBERO, with 99.00% for the Inverse-Dynamics Model and 98.45% for COD over 2,000 episodes each.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Both land around 99% average success on LIBERO (99.00% for IDM, 98.45% for COD, over 2,000 episodes each)."
+   },
+   {
+    "claim_text": "With disk-less streaming and four DataLoader workers, LeRobot's new reader gives 2.1–2.5x more samples per second.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The reader supports DataLoader workers, with 2.1–2.5x more samples per second when using four workers."
+   },
+   {
+    "claim_text": "On an 8×H200 node training a 6B FastWAM, LeRobot's distributed checkpoints save checkpoints 3x faster and cut resuming peak memory from 143 GB to 42 GB per GPU.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "On an 8×H200 node with a 6B FastWAM, DCP saves checkpoints 3x faster, and resuming peaks go from 143 GB to 42 GB per GPU."
+   },
+   {
+    "claim_text": "ACT trains 2.8x faster on an H100 and 3.3x faster on an A100 when image augmentation runs on the GPU.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "ACT trains 2.8x faster on an H100 and 3.3x faster on an A100."
+   },
+   {
+    "claim_text": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0."
+   }
+  ]
+ },
+ "input_tokens": 9160,
+ "output_tokens": 3611,
+ "cost_usd": 0.0027215,
+ "latency_s": 12.492,
+ "request_id": "req_011CgzbSQAEwkQms5AED7ujw",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

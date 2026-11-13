@@ -1,0 +1,21 @@
+{
+ "task": "T2",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "p26",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses an update to the Gemini AI model, while Item B discusses the expansion of Google Beam."
+ },
+ "input_tokens": 336,
+ "output_tokens": 44,
+ "cost_usd": 0.0,
+ "latency_s": 2.174,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.008602417
+ },
+ "error": null
+}

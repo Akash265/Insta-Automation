@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i008",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "FairSumEval"
+  ]
+ },
+ "input_tokens": 286,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 3.334,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001219917
+ },
+ "error": null
+}

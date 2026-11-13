@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i050",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Liquid AI"
+  ]
+ },
+ "input_tokens": 235,
+ "output_tokens": 26,
+ "cost_usd": 0.0,
+ "latency_s": 2.634,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002244333
+ },
+ "error": null
+}

@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p34",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item is about a discount on the Oura Ring 4, while the second item introduces a new gaming platform called Playground."
+ },
+ "input_tokens": 262,
+ "output_tokens": 40,
+ "cost_usd": 0.0,
+ "latency_s": 4.16,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001207459
+ },
+ "error": null
+}

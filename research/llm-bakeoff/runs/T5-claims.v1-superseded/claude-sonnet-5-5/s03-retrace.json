@@ -1,0 +1,74 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "job": "s03-retrace",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The ReTrace authors say it turns an SOP and a few logged agent runs into a reusable workflow in which code, not an LLM, selects the next step.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "We present ReTrace, which turns an SOP and a few logged agent runs into a reusable workflow in which code, not an LLM, selects the next step."
+   },
+   {
+    "claim_text": "The authors say ReTrace extracts the condition behind each step from the agent's reasoning, merges the conditions across runs into a compact rule document, and generates an executable workflow from it.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "ReTrace extracts the condition behind each step, merges these conditions across runs into a compact rule document, and generates an executable workflow from it."
+   },
+   {
+    "claim_text": "The authors report that on 79 procedures from their production platform, ReTrace workflows reach 93.8% completion versus 96.8% for the agent, at 24% lower cost per task.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "On $79$ procedures from our production platform, ReTrace workflows reach $93.8\\%$ completion, against $96.8\\%$ for the agent, at $24\\%$ lower cost per task."
+   },
+   {
+    "claim_text": "The authors report that on τ²-Bench, ReTrace workflows reach 75.8% task success versus 80.6% for the agent, and run in 1.3s instead of 170s.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "On $\\tau^2$-Bench, they reach $75.8\\%$ task success (agent: $80.6\\%$) and run in $1.3$s instead of $170$s;"
+   },
+   {
+    "claim_text": "The authors say three rounds of repair on training failures lift k=2 workflows from 66.7% to 81.2% on τ²-Bench.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "three rounds of repair on training failures lift $k{=}2$ workflows from $66.7\\%$ to $81.2\\%$."
+   },
+   {
+    "claim_text": "The authors report that on eight SOP-Bench procedures, ReTrace without repair trails few-shot generation (80.6% vs. 83.6%).",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "On eight SOP-Bench procedures, ReTrace without repair trails few-shot generation ($80.6\\%$ vs. $83.6\\%$)"
+   },
+   {
+    "claim_text": "The authors report that with repair from labeled training failures, ReTrace reaches 87.8% at 0.40s per task on SOP-Bench, versus 85.5% in 46.6s for the agent.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "but repair from labeled training failures lifts it to $87.8\\%$ at $0.40$s per task, compared to $85.5\\%$ in $46.6$s for the agent."
+   },
+   {
+    "claim_text": "The authors say only the final workflow-generation stage depends on the platform, so rule documents can be compiled for different orchestration platforms.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.14492",
+    "excerpt": "Only this last stage depends on the platform, so rule documents can be compiled for different orchestration platforms."
+   }
+  ]
+ },
+ "input_tokens": 2957,
+ "output_tokens": 1339,
+ "cost_usd": 0.019304,
+ "latency_s": 7.795,
+ "request_id": "req_011CgzbGpYvGCtUzwxCZi2rw",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

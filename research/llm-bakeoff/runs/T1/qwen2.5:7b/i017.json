@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i017",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Fast-DetectGPT",
+   "IRT-Informed Detector",
+   "FIBER"
+  ]
+ },
+ "input_tokens": 306,
+ "output_tokens": 39,
+ "cost_usd": 0.0,
+ "latency_s": 4.564,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001520417
+ },
+ "error": null
+}

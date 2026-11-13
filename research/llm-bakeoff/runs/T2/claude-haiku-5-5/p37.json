@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p37",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A is a research paper on an on-device sub-billion-parameter assistant model, while Item B is about Nvidia employees petitioning for Jensen Huang's return; these are unrelated events."
+ },
+ "input_tokens": 537,
+ "output_tokens": 79,
+ "cost_usd": 9.32e-05,
+ "latency_s": 1.453,
+ "request_id": "req_011Cgzb9M1m1gFF28Sk84AzW",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

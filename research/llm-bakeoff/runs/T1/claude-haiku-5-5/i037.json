@@ -1,0 +1,21 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i037",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Project ProtoStar"
+  ]
+ },
+ "input_tokens": 543,
+ "output_tokens": 32,
+ "cost_usd": 7.030000000000001e-05,
+ "latency_s": 1.124,
+ "request_id": "req_011CgzawzRx8wPJyEVvoGoqU",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

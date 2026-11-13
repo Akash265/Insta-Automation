@@ -1,0 +1,18 @@
+{
+ "task": "T2",
+ "model": "claude-haiku-5-5",
+ "job": "p18",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A covers Microsoft testing Xbox console customization options for Insiders, while Item B is about Google Labs launching a separate group collaboration experiment called Tabletop; these are unrelated announcements."
+ },
+ "input_tokens": 627,
+ "output_tokens": 83,
+ "cost_usd": 0.0001042,
+ "latency_s": 1.941,
+ "request_id": "req_011Cgzb79EHeA73ZPaGwQBAP",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

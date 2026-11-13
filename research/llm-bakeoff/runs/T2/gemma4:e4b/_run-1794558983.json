@@ -1,0 +1,21 @@
+{
+ "model": "gemma4:e4b",
+ "task": "T2",
+ "started": 1794558983.665552,
+ "memory_before": {
+  "swap": "total = 16384.00M  used = 15063.44M  free = 1320.56M  (encrypted)",
+  "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL"
+ },
+ "memory_loaded": {
+  "swap": "total = 15360.00M  used = 14099.00M  free = 1261.00M  (encrypted)",
+  "ollama_ps": "NAME          ID              SIZE     PROCESSOR    CONTEXT    RUNNER    UNTIL              \ngemma4:e4b    eb2177adf764    10 GB    100% GPU     4096       mlx       9 minutes from now"
+ },
+ "unloaded": true,
+ "memory_after_unload": {
+  "swap": "total = 14336.00M  used = 11079.38M  free = 3256.62M  (encrypted)",
+  "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL"
+ },
+ "finished": 1794559094.488777,
+ "done": 40,
+ "skipped": 0
+}

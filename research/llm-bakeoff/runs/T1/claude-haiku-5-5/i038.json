@@ -1,0 +1,22 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i038",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Mistral Large 4",
+   "Hugging Face"
+  ]
+ },
+ "input_tokens": 540,
+ "output_tokens": 41,
+ "cost_usd": 7.45e-05,
+ "latency_s": 1.066,
+ "request_id": "req_011Cgzax5BTCRFuKsCyEwXfE",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

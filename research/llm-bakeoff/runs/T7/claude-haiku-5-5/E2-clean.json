@@ -1,0 +1,37 @@
+{
+ "task": "T7",
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "job": "E2-clean",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 1,
+    "quote": "Anthropic introduces Claude Fable 5.2 and Mythos 5.2 as one model with two access tiers",
+    "type": "attribution",
+    "explanation": "The claims say only that Anthropic says the two are the same underlying model (vendor claim). The headline presents this as Anthropic's established fact without attribution."
+   },
+   {
+    "rank": 2,
+    "quote": "Anthropic introduced Claude Fable 5.2 and Claude Mythos 5.2 on Monday.",
+    "type": "name",
+    "explanation": "The claims name the product 'Claude Fable' with no version number, and attach 5.2 only to Mythos. Adding 5.2 to Fable is a product name not supported by the claims."
+   },
+   {
+    "rank": 3,
+    "quote": "Federal, state, local, tribal and territorial agencies can buy Claude at a lower price and pay only for what they use.",
+    "type": "unsupported",
+    "explanation": "The claims say the discount extends to state, local, tribal and territorial governments and that agencies pay for usage with no minimum commitment. They do not say federal agencies can buy at the discount in this way, though they are implied. The 'can buy' framing is also stated as fact rather than as Anthropic's claim."
+   }
+  ]
+ },
+ "input_tokens": 5025,
+ "output_tokens": 2795,
+ "cost_usd": 0.0019,
+ "latency_s": 11.759,
+ "request_id": "req_011Cgzc52M7Ct5HezUgp2Ebj",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

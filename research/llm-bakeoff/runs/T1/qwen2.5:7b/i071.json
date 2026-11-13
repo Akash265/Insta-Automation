@@ -1,0 +1,27 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i071",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Nvidia",
+   "Apple",
+   "Jensen Huang",
+   "Tim Cook",
+   "Donald Trump"
+  ]
+ },
+ "input_tokens": 232,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 3.815,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001188417
+ },
+ "error": null
+}

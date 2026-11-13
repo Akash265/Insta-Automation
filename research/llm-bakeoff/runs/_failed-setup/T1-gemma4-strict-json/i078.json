@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i078",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Nvidia",
+   "Jensen Huang"
+  ]
+ },
+ "input_tokens": 359,
+ "output_tokens": 24,
+ "cost_usd": 0.0,
+ "latency_s": 1.174,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.004072833
+ },
+ "error": null
+}

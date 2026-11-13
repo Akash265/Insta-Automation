@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p16",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item describes a new model called MITRA-Swarm for classical machine translation, while the second item is about Apple's Foundation Models framework, which are likely different events."
+ },
+ "input_tokens": 352,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 4.803,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001094042
+ },
+ "error": null
+}

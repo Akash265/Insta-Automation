@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p33",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "The first item discusses a study on Jev, a decision model, while the second item introduces Gemini Decisions API, a new product or service."
+ },
+ "input_tokens": 319,
+ "output_tokens": 43,
+ "cost_usd": 0.0,
+ "latency_s": 4.429,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001487209
+ },
+ "error": null
+}

@@ -1,0 +1,20 @@
+{
+ "task": "T2",
+ "model": "qwen2.5:7b",
+ "job": "p38",
+ "prompt": "same_event.v1",
+ "data": {
+  "same_event": false,
+  "reason": "Item A discusses a specific research paper on adapting language models for full-duplex spoken dialogue, while Item B is a general announcement of Google's AI updates without specific details."
+ },
+ "input_tokens": 333,
+ "output_tokens": 48,
+ "cost_usd": 0.0,
+ "latency_s": 4.668,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001617125
+ },
+ "error": null
+}

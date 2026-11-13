@@ -1,0 +1,31 @@
+{
+ "task": "T7",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "E2-clean",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 1,
+    "quote": "Anthropic introduced Claude Fable 5.2 and Claude Mythos 5.2 on Monday.",
+    "type": "name",
+    "explanation": "The claims name the products \"Claude Fable\" and \"Claude Mythos 5.2\". They give no version number for Fable, so \"Fable 5.2\" (also in the headline) is unsupported. The claims also don't say Anthropic \"introduced\" the models, only that the post was published on 2026-11-09."
+   },
+   {
+    "rank": 4,
+    "quote": "Federal, state, local, tribal and territorial agencies can buy Claude at a lower price and pay only for what they use.",
+    "type": "attribution",
+    "explanation": "The discount and the no-minimum-spend terms are Anthropic's claims, but this line states them as established fact. It also leaves out that purchases through cloud providers come only in the coming months."
+   }
+  ]
+ },
+ "input_tokens": 5025,
+ "output_tokens": 1606,
+ "cost_usd": 0.02611,
+ "latency_s": 11.683,
+ "request_id": "req_011Cgzc8RA8i6Ahxvspjc4Jz",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

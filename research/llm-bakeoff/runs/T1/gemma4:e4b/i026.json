@@ -1,0 +1,24 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i026",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "Hugging Face"
+  ]
+ },
+ "input_tokens": 288,
+ "output_tokens": 21,
+ "cost_usd": 0.0,
+ "latency_s": 0.683,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001295459
+ },
+ "error": null
+}

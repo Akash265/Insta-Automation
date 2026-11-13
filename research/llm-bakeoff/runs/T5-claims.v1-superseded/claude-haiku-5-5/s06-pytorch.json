@@ -1,0 +1,88 @@
+{
+ "task": "T5",
+ "model": "claude-haiku-5-5",
+ "job": "s06-pytorch",
+ "prompt": "claims.v1",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "The PyTorch Foundation announced the release of PyTorch 2.15.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "We are excited to announce the release of PyTorch® 2.15 (release notes)!"
+   },
+   {
+    "claim_text": "In PyTorch 2.15, the rewritten NCCL backend is the default for every nccl process group, with TORCH_DIST_USE_NCCL2=0 and the nccl-legacy backend name as rollback paths.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "In 2.15 it is the default for every nccl process group, with TORCH_DIST_USE_NCCL2=0 and the nccl-legacy backend name as rollback paths."
+   },
+   {
+    "claim_text": "The PyTorch 2.15 release is composed of 3,117 commits from 583 contributors since PyTorch 2.14.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "This release is composed of 3,117 commits from 583 contributors since PyTorch 2.14."
+   },
+   {
+    "claim_text": "The default PyTorch wheel moves to CUDA 13.2, with CUDA 13.4 GA wheels shipping alongside it.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "The default PyTorch wheel moves to CUDA 13.2 (13.2.2 toolkit), with CUDA 13.4 GA wheels shipping alongside it for Linux x86_64, Linux aarch64 and Windows."
+   },
+   {
+    "claim_text": "PyTorch 2.15 requires Python 3.11 or newer, and Python 3.10 is no longer supported.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "Python 3.10 is no longer supported. PyTorch 2.15 requires Python 3.11 or newer"
+   },
+   {
+    "claim_text": "PyTorch 2.15 requires macOS 15 or newer for MPS acceleration, dropping macOS 14 support.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "PyTorch 2.15 requires macOS 15 or newer for MPS (Apple Silicon GPU) acceleration."
+   },
+   {
+    "claim_text": "PyTorch says that on an M3 Ultra, the new MPS grouped_mm gemv path gives 1.32–1.34x higher MoE decode throughput.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "the new MPS grouped_mm has a gemv path that gives 1.32–1.34x higher MoE decode throughput on an M3 Ultra."
+   },
+   {
+    "claim_text": "PyTorch says that NVGEMM with NVFP4 decode fuses the scalar dequantization factor into the GEMM, removing a separate pointwise launch per layer during decode.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "now folds the scalar dequantization factor of ModelOpt NVFP4 linear layers into the GEMM, removing a separate pointwise launch per layer during decode."
+   },
+   {
+    "claim_text": "PyTorch says the new flight recorder writes a post-mortem to disk when a collective hangs.",
+    "claim_type": "vendor_claim",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "a backend-agnostic flight recorder writes a post-mortem to disk when a collective hangs"
+   },
+   {
+    "claim_text": "The new torch.distributed one-sided transport API has NIXL as its first backend.",
+    "claim_type": "availability",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "torch.distributed gains a Python transport API for one-sided data movement, with NIXL as the first backend."
+   }
+  ]
+ },
+ "input_tokens": 7629,
+ "output_tokens": 1568,
+ "cost_usd": 0.0015469000000000001,
+ "latency_s": 5.423,
+ "request_id": "req_011CgzbDTfERu8K7yzcj45P3",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,22 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i073",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": false,
+  "category": "none",
+  "entities": [
+   "Whoop",
+   "Whoop Humans"
+  ]
+ },
+ "input_tokens": 652,
+ "output_tokens": 39,
+ "cost_usd": 8.47e-05,
+ "latency_s": 1.199,
+ "request_id": "req_011Cgzb1dJq5HXA76Csx4oux",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

@@ -1,0 +1,89 @@
+{
+ "task": "T5",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "s06-pytorch",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "PyTorch 2.15 was released on October 28, 2026, comprising 3,117 commits from 583 contributors since PyTorch 2.14.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "This release is composed of 3,117 commits from 583 contributors since PyTorch 2.14."
+   },
+   {
+    "claim_text": "In PyTorch 2.15 the rewritten NCCL backend is the default for every nccl process group, with TORCH_DIST_USE_NCCL2=0 or the nccl-legacy backend name as rollback paths.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "In 2.15 it is the default for every nccl process group, with TORCH_DIST_USE_NCCL2=0 and the nccl-legacy backend name as rollback paths."
+   },
+   {
+    "claim_text": "PyTorch says a backend-agnostic flight recorder writes a post-mortem to disk when a collective hangs, and a timeout on any rank triggers flight-recorder dumps from every rank.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "a backend-agnostic flight recorder writes a post-mortem to disk when a collective hangs, and watchdog health is published to the debug server so a timeout on any rank triggers flight-recorder dumps from every rank."
+   },
+   {
+    "claim_text": "torch.distributed gains a Python transport API for one-sided data movement with NIXL as the first backend, and transfers can be captured with torch.cuda.graph; the API is marked unstable.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "torch.distributed gains a Python transport API for one-sided data movement, with NIXL as the first backend."
+   },
+   {
+    "claim_text": "PyTorch says the new MPS grouped_mm gemv path gives 1.32–1.34x higher MoE decode throughput on an M3 Ultra.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "the new MPS grouped_mm has a gemv path that gives 1.32–1.34x higher MoE decode throughput on an M3 Ultra."
+   },
+   {
+    "claim_text": "PyTorch says QR of a 512 x 512 matrix on MPS falls from about 7 seconds to 1.5 ms after rewriting linear algebra solvers.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "QR of a 512 x 512 matrix falls from about 7 seconds to 1.5 ms, and triangular solves are now blocked."
+   },
+   {
+    "claim_text": "On Apple Silicon (MPS), PyTorch 2.15 adds torch.float8_e4m3fn support, _scaled_mm with tensorwise or rowwise scaling, and a public torch.mps.Stream API.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "torch.float8_e4m3fn is now supported on MPS, along with _scaled_mm with tensorwise or rowwise scaling and a gemv fast path for decode-sized shapes."
+   },
+   {
+    "claim_text": "The default PyTorch wheel moves to CUDA 13.2, with CUDA 13.4 wheels shipping alongside it and adding experimental support for NVIDIA Rubin GPUs.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "The default PyTorch wheel moves to CUDA 13.2 (13.2.2 toolkit), with CUDA 13.4 GA wheels shipping alongside it for Linux x86_64, Linux aarch64 and Windows."
+   },
+   {
+    "claim_text": "PyTorch 2.15 adds ROCm 10.0 wheels, all built on AMD's TheRock packages, and supports Python 3.11 through 3.15, with Dynamo adding Python 3.15 support.",
+    "claim_type": "availability",
+    "materiality": "minor",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "PyTorch 2.15 adds ROCm 10.0 wheels alongside the ROCm 7.14 wheels introduced in 2.14."
+   },
+   {
+    "claim_text": "PyTorch 2.15 drops Python 3.10 support and macOS 14 support for MPS, requiring Python 3.11+ and macOS 15+.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+    "excerpt": "Python 3.10 is no longer supported. PyTorch 2.15 requires Python 3.11 or newer: 3.10 wheels are no longer built, and 3.10 is no longer tested in CI."
+   }
+  ]
+ },
+ "input_tokens": 7708,
+ "output_tokens": 1852,
+ "cost_usd": 0.033936,
+ "latency_s": 10.442,
+ "request_id": "req_011Cgzbk9oYTKhLGLUzsu9mB",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

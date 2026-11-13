@@ -1,0 +1,27 @@
+{
+ "task": "T1",
+ "model": "qwen2.5:7b",
+ "job": "i013",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "research",
+  "entities": [
+   "GPT",
+   "Claude",
+   "Gemini",
+   "Llama",
+   "Qwen"
+  ]
+ },
+ "input_tokens": 332,
+ "output_tokens": 41,
+ "cost_usd": 0.0,
+ "latency_s": 4.29,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.001504333
+ },
+ "error": null
+}

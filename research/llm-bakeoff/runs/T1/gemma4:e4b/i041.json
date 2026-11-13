@@ -1,0 +1,26 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i041",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "open_source",
+  "entities": [
+   "Ollama",
+   "mlx",
+   "llama.cpp"
+  ]
+ },
+ "input_tokens": 493,
+ "output_tokens": 54,
+ "cost_usd": 0.0,
+ "latency_s": 2.646,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.0007885
+ },
+ "error": null
+}

@@ -1,0 +1,23 @@
+{
+ "task": "T1",
+ "model": "claude-haiku-5-5",
+ "job": "i065",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "model_release",
+  "entities": [
+   "Google",
+   "Gemini 4 Hydrogen",
+   "Google Antigravity"
+  ]
+ },
+ "input_tokens": 610,
+ "output_tokens": 54,
+ "cost_usd": 8.8e-05,
+ "latency_s": 1.282,
+ "request_id": "req_011Cgzazrs7siPZS3M3s3GKt",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

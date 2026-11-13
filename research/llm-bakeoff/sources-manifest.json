@@ -1,0 +1,112 @@
+[
+ {
+  "id": "s01-ripple",
+  "url": "https://www.ricursive.com/ripple",
+  "final_url": "https://www.ricursive.com/ripple",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 1027,
+  "sha256": "aecb064c1f7935c9d90b9ebed5809b24ca720c90a4aee84274f49f06060a54ac",
+  "fetched_at": "2026-11-13T07:57:08+00:00"
+ },
+ {
+  "id": "s02-fable52",
+  "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+  "final_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 6095,
+  "sha256": "8199c2141a0a08f5a7b7a13ae532985685d688fffb9c625a2c32f2f137eae8a6",
+  "fetched_at": "2026-11-13T07:57:10+00:00"
+ },
+ {
+  "id": "s03-retrace",
+  "url": "https://arxiv.org/abs/2611.14492",
+  "final_url": "https://arxiv.org/abs/2611.14492",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 666,
+  "sha256": "bfc028e2b91ed3affdab96726bad62441b85e90e5cdd1a68baea16bce2e01b50",
+  "fetched_at": "2026-11-13T07:57:11+00:00"
+ },
+ {
+  "id": "s04-rtl",
+  "url": "https://arxiv.org/abs/2611.13713",
+  "final_url": "https://arxiv.org/abs/2611.13713",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 582,
+  "sha256": "70176773b148e215329d8cb6b632c95140e0d03f8aac3f12f25aeaacba1912a2",
+  "fetched_at": "2026-11-13T07:57:11+00:00"
+ },
+ {
+  "id": "s05-lerobot",
+  "url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+  "final_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 3239,
+  "sha256": "45dec11dfcc468c1229f3b41455f823aef44c449c686f8047511a3ddb091ddb2",
+  "fetched_at": "2026-11-13T07:57:12+00:00"
+ },
+ {
+  "id": "s06-pytorch",
+  "url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+  "final_url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 2364,
+  "sha256": "aceb93414bf5bc26a4738ceb3532252c672b3b5f683dd42309c4ab37ca82d305",
+  "fetched_at": "2026-11-13T07:57:13+00:00"
+ },
+ {
+  "id": "s07-nvidia",
+  "url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+  "final_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 2464,
+  "sha256": "ed93afabcdac4921100ce6f168a90fcd80e3ea4931372da0aed26df6e08e393f",
+  "fetched_at": "2026-11-13T07:57:14+00:00"
+ },
+ {
+  "id": "s08-gsa",
+  "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+  "final_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 650,
+  "sha256": "05f2df70274822bceab44b3bb63be22ca4282e10464b278486715eb23fcc145f",
+  "fetched_at": "2026-11-13T07:57:15+00:00"
+ },
+ {
+  "id": "s09-fractile",
+  "url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+  "final_url": "https://www.gov.uk/government/news/sovereign-ai-and-british-business-bank-invest-in-british-firm-developing-the-next-generation-of-ai-hardware",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 1524,
+  "sha256": "63729cd5cc34ae8ed6ec0b8de81b9d6b4ac1bd8d4f9f6f99bf4b23494c16920d",
+  "fetched_at": "2026-11-13T07:57:15+00:00"
+ },
+ {
+  "id": "s10-nist",
+  "url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+  "final_url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+  "status": 200,
+  "error": null,
+  "truncated": false,
+  "words": 486,
+  "sha256": "1b62e0e78b701cbccbc588546f0c8f1b94e49dca7c6ad748b7916c6e73080dc1",
+  "fetched_at": "2026-11-13T07:57:16+00:00"
+ }
+]

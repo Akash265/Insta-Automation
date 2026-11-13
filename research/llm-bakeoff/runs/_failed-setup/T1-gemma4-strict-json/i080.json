@@ -1,0 +1,25 @@
+{
+ "task": "T1",
+ "model": "gemma4:e4b",
+ "effort": "low",
+ "job": "i080",
+ "prompt": "tag.v1",
+ "data": {
+  "in_scope": true,
+  "category": "business",
+  "entities": [
+   "Microsoft",
+   "Xbox"
+  ]
+ },
+ "input_tokens": 369,
+ "output_tokens": 22,
+ "cost_usd": 0.0,
+ "latency_s": 1.357,
+ "request_id": null,
+ "stop_reason": "stop",
+ "extra": {
+  "load_s": 0.002198667
+ },
+ "error": null
+}
