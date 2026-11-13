@@ -94,7 +94,7 @@ def test_call_uses_structured_output_and_logs_actual_cost(tmp_path: Path) -> Non
 
 def test_budget_blocks_before_any_request(tmp_path: Path) -> None:
     b = budget(tmp_path)
-    b.record(UsageEntry(NOW, "llm", "anthropic", "earlier", 1.45))  # near the $1.50 daily cap
+    b.record(UsageEntry(NOW, "llm", "anthropic", "earlier", 2.95))  # near the $3.00 prep daily cap
     sdk = FakeSDK()
     c = AnthropicJSON(b, MODELS, sdk=sdk, clock=lambda: NOW)
     with pytest.raises(BudgetExceededError, match="daily LLM cap"):
