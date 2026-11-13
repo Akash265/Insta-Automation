@@ -1,0 +1,50 @@
+{
+ "T5": {
+  "claude-opus-5-5": {
+   "claim_precision": "83% (81/98)",
+   "unsupported_claims": 17,
+   "claim_type_accuracy": "100% (98/98)",
+   "would_use": "83% (81/98)"
+  },
+  "claude-sonnet-5-5@high": {
+   "claim_precision": "81% (71/88)",
+   "unsupported_claims": 17,
+   "claim_type_accuracy": "100% (88/88)",
+   "would_use": "81% (71/88)"
+  },
+  "claude-haiku-5-5": {
+   "claim_precision": "92% (79/86)",
+   "unsupported_claims": 7,
+   "claim_type_accuracy": "100% (86/86)",
+   "would_use": "92% (79/86)"
+  }
+ },
+ "T6": {
+  "claude-haiku-5-5": {
+   "accuracy": 4.5,
+   "clarity": 5.0,
+   "publish": 1.0
+  },
+  "claude-sonnet-5-5@high": {
+   "accuracy": 4.5,
+   "clarity": 5.0,
+   "publish": 1.0
+  },
+  "claude-opus-5-5": {
+   "accuracy": 3.5,
+   "clarity": 5.0,
+   "publish": 0.5
+  }
+ },
+ "T7": {
+  "claude-haiku-5-5": {
+   "clean_flags_real": "3/6"
+  },
+  "claude-sonnet-5-5@high": {
+   "clean_flags_real": "2/4"
+  },
+  "claude-opus-5-5": {
+   "clean_flags_real": "1/3"
+  }
+ }
+}

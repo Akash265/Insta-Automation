@@ -153,6 +153,32 @@ def test_c04_years_and_backed_numbers_pass(normal: Data) -> None:
     assert "C04" not in codes(run(normal))
 
 
+@pytest.mark.parametrize("phrase", ["on November 19", "on 19 November", "on Nov. 19th"])
+def test_c04_day_of_the_storys_own_date_passes(normal: Data, phrase: str) -> None:
+    # story 2's event and publication time is 19 Nov 2026 19:30 IST
+    normal["stories"][1]["narration"] += f" It was posted {phrase}."
+    assert "C04" not in codes(run(normal))
+
+
+def test_c04_wrong_date_still_blocks(normal: Data) -> None:
+    normal["stories"][1]["narration"] += " It was posted on November 18."
+    assert any(i.code == "C04" and "'18'" in i.message for i in run(normal).blocking)
+
+
+def test_c04_day_number_outside_a_date_is_still_checked(normal: Data) -> None:
+    normal["stories"][1]["narration"] += " It has 19 authors."
+    assert any(i.code == "C04" and "'19'" in i.message for i in run(normal).blocking)
+
+
+def test_c04_number_words_in_claims_back_digits(normal: Data) -> None:
+    story = normal["stories"][1]
+    story["claims"][1]["claim_text"] += " It used ten tasks and a sixty-five-page appendix."
+    story["narration"] += " It used 10 tasks and a 65-page appendix."
+    assert "C04" not in codes(run(normal))
+    story["narration"] += " It cost 11 dollars."
+    assert any(i.code == "C04" and "'11'" in i.message for i in run(normal).blocking)
+
+
 # --------------------------------------------------------------------- C06
 
 

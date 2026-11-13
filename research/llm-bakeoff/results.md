@@ -1,10 +1,25 @@
 # P1-09 LLM bake-off: results
 
-**Status:** machine measurements complete (2026-11-13). **The editor ratings are still to come**: claim precision, claim-type accuracy, script quality and the review of the checker's flags. Until then the routes below are provisional, and so is the ADR-003 Opus question.
+**Status:** complete (2026-11-13). Machine measurements and the founder's blind ratings are both in, and **routes v1 are set** (founder decision 2026-11-13; `config/llm_routes.yaml`, ADR-003). Haiku drafts claims and script, Sonnet is the second-pass critic, and Opus is not proposed for production.
 
 - **Spend:** $2.13 of the $7 preparation cap, all logged in `finance/usage-ledger.jsonl`.
 - **Daily cap:** raised to $3.00 for the preparation period only (founder approval, 2026-11-13).
 - **Reproduce:** `uv run python research/llm-bakeoff/bakeoff.py fetch|run …`, then `score.py`. Raw outputs are in `runs/`, and the numbers below are in `results/scores.json`.
+
+## Editor ratings (blind; `results/ratings.json`)
+
+The founder rated every output with the models hidden behind shuffled letters: all 272 claims (10 stories), 6 scripts and 13 critic flags. `score.py --ratings` unblinded the sheets.
+
+| Model | Claim precision (supported by its excerpt) | Unsupported claims | Claim type correct | Would use | Script accuracy / clarity (1–5) | Scripts publishable | Clean-script flags that were real |
+|---|---|---:|---|---|---|---|---|
+| Haiku 5.5 (medium) | **92%** (79/86) | **7** | 100% | 92% | 4.5 / 5.0 | 2 of 2 | 3 of 6 |
+| Sonnet 5.5 (high) | 81% (71/88) | 17 | 100% | 81% | 4.5 / 5.0 | 2 of 2 | 2 of 4 |
+| Opus 5.5 (medium) | 83% (81/98) | 17 | 100% | 83% | 3.5 / 5.0 | 1 of 2 | 1 of 3 |
+
+- **What "unsupported" means here.** Nearly every unsupported claim, from every model, was accurate to the source but stated a detail the claim's single excerpt doesn't contain. Examples: a release date, author names, a competitor's score, a second requirement. Under our evidence rule that's unsupported. The fix is a narrower claim or a second excerpt, never trusting the claim.
+- **Opus rule (ADR-003): not met.** Opus is 2 points above Sonnet (the rule needs 10) and has the same 17 unsupported claims (the rule needs 50% fewer).
+- **Haiku vs Sonnet:** Haiku is 11 points higher in precision with 59% fewer unsupported claims; its scripts tied with Sonnet's; and it costs about 1/15 as much.
+- **Limits:** one rater, 10 stories, 2 editions. The routes are re-checked on the frozen regression set (P3-12) and the first 10 automated editions.
 
 ## Setup
 
@@ -36,10 +51,10 @@
 | Model | Blocking issues | Warnings / limits | Narration words (E1, E2; target 160–230) | Cost, 2 editions | Mean tokens in / out |
 |---|---|---|---|---:|---|
 | Haiku 5.5 | 0 | 1 (a 5-sentence summary) | 204, 200 | $0.008 | 4,340 / 7,023 |
-| Sonnet 5.5 (high) | 1, a **false alarm** (a date) | 1 + one narration of 41 words | 220, 212 | $0.154 | 4,340 / 6,820 |
-| Opus 5.5 | 5, all **false alarms** (4 dates, 1 "10" vs "ten") | 1 | 208, 203 | $0.218 | 4,340 / 4,572 |
+| Sonnet 5.5 (high) | 0 after the C04 fix (was 1 false alarm: a date) | 1 + one narration of 41 words | 220, 212 | $0.154 | 4,340 / 6,820 |
+| Opus 5.5 | 0 after the C04 fix (was 5 false alarms: 4 dates, 1 "10" vs "ten") | 1 | 208, 203 | $0.218 | 4,340 / 4,572 |
 
-- **Check C04 has a false positive.** It blocks day numbers in dates ("announced on November 9") and digits written as words in the claims ("ten"). Every blocking issue in the v2 runs is one of these. **Fix proposed:** accept numbers that match the story's own dates, and number words. That's a small change to `brief/edition/checks.py`, for the founder to approve; it isn't made yet.
+- **Check C04 has a false positive.** It blocks day numbers in dates ("announced on November 9") and digits written as words in the claims ("ten"). Every blocking issue in the v2 runs is one of these. **Fixed (founder approval 2026-11-13):** the day in a written date must now match the story's event or publication day, and number words in claims back digits in copy. Re-running the checks leaves 0 blocking issues for all six scripts, and a wrong date still blocks (tests in `tests/test_checks.py`).
 - **`script.v2` fixed every attribution and benchmark-caveat failure** (C07) that v1 produced.
 - **Pending, from the editor's sheet:** accuracy, clarity and "would publish" for each script, blind.
 
@@ -97,17 +112,19 @@
 
 Plus T1/T2 on Haiku: about $0.26/month. The ADR-003 estimate was about $12.4/month at 5 editions a week, so the measured Sonnet cost is close to it. During Days 1–30, the optional LLM draft (P1-13) on Sonnet would leave almost no headroom under the $10 cap.
 
-## Provisional routes (`config/llm_routes.yaml` v1 after the ratings)
+## Routes v1 (`config/llm_routes.yaml`, founder decision 2026-11-13)
 
-| Task | Proposed | Why |
+| Task | Route | Why |
 |---|---|---|
-| T1 tagging, T2 same-event | **Haiku 5.5** (low) | The local tier fails the quality criterion; Haiku is about $0.26/month |
+| T1 tagging, T2 same-event | **Haiku 5.5** (low) | The local tier fails the quality criterion; Haiku is about $0.26/month. qwen2.5:7b is re-tested in P2-17 |
 | T4 triage | Haiku 5.5 | As in ADR-003 (not tested here) |
-| T5 claims | Sonnet 5.5 (high), pending ratings | Rules 100%, but it under-extracts on 1 of 10 stories. Opus is more complete; the ADR rule decides on precision |
-| T6 script | Sonnet 5.5 (high) with `script.v2`, pending ratings | Haiku also passes the checks at a twentieth of the cost; the editor's quality ratings decide |
-| T7 critic | Sonnet 5.5 (high) | All models caught 7/7 planted errors; Haiku is a cheap option under the budget ladder |
+| T5 claims | **Haiku 5.5** (medium), `claims.v2` | Highest editor-rated precision (92%) and complete extraction on every story |
+| T6 script | **Haiku 5.5** (medium), `script.v2` | Rated equal to Sonnet; 0 blocking checks |
+| T7 critic | **Sonnet 5.5** (high), `critic.v1`; Haiku under the budget ladder | A different, stronger model checks the Haiku draft; 7/7 planted errors found |
 
-## For the editor: how to rate (about 45 minutes)
+**Cost:** about $0.055 per edition for T5–T7 (with 20% assumed repairs), or $1.21/month at 22 editions. With T1/T2 and T4 it's about **$1.6/month** against the $10 Days 1–30 cap. Using Sonnet for T5–T7 would have been $9.95/month.
+
+## For the editor: how the sheets were rated (done 2026-11-13)
 
 1. Open `ratings/T5-claims-sheet.csv`. It has 272 claims from three models, shown as letters A, B and C, shuffled per story. For each row, fill:
    - `editor_supported_y_n`: is the claim fully supported by its excerpt?

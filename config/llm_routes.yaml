@@ -4,7 +4,8 @@
 # Thinking tokens are billed as output. Haiku 5.5 is billed at the long-context price
 # for the whole request above 100,000 input tokens, so the client refuses such prompts.
 #
-# Routes are PROPOSED until the P1-09 bake-off results are recorded (then v1).
+# Routes v1: set from the P1-09 bake-off (founder decision 2026-11-13, ADR-003;
+# evidence in research/llm-bakeoff/results.md). The router (P3-01) reads them.
 
 models:
   claude-haiku-5-5:
@@ -26,10 +27,15 @@ models:
   qwen2.5:7b:
     provider: ollama
 
-routes:                           # proposed (ADR-003 allocation); confirmed by P1-09
-  T1_tagging: {primary: local, fallback: claude-haiku-5-5}
-  T2_same_event: {primary: local, fallback: claude-haiku-5-5}
-  T4_triage: {primary: claude-haiku-5-5}
-  T5_claims: {primary: claude-sonnet-5-5}
-  T6_script: {primary: claude-sonnet-5-5}
-  T7_critic: {primary: claude-sonnet-5-5}
+routes:                           # v1, 2026-11-13 (P1-09); prompt versions in brief/llm/prompts/
+  # The local tier failed the quality criterion (89% vs >= 95% agreement), so T1/T2 go to
+  # Haiku by config. qwen2.5:7b is re-tested in P2-17 on the labelled set.
+  T1_tagging: {primary: claude-haiku-5-5, effort: low, prompt: tag.v1}
+  T2_same_event: {primary: claude-haiku-5-5, effort: low, prompt: same_event.v1}
+  T4_triage: {primary: claude-haiku-5-5}                  # not tested in P1-09
+  # Editor-rated: Haiku claim precision 92% vs Sonnet 81%; scripts tied (4.5/5, all
+  # publishable). The critic is a different, stronger model than the drafter.
+  T5_claims: {primary: claude-haiku-5-5, effort: medium, prompt: claims.v2}
+  T6_script: {primary: claude-haiku-5-5, effort: medium, prompt: script.v2}
+  T7_critic: {primary: claude-sonnet-5-5, effort: high, prompt: critic.v1,
+              budget_ladder_fallback: claude-haiku-5-5}

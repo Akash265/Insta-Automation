@@ -183,7 +183,7 @@ Run by `brief validate` (Phase 1, on edition JSON) and by `prepare_issue` (Phase
 | C01 | The JSON validates against `schemas/edition.schema.json` |
 | C02 | Every story has a `primary_source_url` that returns HTTP 200 (checked at preview and again before go-live) |
 | C03 | Every URL in caption, page and narration ∈ evidence or source URLs (R02) |
-| C04 | Every number in narration and summary appears in a supporting claim or excerpt |
+| C04 | Every number in narration and summary appears in a supporting claim or excerpt (number words such as "ten" count). The day in a written date ("on November 9") must instead be the story's event or publication day, or appear in a claim or excerpt |
 | C05 | Hype and overstatement lexicon: "revolutionary", "game-changing", "breakthrough", "proves", "confirms", "the best". Each hit must be quoted or rephrased |
 | C06 | Time words are consistent with `event_at` (R12) |
 | C07 | Vendor claims and vendor benchmarks are attributed (R08): a pattern check on the claim_type, then copy |

@@ -61,8 +61,25 @@ Prices and limits below come from searches on **2026-11-07**. Sources often disa
 
 <a id="adr-003"></a>
 ## ADR-003 — LLM: hybrid routing (local Ollama + hosted Haiku + Sonnet; Opus for evaluation only)
-**Status:** **Approved 2026-11-07** (founder). Model choices per task are confirmed by measurement in P1-09 (bake-off) and P2-17 (local-tier benchmark). The caps per period, including the PD-02 interim $20 for Days 31–60, were approved at sign-off.
+**Status:** **Approved 2026-11-07** (founder); **routes v1 set from the P1-09 measurements, founder decision 2026-11-13** (see *P1-09 outcome* below; it overrides the routing table where they differ). The local tier is re-tested in P2-17. The caps per period, including the PD-02 interim $20 for Days 31–60, were approved at sign-off.
 **Context:** Claim extraction and script quality decide whether we publish errors. Tagging and same-event checks are high-volume, low-stakes, and backstopped by rules and the editor. The founder approved local models for routine work, hosted Haiku for low-cost tasks, Sonnet where quality matters, and a **$35/month** cap with graduated controls.
+
+### P1-09 outcome: routes v1 (founder decision 2026-11-13)
+The bake-off ([results](../research/llm-bakeoff/results.md)) measured all five tasks and the founder rated every output blind (272 claims, 6 scripts, 13 critic flags). **The measurements changed the allocation for T5 and T6**, so this section overrides the routing table below wherever they differ:
+
+| Task | v1 route (`config/llm_routes.yaml`) | Evidence |
+|---|---|---|
+| T1 tagging, T2 same-event | **Haiku 5.5** (low effort) | The local tier failed the quality criterion: 89% in-scope agreement vs ≥ 95% required. qwen2.5:7b is re-tested in P2-17 |
+| T4 triage | Haiku 5.5 | Unchanged (not tested) |
+| T5 claims | **Haiku 5.5** (medium), `claims.v2` | Editor-rated claim precision: Haiku **92%** (7 unsupported of 86), Sonnet high 81% (17 of 88), Opus 83% (17 of 98). Claim type 100% for all. Haiku has 59% fewer unsupported claims than Sonnet |
+| T6 script | **Haiku 5.5** (medium), `script.v2` | Scripts tied: Haiku and Sonnet accuracy 4.5/5, clarity 5/5, both editions publishable; Opus 3.5/5, one of two publishable. 0 blocking checks for all after the C04 fix |
+| T7 critic | **Sonnet 5.5** (high), `critic.v1`; Haiku under the budget ladder | All models found 7/7 planted errors. A different, stronger model checks the Haiku draft. Real flags on clean scripts: Haiku 3/6, Sonnet 2/4, Opus 1/3 |
+| Opus 5.5 | Evaluation only; **not proposed for production** | The Opus rule (≥ 10 points higher precision or ≥ 50% fewer unsupported claims than Sonnet) is not met: +2 points, the same 17 unsupported claims |
+
+- **Measured cost:** about **$0.055 per edition** for T5–T7 with 20% assumed repairs, or **$1.21/month** at 22 editions. T1/T2 on Haiku add about $0.26/month and T4 about $0.15/month (assumed volume). That's about **$1.6/month** against the $10 Days 1–30 cap; Sonnet for T5–T7 would have cost about $9.95/month.
+- **Measured token volumes** (replacing the assumptions below): T5 5.8k in / 2.2k out per story (Haiku); T6 4.3k / 7.0k per edition (Haiku, output includes thinking); T7 5.5k / 1.4k (Sonnet high); T1 0.63k / 0.04k per item; T2 0.6k / 0.08k per pair.
+- **Limits of the evidence:** 10 stories and 2 editions, one rater. The routes are re-checked on the frozen regression set (P3-12) and on the first 10 automated editions; any prompt or model change must pass P3-12 first.
+- **Watch items:** (1) Most unsupported claims, from every model, state a detail (a date, a name, a comparison) that the claim's one excerpt doesn't contain. The P3-06 excerpt check and the editor's claim review must catch this. (2) Sonnet returned 1 claim for the Fable/Mythos 5.2 page in all three runs. A claim-count check against source length is proposed for P3-06.
 
 ### Verified provider facts (official pages, read 2026-11-07)
 - **Prices**, from [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing), per million input/output tokens:
@@ -74,12 +91,12 @@ Prices and limits below come from searches on **2026-11-07**. Sources often disa
 - **Structured outputs:** JSON-schema output through `output_config.format` ([structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)). The page's supported-models list includes `claude-haiku-5-5`, `claude-sonnet-5-5` and `claude-opus-5-5`.
 - **Ollama:** its `format` field accepts a JSON schema ([Ollama structured outputs](https://docs.ollama.com/capabilities/structured-outputs)).
 - **Not yet verified:**
-  - the `keep_alive` / model-unload setting (V-06);
-  - whether the candidate local models fit and perform on a 16 GB M5 (V-07).
-  Both are checked in P1-09 and P2-17.
+  - ~~the `keep_alive` / model-unload setting (V-06)~~: verified in P1-09 (`keep_alive: 0` unloads; `/api/ps` empty).
+  - whether the candidate local models fit and perform on a 16 GB M5 (V-07): measured in P1-09. They fit (qwen2.5:7b 4.8 GB, gemma4:e4b 9.4–12 GB) but swap stays near full, and quality fails. Re-tested in P2-17.
+- **Ollama 0.40.16:** `gemma4:e4b` runs on the MLX runner, which has no JSON-schema `format` (HTTP 501), so the schema has to go into the prompt.
 
-### Routing table (approved allocation)
-**Token volumes are assumptions until measured.** They are replaced with `usage_ledger` actuals after P1-09 and the first 10 automated editions.
+### Routing table (original allocation, 2026-11-07; superseded for T1, T2, T5 and T6 by routes v1 above)
+**Token volumes are assumptions until measured** (P1-09 measurements are above). They are replaced with `usage_ledger` actuals after P1-09 and the first 10 automated editions.
 
 | Task | Volume per edition (**assumed**) | Stakes | Tier → model | Fallback | Est. $ per edition |
 |---|---|---|---|---|---:|

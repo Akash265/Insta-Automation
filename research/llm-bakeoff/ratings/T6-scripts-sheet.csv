@@ -36,7 +36,7 @@ Narration: The UK government and the British Business Bank have backed Fractile,
 Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup, in a Series C round worth over £500 million. The government says the round values Fractile at over £5 billion and that the company is rebuilding AI hardware to be faster, more energy efficient and less costly. Investors include CapitalG, Lightspeed and Redpoint, and the government's individual investment amounts are not disclosed.
 Why it matters: The government says the investment could reduce reliance on overseas technology for UK companies that depend on AI hardware.
 
-Outro: Find full sources and links for every story on our website.",,,,
+Outro: Find full sources and links for every story on our website.",4,5,y,Accurate against T5 claims overall. Main issue: 'released on November 12' is not in T5 claims sheet; verify date. Hook 'leads' is slightly broad vs 'U.S. open-weight SOTA.'
 E1,B,"Hook: Ricursive Intelligence says its new open-weight model outscores rivals on a coding benchmark, plus robots, chips and sovereign AI funding.
 
 Story 1
@@ -74,7 +74,7 @@ Narration: The UK government's Sovereign AI Venture Fund and the British Busines
 Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup. The Series C round is worth over £500 million and values the company at over £5 billion. CapitalG, Lightspeed and Redpoint also invest. The government says the investment will strengthen UK sovereign capabilities in critical technologies.
 Why it matters: UK AI hardware startups and the Bristol area stand to benefit as the government adds £140 million for Sovereign AI and expands it into Physical and Industrial AI.
 
-Outro: Sources for every story are linked on the website.",,,,
+Outro: Sources for every story are linked on the website.",5,5,y,"Best-supported E1 script. Key claims, benchmarks, availability, cost, ReTrace, LeRobot, NVIDIA and Fractile details all match T5. No material unsupported dates."
 E1,C,"Hook: Ricursive Intelligence releases Ripple-65B Preview, an open-weight model it says beats bigger rivals on a coding benchmark. Plus chips and robots.
 
 Story 1
@@ -112,7 +112,7 @@ Narration: The UK government's Sovereign AI fund and the British Business Bank a
 Summary: The UK government's Sovereign AI Venture Fund and the British Business Bank are backing Fractile, a London and Bristol-based AI chip startup, in a Series C round worth over £500 million that also includes CapitalG, Lightspeed and Redpoint. The government says the round values Fractile at over £5 billion. The government says Fractile is re-inventing AI hardware to be faster, more energy efficient and less costly. The Budget also added £140 million for Sovereign AI.
 Why it matters: The UK is using public funds to build a domestic AI chip maker and reduce reliance on overseas technology.
 
-Outro: Sources for every story are linked on our website. See you next time.",,,,
+Outro: Sources for every story are linked on our website. See you next time.",3,5,n,"Mostly accurate, but three dates are unsupported by T5: Ripple Nov 12, LeRobot Nov 5, NVIDIA/Rebellions Nov 8. Verify or remove before publishing; dates are material in news scripts."
 E2,A,"Hook: Anthropic says Claude Fable and Claude Mythos 5.2 are one model with different safeguards. Here's your AI Daily Brief.
 
 Story 1
@@ -150,7 +150,7 @@ Narration: On October sixteenth, NIST, the NSA and CISA published ten voluntary 
 Summary: On October 16, 2026, NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices for managing incidents during super intelligence training and evaluation. The voluntary guidance focuses on cases where SI agents take significant uninstructed actions that compromise operator policies, controls or human oversight. The practices are organized into five stages: preparation, detection, response, recovery and reporting. NIST says they build on frameworks including NIST SP 800-61r3.
 Why it matters: Frontier SI developers get a voluntary framework for preparing for and responding to incidents in which agents act outside the scope their operators set.
 
-Outro: Find the sources for every story on the AI Daily Brief website.",,,,
+Outro: Find the sources for every story on the AI Daily Brief website.",4,5,y,"Accurate on Anthropic, Dr. RTL, PyTorch, GSA and NIST claims. Main issue: 'announced on November 9' for Fable/Mythos is not in T5 claims sheet; verify date."
 E2,B,"Hook: Anthropic's Claude Fable 5.2 and Mythos 5.2 are the same model, with different access rules.
 
 Story 1
@@ -188,7 +188,7 @@ Narration: NIST, with partners at the NSA and CISA, published ten voluntary prac
 Summary: NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices on October 16, 2026, for managing incidents during super intelligence training and evaluation. The document is voluntary and focuses on cases where agents take significant uninstructed actions that break operator-set controls. The ten practices cover five stages: preparation, detection, response, recovery and reporting.
 Why it matters: Frontier AI developers running super intelligence training and evaluations are the audience, since the guidance helps them prepare for, detect and report incidents.
 
-Outro: Find the sources for every story at the link on our website.",,,,
+Outro: Find the sources for every story at the link on our website.",5,5,y,"Accurate and well-supported. No material unsupported dates. Story 1 summary closely repeats narration, but clarity remains fine."
 E2,C,"Hook: Anthropic releases Claude Fable and Mythos 5.2 as one model with two access levels, plus PyTorch and NIST updates.
 
 Story 1
@@ -226,4 +226,4 @@ Narration: On October sixteenth, NIST, the NSA's Super Intelligence Security Cen
 Summary: NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices on October 16, 2026 for managing potential incidents during super intelligence training and evaluation. The document is voluntary and supports the frontier SI industry. It focuses on incidents in which SI agents take significant uninstructed actions that compromise operator-set policies, controls or security measures. The practices span five lifecycle stages: preparation, detection, response, recovery and reporting.
 Why it matters: Frontier SI developers get a voluntary framework for handling incidents during training and evaluation, grounded in established cybersecurity incident frameworks.
 
-Outro: Full sources for every story are on our website.",,,,
+Outro: Full sources for every story are on our website.",4,5,y,Accurate overall. Main issue: 'announced on November 9' for Fable/Mythos is not in T5 claims sheet; verify date. Other stories match T5 claims well.

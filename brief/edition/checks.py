@@ -352,6 +352,43 @@ def c03_urls(edition: Edition, stage: Stage) -> Iterable[Issue]:
 # --------------------------------------------------------------------------- C04
 
 
+MONTH_RE = (
+    r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?"
+    r"|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?"
+)
+# "November 9", "Nov. 9th", "9 November": the day number of a written date
+DATE_DAY_RE = re.compile(
+    rf"\b{MONTH_RE}\s+(\d{{1,2}})(?:st|nd|rd|th)?\b|\b(\d{{1,2}})(?:st|nd|rd|th)?\s+{MONTH_RE}\b"
+)
+UNITS = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+]
+TENS = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+NUMBER_WORD_RE = re.compile(
+    rf"\b(?:({'|'.join(TENS)})(?:-({'|'.join(UNITS[1:10])}))?|({'|'.join(UNITS)}))\b",
+    re.IGNORECASE,
+)
+
+
 def _numbers(text: str) -> set[str]:
     found = set()
     for raw in NUMBER_RE.findall(text):
@@ -362,16 +399,50 @@ def _numbers(text: str) -> set[str]:
     return found
 
 
+def _number_words(text: str) -> set[str]:
+    """Simple number words ("ten", "sixty-five") as digits, so claims that spell a
+    number out still back copy that writes it in digits."""
+    found = set()
+    for tens, unit, single in NUMBER_WORD_RE.findall(text):
+        if single:
+            found.add(str(UNITS.index(single.lower())))
+        else:
+            found.add(
+                str(20 + 10 * TENS.index(tens.lower()) + (UNITS.index(unit.lower()) if unit else 0))
+            )
+    return found
+
+
 def c04_numbers(edition: Edition, stage: Stage) -> Iterable[Issue]:
-    """Numbers in story copy must appear in that story's claims or evidence excerpts."""
+    """Numbers in story copy must appear in that story's claims or evidence excerpts.
+
+    The day of a written date ("on November 9") is checked against the story's own
+    event and publication dates instead; any other number needs a claim or excerpt.
+    """
+    tz = ZoneInfo(edition.timezone)
     for s in edition.stories:
         pool = set()
         for c in s.claims:
-            pool |= _numbers(c.claim_text)
+            pool |= _numbers(c.claim_text) | _number_words(c.claim_text)
             for e in c.evidence:
-                pool |= _numbers(e.excerpt)
+                pool |= _numbers(e.excerpt) | _number_words(e.excerpt)
+        story_days = {str(d.astimezone(tz).day) for d in (s.event_at, s.published_at) if d}
         for text in (s.headline, s.summary, s.card_text, s.narration):
-            for number in sorted(_numbers(text or "") - pool):
+            text = text or ""
+            date_days = set()
+            for match in DATE_DAY_RE.finditer(text):
+                date_days.add(match.group(1) or match.group(2))
+            for day in sorted(date_days - story_days - pool):
+                yield Issue(
+                    "C04",
+                    "blocking",
+                    f"date day {day!r} is not the story's event or publication date "
+                    "and is not in any claim or evidence excerpt",
+                    s.rank,
+                )
+            # count each date day once; the same number elsewhere is still checked
+            rest = DATE_DAY_RE.sub(" ", text)
+            for number in sorted(_numbers(rest) - pool):
                 yield Issue(
                     "C04",
                     "blocking",

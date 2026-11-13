@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T09:14:40+00:00",
+ "generated": "2026-11-13T14:10:17+00:00",
  "T5": {
   "claude-haiku-5-5": {
    "stories": 10,
@@ -160,7 +160,6 @@
     "E2": {
      "narration_words": 212,
      "check_issues": [
-      "C04 blocking: number '9' is not in any claim or evidence excerpt (story 1)",
       "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
      ],
      "limit_issues": [
@@ -184,18 +183,12 @@
    "editions": {
     "E1": {
      "narration_words": 208,
-     "check_issues": [
-      "C04 blocking: number '10' is not in any claim or evidence excerpt (story 2)",
-      "C04 blocking: number '5' is not in any claim or evidence excerpt (story 3)",
-      "C04 blocking: number '8' is not in any claim or evidence excerpt (story 4)"
-     ],
+     "check_issues": [],
      "limit_issues": []
     },
     "E2": {
      "narration_words": 203,
      "check_issues": [
-      "C04 blocking: number '9' is not in any claim or evidence excerpt (story 1)",
-      "C04 blocking: number '10' is not in any claim or evidence excerpt (story 5)",
       "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
      ],
      "limit_issues": []

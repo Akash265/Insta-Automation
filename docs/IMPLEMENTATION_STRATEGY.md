@@ -74,7 +74,7 @@ See [SYSTEM_ARCHITECTURE](SYSTEM_ARCHITECTURE.md) for diagrams. The key choices,
 | Control plane | Supabase Postgres + `jobs` queue + `outbox_events` | Managed DB; no extra queue infrastructure | 002, 007 |
 | Heavy compute | Mac worker (launchd), cutoff 17:00 IST | ₹0 and enough CPU; outbound-only | 005 |
 | Collection | RSS/Atom, GitHub and arXiv APIs; Apify only for allow-listed feedless sources | Cheapest and most auditable; MCP for research only | 014 |
-| LLM | **Hybrid routing:** local Ollama (~8B) for tagging and same-event checks; Haiku 5.5 for triage; Sonnet 5.5 for claims, script and critic (Opus only if it earns it); structured output; $35/month cap with a degradation ladder | Pay only where quality matters; resilience for routine tasks | 003 |
+| LLM | **Hybrid routing:** local Ollama (~8B) for tagging and same-event checks; Haiku 5.5 for triage; Sonnet 5.5 for claims, script and critic (Opus only if it earns it); **routes v1 after P1-09: Haiku for T1–T6, Sonnet for the critic, about $1.6/month measured**; structured output; $35/month cap with a degradation ladder | Pay only where quality matters; resilience for routine tasks | 003 |
 | TTS | **Self-hosted**: Kokoro (Apache-2.0 code and weights) primary, Piper `en_GB-cori-medium` alternative, provisional until the P1-05 benchmark; `TTSProvider` interface; per-segment hash cache; paid API optional fallback, off by default | ₹0 expected spend; no vendor lock-in; commercially licensed voices | 004 |
 | Video | Pillow cards + FFmpeg, ASS subtitles | Cheap and deterministic | 015 |
 | Site | Python/Jinja static build → Cloudflare Pages (wrangler direct upload) | One language, free hosting | 006 |
