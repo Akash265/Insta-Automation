@@ -40,6 +40,7 @@ from brief.media.render import RenderFailedError, render_reel
 from brief.media.subtitles import build_subtitles
 from brief.media.theme import DEFAULT_THEME, ThemeError, load_theme
 from brief.site.build import SiteBuildError, build_site, load_site_config
+from brief.site.deploy import DeployError, deploy_site, fetch_target, load_credentials
 from brief.tts.base import TTSProviderError
 from brief.tts.config import (
     ALLOWED_VOICES,
@@ -547,3 +548,46 @@ def site_build(
         typer.echo(f"/today -> /issues/{result.latest}/")
     else:
         typer.echo("no publishable editions yet: /today is not built")
+
+
+@site_app.command("deploy")
+def site_deploy(
+    preview: Annotated[
+        bool, typer.Option("--preview", help="Deploy to the preview alias.")
+    ] = False,
+    production: Annotated[
+        bool, typer.Option("--production", help="Deploy to production (approved build only).")
+    ] = False,
+    dist: Annotated[Path, typer.Option(help="Built site folder.")] = Path("dist"),
+    record: Annotated[
+        Path | None, typer.Option(help="Edition JSON to record the deployment in.")
+    ] = None,
+    env_file: Annotated[Path, typer.Option(help="Credentials file.")] = Path(".env"),
+) -> None:
+    """Upload dist/ to Cloudflare Pages (wrangler direct upload) and check the live site."""
+    if preview == production:
+        typer.echo("error: choose exactly one of --preview or --production", err=True)
+        raise typer.Exit(2)
+    try:
+        creds = load_credentials(env_file)
+        result = deploy_site(dist, production, creds, fetch_target(creds))
+    except DeployError as exc:
+        typer.echo(f"error: {exc}", err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"{result.mode} deploy live at {result.site_url}")
+    if result.deployment_url:
+        typer.echo(f"this deployment: {result.deployment_url}")
+    for check in result.checks:
+        typer.echo(f"  ok  {check}")
+    if record is not None:
+        data = json.loads(record.read_text(encoding="utf-8"))
+        deployment = data.get("deployment") or {}
+        if production:
+            deployment["production_deploy_id"] = result.deployment_url or result.site_url
+            deployment["deployed_at"] = datetime.now(IST).isoformat(timespec="seconds")
+        else:
+            deployment["preview_url"] = result.site_url
+        deployment.setdefault("linkcheck", "not_run")
+        data["deployment"] = deployment
+        record.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        typer.echo(f"recorded the deployment in {record}")

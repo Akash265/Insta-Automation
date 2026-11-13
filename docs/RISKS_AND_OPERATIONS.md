@@ -59,7 +59,7 @@ Each item has a V-ID in the [TASKS.md verification tracker](../TASKS.md#f-verifi
 | V-23 | espeak-ng licence (used by Kokoro and Piper) | GPL-3.0-or-later (Homebrew formula licence field; `piper-tts` 1.8.0 package metadata). Both engines use the copy bundled in their Python packages. GPL applies to distributing software, not to generated audio; we do not distribute the pipeline | **Verified** 2026-11-08 (`research/tts-benchmark/licences.md`) | Review only if the software is ever distributed |
 | V-24 | Piper `en_GB-cori-medium` commercial use | Voice dataset public domain (LibriVox; model card). Piper docs say "intended for personal use and text to speech research only" (exact quotes and hashes in `research/tts-benchmark/licences.md`) | **Unresolved**, 2026-11-08: Piper stays provisional and not selectable. **On hold** by founder decision (2026-11-08), so not being investigated | Only if Piper is revived: founder decision, or written clarification from the maintainers |
 | V-10 | Domain price | ₹1,000–2,500 a year (business plan) | Unverified | P0-05 |
-| V-11 | Cloudflare Pages limits (direct uploads) and R2 free tier | 500 builds/month; R2 10 GB-month, 1M Class A, 10M Class B, no egress fees, **no hard spend cap** | Unverified (seen only in search summaries) | P1-12 |
+| V-11 | Cloudflare Pages limits (direct uploads) and R2 free tier | Pages: 500 builds/month, 1 concurrent build, 20,000 files per site, 25 MiB per file, 100 projects per account, unlimited preview deployments; `_redirects` rules apply even where a file exists; preview deployments send `X-Robots-Tag: noindex` by default. The docs don't say whether Direct Uploads count against the 500 builds. R2: 10 GB-month, 1M Class A, 10M Class B, no egress fees, **no hard spend cap** | **Pages verified 2026-11-13** (developers.cloudflare.com/pages/platform/limits, /configuration/redirects, /configuration/preview-deployments). R2 unverified (deferred to Phase 4) | P1-12 |
 | V-12 | Supabase Free limits, backups, pausing; Pro price | 7-day inactivity pause; backups not reliably included; Pro $25/month | Unverified | P2-01 |
 | V-13 | Hetzner entry VPS price | About €3.5–4.5/month after the 2026 changes; CX22 may be replaced by CX23 | Unverified | P2-12 |
 | V-14 | healthchecks.io free plan | Hobbyist: 20 checks; Telegram integration | Unverified | P2-13 |
@@ -88,7 +88,7 @@ See [ADR-013](TECHNICAL_DECISIONS.md#adr-013). Rules:
 | `brief_n8n` | EXECUTE `brief_*` functions; SELECT `v_*` views | Read or write tables directly; read `platform_tokens` |
 | `brief_backup` | SELECT all (pg_dump) | Any write |
 | Supabase anon / authenticated | Nothing (RLS deny-all) | — |
-| Cloudflare API token | Pages Edit (1 project); R2 Object R/W (2 buckets) | DNS, Workers, account settings |
+| Cloudflare API token | Pages Edit on the one account (Cloudflare can't limit it to one project; verified 2026-11-13). R2 uses a separate token, Object R/W on the 2 buckets, when R2 is enabled | DNS, Workers, account settings |
 | Apify token | Run allow-listed Actors (enforced in code); spend capped per run | — |
 | GitHub token | Public repo read | Write |
 | Meta app | `instagram_business_basic`, `instagram_business_content_publish` (+ insights in Phase 7) | Comments, DMs, any interaction automation (out of scope by policy) |

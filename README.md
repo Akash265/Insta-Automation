@@ -49,6 +49,8 @@ uv run brief cards editions/2026-12-01.json                    # draw the cards 
 uv run --extra tts brief render editions/2026-12-01.json --write   # checked Reel MP4 + cover + report in out/
 uv run brief site build --preview                              # site incl. in-review editions (noindex) into dist/
 uv run brief site build                                        # approved/published editions only
+uv run brief site deploy --preview                             # upload dist/ to preview.ai-daily-brief-7vb.pages.dev and check it
+uv run brief site deploy --production                          # production (refuses a --preview build)
 uv run brief schema export --check                             # committed JSON Schema is current
 uv run pytest                           # all tests
 uv run pytest tests/test_doctor.py::test_wrangler_matches_pin   # one test

@@ -1,8 +1,9 @@
 # Static site settings (P1-11, ADR-006). Read by `brief site build`.
 
-# Absolute site URL, no trailing slash. Placeholder until the Pages project exists
-# (P1-12) and the domain is chosen (OD-01). Edition `issue_url` values must match it.
-base_url: https://example.pages.dev
+# Absolute site URL, no trailing slash: the Pages project `ai-daily-brief` (P1-12), which
+# Cloudflare serves at `ai-daily-brief-7vb.pages.dev` (the plain name was taken), until a
+# domain is chosen (OD-01). Edition `issue_url` values must match it.
+base_url: https://ai-daily-brief-7vb.pages.dev
 
 # Working title until OD-01 is settled (same as video_templates/theme.yaml).
 site_name: AI Daily Brief

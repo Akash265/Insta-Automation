@@ -516,7 +516,15 @@ def build_site(
     if latest:
         redirects = f"/today {latest['url']} 302\n/today/ {latest['url']} 302\n"
     writer.write("_redirects", redirects)
-    writer.write(MARKER, "Built by `brief site build`; replaced on every build.\n")
+    marker = {  # read by `brief site deploy`; the folder is replaced on every build
+        "built_by": "brief site build",
+        "kind": "preview" if preview else "production",
+        "base_url": cfg.base_url,
+        "noindex": noindex,
+        "latest": latest["date"] if latest else None,
+        "issues": [s["date"] for s in summaries],
+    }
+    writer.write(MARKER, json.dumps(marker, indent=2, sort_keys=True) + "\n")
 
     if out.exists():
         shutil.rmtree(out)

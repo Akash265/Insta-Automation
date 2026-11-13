@@ -287,7 +287,7 @@ All values are read by `brief/config.py` (pydantic-settings) from the process en
 | `TTS_PAID_API_KEY` | tts (paid fallback) | — | Only if the founder approves the paid fallback; otherwise unset |
 | `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` | media, backups | 1 | Scoped API token: object read/write on the two buckets only |
 | `R2_PUBLIC_BUCKET`, `R2_PRIVATE_BUCKET`, `R2_PUBLIC_BASE_URL` | media | 1 | |
-| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `CF_PAGES_PROJECT` | site deploy | 1 | Token scoped to Pages: Edit on this project only |
+| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `CF_PAGES_PROJECT` | site deploy | 1 | Token: Account · Cloudflare Pages · Edit, own account only (Pages tokens can't be limited to one project). The `*.pages.dev` address is read from the API (`ai-daily-brief-7vb.pages.dev`) |
 | `APIFY_TOKEN`, `APIFY_ALLOWED_ACTORS`, `APIFY_MAX_RUN_USD` | ingest | 2 | Allow-list enforced in code |
 | `GITHUB_TOKEN` | ingest (releases) | 2 | Fine-grained, public-repo read only (raises rate limits) |
 | `IG_USER_ID`, `META_APP_ID`, `META_APP_SECRET` | publish | 6 | App secret only on the host that refreshes tokens |
