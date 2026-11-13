@@ -1,153 +1,153 @@
 edition,label,script,editor_accuracy_1_5,editor_clarity_1_5,editor_would_publish_y_n,notes
-E1,A,"Hook: Ricursive releases Ripple-65B Preview, an open-weight model it says leads on a coding benchmark.
+E1,A,"Hook: Ricursive's Ripple-65B Preview leads, with a $32M training-cost claim and a company-reported benchmark lead.
 
 Story 1
-Headline: Ricursive releases Ripple-65B Preview open-weight model, citing TerminalBench lead
-Card: Ripple-65B Preview: open-weight model, company says 80.52 on TerminalBench 2.1
-Narration: Ricursive Intelligence released Ripple-65B Preview, an open-weight model available on Hugging Face and several cloud providers. The company says it scores eighty point five two on TerminalBench two point one, and that it cost 32 million dollars to develop.
-Summary: Ricursive Intelligence released Ripple-65B Preview, a general-purpose variant of the proprietary model behind its AI chip design platform. The company says the dense Transformer was pretrained on 12 trillion tokens, supports up to 1M context, and scored 80.52 on TerminalBench 2.1. The model is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks.
-Why it matters: Developers building agentic coding tools gain another open-weight option, which the company says can also run on local devices such as NVIDIA DGX Spark.
+Headline: Ricursive releases Ripple-65B Preview, an open-weight model it says cost $32M to develop
+Card: Ricursive's Ripple-65B Preview: open weights, $32M claimed R&D cost
+Narration: Ricursive says its new open-weight model, Ripple-65B Preview, scored eighty point five two on TerminalBench two point one. The company says it spent thirty-two million dollars on full research and development. Those results have not been independently verified.
+Summary: Ricursive Intelligence released Ripple-65B Preview on November 12, a general-purpose variant of the proprietary model behind its AI chip design platform. Ricursive says the dense Transformer was pretrained on 12 trillion tokens, supports up to 1M context, and is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks. The company says the model scored 80.52 on TerminalBench 2.1, ahead of several open-weight rivals, and that its full R&D cost was $32M.
+Why it matters: Developers choosing open-weight models for coding agents may weigh Ricursive's claimed low training cost and its claim that the model runs on local hardware such as NVIDIA DGX Spark.
 
 Story 2
-Headline: ReTrace turns agent runs into fixed workflows, trading some accuracy for speed and cost
-Card: ReTrace: code picks agent steps, authors report 24% lower cost per task
-Narration: A new arXiv paper describes ReTrace, which turns agent runs into fixed workflows where code, not a language model, chooses each step. The authors say it cuts cost per task by twenty-four percent, though completion trails the agent.
-Summary: Researchers present ReTrace, a method that builds a reusable workflow from an SOP and a few logged agent runs, so code rather than an LLM selects each next step. The authors report 93.8% completion on 79 procedures versus 96.8% for the agent, at 24% lower cost per task. On τ²-Bench, they report 75.8% task success versus 80.6% for the agent, with runs taking 1.3 seconds instead of 170.
-Why it matters: Teams running LLM agents at scale, where a model call for every step adds latency and cost, could cut both if workflows hold up on their tasks.
+Headline: ReTrace turns agent runs into workflows where code, not an LLM, picks each step
+Card: ReTrace: coded workflows replace LLM step-picking, at 24% lower cost per task
+Narration: Researchers present ReTrace, which turns agent runs into workflows where code, not a language model, chooses each step. The authors say it cuts cost per task by twenty-four percent, though it trails the agent slightly on accuracy.
+Summary: Researchers present ReTrace, a method that turns a standard operating procedure and a few logged agent runs into a reusable workflow. The authors say LLM agents call a model to choose every step, which adds latency and cost at scale, and ReTrace lets code select the next step instead. In their reported tests on 79 procedures, ReTrace workflows reached 93.8% completion versus 96.8% for the agent, at 24% lower cost per task.
+Why it matters: Teams running many automated business procedures could cut cost per task and latency if coded workflows keep most of an agent's accuracy.
 
 Story 3
-Headline: Hugging Face releases LeRobot v0.7.0 with streamed training data and new robot models
-Card: LeRobot v0.7.0: stream training data straight from the Hub, no downloads
-Narration: Hugging Face released LeRobot version zero point seven, letting robotics teams train on streamed data without downloads. The company says streaming runs two to two and a half times faster.
-Summary: Hugging Face released LeRobot v0.7.0, which adds interactive rollouts and lets users train on datasets streamed from the Hub, a Storage Bucket or LanceDB without downloading them first. The release adds four world action models and four new VLAs. The company says streaming gives 2.1 to 2.5 times more samples per second with four DataLoader workers.
-Why it matters: Robotics researchers and developers working with large Physical AI datasets can train without full downloads, which the company says speeds up training.
+Headline: LeRobot v0.7.0 adds streamed-data training and interactive robot control
+Card: LeRobot v0.7.0: train on streamed data, steer robots from the terminal
+Narration: Hugging Face says LeRobot version zero point seven lets robotics developers train on streamed datasets without downloading them first. It also adds interactive control, so users can steer a running robot from the terminal.
+Summary: Hugging Face says LeRobot v0.7.0 lets users train on datasets streamed from the Hub, a Storage Bucket or LanceDB without downloading them first. The release also adds interactive rollouts for switching subtasks and steering a running robot from the terminal, plus four world action models and four new VLA models. The Hub now hosts almost 300 TB of open physical AI data in LeRobot format.
+Why it matters: Robotics developers can train on large open datasets without local copies, and run policies on a remote GPU while the robot's own computer handles cameras and motors.
 
 Story 4
 Headline: NVIDIA, Rebellions and SK Telecom partner on Korean sovereign AI infrastructure
-Card: R200 systems expected ready in 2028 for Korea sovereign AI, companies say
-Narration: NVIDIA, Rebellions and SK Telecom announced a collaboration on Korea's sovereign AI infrastructure. Rebellions' R200 systems are expected to be ready for deployment in 2028, the companies say.
-Summary: NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion. Rebellions will connect its Rebel R200 NPUs to the NVIDIA platform using the MGX rack architecture, and SK Telecom plans to deploy the systems in its AI data center. The companies plan disaggregated inference, with NVIDIA GPUs for prefill and Rebellions NPUs for decode.
-Why it matters: Korean AI operators and chipmakers gain a path to combine domestic NPUs with NVIDIA systems, which the companies say may improve inference throughput and power efficiency.
+Card: NVIDIA, Rebellions and SK Telecom: NPUs and GPUs for Korean sovereign AI
+Narration: NVIDIA says its NVLink Fusion technology will connect Korean chipmaker Rebellions' R200 processors to its platform. SK Telecom plans to deploy the systems in its AI data center. The R200 systems are expected to be ready in twenty twenty-eight.
+Summary: NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion. NVIDIA says the technology lets chipmakers combine specialized silicon with its scale-up networking, and Rebellions will connect its Rebel R200 NPUs to the NVIDIA platform using the MGX rack architecture. SK Telecom plans to deploy the systems in its AI data center, and the companies plan disaggregated inference with NVIDIA GPUs for prefill and Rebellions NPUs for decode.
+Why it matters: Korean operators such as SK Telecom would deploy these systems, expanding domestic options for AI infrastructure built with local NPU chips alongside NVIDIA hardware.
 
 Story 5
-Headline: UK government backs chip startup Fractile in funding round worth over £500 million
-Card: UK backs AI chip startup Fractile in £500m+ Series C at £5bn+ valuation
-Narration: The UK government and British Business Bank have backed Fractile, a British AI chip startup, in a Series C round worth over five hundred million pounds. The government says the round values Fractile at over five billion pounds.
-Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup. The Series C round is worth over £500 million and values the company at over £5 billion, according to the government. Investors CapitalG, Lightspeed and Redpoint also participate, and the government's specific investment amounts are not disclosed.
-Why it matters: The government says the investment will reduce reliance on overseas technology and strengthen UK capabilities in critical technologies.
+Headline: UK sovereign AI fund and British Business Bank back chip startup Fractile
+Card: UK backs Fractile, valued at over £5 billion in a £500 million-plus round
+Narration: The UK government and the British Business Bank have backed Fractile, a London and Bristol AI chip startup. The government says the round values the company at over five billion pounds.
+Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup, in a Series C round worth over £500 million. The government says the round values Fractile at over £5 billion and that the company is rebuilding AI hardware to be faster, more energy efficient and less costly. Investors include CapitalG, Lightspeed and Redpoint, and the government's individual investment amounts are not disclosed.
+Why it matters: The government says the investment could reduce reliance on overseas technology for UK companies that depend on AI hardware.
 
-Outro: Full sources for every story are linked on our website.",,,,
-E1,B,"Hook: Ricursive releases an open-weight model it says cost thirty-two million dollars to build, plus robotics, agent and chip news.
+Outro: Find full sources and links for every story on our website.",,,,
+E1,B,"Hook: Ricursive Intelligence says its new open-weight model outscores rivals on a coding benchmark, plus robots, chips and sovereign AI funding.
 
 Story 1
-Headline: Ricursive releases Ripple-65B Preview open-weight model, claims $32M R&D cost
-Card: Ripple-65B: company says $32M build, 80.5 on TerminalBench
-Narration: Ricursive Intelligence released Ripple-65B Preview, an open-weight model. The company says it scored eighty point five on TerminalBench two point one and cost thirty-two million dollars in total research and development.
-Summary: Ricursive Intelligence released Ripple-65B Preview on Thursday, a general-purpose variant of the proprietary model behind its AI chip design platform. The company says it scored 80.52 on TerminalBench 2.1, ahead of Reflection Beam 501B at 80.1. Ricursive also says the full R&D cost was $32M, about one-tenth the estimated cost of the previous open-weight leader on agentic coding. The model is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks.
-Why it matters: Developers who want an open-weight coding model can try it on several hosting platforms, and the company says its small size lets it run on local devices such as NVIDIA DGX Spark.
+Headline: Ricursive releases Ripple-65B Preview, a general-purpose open-weight model
+Card: Ripple-65B Preview: 80.52 on TerminalBench 2.1 (company-reported)
+Narration: Ricursive Intelligence says its Ripple sixty-five B Preview model scored eighty point five two on TerminalBench two point one, ahead of four open-weight rivals. The company says it cost thirty-two million dollars to develop. It is available on Hugging Face.
+Summary: Ricursive Intelligence released Ripple-65B Preview, a general-purpose variant of the proprietary model behind its AI chip design platform. The company says it scored 80.52 on TerminalBench 2.1, ahead of Reflection Beam 501B at 80.1. Ricursive says the full R&D cost was $32M, about one-tenth the estimated cost of the previous open-weight leader on agentic coding. The model is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks.
+Why it matters: Developers and teams that want an open-weight coding model can try it on five platforms, and Ricursive says its small size lets it run on local devices such as NVIDIA DGX Spark.
 
 Story 2
-Headline: Researchers' ReTrace turns LLM agent runs into code-driven workflows
-Card: ReTrace: agent runs become workflows, 24% cheaper per task
-Narration: Researchers present ReTrace, which turns a procedure and logged agent runs into a workflow where code picks each step. On their production procedures, they report ninety-three point eight percent completion versus ninety-six point eight for the agent.
-Summary: The authors present ReTrace, a method that turns a standard operating procedure and a few logged agent runs into a reusable workflow in which code, not an LLM, selects each next step. They say this targets the latency and cost of calling an LLM at every step. On 79 procedures from their production platform, they report 93.8% completion versus 96.8% for the agent, at 24% lower cost per task. On τ²-Bench they report 75.8% success versus 80.6%, running in 1.3 seconds instead of 170.
-Why it matters: Teams running LLM agents at scale could cut per-task cost and latency, in exchange for a small drop in completion rates on the authors' tests.
+Headline: ReTrace turns agent runs into workflows where code, not an LLM, picks each step
+Card: ReTrace: workflows run in 1.3s vs 170s for the agent (authors' results)
+Narration: The authors report ReTrace, which turns a procedure and a few logged runs into a workflow where code picks each step. On tau-squared Bench it runs in one point three seconds versus one hundred seventy for the agent.
+Summary: The authors present ReTrace, a method that turns a procedure document and a few logged agent runs into a reusable workflow. It extracts the condition behind each step, merges them into a compact rule document and generates an executable workflow. The authors report 93.8% completion versus 96.8% for the agent on 79 production procedures, at 24% lower cost per task. On τ²-Bench they report 75.8% success versus 80.6%, and a run time of 1.3 seconds instead of 170.
+Why it matters: Teams running LLM agents at scale could cut latency and cost per task by trading a few points of accuracy for faster, code-driven workflows.
 
 Story 3
-Headline: Hugging Face's LeRobot v0.7.0 adds streaming training and interactive robot control
+Headline: Hugging Face ships LeRobot v0.7.0 with streaming datasets and interactive robot control
 Card: LeRobot v0.7.0: stream robot data, steer robots from the terminal
-Narration: Hugging Face says LeRobot version zero point seven adds streaming datasets and interactive rollouts for controlling a running robot from the terminal. It says streaming gives two point one to two point five times more samples per second.
-Summary: Hugging Face says LeRobot v0.7.0 adds interactive rollouts, so users can switch subtasks, ask questions and steer a running robot from the terminal. Training can stream datasets from the Hub, a Storage Bucket or LanceDB without downloading them first. The Hub now hosts almost 300 TB of open Physical AI data in LeRobot format. The release also adds four world action models and four new vision-language-action models.
-Why it matters: Robotics developers can train on large open datasets without local downloads and run models on a remote GPU workstation while the robot's computer handles cameras and motors.
+Narration: Hugging Face says LeRobot version zero point seven adds interactive rollouts, so users can steer a running robot from the terminal, and streaming of training data. It reports ACT trains three point three times faster on an A100.
+Summary: Hugging Face says LeRobot v0.7.0 adds interactive rollouts, letting users switch subtasks, ask questions and steer a running robot from the terminal. Training can now use datasets streamed from the Hub, a Storage Bucket or LanceDB without downloading them first. The release adds four world action models and four new VLAs. Hugging Face says GPU image augmentation makes ACT train 2.8x faster on an H100 and 3.3x faster on an A100.
+Why it matters: Robotics developers can train on the Hub's almost 300 TB of open Physical AI data without downloading it, and run models on a remote GPU workstation while the robot handles its own hardware.
 
 Story 4
-Headline: NVIDIA, Rebellions and SK Telecom plan Korean sovereign AI systems with NVLink Fusion
+Headline: NVIDIA, Rebellions and SK Telecom announce sovereign AI collaboration on NVLink Fusion
 Card: NVIDIA, Rebellions, SK Telecom team up on Korean sovereign AI
-Narration: NVIDIA, Rebellions and SK Telecom announce a collaboration on Korea's sovereign AI infrastructure. Rebellions will connect its Rebel R200 chips to NVIDIA's platform using NVLink Fusion. Systems are expected to be ready for deployment in twenty twenty-eight.
-Summary: NVIDIA, Rebellions and SK Telecom announced a collaboration on Korea's sovereign AI infrastructure. Rebellions will use NVLink Fusion to connect its Rebel R200 NPUs to the NVIDIA platform and the MGX rack architecture for rack-scale systems. SK Telecom plans to deploy the resulting systems in its AI data center. The companies plan disaggregated inference, with NVIDIA GPUs handling prefill and Rebellions NPUs handling decode.
-Why it matters: Korean chipmakers and telecom operators get a path to build sovereign AI infrastructure by combining custom silicon with NVIDIA's platform, with support from Korea's Ministry of Science and ICT.
+Narration: NVIDIA, Rebellions and SK Telecom announced a collaboration on Korea's sovereign AI infrastructure. Rebellions will use NVLink Fusion to connect its Rebel R200 NPUs to NVIDIA's platform, with systems expected ready for deployment in twenty twenty-eight.
+Summary: NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion. Rebellions will connect its Rebel R200 NPUs to the NVIDIA platform and use the NVIDIA MGX rack architecture. SK Telecom plans to deploy the resulting systems in its AI data center. Korea's Ministry of Science and ICT supports the effort.
+Why it matters: Korean chipmakers and operators gain a route to pair custom silicon with NVIDIA's platform for domestic AI infrastructure.
 
 Story 5
-Headline: UK Sovereign AI fund and British Business Bank back chip startup Fractile
-Card: UK backs AI chip startup Fractile in £500M+ round
-Narration: The UK government's Sovereign AI fund and the British Business Bank have backed chip startup Fractile in a round worth over five hundred million pounds. The government says it values the company at over five billion pounds.
-Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup. The Series C round is worth over £500 million and values the company at over £5 billion, the government says. CapitalG, Lightspeed and Redpoint also invest. The Chancellor confirmed a further £140 million for Sovereign AI at the Budget.
-Why it matters: UK AI hardware startups gain a state-backed investor, and the government and the Business Bank say the investment will reduce reliance on overseas technology.
+Headline: UK government backs AI chip startup Fractile in round worth over £500 million
+Card: Fractile raises over £500M Series C with UK government backing
+Narration: The UK government's Sovereign AI Venture Fund and the British Business Bank have backed London and Bristol-based chip startup Fractile, in a Series C round worth over five hundred million pounds that values it at over five billion pounds.
+Summary: The UK Government's Sovereign AI Venture Fund and the British Business Bank have backed Fractile, a London and Bristol-based AI chip startup. The Series C round is worth over £500 million and values the company at over £5 billion. CapitalG, Lightspeed and Redpoint also invest. The government says the investment will strengthen UK sovereign capabilities in critical technologies.
+Why it matters: UK AI hardware startups and the Bristol area stand to benefit as the government adds £140 million for Sovereign AI and expands it into Physical and Industrial AI.
 
-Outro: Sources and full details for every story are on the AI Daily Brief website.",,,,
-E2,A,"Hook: Anthropic says its Claude Fable 5.2 and Mythos 5.2 share one underlying model, with different access paths.
+Outro: Sources for every story are linked on the website.",,,,
+E2,A,"Hook: Anthropic's Claude Fable 5.2 and Mythos 5.2 are the same model, with different access rules.
 
 Story 1
-Headline: Anthropic says Claude Fable 5.2 and Mythos 5.2 are the same underlying model
-Card: Fable 5.2 and Mythos 5.2: same model, different access
-Narration: On November ninth, Anthropic said Claude Fable five point two and Claude Mythos five point two are the same underlying model. The company says Fable's safeguards let all users access it, while Mythos requires applying through verification programs.
-Summary: Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 run on the same underlying model. Fable includes cybersecurity and biology safeguards, which the company says let it be offered to all users. Mythos access requires applying through verification programs.
-Why it matters: General users can access Fable directly, while people who need Mythos must go through an application process.
+Headline: Anthropic introduces Claude Fable 5.2 and Claude Mythos 5.2 as one underlying model
+Card: Fable 5.2 and Mythos 5.2: one model, two access paths
+Narration: Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 are the same underlying model. Fable has added cybersecurity and biology safeguards, so all users can access it. Mythos requires applying through verification programs.
+Summary: Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 are the same underlying model. Fable has cybersecurity and biology safeguards that let it be offered to all users. Mythos access requires applying through verification programs.
+Why it matters: Users choosing between the two names should know they run the same model, and that access depends on which version they can obtain.
 
 Story 2
-Headline: Dr. RTL agents report timing gains over commercial chip synthesis in new arXiv paper
-Card: Dr. RTL agents: 21% timing gain over commercial synthesis, authors say
-Narration: A new arXiv paper introduces Dr. RTL, a team of AI agents for chip design. The authors say it improved timing on twenty real designs, with a six percent area reduction over commercial synthesis.
-Summary: A paper submitted to arXiv on November 10 presents Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation evaluation. The authors also examine realistic benchmarking and tool-grounded chip optimization. On 20 real-world RTL designs, they report average WNS and TNS improvements of 21% and 17%, with a 6% area reduction over commercial synthesis.
-Why it matters: Chip designers and electronic design automation teams may find AI agents useful for tuning hardware optimization workflows.
+Headline: Dr. RTL: a multi-agent framework for autonomous chip design optimization
+Card: Dr. RTL: AI agents that optimize chip design code
+Narration: Researchers report that Dr. RTL, a multi-agent framework, improves chip designs across twenty real-world tests. The authors report twenty-one percent better timing and six percent less area than commercial synthesis. These results are not independently verified.
+Summary: Researchers Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation. The authors say it continuously improves through reusable optimization skills. The authors report average timing improvements of 21% and 17% with a 6% area reduction over commercial synthesis on 20 real-world RTL designs. The paper was submitted to arXiv on November 10, 2026.
+Why it matters: Chip design engineers and electronic design automation teams are affected, because the work explores agents that rewrite RTL code and tune synthesis scripts.
 
 Story 3
-Headline: PyTorch 2.15 makes a rewritten NCCL backend the default for process groups
-Card: PyTorch 2.15: new default NCCL backend and hang diagnostics
-Narration: PyTorch two point fifteen is out, with a rewritten NCCL backend now the default for distributed training. The project says a new flight recorder writes a post-mortem to disk when a collective hangs.
-Summary: PyTorch 2.15, released October 28, 2026, comprises 3,117 commits from 583 contributors since version 2.14. The release makes a rewritten NCCL backend the default for every process group and adds a flight recorder that writes post-mortems when a collective hangs. It also adds float8 support and a public stream API on Apple Silicon, and drops Python 3.10 support.
-Why it matters: Developers running distributed training get a new default networking backend and hang diagnostics, but must now use Python 3.11 or later.
+Headline: PyTorch 2.15 makes the new NCCL backend default and adds Apple Silicon updates
+Card: PyTorch 2.15: new default NCCL backend and Apple Silicon updates
+Narration: PyTorch 2.15 was released on October twenty-eighth. PyTorch says its rewritten NCCL backend is now the default for distributed training. Python three point ten support has been dropped. Apple Silicon gets new float8 support.
+Summary: PyTorch 2.15 was released on October 28, 2026, with 3,117 commits from 583 contributors since PyTorch 2.14. PyTorch says its rewritten NCCL backend is now the default for every NCCL process group, with rollback options. The release also adds a flight recorder for hangs, a one-sided transfer API marked unstable, and float8 support on Apple Silicon. PyTorch 2.15 drops Python 3.10 and macOS 14 support for MPS.
+Why it matters: Developers running distributed PyTorch training and Apple Silicon users are affected, and must move to Python 3.11 or newer and macOS 15 or newer for MPS.
 
 Story 4
-Headline: Anthropic says new GSA deal gives government partners a 40% discount on Claude
-Card: Anthropic says GSA deal cuts Claude costs 40% for government
-Narration: Anthropic says a new agreement with GSA gives government partners a forty percent discount on Claude products. The company estimates the discounts will save the government one billion dollars.
-Summary: Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The company says about 500 US federal, state and local government organizations now use Claude. Claude for Government became generally available on September 30 and is authorized at FedRAMP High.
-Why it matters: Government agencies and state and local bodies buying Claude could pay less, and agencies face no minimum spend commitment, according to the company.
+Headline: Anthropic expands GSA partnership with a 40% discount for government buyers
+Card: GSA deal: 40% discount on Claude for government buyers
+Narration: Anthropic says a new agreement with GSA gives government partners a forty percent discount on Claude. The discount reaches state, local, tribal and territorial governments. Anthropic estimates it will save the government one billion dollars.
+Summary: Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The discount extends to state, local, tribal and territorial governments. Anthropic says about 500 US federal, state and local organizations now use Claude, and estimates the discounts will save the government $1 billion.
+Why it matters: Government agencies buying Claude can get the discount and pay only for the usage they consume, since no minimum spend is required.
 
 Story 5
-Headline: NIST, CISA and NSA release ten voluntary incident practices for super intelligence
-Card: Ten voluntary practices for super intelligence training incidents
-Narration: NIST, CISA and the NSA's Super Intelligence Security Center have published ten voluntary practices for managing incidents during super intelligence training. The guidance covers cases where AI agents take significant uninstructed actions that compromise operator policies.
-Summary: NIST, CISA and the NSA's Super Intelligence Security Center published ten key practices on October 16, 2026, for managing incidents during super intelligence training and evaluation. The document is voluntary and organizes the practices into five lifecycle stages: preparation, detection, response, recovery and reporting. NIST says the practices build on NIST SP 800-61r3 and its own secure evaluation expertise.
-Why it matters: Developers and evaluators of frontier super intelligence systems get a voluntary framework for handling incidents where agents act outside operator controls.
+Headline: NIST publishes ten voluntary practices for super intelligence incident response
+Card: Ten voluntary practices for super intelligence incident response
+Narration: NIST, with partners at the NSA and CISA, published ten voluntary practices for managing incidents in super intelligence training. The practices cover five stages, from preparation through reporting. Further work is planned for future phases.
+Summary: NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices on October 16, 2026, for managing incidents during super intelligence training and evaluation. The document is voluntary and focuses on cases where agents take significant uninstructed actions that break operator-set controls. The ten practices cover five stages: preparation, detection, response, recovery and reporting.
+Why it matters: Frontier AI developers running super intelligence training and evaluations are the audience, since the guidance helps them prepare for, detect and report incidents.
 
-Outro: Find links to every source on our website.",,,,
-E2,B,"Hook: Anthropic says its new Claude Fable and Mythos 5.2 are one model with two access tiers.
+Outro: Find the sources for every story at the link on our website.",,,,
+E2,B,"Hook: Anthropic releases Claude Fable and Mythos 5.2 as one model with two access levels, plus PyTorch and NIST updates.
 
 Story 1
-Headline: Anthropic introduces Claude Fable 5.2 and Mythos 5.2 as one model with two access tiers
-Card: Fable and Mythos 5.2: one model, two access tiers
-Narration: Anthropic introduced Claude Fable and Mythos five point two on Monday. The company says they are one underlying model. Fable has cybersecurity and biology safeguards that let it reach all users; Mythos access requires applying through verification programs.
-Summary: Anthropic introduced Claude Fable 5.2 and Claude Mythos 5.2 on Monday. The company says they are the same underlying model. Fable has cybersecurity and biology safeguards that let Anthropic offer it to all users, while Mythos access requires applying through verification programs.
-Why it matters: General users can reach Fable directly, while people who want Mythos must apply and be verified first.
+Headline: Anthropic launches Claude Fable 5.2 and Mythos 5.2, one model with two access levels
+Card: Fable and Mythos 5.2: same model, different access
+Narration: Anthropic announced Claude Fable five point two and Claude Mythos five point two on November ninth. It says they are one underlying model. Fable has cybersecurity and biology safeguards, so all users can get it; Mythos requires applying through verification programs.
+Summary: Anthropic announced Claude Fable 5.2 and Claude Mythos 5.2 on November 9. The company says they are the same underlying model. Anthropic says Fable has cybersecurity and biology safeguards that let it be offered to all users, while Mythos access requires applying through verification programs.
+Why it matters: General users can get Fable, while anyone who needs Mythos must apply through verification programs.
 
 Story 2
-Headline: Paper presents Dr. RTL, a multi-agent framework for chip RTL and synthesis optimization
-Card: Dr. RTL: authors report 21% timing gain, 6% less area
-Narration: Researchers present Dr. RTL, a multi-agent framework for optimizing chip designs. On twenty real-world designs, the authors report average timing improvements of twenty-one and seventeen percent, plus a six percent area reduction, versus commercial synthesis.
-Summary: Researchers Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation. The authors say it keeps improving through reusable optimization skills. On 20 real-world RTL designs, they report average WNS and TNS improvements of 21% and 17%, plus a 6% area reduction, compared with commercial synthesis. The paper was submitted to arXiv on 10 November and is listed as an ASP-DAC'27 invited paper.
-Why it matters: Chip designers who spend time on timing and area tuning could see parts of that work automated by agents.
+Headline: Paper presents Dr. RTL, a multi-agent framework for RTL and synthesis optimization
+Card: Dr. RTL agents: 21%/17% timing gains, authors report
+Narration: Researchers posted a paper on November tenth presenting Dr. RTL, a multi-agent optimization framework. The authors report that across twenty real-world designs it improves average WNS and TNS by twenty-one and seventeen percent over commercial synthesis.
+Summary: Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie submitted a paper to arXiv on 10 November 2026, listed as an ASP-DAC'27 invited paper. It covers realistic benchmarking, tool-grounded RTL optimization and design-specific synthesis optimization. The authors present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation. The authors report that on 20 real-world RTL designs it achieves average WNS/TNS improvements of 21%/17% with a 6% area reduction over commercial synthesis.
+Why it matters: Teams working on RTL and synthesis workflows could see agents automate steps such as critical-path analysis and RTL rewriting.
 
 Story 3
-Headline: PyTorch 2.15 makes rewritten NCCL backend the default and drops Python 3.10
-Card: PyTorch 2.15: new NCCL default, Python 3.10 dropped
-Narration: PyTorch two point one five was released October twenty-eighth from three thousand one hundred seventeen commits. The rewritten NCCL backend is now the default, and Python three point ten and macOS fourteen support for MPS are dropped.
-Summary: PyTorch 2.15 was released on October 28, with 3,117 commits from 583 contributors since version 2.14. The rewritten NCCL backend is now the default for every nccl process group, with rollback options. The release adds float8 and stream support on Apple Silicon, moves the default wheel to CUDA 13.2, and adds ROCm 10.0 wheels. It drops Python 3.10 and macOS 14 support for MPS.
-Why it matters: Teams running distributed training get a new default backend, and anyone on Python 3.10 or macOS 14 with MPS must upgrade to use this release.
+Headline: PyTorch 2.15 makes the rewritten NCCL backend the default and drops Python 3.10
+Card: PyTorch 2.15: new default NCCL backend, Python 3.10 dropped
+Narration: PyTorch two point fifteen, released October twenty-eighth, makes the rewritten NCCL backend the default. PyTorch says a flight recorder writes a post-mortem to disk when a collective hangs. It drops Python three point ten support.
+Summary: PyTorch 2.15 was released on October 28, 2026, with 3,117 commits from 583 contributors since PyTorch 2.14. The rewritten NCCL backend is the default for every nccl process group, with TORCH_DIST_USE_NCCL2=0 or the nccl-legacy backend name as rollback paths. PyTorch says a backend-agnostic flight recorder writes a post-mortem to disk when a collective hangs. The release drops Python 3.10 and macOS 14 support for MPS, requiring Python 3.11+ and macOS 15+.
+Why it matters: Developers running distributed jobs get a new default NCCL backend, and those on Python 3.10 or macOS 14 with MPS must upgrade to use 2.15.
 
 Story 4
-Headline: Anthropic says GSA agreement gives government buyers 40% off Claude products
-Card: Anthropic: 40% government discount on Claude via GSA
-Narration: Anthropic says a new GSA agreement gives government partners forty percent off Claude Enterprise, Claude for Government and the API, with no minimum spend. It estimates the discounts will save the government one billion dollars.
-Summary: Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The company says the discount extends to state, local, tribal and territorial governments, and that agencies have no minimum spend commitment. Anthropic says about 500 US government organizations now use Claude, and it estimates the discounts will save the government $1 billion.
-Why it matters: Federal, state, local, tribal and territorial agencies can buy Claude at a lower price and pay only for what they use.
+Headline: Anthropic announces 40% GSA discount on Claude for government customers
+Card: Anthropic says GSA deal cuts Claude prices 40% for government
+Narration: Anthropic says a new GSA agreement gives government partners a forty percent discount on Claude Enterprise, Claude for Government and the Claude API. It estimates the savings at one billion dollars. It says agencies face no minimum spend.
+Summary: Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. It says the discount applies across every product surface and extends to state, local, tribal and territorial governments, with no minimum spend commitment. Anthropic estimates the discounts will save the government $1 billion. The company says approximately 500 US federal, state and local government organizations now use Claude.
+Why it matters: Government agencies at all levels can buy Claude at a lower price and pay only for the usage they consume.
 
 Story 5
-Headline: NIST, NSA and CISA publish ten voluntary practices for super intelligence incidents
-Card: Ten voluntary practices for super intelligence incidents
-Narration: On October sixteenth, NIST, the NSA's Super Intelligence Security Center and CISA published ten voluntary practices for handling incidents during super intelligence training and evaluation, organized across five lifecycle stages from preparation to reporting.
-Summary: On October 16, NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices for managing potential incidents during super intelligence training and evaluation. The practices are voluntary and organized into five stages: preparation, detection, response, recovery and reporting. The guidance focuses on cases where SI agents take significant uninstructed actions that compromise operator-set controls or human oversight.
-Why it matters: Frontier super intelligence developers get a shared, voluntary framework for preparing for and responding to incidents during training and evaluation.
+Headline: NIST and partners publish ten practices for super intelligence incident response
+Card: NIST: ten voluntary practices for SI incident response
+Narration: On October sixteenth, NIST, the NSA's Super Intelligence Security Center and CISA published ten voluntary practices for handling incidents during super intelligence training and evaluation. They span five lifecycle stages from preparation to reporting.
+Summary: NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices on October 16, 2026 for managing potential incidents during super intelligence training and evaluation. The document is voluntary and supports the frontier SI industry. It focuses on incidents in which SI agents take significant uninstructed actions that compromise operator-set policies, controls or security measures. The practices span five lifecycle stages: preparation, detection, response, recovery and reporting.
+Why it matters: Frontier SI developers get a voluntary framework for handling incidents during training and evaluation, grounded in established cybersecurity incident frameworks.
 
-Outro: Sources for every story are linked on the AI Daily Brief website.",,,,
+Outro: Full sources for every story are on our website.",,,,

@@ -273,7 +273,7 @@ def score_t7() -> tuple[dict[str, Any], list[list[str]]]:
         found = total = clean_flags = 0
         missed: list[str] = []
         for eid in b.EDITIONS:
-            base_path = b.RUNS / "T6" / b.CRITIC_BASE_MODEL / f"{eid}.json"
+            base_path = b.RUNS / b.CRITIC_SCRIPTS / b.CRITIC_BASE_MODEL / f"{eid}.json"
             if not base_path.exists():
                 continue
             _, planted = b.plant_errors(json.loads(base_path.read_text())["data"], eid)

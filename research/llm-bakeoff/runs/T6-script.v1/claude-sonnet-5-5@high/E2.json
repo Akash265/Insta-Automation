@@ -1,0 +1,71 @@
+{
+ "task": "T6",
+ "model": "claude-sonnet-5-5",
+ "effort": "high",
+ "job": "E2",
+ "prompt": "script.v1",
+ "data": {
+  "hook": "Anthropic says its new Claude Fable and Mythos 5.2 are one model with two access tiers.",
+  "outro": "Sources for every story are linked on the AI Daily Brief website.",
+  "stories": [
+   {
+    "rank": 1,
+    "story_id": "s02-fable52",
+    "headline": "Anthropic introduces Claude Fable 5.2 and Mythos 5.2 as one model with two access tiers",
+    "summary": "Anthropic introduced Claude Fable 5.2 and Claude Mythos 5.2 on Monday. The company says they are the same underlying model. Fable has cybersecurity and biology safeguards that let Anthropic offer it to all users, while Mythos access requires applying through verification programs.",
+    "why_it_matters": "General users can reach Fable directly, while people who want Mythos must apply and be verified first.",
+    "limitations": "The verified claims do not describe how Fable and Mythos behave differently in practice or what the verification programs require.",
+    "card_text": "Fable and Mythos 5.2: one model, two access tiers",
+    "narration": "Anthropic introduced Claude Fable and Mythos five point two on Monday. The company says they are one underlying model. Fable has cybersecurity and biology safeguards that let it reach all users; Mythos access requires applying through verification programs."
+   },
+   {
+    "rank": 2,
+    "story_id": "s04-rtl",
+    "headline": "Paper presents Dr. RTL, a multi-agent framework for chip RTL and synthesis optimization",
+    "summary": "Researchers Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation. The authors say it keeps improving through reusable optimization skills. On 20 real-world RTL designs, they report average WNS and TNS improvements of 21% and 17%, plus a 6% area reduction, compared with commercial synthesis. The paper was submitted to arXiv on 10 November and is listed as an ASP-DAC'27 invited paper.",
+    "why_it_matters": "Chip designers who spend time on timing and area tuning could see parts of that work automated by agents.",
+    "limitations": "The performance figures are the authors' own results on 20 designs and are not independently confirmed.",
+    "card_text": "Dr. RTL: authors report 21% timing gain, 6% less area",
+    "narration": "Researchers present Dr. RTL, a multi-agent framework for optimizing chip designs. On twenty real-world designs, the authors report average timing improvements of twenty-one and seventeen percent, plus a six percent area reduction, versus commercial synthesis."
+   },
+   {
+    "rank": 3,
+    "story_id": "s06-pytorch",
+    "headline": "PyTorch 2.15 makes rewritten NCCL backend the default and drops Python 3.10",
+    "summary": "PyTorch 2.15 was released on October 28, with 3,117 commits from 583 contributors since version 2.14. The rewritten NCCL backend is now the default for every nccl process group, with rollback options. The release adds float8 and stream support on Apple Silicon, moves the default wheel to CUDA 13.2, and adds ROCm 10.0 wheels. It drops Python 3.10 and macOS 14 support for MPS.",
+    "why_it_matters": "Teams running distributed training get a new default backend, and anyone on Python 3.10 or macOS 14 with MPS must upgrade to use this release.",
+    "limitations": "The speed figures are PyTorch's own, the new transport API is marked unstable, and support for NVIDIA Rubin GPUs is experimental.",
+    "card_text": "PyTorch 2.15: new NCCL default, Python 3.10 dropped",
+    "narration": "PyTorch two point one five was released October twenty-eighth from three thousand one hundred seventeen commits. The rewritten NCCL backend is now the default, and Python three point ten and macOS fourteen support for MPS are dropped."
+   },
+   {
+    "rank": 4,
+    "story_id": "s08-gsa",
+    "headline": "Anthropic says GSA agreement gives government buyers 40% off Claude products",
+    "summary": "Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The company says the discount extends to state, local, tribal and territorial governments, and that agencies have no minimum spend commitment. Anthropic says about 500 US government organizations now use Claude, and it estimates the discounts will save the government $1 billion.",
+    "why_it_matters": "Federal, state, local, tribal and territorial agencies can buy Claude at a lower price and pay only for what they use.",
+    "limitations": "Anthropic says Claude Enterprise is still in process for FedRAMP Moderate authorization, and the $1 billion savings figure is the company's estimate.",
+    "card_text": "Anthropic: 40% government discount on Claude via GSA",
+    "narration": "Anthropic says a new GSA agreement gives government partners forty percent off Claude Enterprise, Claude for Government and the API, with no minimum spend. It estimates the discounts will save the government one billion dollars."
+   },
+   {
+    "rank": 5,
+    "story_id": "s10-nist",
+    "headline": "NIST, NSA and CISA publish ten voluntary practices for super intelligence incidents",
+    "summary": "On October 16, NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices for managing potential incidents during super intelligence training and evaluation. The practices are voluntary and organized into five stages: preparation, detection, response, recovery and reporting. The guidance focuses on cases where SI agents take significant uninstructed actions that compromise operator-set controls or human oversight.",
+    "why_it_matters": "Frontier super intelligence developers get a shared, voluntary framework for preparing for and responding to incidents during training and evaluation.",
+    "limitations": "The guidance is voluntary, and NIST says further work on agentic SI incident readiness will be considered in future phases.",
+    "card_text": "Ten voluntary practices for super intelligence incidents",
+    "narration": "On October sixteenth, NIST, the NSA's Super Intelligence Security Center and CISA published ten voluntary practices for handling incidents during super intelligence training and evaluation, organized across five lifecycle stages from preparation to reporting."
+   }
+  ]
+ },
+ "input_tokens": 3802,
+ "output_tokens": 5672,
+ "cost_usd": 0.064324,
+ "latency_s": 36.401,
+ "request_id": "req_011CgzbzEqJPUFVF5rBdZ19c",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

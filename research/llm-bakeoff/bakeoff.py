@@ -53,7 +53,7 @@ RUNS = HERE / "runs"
 PROMPTS = ROOT / "brief" / "llm" / "prompts"
 PROMPT_FILES = {
     "T5": "claims.v2",
-    "T6": "script.v1",
+    "T6": "script.v2",  # v1 runs kept in runs/T6-script.v1
     "T7": "critic.v1",
     "T1": "tag.v1",
     "T2": "same_event.v1",
@@ -87,6 +87,7 @@ EDITIONS = {
 }
 REFERENCE = "claude-sonnet-5-5@high"  # T5 claims fed to T6/T7; T6 script checked in T7
 CRITIC_BASE_MODEL = REFERENCE
+CRITIC_SCRIPTS = "T6-script.v1"  # T7 inputs stay fixed: Sonnet's v1 scripts
 LOCAL_TIMEOUT_S = 15.0  # ADR-003 fallback rule
 
 
@@ -523,7 +524,9 @@ def jobs(task: str) -> list[tuple[str, str]]:
     if task == "T7":
         out = []
         for eid in EDITIONS:
-            base = json.loads((RUNS / "T6" / CRITIC_BASE_MODEL / f"{eid}.json").read_text())
+            base = json.loads(
+                (RUNS / CRITIC_SCRIPTS / CRITIC_BASE_MODEL / f"{eid}.json").read_text()
+            )
             mutated, _planted = plant_errors(base["data"], eid)
             out.append((f"{eid}-clean", critic_input(eid, base["data"])))
             out.append((f"{eid}-planted", critic_input(eid, mutated)))

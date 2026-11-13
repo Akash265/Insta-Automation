@@ -3,68 +3,68 @@
  "model": "claude-haiku-5-5",
  "effort": "medium",
  "job": "E2",
- "prompt": "script.v1",
+ "prompt": "script.v2",
  "data": {
-  "hook": "Anthropic says its Claude Fable 5.2 and Mythos 5.2 share one underlying model, with different access paths.",
-  "outro": "Find links to every source on our website.",
+  "hook": "Anthropic's Claude Fable 5.2 and Mythos 5.2 are the same model, with different access rules.",
+  "outro": "Find the sources for every story at the link on our website.",
   "stories": [
    {
     "rank": 1,
     "story_id": "s02-fable52",
-    "headline": "Anthropic says Claude Fable 5.2 and Mythos 5.2 are the same underlying model",
-    "summary": "Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 run on the same underlying model. Fable includes cybersecurity and biology safeguards, which the company says let it be offered to all users. Mythos access requires applying through verification programs.",
-    "why_it_matters": "General users can access Fable directly, while people who need Mythos must go through an application process.",
-    "limitations": "The verified claims do not describe how Mythos approval works or whether the two versions differ in any other way.",
-    "card_text": "Fable 5.2 and Mythos 5.2: same model, different access",
-    "narration": "On November ninth, Anthropic said Claude Fable five point two and Claude Mythos five point two are the same underlying model. The company says Fable's safeguards let all users access it, while Mythos requires applying through verification programs."
+    "headline": "Anthropic introduces Claude Fable 5.2 and Claude Mythos 5.2 as one underlying model",
+    "summary": "Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 are the same underlying model. Fable has cybersecurity and biology safeguards that let it be offered to all users. Mythos access requires applying through verification programs.",
+    "why_it_matters": "Users choosing between the two names should know they run the same model, and that access depends on which version they can obtain.",
+    "limitations": "Mythos access is limited to people who apply through verification programs.",
+    "card_text": "Fable 5.2 and Mythos 5.2: one model, two access paths",
+    "narration": "Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 are the same underlying model. Fable has added cybersecurity and biology safeguards, so all users can access it. Mythos requires applying through verification programs."
    },
    {
     "rank": 2,
     "story_id": "s04-rtl",
-    "headline": "Dr. RTL agents report timing gains over commercial chip synthesis in new arXiv paper",
-    "summary": "A paper submitted to arXiv on November 10 presents Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation evaluation. The authors also examine realistic benchmarking and tool-grounded chip optimization. On 20 real-world RTL designs, they report average WNS and TNS improvements of 21% and 17%, with a 6% area reduction over commercial synthesis.",
-    "why_it_matters": "Chip designers and electronic design automation teams may find AI agents useful for tuning hardware optimization workflows.",
-    "limitations": "These are the authors' own benchmark figures, and the verified claims do not include independent testing.",
-    "card_text": "Dr. RTL agents: 21% timing gain over commercial synthesis, authors say",
-    "narration": "A new arXiv paper introduces Dr. RTL, a team of AI agents for chip design. The authors say it improved timing on twenty real designs, with a six percent area reduction over commercial synthesis."
+    "headline": "Dr. RTL: a multi-agent framework for autonomous chip design optimization",
+    "summary": "Researchers Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation. The authors say it continuously improves through reusable optimization skills. The authors report average timing improvements of 21% and 17% with a 6% area reduction over commercial synthesis on 20 real-world RTL designs. The paper was submitted to arXiv on November 10, 2026.",
+    "why_it_matters": "Chip design engineers and electronic design automation teams are affected, because the work explores agents that rewrite RTL code and tune synthesis scripts.",
+    "limitations": "The benchmark results come from the authors and are not independently verified.",
+    "card_text": "Dr. RTL: AI agents that optimize chip design code",
+    "narration": "Researchers report that Dr. RTL, a multi-agent framework, improves chip designs across twenty real-world tests. The authors report twenty-one percent better timing and six percent less area than commercial synthesis. These results are not independently verified."
    },
    {
     "rank": 3,
     "story_id": "s06-pytorch",
-    "headline": "PyTorch 2.15 makes a rewritten NCCL backend the default for process groups",
-    "summary": "PyTorch 2.15, released October 28, 2026, comprises 3,117 commits from 583 contributors since version 2.14. The release makes a rewritten NCCL backend the default for every process group and adds a flight recorder that writes post-mortems when a collective hangs. It also adds float8 support and a public stream API on Apple Silicon, and drops Python 3.10 support.",
-    "why_it_matters": "Developers running distributed training get a new default networking backend and hang diagnostics, but must now use Python 3.11 or later.",
-    "limitations": "The Apple Silicon speed figures are PyTorch's own benchmarks, and the new distributed transport API is marked unstable.",
-    "card_text": "PyTorch 2.15: new default NCCL backend and hang diagnostics",
-    "narration": "PyTorch two point fifteen is out, with a rewritten NCCL backend now the default for distributed training. The project says a new flight recorder writes a post-mortem to disk when a collective hangs."
+    "headline": "PyTorch 2.15 makes the new NCCL backend default and adds Apple Silicon updates",
+    "summary": "PyTorch 2.15 was released on October 28, 2026, with 3,117 commits from 583 contributors since PyTorch 2.14. PyTorch says its rewritten NCCL backend is now the default for every NCCL process group, with rollback options. The release also adds a flight recorder for hangs, a one-sided transfer API marked unstable, and float8 support on Apple Silicon. PyTorch 2.15 drops Python 3.10 and macOS 14 support for MPS.",
+    "why_it_matters": "Developers running distributed PyTorch training and Apple Silicon users are affected, and must move to Python 3.11 or newer and macOS 15 or newer for MPS.",
+    "limitations": "The Apple Silicon speedup figures are company-reported and not independently verified.",
+    "card_text": "PyTorch 2.15: new default NCCL backend and Apple Silicon updates",
+    "narration": "PyTorch 2.15 was released on October twenty-eighth. PyTorch says its rewritten NCCL backend is now the default for distributed training. Python three point ten support has been dropped. Apple Silicon gets new float8 support."
    },
    {
     "rank": 4,
     "story_id": "s08-gsa",
-    "headline": "Anthropic says new GSA deal gives government partners a 40% discount on Claude",
-    "summary": "Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The company says about 500 US federal, state and local government organizations now use Claude. Claude for Government became generally available on September 30 and is authorized at FedRAMP High.",
-    "why_it_matters": "Government agencies and state and local bodies buying Claude could pay less, and agencies face no minimum spend commitment, according to the company.",
-    "limitations": "Claude Enterprise is still in process for FedRAMP Moderate authorization, and the $1 billion savings figure is an Anthropic estimate.",
-    "card_text": "Anthropic says GSA deal cuts Claude costs 40% for government",
-    "narration": "Anthropic says a new agreement with GSA gives government partners a forty percent discount on Claude products. The company estimates the discounts will save the government one billion dollars."
+    "headline": "Anthropic expands GSA partnership with a 40% discount for government buyers",
+    "summary": "Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API. The discount extends to state, local, tribal and territorial governments. Anthropic says about 500 US federal, state and local organizations now use Claude, and estimates the discounts will save the government $1 billion.",
+    "why_it_matters": "Government agencies buying Claude can get the discount and pay only for the usage they consume, since no minimum spend is required.",
+    "limitations": "Claude Enterprise is not yet authorized; it is in process for FedRAMP Moderate through the FedRAMP 20x program.",
+    "card_text": "GSA deal: 40% discount on Claude for government buyers",
+    "narration": "Anthropic says a new agreement with GSA gives government partners a forty percent discount on Claude. The discount reaches state, local, tribal and territorial governments. Anthropic estimates it will save the government one billion dollars."
    },
    {
     "rank": 5,
     "story_id": "s10-nist",
-    "headline": "NIST, CISA and NSA release ten voluntary incident practices for super intelligence",
-    "summary": "NIST, CISA and the NSA's Super Intelligence Security Center published ten key practices on October 16, 2026, for managing incidents during super intelligence training and evaluation. The document is voluntary and organizes the practices into five lifecycle stages: preparation, detection, response, recovery and reporting. NIST says the practices build on NIST SP 800-61r3 and its own secure evaluation expertise.",
-    "why_it_matters": "Developers and evaluators of frontier super intelligence systems get a voluntary framework for handling incidents where agents act outside operator controls.",
-    "limitations": "NIST says further work on agentic incident response will be considered in future phases, so the guidance may expand later.",
-    "card_text": "Ten voluntary practices for super intelligence training incidents",
-    "narration": "NIST, CISA and the NSA's Super Intelligence Security Center have published ten voluntary practices for managing incidents during super intelligence training. The guidance covers cases where AI agents take significant uninstructed actions that compromise operator policies."
+    "headline": "NIST publishes ten voluntary practices for super intelligence incident response",
+    "summary": "NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices on October 16, 2026, for managing incidents during super intelligence training and evaluation. The document is voluntary and focuses on cases where agents take significant uninstructed actions that break operator-set controls. The ten practices cover five stages: preparation, detection, response, recovery and reporting.",
+    "why_it_matters": "Frontier AI developers running super intelligence training and evaluations are the audience, since the guidance helps them prepare for, detect and report incidents.",
+    "limitations": "Further work on incident readiness for agentic training and evaluation will be considered in future phases.",
+    "card_text": "Ten voluntary practices for super intelligence incident response",
+    "narration": "NIST, with partners at the NSA and CISA, published ten voluntary practices for managing incidents in super intelligence training. The practices cover five stages, from preparation through reporting. Further work is planned for future phases."
    }
   ]
  },
- "input_tokens": 3802,
- "output_tokens": 9086,
- "cost_usd": 0.0049232,
- "latency_s": 34.684,
- "request_id": "req_011CgzbtnriyPywbSpibM8Mc",
+ "input_tokens": 3945,
+ "output_tokens": 6231,
+ "cost_usd": 0.00351,
+ "latency_s": 24.535,
+ "request_id": "req_011CgzeDfAsTtV1PeYDseGao",
  "stop_reason": "end_turn",
  "extra": {},
  "error": null

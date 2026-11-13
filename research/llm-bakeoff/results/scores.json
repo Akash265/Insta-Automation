@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T08:38:28+00:00",
+ "generated": "2026-11-13T08:53:47+00:00",
  "T5": {
   "claude-haiku-5-5": {
    "stories": 10,
@@ -96,52 +96,13 @@
   "claude-haiku-5-5": {
    "editions": {
     "E1": {
-     "narration_words": 197,
-     "check_issues": [
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 1)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
-     ],
+     "narration_words": 204,
+     "check_issues": [],
      "limit_issues": []
     },
     "E2": {
-     "narration_words": 195,
+     "narration_words": 200,
      "check_issues": [
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
-     ],
-     "limit_issues": []
-    }
-   },
-   "usage": {
-    "calls": 2,
-    "failed": 0,
-    "mean_in": 4197,
-    "mean_out": 7888.5,
-    "cost": 0.0087279,
-    "p50_s": 30.8555,
-    "p95_s": 34.684,
-    "max_s": 34.684,
-    "total_s": 61.711
-   }
-  },
-  "claude-sonnet-5-5@high": {
-   "editions": {
-    "E1": {
-     "narration_words": 213,
-     "check_issues": [
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 1)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)"
-     ],
-     "limit_issues": []
-    },
-    "E2": {
-     "narration_words": 207,
-     "check_issues": [
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 2)",
-      "C07 blocking: vendor claim is not attributed (e.g. 'the company says') (story 3)",
-      "C07 blocking: vendor benchmark needs a limitation such as 'not independently verified' (story 3)",
       "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
      ],
      "limit_issues": []
@@ -150,13 +111,43 @@
    "usage": {
     "calls": 2,
     "failed": 0,
-    "mean_in": 4197,
-    "mean_out": 5616.5,
-    "cost": 0.129118,
-    "p50_s": 35.7855,
-    "p95_s": 36.401,
-    "max_s": 36.401,
-    "total_s": 71.571
+    "mean_in": 4340,
+    "mean_out": 7023,
+    "cost": 0.007891,
+    "p50_s": 27.503,
+    "p95_s": 30.471,
+    "max_s": 30.471,
+    "total_s": 55.006
+   }
+  },
+  "claude-sonnet-5-5@high": {
+   "editions": {
+    "E1": {
+     "narration_words": 220,
+     "check_issues": [],
+     "limit_issues": []
+    },
+    "E2": {
+     "narration_words": 212,
+     "check_issues": [
+      "C04 blocking: number '9' is not in any claim or evidence excerpt (story 1)",
+      "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
+     ],
+     "limit_issues": [
+      "story 1 narration 41 words (25-40)"
+     ]
+    }
+   },
+   "usage": {
+    "calls": 2,
+    "failed": 0,
+    "mean_in": 4340,
+    "mean_out": 6820,
+    "cost": 0.15376,
+    "p50_s": 42.4855,
+    "p95_s": 48.912,
+    "max_s": 48.912,
+    "total_s": 84.971
    }
   }
  },
@@ -325,20 +316,20 @@
  "per_edition_cost": {
   "claude-haiku-5-5": {
    "T5_per_story": 0.00169778,
-   "T6": 0.00436395,
+   "T6": 0.0039455,
    "T7": 0.001822075,
-   "core": 0.023163825,
-   "with_assumed_repairs": 0.02779659,
-   "month_22_editions": 0.61152498
+   "core": 0.022745375,
+   "with_assumed_repairs": 0.02729445,
+   "month_22_editions": 0.6004779
   },
   "claude-sonnet-5-5": {},
   "claude-sonnet-5-5@high": {
    "T5_per_story": 0.0274966,
-   "T6": 0.064559,
+   "T6": 0.07688,
    "T7": 0.024964,
-   "core": 0.36448899999999995,
-   "with_assumed_repairs": 0.4373867999999999,
-   "month_22_editions": 9.622509599999997
+   "core": 0.37681,
+   "with_assumed_repairs": 0.45217199999999996,
+   "month_22_editions": 9.947783999999999
   },
   "claude-opus-5-5": {}
  }
