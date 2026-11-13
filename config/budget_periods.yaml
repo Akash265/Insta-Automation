@@ -20,6 +20,7 @@ periods:
     last_day: 0
     llm_cap_usd: 7
     tts_cap_usd: 8
+    llm_daily_cap_usd: 3.00  # founder approval 2026-11-13 (P1-09 bake-off); preparation only
   - id: days_1_30
     first_day: 1
     last_day: 30

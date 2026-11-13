@@ -75,7 +75,83 @@ Summary: The UK Government's Sovereign AI Venture Fund and the British Business 
 Why it matters: UK AI hardware startups and the Bristol area stand to benefit as the government adds £140 million for Sovereign AI and expands it into Physical and Industrial AI.
 
 Outro: Sources for every story are linked on the website.",,,,
-E2,A,"Hook: Anthropic's Claude Fable 5.2 and Mythos 5.2 are the same model, with different access rules.
+E1,C,"Hook: Ricursive Intelligence releases Ripple-65B Preview, an open-weight model it says beats bigger rivals on a coding benchmark. Plus chips and robots.
+
+Story 1
+Headline: Ricursive Intelligence releases open-weight Ripple-65B Preview model
+Card: Ricursive says Ripple-65B scores 80.5 on TerminalBench 2.1 for $32M
+Narration: Ricursive Intelligence released Ripple sixty-five B Preview, an open-weight model, on November twelfth. The company says it scored about eighty point five on TerminalBench two point one and cost thirty-two million dollars to build.
+Summary: Ricursive Intelligence released Ripple-65B Preview, a general-purpose variant of the model behind its AI chip design platform. The company says it scored 80.52 on TerminalBench 2.1, ahead of larger open-weight models such as Reflection Beam 501B at 80.1. Ricursive says full R&D cost $32M, about one-tenth the estimated cost of the previous open-weight leader on agentic coding. The model is available on Hugging Face, Together AI, GMI Cloud, OpenRouter and Fireworks.
+Why it matters: Developers get a smaller open-weight coding model that Ricursive says can run on local devices such as NVIDIA DGX Spark.
+
+Story 2
+Headline: ReTrace paper turns AI agent runs into code-driven workflows
+Card: ReTrace workflows: 1.3s per task vs 170s for the agent, authors report
+Narration: A paper from November tenth presents ReTrace, which turns logged AI agent runs into code-driven workflows. The authors report slightly lower task success on one benchmark, but runs taking one point three seconds instead of one hundred seventy.
+Summary: A paper posted on arXiv on November 10 presents ReTrace, a method that turns a standard operating procedure and a few logged agent runs into a reusable workflow where code, not an LLM, picks the next step. The authors say this targets the latency and cost of calling an LLM at every step. On τ²-Bench, the authors report 75.8% task success versus 80.6% for the agent, with runs taking 1.3 seconds instead of 170. They report that repair on training failures lifts results further on some benchmarks.
+Why it matters: Teams running AI agents at scale could cut cost and wait time for routine procedures in exchange for a small drop in success rates.
+
+Story 3
+Headline: Hugging Face releases LeRobot v0.7.0 with interactive robot control and data streaming
+Card: LeRobot v0.7.0: steer running robots and train on streamed data
+Narration: Hugging Face announced LeRobot version zero point seven on November fifth. It says users can now steer running robots from the terminal and train on streamed data, without downloading it first.
+Summary: Hugging Face announced LeRobot v0.7.0 on November 5, and says it adds interactive rollouts that let users switch subtasks, ask questions and steer a running robot from the terminal. The company says users can now train on datasets streamed from the Hub, a Storage Bucket or LanceDB without downloading them first. The Hub now hosts almost 300 TB of open Physical AI data in LeRobot format. The release adds four world action models and four new VLAs, though G0.5 uses a non-commercial license.
+Why it matters: Robotics researchers can train on large open datasets without downloading them and control running robots more directly.
+
+Story 4
+Headline: NVIDIA, Rebellions and SK Telecom partner on Korean AI infrastructure
+Card: NVIDIA links Rebellions' R200 chips via NVLink Fusion for Korea
+Narration: On November eighth, NVIDIA, Rebellions and SK Telecom announced a collaboration to link Rebellions' chips to NVIDIA's platform with NVLink Fusion. SK Telecom says it plans to deploy the systems, expected in twenty twenty-eight.
+Summary: On November 8, NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion. Rebellions will connect its Rebel R200 NPUs to the NVIDIA platform and use NVIDIA's MGX rack architecture. SK Telecom plans to deploy the systems in its AI data center, and the companies say they plan to split inference work between NVIDIA GPUs and Rebellions NPUs. Korea's Ministry of Science and ICT supports the collaboration.
+Why it matters: Korean chipmakers gain a route to plug their own AI chips into NVIDIA-based data centers.
+
+Story 5
+Headline: UK Sovereign AI fund and British Business Bank back chip startup Fractile
+Card: UK backs AI chip startup Fractile in round valuing it at over £5 billion
+Narration: The UK government's Sovereign AI fund and the British Business Bank are backing British chip startup Fractile, in a round worth over five hundred million pounds. The government says it values Fractile at over five billion pounds.
+Summary: The UK government's Sovereign AI Venture Fund and the British Business Bank are backing Fractile, a London and Bristol-based AI chip startup, in a Series C round worth over £500 million that also includes CapitalG, Lightspeed and Redpoint. The government says the round values Fractile at over £5 billion. The government says Fractile is re-inventing AI hardware to be faster, more energy efficient and less costly. The Budget also added £140 million for Sovereign AI.
+Why it matters: The UK is using public funds to build a domestic AI chip maker and reduce reliance on overseas technology.
+
+Outro: Sources for every story are linked on our website. See you next time.",,,,
+E2,A,"Hook: Anthropic says Claude Fable and Claude Mythos 5.2 are one model with different safeguards. Here's your AI Daily Brief.
+
+Story 1
+Headline: Anthropic says Claude Fable and Mythos 5.2 share one model with different access rules
+Card: Claude Fable & Mythos 5.2: same model, different safeguards
+Narration: Anthropic says Claude Fable and Claude Mythos five point two are the same underlying model. Fable carries cybersecurity and biology safeguards so all users can access it, while Mythos requires applying through verification programs.
+Summary: Anthropic announced Claude Fable 5.2 and Claude Mythos 5.2 on November 9. The company says the two are the same underlying model. According to Anthropic, Fable has cybersecurity and biology safeguards that let it be offered to all users, while Mythos access requires applying through verification programs.
+Why it matters: Users get the model through Fable with added safeguards, while those who want Mythos must go through Anthropic's verification programs.
+
+Story 2
+Headline: Researchers present Dr. RTL, a multi-agent framework for RTL and synthesis optimization
+Card: Dr. RTL agents: 21%/17% timing gains, 6% less area (author-reported)
+Narration: Researchers present Dr. RTL, a multi-agent system for optimizing chip designs. The authors report that across twenty real-world designs, it improves two timing measures by twenty-one and seventeen percent on average and cuts area six percent versus commercial synthesis.
+Summary: A paper by Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie, submitted to arXiv on November 10, presents Dr. RTL. This multi-agent framework automates critical-path analysis, RTL rewriting and implementation-level evaluation, and the authors say it keeps improving through reusable optimization skills. The authors report that on 20 real-world RTL designs it achieves average WNS/TNS improvements of 21% and 17%, plus a 6% area reduction, over commercial synthesis. The paper is listed as an ASP-DAC'27 invited paper.
+Why it matters: Chip design teams could hand parts of timing and area optimization work to AI agents that run inside realistic EDA workflows.
+
+Story 3
+Headline: PyTorch 2.15 makes rewritten NCCL backend the default and expands Apple Silicon support
+Card: PyTorch 2.15: new NCCL default, faster Apple Silicon (company-reported)
+Narration: PyTorch two point fifteen, released October twenty-eighth, makes a rewritten NCCL backend the default. PyTorch says new Apple Silicon work lifts mixture-of-experts decode throughput up to one point three four times on an M3 Ultra.
+Summary: PyTorch 2.15 was released on October 28, 2026, with 3,117 commits from 583 contributors. The rewritten NCCL backend is now the default, and PyTorch says a new flight recorder writes post-mortems to disk when collectives hang. On Apple Silicon, PyTorch reports 1.32–1.34x higher MoE decode throughput on an M3 Ultra and says a 512 x 512 QR falls from about 7 seconds to 1.5 ms. The release moves the default wheel to CUDA 13.2, adds ROCm 10.0 wheels, and drops Python 3.10 and macOS 14 support for MPS.
+Why it matters: Teams training on multiple GPUs pick up a new default communication backend, and Mac users must run Python 3.11+ and macOS 15+ to use MPS.
+
+Story 4
+Headline: Anthropic announces 40% discount on Claude for government through GSA agreement
+Card: Anthropic–GSA deal: 40% off Claude for all levels of government
+Narration: Anthropic announced a GSA agreement giving government partners forty percent off Claude Enterprise, Claude for Government and the Claude API, including state and local governments. Anthropic estimates savings of one billion dollars.
+Summary: Anthropic says a new agreement with GSA gives government partners a 40% discount on Claude Enterprise, Claude for Government and the Claude API, extending to state, local, tribal and territorial governments. The company estimates the discounts will save the government $1 billion and says agencies face no minimum spend commitment. Anthropic says about 500 US federal, state and local government organizations now use Claude. Claude for Government became generally available on September 30 at a FedRAMP High authorization level, according to Anthropic.
+Why it matters: Government agencies at every level can buy Claude at lower prices and pay only for the usage they consume.
+
+Story 5
+Headline: NIST, NSA and CISA publish ten incident practices for super intelligence training
+Card: NIST, NSA & CISA: 10 voluntary practices for SI training incidents
+Narration: On October sixteenth, NIST, the NSA and CISA published ten voluntary practices for handling incidents during super intelligence training and evaluation, especially when agents take significant actions nobody instructed them to take.
+Summary: On October 16, 2026, NIST CAISSI, the NSA's Super Intelligence Security Center and CISA published ten key practices for managing incidents during super intelligence training and evaluation. The voluntary guidance focuses on cases where SI agents take significant uninstructed actions that compromise operator policies, controls or human oversight. The practices are organized into five stages: preparation, detection, response, recovery and reporting. NIST says they build on frameworks including NIST SP 800-61r3.
+Why it matters: Frontier SI developers get a voluntary framework for preparing for and responding to incidents in which agents act outside the scope their operators set.
+
+Outro: Find the sources for every story on the AI Daily Brief website.",,,,
+E2,B,"Hook: Anthropic's Claude Fable 5.2 and Mythos 5.2 are the same model, with different access rules.
 
 Story 1
 Headline: Anthropic introduces Claude Fable 5.2 and Claude Mythos 5.2 as one underlying model
@@ -113,7 +189,7 @@ Summary: NIST CAISSI, the NSA's Super Intelligence Security Center and CISA publ
 Why it matters: Frontier AI developers running super intelligence training and evaluations are the audience, since the guidance helps them prepare for, detect and report incidents.
 
 Outro: Find the sources for every story at the link on our website.",,,,
-E2,B,"Hook: Anthropic releases Claude Fable and Mythos 5.2 as one model with two access levels, plus PyTorch and NIST updates.
+E2,C,"Hook: Anthropic releases Claude Fable and Mythos 5.2 as one model with two access levels, plus PyTorch and NIST updates.
 
 Story 1
 Headline: Anthropic launches Claude Fable 5.2 and Mythos 5.2, one model with two access levels

@@ -108,6 +108,19 @@ def test_daily_llm_cap(tmp_path: Path) -> None:
     b.check("llm", 0.40, at("2026-12-03", "09:00"))
 
 
+def test_preparation_has_its_own_daily_cap(tmp_path: Path) -> None:
+    """Founder approval 2026-11-13: $3.00/day during preparation only; Day 1+ stay at $1.50."""
+    b = make_budget(tmp_path)
+    prep = at("2026-11-20", "09:00")  # before Day 1
+    spend(b, prep, 2.50)
+    b.check("llm", 0.40, at("2026-11-20", "18:00"))  # 2.90 <= 3.00
+    with pytest.raises(BudgetExceededError, match=r"daily LLM cap is \$3\.00"):
+        b.check("llm", 0.60, at("2026-11-20", "19:00"))
+    spend(b, at("2026-12-02", "09:00"), 1.20)  # Day 1+: back to $1.50
+    with pytest.raises(BudgetExceededError, match=r"daily LLM cap is \$1\.50"):
+        b.check("llm", 0.40, at("2026-12-02", "18:00"))
+
+
 def test_voice_cap_is_separate_from_llm(tmp_path: Path) -> None:
     b = make_budget(tmp_path)
     spend(b, at("2026-12-02"), 9.50, "tts")

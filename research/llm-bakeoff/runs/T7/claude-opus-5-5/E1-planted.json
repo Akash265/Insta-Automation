@@ -1,0 +1,43 @@
+{
+ "task": "T7",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "job": "E1-planted",
+ "prompt": "critic.v1",
+ "data": {
+  "problems": [
+   {
+    "rank": 1,
+    "quote": "Ricursive Intelligence released Ripple-130B Preview",
+    "type": "name",
+    "explanation": "The claims name the model Ripple-65B Preview, not Ripple-130B."
+   },
+   {
+    "rank": 3,
+    "quote": "It is the most capable system of its kind ever released.",
+    "type": "overclaim",
+    "explanation": "No claim supports this superlative. It is also stated as fact without attribution."
+   },
+   {
+    "rank": 4,
+    "quote": "Today, nVIDIA, Rebellions and SK Telecom announce a collaboration",
+    "type": "date",
+    "explanation": "The announcement was published 2026-11-08, not on the edition date of 2026-11-13."
+   },
+   {
+    "rank": 5,
+    "quote": "It will be free for everyone until the end of 2027.",
+    "type": "unsupported",
+    "explanation": "No claim mentions anything being free or a 2027 end date."
+   }
+  ]
+ },
+ "input_tokens": 5982,
+ "output_tokens": 691,
+ "cost_usd": 0.037748,
+ "latency_s": 6.489,
+ "request_id": "req_011CgzfM1vr51521VGksoWkx",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

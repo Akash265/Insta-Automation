@@ -1,0 +1,89 @@
+{
+ "task": "T5",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "job": "s05-lerobot",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Hugging Face has released LeRobot v0.7.0, which adds interactive rollouts letting users switch subtasks, ask questions and autosteer a running robot via language.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "LeRobot v0.7.0 puts language in the loop: interactive rollouts let you switch subtasks, ask questions and autosteer a running robot, using text-generating policies (FineART-VLA, Wall-OSS-0.5) or an external VLM planner."
+   },
+   {
+    "claim_text": "LeRobot v0.7.0 adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM) and four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5).",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "It adds four world action models (Cosmos 3, Long-WAM, FLUX 3 Action, LaWAM), four new VLAs (G0.5, LingBot-VLA 2.0, DM0.5, Wall-OSS-0.5), and a training stack built for them"
+   },
+   {
+    "claim_text": "According to Hugging Face, the Hub now holds almost 300 TB of open Physical AI data in LeRobot format.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "The Hub now holds almost 300 TB of open Physical AI data in LeRobot format, with some of the largest datasets released in just the past few months."
+   },
+   {
+    "claim_text": "Datasets can now be streamed for training from the Hub, a Storage Bucket or LanceDB without downloading them first.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "You can now train on these datasets directly from the Hub, a Storage Bucket or LanceDB, without downloading the datasets first."
+   },
+   {
+    "claim_text": "A new lerobot-policy-server lets policies run on a remote GPU while the robot's own computer stays lightweight; it replaces the removed async_inference module.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "With lerobot-policy-server, you can keep a laptop or single-board computer beside the robot and run the model on a GPU workstation across the lab."
+   },
+   {
+    "claim_text": "The LeRobot team says that on an 8×H200 node with a 6B FastWAM, distributed checkpoints save 3x faster and resume memory peaks drop from 143 GB to 42 GB per GPU.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "On an 8×H200 node with a 6B FastWAM, DCP saves checkpoints 3x faster, and resuming peaks go from 143 GB to 42 GB per GPU."
+   },
+   {
+    "claim_text": "The post reports that NVIDIA's Cosmos 3 Nano (16.5B parameters) and Cosmos 3 Edge (4.6B) reach 97.90% and 97.95% average success on LIBERO.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "It comes in two sizes, Cosmos 3 Nano (16.5B parameters) and Cosmos 3 Edge (4.6B), which reach 97.90% and 97.95% average success on LIBERO."
+   },
+   {
+    "claim_text": "Robbyant reports upstream that LingBot-VLA 2.0 achieves 93.5% success on RoboTwin 2.0 (clean), versus 82.7% for π0.5.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "Upstream, it reports 93.5% success on RoboTwin 2.0 (clean), against 82.7% for π0.5."
+   },
+   {
+    "claim_text": "G0.5's code and weights are released under a non-commercial community license rather than Apache-2.0.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "G0.5's code and weights are released under the non-commercial G0.5 Community License, not Apache-2.0."
+   },
+   {
+    "claim_text": "The FineART dataset from Scale AI and Hugging Face contains 40k+ bimanual episodes (1,718 hours) with 533k+ subtask annotations, totaling 1.9 TB.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://huggingface.co/blog/lerobot/lerobot-release-v070",
+    "excerpt": "FineART, from Scale AI and Hugging Face, shows what this looks like at scale: 40k+ bimanual episodes (1,718 hours) with 533k+ subtask annotations, 1.9 TB in LeRobot format."
+   }
+  ]
+ },
+ "input_tokens": 9160,
+ "output_tokens": 1872,
+ "cost_usd": 0.07408,
+ "latency_s": 13.393,
+ "request_id": "req_011CgzfcsKsKWgoyfBky33pe",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

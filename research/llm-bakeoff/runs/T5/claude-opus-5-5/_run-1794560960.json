@@ -1,0 +1,8 @@
+{
+ "model": "claude-opus-5-5",
+ "task": "T5",
+ "started": 1794560960.711829,
+ "finished": 1794561092.584526,
+ "done": 10,
+ "skipped": 0
+}

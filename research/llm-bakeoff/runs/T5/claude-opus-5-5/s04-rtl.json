@@ -1,0 +1,82 @@
+{
+ "task": "T5",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "job": "s04-rtl",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "Researchers Wenji Fang, Yao Lu, Jinghua Wang and Zhiyao Xie posted an arXiv paper on autonomous RTL and synthesis optimization using LLM agents.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "Authors:Wenji Fang, Yao Lu, Jinghua Wang, Zhiyao Xie"
+   },
+   {
+    "claim_text": "The paper was submitted to arXiv on 10 November 2026.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "[Submitted on 10 Nov 2026]"
+   },
+   {
+    "claim_text": "The authors present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting and implementation-level evaluation.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "We present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting, and implementation-level evaluation, while continuously improving through reusable optimization skills."
+   },
+   {
+    "claim_text": "The authors say Dr. RTL continuously improves through reusable optimization skills.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "while continuously improving through reusable optimization skills"
+   },
+   {
+    "claim_text": "The authors report that, on 20 real-world RTL designs, Dr. RTL achieves average WNS/TNS improvements of 21%/17% with a 6% area reduction over commercial synthesis.",
+    "claim_type": "benchmark_vendor",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "Evaluated on 20 real-world RTL designs, Dr.~RTL achieves average WNS/TNS improvements of 21\\%/17\\% with a 6\\% area reduction over commercial synthesis."
+   },
+   {
+    "claim_text": "The paper discusses reference-based and open-ended RTL optimization benchmarks meant to evaluate optimization under realistic EDA workflows.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "We discuss reference-based and open-ended RTL optimization benchmarks that evaluate optimization opportunities under realistic EDA workflows."
+   },
+   {
+    "claim_text": "The paper also explores agent-driven synthesis script tuning and discovery of executable synthesis algorithms.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "We explore agent-driven synthesis script tuning and the discovery of executable synthesis algorithms across intermediate representations, technology-independent optimization, and technology mapping."
+   },
+   {
+    "claim_text": "The authors envision AI-native design automation jointly exploring architectural, RTL and EDA algorithm design spaces.",
+    "claim_type": "forecast",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "we envision AI-native design automation that jointly explores architectural, RTL, and EDA algorithm design spaces, guided by verification constraints and implementation feedback."
+   },
+   {
+    "claim_text": "The paper is an invited paper for ASP-DAC 2027.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://arxiv.org/abs/2611.13713",
+    "excerpt": "ASP-DAC'27 Invited Paper"
+   }
+  ]
+ },
+ "input_tokens": 2890,
+ "output_tokens": 1292,
+ "cost_usd": 0.0374,
+ "latency_s": 9.943,
+ "request_id": "req_011Cgzfc8oGDYeMirk6KJt2T",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

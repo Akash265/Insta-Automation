@@ -1,0 +1,89 @@
+{
+ "task": "T5",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "job": "s07-nvidia",
+ "prompt": "claims.v2",
+ "data": {
+  "claims": [
+   {
+    "claim_text": "NVIDIA, Rebellions and SK Telecom announced a collaboration to advance Korea's sovereign AI infrastructure using NVIDIA NVLink Fusion.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "NVIDIA, Rebellions and SK Telecom today announced a collaboration to advance Korea’s sovereign AI infrastructure — using NVIDIA NVLink Fusion™"
+   },
+   {
+    "claim_text": "Rebellions will use NVLink Fusion to connect its Rebel R200 neural processing units to the NVIDIA platform and use the NVIDIA MGX rack architecture for rack-scale system development.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions will use NVLink Fusion to connect its Rebel R200 neural processing units (NPUs) to the NVIDIA platform, and harness the NVIDIA MGX™ rack architecture for rack-scale system development."
+   },
+   {
+    "claim_text": "SK Telecom plans to deploy these systems in its AI data center as part of a full-stack sovereign AI strategy.",
+    "claim_type": "forecast",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "SK Telecom plans to deploy these systems in its AI data center to support its vision for full-stack sovereign AI spanning infrastructure, proprietary models and public-facing services"
+   },
+   {
+    "claim_text": "Rebellions' R200 systems are expected to be ready for deployment in 2028.",
+    "claim_type": "availability",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions’ R200 systems are expected to be ready for deployment in 2028."
+   },
+   {
+    "claim_text": "The companies plan a disaggregated inference approach using NVIDIA GPUs for prefill and Rebellions NPUs for decode, which they say will improve throughput and power efficiency.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Their planned work includes using NVIDIA GPUs for prefill and Rebellions NPUs for decode to improve inference throughput and power efficiency."
+   },
+   {
+    "claim_text": "Rebellions says the R200 NPU, still in development, is optimized for low-latency, energy-efficient inference on frontier models including multitrillion-parameter mixture-of-experts models.",
+    "claim_type": "vendor_claim",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "Rebellions is developing its next-generation R200 NPU, optimized for low-latency and energy-efficient inference using frontier models, including multitrillion-parameter mixture-of-experts models."
+   },
+   {
+    "claim_text": "Korea's Ministry of Science and ICT is supporting collaboration between NVIDIA and Korean NPU companies, beginning with Rebellions and SK Telecom.",
+    "claim_type": "fact",
+    "materiality": "material",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "MSIT is supporting collaboration between NVIDIA and Korean NPU companies, beginning with Rebellions and SK Telecom, to strengthen Korea’s sovereign AI infrastructure."
+   },
+   {
+    "claim_text": "NVIDIA CEO Jensen Huang said NVLink Fusion lets Korea's chipmakers connect their custom ASICs to NVIDIA's AI factory platform.",
+    "claim_type": "quote",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "With NVLink Fusion, Korea’s chipmakers can connect their custom ASICs to NVIDIA’s AI factory platform, tightly coupling their processors with NVIDIA compute to run AI workloads."
+   },
+   {
+    "claim_text": "SK Telecom says it will link its AI data centers with proprietary models including A.X K2 and services from the 'AI for All' project.",
+    "claim_type": "quote",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "By linking SKT’s AI data centers, proprietary AI models including A.X K2, and public-facing AI services developed under the ‘AI for All’ project"
+   },
+   {
+    "claim_text": "Rebellions is backed by investors including Aramco, Arm, Samsung, SK Hynix and SK Telecom.",
+    "claim_type": "fact",
+    "materiality": "minor",
+    "evidence_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+    "excerpt": "the company is backed by Aramco, Arm, Kindred Ventures, KT, Mirae Asset Group, Samsung, SK Hynix and SK Telecom."
+   }
+  ]
+ },
+ "input_tokens": 7025,
+ "output_tokens": 2302,
+ "cost_usd": 0.07414,
+ "latency_s": 16.562,
+ "request_id": "req_011CgzfehjidGUDmnHFKz3BS",
+ "stop_reason": "end_turn",
+ "extra": {},
+ "error": null
+}

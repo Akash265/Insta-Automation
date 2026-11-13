@@ -15,7 +15,9 @@ Rule scores (automatic):
       clean script are listed for the editor (each is either a real issue or a false alarm)
   T1  agreement with Haiku on in_scope and category; latency; failures and invalid output
   T2  agreement with Haiku on same_event
-Editor scores (claim precision, claim-type accuracy, script quality) come from the sheets.
+Editor scores (claim precision, claim-type accuracy, script quality) come from the sheets:
+fill them in, then run `score.py --ratings` to unblind and score them. Don't rerun plain
+`score.py` after rating: it rewrites the sheets.
 """
 
 from __future__ import annotations
@@ -152,7 +154,8 @@ def blind_sheet(rows: list[dict[str, Any]], task: str) -> list[list[str]]:
                         r["materiality"], r["excerpt"], "y" if r["url_ok"] else "n",
                         "y" if r["excerpt_ok"] else "n", "", "", "", ""])  # fmt: skip
     SHEETS.mkdir(exist_ok=True)
-    (SHEETS / f"KEY-{task}-do-not-open-until-rated.json").write_text(json.dumps(key, indent=1))
+    if not _has_ratings(SHEETS / f"{task}-claims-sheet.csv"):
+        (SHEETS / f"KEY-{task}-do-not-open-until-rated.json").write_text(json.dumps(key, indent=1))
     return out
 
 
@@ -255,7 +258,8 @@ def score_t6() -> tuple[dict[str, Any], list[list[str]]]:
             sheet.append([eid, lab, next(t for e, mm, t in rows if e == eid and mm == m),
                           "", "", "", ""])  # fmt: skip
     SHEETS.mkdir(exist_ok=True)
-    (SHEETS / "KEY-T6-do-not-open-until-rated.json").write_text(json.dumps(key, indent=1))
+    if not _has_ratings(SHEETS / "T6-scripts-sheet.csv"):
+        (SHEETS / "KEY-T6-do-not-open-until-rated.json").write_text(json.dumps(key, indent=1))
     return res, sheet
 
 
@@ -297,7 +301,15 @@ def score_t7() -> tuple[dict[str, Any], list[list[str]]]:
                        for q in clean]  # fmt: skip
         res[model] = {"planted_found": pct(found, total), "missed": missed,
                       "flags_on_clean_scripts": clean_flags, "usage": usage(recs)}  # fmt: skip
-    return res, review
+    rows = review[1:]
+    random.Random(f"{RNG_SEED}-T7").shuffle(rows)  # noqa: S311 - blinding, not security
+    key7 = {str(n): r[0] for n, r in enumerate(rows, 1)}
+    blind = [["row", "edition", "rank", "type", "quote", "explanation", "editor_real_issue_y_n"]]
+    blind += [[str(n), *r[1:]] for n, r in enumerate(rows, 1)]
+    if not _has_ratings(SHEETS / "T7-clean-flags-review.csv"):
+        SHEETS.mkdir(exist_ok=True)
+        (SHEETS / "KEY-T7-do-not-open-until-rated.json").write_text(json.dumps(key7, indent=1))
+    return res, blind
 
 
 # ------------------------------------------------------------------ T1 / T2
@@ -355,12 +367,97 @@ def per_edition_cost(scores: dict[str, Any], model: str) -> dict[str, Any]:
             "month_22_editions": core * (1 + ASSUMED_REPAIR_RATE) * 22}  # fmt: skip
 
 
+def _has_ratings(path: Path) -> bool:
+    if not path.exists():
+        return False
+    with path.open(encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh))
+    cols = [c for c in (rows[0].keys() if rows else []) if c.startswith("editor_")]
+    return any(row[c].strip() for row in rows for c in cols)
+
+
 def write_csv(path: Path, rows: list[list[str]]) -> None:
+    if _has_ratings(path):  # never overwrite the editor's work
+        print(f"kept {path.name}: it already has ratings")
+        return
     with path.open("w", newline="", encoding="utf-8") as fh:
         csv.writer(fh).writerows(rows)
 
 
+def _yes(cell: str) -> bool | None:
+    c = cell.strip().lower()
+    return True if c in ("y", "yes") else False if c in ("n", "no") else None
+
+
+def analyse_ratings() -> dict[str, Any]:
+    """Unblind the editor's filled sheets and compute the editor scores per model."""
+    out: dict[str, Any] = {}
+    sheet = SHEETS / "T5-claims-sheet.csv"
+    key = json.loads((SHEETS / "KEY-T5-do-not-open-until-rated.json").read_text())
+    per: dict[str, dict[str, int]] = {}
+    with sheet.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            model = key[row["story"]][row["label"]]
+            m = per.setdefault(model, {"rated": 0, "supported": 0, "type_ok": 0, "typed": 0,
+                                       "would_use": 0, "used_rated": 0})  # fmt: skip
+            sup = _yes(row["editor_supported_y_n"])
+            if sup is not None:
+                m["rated"] += 1
+                m["supported"] += sup
+            typ = _yes(row["editor_type_correct_y_n"])
+            if typ is not None:
+                m["typed"] += 1
+                m["type_ok"] += typ
+            use = _yes(row["editor_would_use_y_n"])
+            if use is not None:
+                m["used_rated"] += 1
+                m["would_use"] += use
+    out["T5"] = {
+        model: {
+            "claim_precision": pct(m["supported"], m["rated"]),
+            "unsupported_claims": m["rated"] - m["supported"],
+            "claim_type_accuracy": pct(m["type_ok"], m["typed"]),
+            "would_use": pct(m["would_use"], m["used_rated"]),
+        }
+        for model, m in per.items()
+    }
+    sheet6 = SHEETS / "T6-scripts-sheet.csv"
+    key6 = json.loads((SHEETS / "KEY-T6-do-not-open-until-rated.json").read_text())
+    scores6: dict[str, dict[str, list[float]]] = {}
+    with sheet6.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            model = key6[row["edition"]][row["label"]]
+            d = scores6.setdefault(model, {"accuracy": [], "clarity": [], "publish": []})
+            for col, name in (
+                ("editor_accuracy_1_5", "accuracy"),
+                ("editor_clarity_1_5", "clarity"),
+            ):
+                if row[col].strip():
+                    d[name].append(float(row[col]))
+            pub = _yes(row["editor_would_publish_y_n"])
+            if pub is not None:
+                d["publish"].append(float(pub))
+    out["T6"] = {
+        m: {k: round(statistics.mean(v), 2) if v else None for k, v in d.items()}
+        for m, d in scores6.items()
+    }
+    real: dict[str, list[int]] = {}
+    key7 = json.loads((SHEETS / "KEY-T7-do-not-open-until-rated.json").read_text())
+    with (SHEETS / "T7-clean-flags-review.csv").open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            r = _yes(row["editor_real_issue_y_n"])
+            if r is not None:
+                real.setdefault(key7[row["row"]], []).append(int(r))
+    out["T7"] = {m: {"clean_flags_real": f"{sum(v)}/{len(v)}"} for m, v in real.items()}
+    (OUT / "ratings.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out, indent=1))
+    return out
+
+
 def main() -> int:
+    if "--ratings" in sys.argv:
+        analyse_ratings()
+        return 0
     OUT.mkdir(exist_ok=True)
     SHEETS.mkdir(exist_ok=True)
     t5, t5_sheet = score_t5()

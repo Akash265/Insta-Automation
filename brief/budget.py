@@ -49,6 +49,7 @@ class Period:
     last_day: int
     llm_cap_usd: float
     tts_cap_usd: float
+    llm_daily_cap_usd: float | None = None  # overrides the global daily cap in this period
 
     def contains(self, day: int) -> bool:
         low = -math.inf if self.first_day is None else self.first_day
@@ -89,6 +90,9 @@ def load_config(path: Path = DEFAULT_CONFIG) -> BudgetConfig:
                 last_day=int(p["last_day"]),
                 llm_cap_usd=float(p["llm_cap_usd"]),
                 tts_cap_usd=float(p["tts_cap_usd"]),
+                llm_daily_cap_usd=(
+                    None if p.get("llm_daily_cap_usd") is None else float(p["llm_daily_cap_usd"])
+                ),
             )
             for p in raw["periods"]
         )
@@ -320,9 +324,14 @@ class Budget:
                     for e in entries
                     if e.status == "ok" and e.category == "llm" and self._local_date(e.at) == day
                 )
-                if today_spent + estimated_usd > self.config.llm_daily_cap_usd + 1e-9:
+                daily_cap = (
+                    period.llm_daily_cap_usd
+                    if period.llm_daily_cap_usd is not None
+                    else self.config.llm_daily_cap_usd
+                )
+                if today_spent + estimated_usd > daily_cap + 1e-9:
                     reason = (
-                        f"daily LLM cap is ${self.config.llm_daily_cap_usd:.2f}; "
+                        f"daily LLM cap is ${daily_cap:.2f}; "
                         f"spent ${today_spent:.2f} today + this call ${estimated_usd:.2f}"
                     )
         if reason is not None:

@@ -1,42 +1,52 @@
 {
  "s01-ripple": {
-  "A": "claude-sonnet-5-5@high",
-  "B": "claude-haiku-5-5"
+  "A": "claude-opus-5-5",
+  "B": "claude-sonnet-5-5@high",
+  "C": "claude-haiku-5-5"
  },
  "s02-fable52": {
-  "A": "claude-sonnet-5-5@high",
-  "B": "claude-haiku-5-5"
+  "A": "claude-haiku-5-5",
+  "B": "claude-opus-5-5",
+  "C": "claude-sonnet-5-5@high"
  },
  "s03-retrace": {
   "A": "claude-haiku-5-5",
-  "B": "claude-sonnet-5-5@high"
+  "B": "claude-sonnet-5-5@high",
+  "C": "claude-opus-5-5"
  },
  "s04-rtl": {
-  "A": "claude-haiku-5-5",
-  "B": "claude-sonnet-5-5@high"
+  "A": "claude-sonnet-5-5@high",
+  "B": "claude-haiku-5-5",
+  "C": "claude-opus-5-5"
  },
  "s05-lerobot": {
   "A": "claude-haiku-5-5",
-  "B": "claude-sonnet-5-5@high"
+  "B": "claude-opus-5-5",
+  "C": "claude-sonnet-5-5@high"
  },
  "s06-pytorch": {
-  "A": "claude-haiku-5-5",
-  "B": "claude-sonnet-5-5@high"
+  "A": "claude-opus-5-5",
+  "B": "claude-haiku-5-5",
+  "C": "claude-sonnet-5-5@high"
  },
  "s07-nvidia": {
-  "A": "claude-sonnet-5-5@high",
-  "B": "claude-haiku-5-5"
+  "A": "claude-opus-5-5",
+  "B": "claude-sonnet-5-5@high",
+  "C": "claude-haiku-5-5"
  },
  "s08-gsa": {
   "A": "claude-haiku-5-5",
-  "B": "claude-sonnet-5-5@high"
+  "B": "claude-opus-5-5",
+  "C": "claude-sonnet-5-5@high"
  },
  "s09-fractile": {
-  "A": "claude-sonnet-5-5@high",
-  "B": "claude-haiku-5-5"
+  "A": "claude-haiku-5-5",
+  "B": "claude-opus-5-5",
+  "C": "claude-sonnet-5-5@high"
  },
  "s10-nist": {
-  "A": "claude-sonnet-5-5@high",
-  "B": "claude-haiku-5-5"
+  "A": "claude-haiku-5-5",
+  "B": "claude-opus-5-5",
+  "C": "claude-sonnet-5-5@high"
  }
 }

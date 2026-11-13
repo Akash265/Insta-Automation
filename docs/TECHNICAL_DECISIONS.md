@@ -138,7 +138,7 @@ Local inference is **not kept for architectural purity.** At Haiku prices, T1 an
 | Days 61–90 | **$35** (approved maximum) | $10 | Automated pipeline running |
 | After Day 90 | $35 | $10 (PD-07 review) | Always subject to the cash ceiling in force |
 
-- The daily cap stays at $1.50.
+- The daily cap stays at $1.50, except **$3.00/day during the preparation period** (founder approval 2026-11-13, to finish the P1-09 bake-off; the $7 preparation total is unchanged). Per-period override in `config/budget_periods.yaml`.
 - Every cap is subject to the **₹15,000 ceiling**: `brief cost report` blocks optional spend when the projected max (actual + remaining caps) would exceed it.
 - The **voice cap stays at $10** until the vendor comparison is done. A $5 cap is reconsidered only after measured usage (PD-07, P1-39).
 

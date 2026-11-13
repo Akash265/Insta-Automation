@@ -122,7 +122,7 @@ See [EDITORIAL_PIPELINE §8](EDITORIAL_PIPELINE.md#8-llm-safety-and-prompt-injec
 
 | Provider | Cap (start) | Enforcement | Warn at |
 |---|---|---|---|
-| LLM | $1.50/day; per plan window (approved): **$7** preparation bake-off · **$10** Days 1–30 · **$20** Days 31–60 (PD-02) · **$35** Days 61–90; plus the [budget ladder](TECHNICAL_DECISIONS.md#adr-003) | `brief/llm/budget.py` checks `usage_ledger` before each call; blocked calls are logged with status `blocked_by_budget` | 80% (WF-09) |
+| LLM | $1.50/day ($3.00/day in preparation, approved 2026-11-13); per plan window (approved): **$7** preparation bake-off · **$10** Days 1–30 · **$20** Days 31–60 (PD-02) · **$35** Days 61–90; plus the [budget ladder](TECHNICAL_DECISIONS.md#adr-003) | `brief/llm/budget.py` checks `usage_ledger` before each call; blocked calls are logged with status `blocked_by_budget` | 80% (WF-09) |
 | TTS | **₹0 expected** (local engines). Contingency caps kept until local testing succeeds: **$8** preparation, **$10** per window (PD-07); P1-39 reconsiders | Same pattern; the paid fallback is off by default | 80% |
 | Apify | Free plan ($5 credit); $0.50 per run | Code allow-list + `maxItems`; the free plan blocks at its limit | 80% of credit |
 | R2 | Expected $0 | Lifecycle rules; weekly usage check | 8 GB stored |

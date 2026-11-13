@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T08:53:47+00:00",
+ "generated": "2026-11-13T09:14:40+00:00",
  "T5": {
   "claude-haiku-5-5": {
    "stories": 10,
@@ -90,6 +90,36 @@
     "max_s": 12.837,
     "total_s": 91.927
    }
+  },
+  "claude-opus-5-5": {
+   "stories": 10,
+   "claims": 98,
+   "claims_per_story": 9.8,
+   "url_ok": "100% (98/98)",
+   "excerpt_exact": "100% (98/98)",
+   "excerpt_loose": "100% (98/98)",
+   "excerpt_le_300": "100% (98/98)",
+   "material": "63% (62/98)",
+   "types": {
+    "fact": 45,
+    "vendor_claim": 20,
+    "benchmark_vendor": 14,
+    "availability": 11,
+    "forecast": 3,
+    "quote": 4,
+    "interpretation": 1
+   },
+   "usage": {
+    "calls": 10,
+    "failed": 0,
+    "mean_in": 5758.3,
+    "mean_out": 1722.3,
+    "cost": 0.574792,
+    "p50_s": 13.268,
+    "p95_s": 16.562,
+    "max_s": 16.562,
+    "total_s": 131.822
+   }
   }
  },
  "T6": {
@@ -149,6 +179,39 @@
     "max_s": 48.912,
     "total_s": 84.971
    }
+  },
+  "claude-opus-5-5": {
+   "editions": {
+    "E1": {
+     "narration_words": 208,
+     "check_issues": [
+      "C04 blocking: number '10' is not in any claim or evidence excerpt (story 2)",
+      "C04 blocking: number '5' is not in any claim or evidence excerpt (story 3)",
+      "C04 blocking: number '8' is not in any claim or evidence excerpt (story 4)"
+     ],
+     "limit_issues": []
+    },
+    "E2": {
+     "narration_words": 203,
+     "check_issues": [
+      "C04 blocking: number '9' is not in any claim or evidence excerpt (story 1)",
+      "C04 blocking: number '10' is not in any claim or evidence excerpt (story 5)",
+      "C09 warning: summary has 5 sentences (expected 2-4) (story 2)"
+     ],
+     "limit_issues": []
+    }
+   },
+   "usage": {
+    "calls": 2,
+    "failed": 0,
+    "mean_in": 4340,
+    "mean_out": 4572.5,
+    "cost": 0.21761999999999998,
+    "p50_s": 38.3765,
+    "p95_s": 42.035,
+    "max_s": 42.035,
+    "total_s": 76.753
+   }
   }
  },
  "T7": {
@@ -182,6 +245,22 @@
     "p95_s": 14.002,
     "max_s": 14.002,
     "total_s": 41.854
+   }
+  },
+  "claude-opus-5-5": {
+   "planted_found": "100% (7/7)",
+   "missed": [],
+   "flags_on_clean_scripts": 3,
+   "usage": {
+    "calls": 4,
+    "failed": 0,
+    "mean_in": 5503.25,
+    "mean_out": 741.25,
+    "cost": 0.14735199999999998,
+    "p50_s": 7.7490000000000006,
+    "p95_s": 10.678,
+    "max_s": 10.678,
+    "total_s": 32.665
    }
   }
  },
@@ -331,6 +410,13 @@
    "with_assumed_repairs": 0.45217199999999996,
    "month_22_editions": 9.947783999999999
   },
-  "claude-opus-5-5": {}
+  "claude-opus-5-5": {
+   "T5_per_story": 0.057479199999999994,
+   "T6": 0.10880999999999999,
+   "T7": 0.036837999999999996,
+   "core": 0.72044,
+   "with_assumed_repairs": 0.864528,
+   "month_22_editions": 19.019616
+  }
  }
 }
