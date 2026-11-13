@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import dataclasses
 import json
 import xml.etree.ElementTree as ET  # parses our own build output only
 from html.parser import HTMLParser
@@ -27,6 +28,10 @@ TEMPLATES = ROOT / "site_templates"
 CFG = load_site_config(ROOT / "config" / "site.yaml")
 NORMAL = json.loads((FIXTURES / "normal.json").read_text(encoding="utf-8"))
 QUIET = json.loads((FIXTURES / "quiet_day.json").read_text(encoding="utf-8"))
+PUBLIC = dataclasses.replace(  # the soft-launch build: every policy page approved
+    CFG, noindex=False, contact_email="editor@example.com",
+    policy_approved=dict.fromkeys(POLICY_PAGES, "2026-12-01"),
+)  # fmt: skip
 
 
 def write_editions(folder: Path, *editions: dict[str, Any]) -> Path:
@@ -155,11 +160,49 @@ def test_noindex_during_the_experiment(tmp_path: Path) -> None:
                for p in dist.rglob("*.html"))  # fmt: skip
     assert "Disallow: /" in read(dist, "robots.txt")
     assert "X-Robots-Tag: noindex" in read(dist, "_headers")
-    public = SiteConfig(CFG.base_url, CFG.site_name, CFG.description, CFG.language, False)
-    dist = build(tmp_path / "public", NORMAL, cfg=public)
+    dist = build(tmp_path / "public", NORMAL, cfg=PUBLIC)
     assert "noindex" not in read(dist, "issues/2026-11-20/index.html")
     assert "Sitemap:" in read(dist, "robots.txt")
     assert "X-Robots-Tag" not in read(dist, "_headers")
+
+
+def test_policy_pages_are_drafts_until_approved(tmp_path: Path) -> None:
+    assert not CFG.policy_approved and CFG.contact_email is None  # nothing approved yet
+    dist = build(tmp_path, NORMAL)
+    for slug in POLICY_PAGES:
+        page = read(dist, f"{slug}/index.html")
+        assert "Draft page" in page
+        assert f'href="/{slug}/"' in read(dist, "index.html")  # linked from the footer
+    assert "mailto:" not in read(dist, "contact/index.html")
+    approved = build(tmp_path / "approved", NORMAL, cfg=PUBLIC)
+    assert not any("Draft page" in read(approved, f"{s}/index.html") for s in POLICY_PAGES)
+    assert 'href="mailto:editor@example.com"' in read(approved, "contact/index.html")
+
+
+@pytest.mark.parametrize(
+    "change",
+    [{"policy_approved": {}}, {"contact_email": None},
+     {"policy_approved": dict.fromkeys(list(POLICY_PAGES)[:-1], "2026-12-01")}],
+)  # fmt: skip
+def test_indexable_build_needs_approved_policies(tmp_path: Path, change: dict[str, Any]) -> None:
+    with pytest.raises(SiteBuildError, match="P1-20U"):
+        build(tmp_path, NORMAL, cfg=dataclasses.replace(PUBLIC, **change))
+    # a preview build is always noindex, so drafts are fine there
+    build(tmp_path / "preview", NORMAL, cfg=dataclasses.replace(PUBLIC, **change), preview=True)
+
+
+def test_policy_settings_are_validated(tmp_path: Path) -> None:
+    text = (ROOT / "config" / "site.yaml").read_text(encoding="utf-8")
+    bad = tmp_path / "site.yaml"
+    bad.write_text(text.replace("  privacy: null", "  privacy: soon"), encoding="utf-8")
+    with pytest.raises(SiteBuildError, match="approval date"):
+        load_site_config(bad)
+    bad.write_text(text.replace("  privacy: null", "  pricing: 2026-12-01"), encoding="utf-8")
+    with pytest.raises(SiteBuildError, match="unknown policy pages"):
+        load_site_config(bad)
+    bad.write_text(text.replace("contact_email: null", "contact_email: nobody"), encoding="utf-8")
+    with pytest.raises(SiteBuildError, match="not an email"):
+        load_site_config(bad)
 
 
 def test_which_editions_are_built(tmp_path: Path) -> None:

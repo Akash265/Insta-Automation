@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block main %}
 <h1>About</h1>
-<p class="note">Draft page: to be completed before public launch.</p>
+{% if not approved %}<p class="note">Draft page: to be completed before public launch.</p>{% endif %}
 <p>{{ site.site_name }} is a short daily brief on AI news: model releases, research, open-source tools, business and policy. Each issue has a 60–90 second video and this web page.</p>
 <p>Every story links to its original source, and every issue is checked and approved by a person before it is published. Software helps us collect and draft; people decide what is published.</p>
+<p>AI models help us draft summaries and scripts from claims an editor has checked, and the video narration uses a synthetic (computer-generated) voice. An editor reviews every word before an issue is published.</p>
 {% endblock %}

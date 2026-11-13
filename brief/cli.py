@@ -17,6 +17,7 @@ from brief.budget import (
     IST,
     Budget,
     BudgetConfigError,
+    BudgetExceededError,
     load_config,
     render_report,
 )
@@ -76,6 +77,8 @@ tts_app = typer.Typer(help="Narration voice (ADR-004).", no_args_is_help=True)
 app.add_typer(tts_app, name="tts")
 site_app = typer.Typer(help="Static website (ADR-006).", no_args_is_help=True)
 app.add_typer(site_app, name="site")
+script_app = typer.Typer(help="Edition copy: optional LLM draft (P1-13).", no_args_is_help=True)
+app.add_typer(script_app, name="script")
 DEFAULT_SITE_CONFIG = Path("config/site.yaml")
 SITE_TEMPLATES = Path("site_templates")
 EXPERIMENT_DIR = Path("experiment")
@@ -205,6 +208,87 @@ def caption(
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         edition = edition.model_copy(update={"caption": text})
     typer.echo(caption_for_posting(edition) if posting else text)
+
+
+CONTENT_CHECKS = ("C03", "C04", "C06", "C07", "C09", "C10", "C11")
+
+
+@script_app.command("draft")
+def script_draft(
+    path: Annotated[Path, typer.Argument(help="Edition JSON file (status draft).")],
+    write: Annotated[bool, typer.Option(help="Store the draft in the edition file.")] = False,
+    force: Annotated[
+        bool, typer.Option(help="Replace an existing script (the editor's copy is lost).")
+    ] = False,
+    env_file: Annotated[Path, typer.Option(help="Where ANTHROPIC_API_KEY is.")] = Path(".env"),
+) -> None:
+    """Draft headline, summary, card, narration, hook and outro from supported claims.
+
+    Paid call on the T6 route (config/llm_routes.yaml), under the budget caps; at most
+    one repair. The editor reviews and edits every word before approval.
+    """
+    import os
+
+    from brief.edition.checks import parse_edition, validate_edition
+    from brief.llm.client import AnthropicJSON, LLMError, load_models
+    from brief.llm.script_draft import (
+        TASK,
+        DraftError,
+        apply_draft,
+        draft_script,
+        load_route,
+        render_text,
+    )
+    from brief.site.deploy import read_dotenv
+
+    edition, issues = load_edition(path)
+    if edition is None:
+        for issue in issues:
+            typer.echo(f"{issue.code}: {issue.message}")
+        raise typer.Exit(code=2)
+    if edition.status != "draft":
+        typer.echo(f"error: the edition is '{edition.status}'; only a draft can be redrafted")
+        raise typer.Exit(code=2)
+    if edition.script is not None and write and not force:
+        typer.echo("error: the edition already has a script; pass --force to replace it")
+        raise typer.Exit(code=2)
+    key = read_dotenv(env_file).get("ANTHROPIC_API_KEY")
+    if key and not os.environ.get("ANTHROPIC_API_KEY"):
+        os.environ["ANTHROPIC_API_KEY"] = key
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        typer.echo(f"error: ANTHROPIC_API_KEY is not set (environment or {env_file})")
+        raise typer.Exit(code=2)
+    models = load_models()
+    budget = Budget(load_config(DEFAULT_CONFIG), DEFAULT_USAGE, DEFAULT_CASH)
+    try:
+        route = load_route(TASK, models)
+        draft = draft_script(edition, AnthropicJSON(budget, models), route)
+    except BudgetExceededError as exc:
+        typer.echo(f"blocked by budget: {exc}; write the copy by hand")
+        raise typer.Exit(code=1) from exc
+    except (DraftError, LLMError) as exc:
+        typer.echo(f"error: {exc}")
+        raise typer.Exit(code=1) from exc
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    updated = apply_draft(raw, draft)
+    typer.echo(render_text(draft.data))
+    typer.echo(
+        f"\n{draft.model}, {draft.attempts} call(s), ${draft.cost_usd:.4f} for the accepted "
+        "call (all calls are in the usage ledger)"
+    )
+    new_edition, parse_issues = parse_edition(updated)
+    found = parse_issues
+    if new_edition is not None:
+        found = [i for i in validate_edition(new_edition, "draft").issues
+                 if i.code in CONTENT_CHECKS]  # fmt: skip
+    for i in found:
+        where = f" (story {i.story_rank})" if i.story_rank else ""
+        typer.echo(f"{i.code} {i.severity}: {i.message}{where}")
+    if write:
+        path.write_text(json.dumps(updated, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        typer.echo(f"wrote the draft to {path} (script version {updated['script']['version']})")
+    if any(i.severity == "blocking" for i in found):
+        raise typer.Exit(code=1)
 
 
 @report_app.command("phase1")

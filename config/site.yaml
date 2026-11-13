@@ -14,3 +14,15 @@ language: en
 # disallows crawling and Pages sends `X-Robots-Tag: noindex`. Set false only for the
 # soft-launch build after gate G4 (P1-20).
 noindex: true
+
+# Shown on /contact/; required for the indexable build (P1-20U).
+contact_email: null
+
+# Founder approval date (YYYY-MM-DD) for each policy page's text (P1-20U). A page without
+# a date shows a "Draft page" note, and `noindex: false` refuses to build until all are set.
+policy_pages:
+  about: null
+  editorial-standards: null
+  corrections-policy: null
+  privacy: null
+  contact: null

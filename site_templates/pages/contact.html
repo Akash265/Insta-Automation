@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
 <h1>Contact</h1>
-<p class="note">Draft page: contact details will be added before public launch.</p>
+{% if not approved %}<p class="note">Draft page: contact details will be added before public launch.</p>{% endif %}
+{% if site.contact_email %}<p>Email: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>{% endif %}
 <p>To report an error, tell us the issue date and the story; corrections are handled under our <a href="/corrections-policy/">corrections policy</a>.</p>
 {% endblock %}

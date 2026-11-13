@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
 <h1>Privacy</h1>
-<p class="note">Draft page: to be completed before public launch.</p>
+{% if not approved %}<p class="note">Draft page: to be completed before public launch.</p>{% endif %}
 <p>This site collects no personal data. It sets no cookies, has no accounts or forms, and loads no third-party scripts, fonts or trackers.</p>
 <p>Our host keeps standard server logs to run and protect the service. If we add analytics, they will be cookieless and this page will say so first.</p>
 {% endblock %}

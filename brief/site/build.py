@@ -75,6 +75,9 @@ class SiteConfig:
     description: str
     language: str
     noindex: bool
+    contact_email: str | None = None
+    # slug -> founder approval date (P1-20U); a page without one is a draft
+    policy_approved: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
@@ -96,9 +99,21 @@ def load_site_config(path: Path) -> SiteConfig:
             description=str(data["description"]),
             language=str(data.get("language", "en")),
             noindex=bool(data["noindex"]),
+            contact_email=str(data["contact_email"]) if data.get("contact_email") else None,
+            policy_approved={
+                str(k): str(v) for k, v in (data.get("policy_pages") or {}).items() if v
+            },
         )
     except KeyError as exc:
         raise SiteBuildError(f"{path}: missing setting {exc}") from exc
+    unknown = sorted(set(cfg.policy_approved) - set(POLICY_PAGES))
+    if unknown:
+        raise SiteBuildError(f"{path}: unknown policy pages {unknown}")
+    for slug, day in cfg.policy_approved.items():
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+            raise SiteBuildError(f"{path}: policy_pages.{slug} must be an approval date")
+    if cfg.contact_email and not re.fullmatch(r"[^@\s]+@[^@\s]+\.[a-z]{2,}", cfg.contact_email):
+        raise SiteBuildError(f"{path}: contact_email is not an email address")
     if not re.fullmatch(r"https://[a-z0-9.-]+(:\d+)?(/[\w./-]*)?", cfg.base_url):
         raise SiteBuildError(f"{path}: base_url must be an https:// URL: {cfg.base_url!r}")
     return cfg
@@ -427,6 +442,14 @@ def build_site(
         shutil.rmtree(staging)
     writer = _Writer(staging)
     noindex = cfg.noindex or preview
+    if not noindex:  # the public (indexable) soft-launch build, after gate G4
+        drafts = [slug for slug in POLICY_PAGES if slug not in cfg.policy_approved]
+        if drafts or not cfg.contact_email:
+            raise SiteBuildError(
+                "an indexable build needs every policy page approved and contact_email set "
+                f"in config/site.yaml (P1-20U); drafts: {drafts or 'none'}, "
+                f"contact_email: {'set' if cfg.contact_email else 'missing'}"
+            )
     env = _environment(templates)
     static = _static(templates, writer)
     policy_links = [{"url": f"/{slug}/", "title": t} for slug, t in POLICY_PAGES.items()]
@@ -494,7 +517,8 @@ def build_site(
     for slug, title in POLICY_PAGES.items():
         about = f"{cfg.site_name}: {title.lower()}."
         writer.page(f"/{slug}/", render(f"pages/{slug}.html", f"/{slug}/", title=title,
-                                        description=about))  # fmt: skip
+                                        description=about,
+                                        approved=cfg.policy_approved.get(slug)))  # fmt: skip
     writer.write("404.html", render("404.html", "/404.html", title="Page not found",
                                     description=cfg.description))  # fmt: skip
 
