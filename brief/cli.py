@@ -79,6 +79,8 @@ site_app = typer.Typer(help="Static website (ADR-006).", no_args_is_help=True)
 app.add_typer(site_app, name="site")
 script_app = typer.Typer(help="Edition copy: optional LLM draft (P1-13).", no_args_is_help=True)
 app.add_typer(script_app, name="script")
+sources_app = typer.Typer(help="Source allow-list (P1-01).", no_args_is_help=True)
+app.add_typer(sources_app, name="sources")
 DEFAULT_SITE_CONFIG = Path("config/site.yaml")
 SITE_TEMPLATES = Path("site_templates")
 EXPERIMENT_DIR = Path("experiment")
@@ -126,6 +128,29 @@ def validate(
     report = validate_file(path, stage)
     typer.echo(report.render())
     if not report.ok:
+        raise typer.Exit(code=1)
+
+
+@sources_app.command("check")
+def sources_check(
+    file: Annotated[Path, typer.Option(help="The allow-list.")] = Path("sources.yaml"),
+    only: Annotated[list[str] | None, typer.Option(help="Check only these keys.")] = None,
+) -> None:
+    """Check every enabled source: robots.txt allows it, and it fetches and parses (web)."""
+    from brief.sources import SourceError, check_sources, load_sources, render_checks
+
+    try:
+        sources = load_sources(file)
+    except (OSError, SourceError) as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(code=2) from exc
+    unknown = set(only or []) - {s.key for s in sources}
+    if unknown:
+        typer.echo(f"unknown source keys: {', '.join(sorted(unknown))}")
+        raise typer.Exit(code=2)
+    checks = check_sources(sources, datetime.now(IST), only=set(only) if only else None)
+    typer.echo(render_checks(checks))
+    if not all(c.ok for c in checks):
         raise typer.Exit(code=1)
 
 

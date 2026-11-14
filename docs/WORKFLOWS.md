@@ -69,6 +69,7 @@ Every `dead` job writes an outbox event `job_dead`, which raises an alert. Opera
 | `brief site build [--editions DIR] [--out DIR] [--preview]` (`--from-db` in Phase 5) | 1 | Static site into `dist/` (P1-11): issue pages, `/today` (302 via `_redirects`), `/archive` (filters), `/corrections`, policy stubs, `sitemap.xml`, `feed.xml`, `search-index.json`. Builds `approved`/`published` editions with an approved review; `--preview` adds `in_review` ones, marked and noindex. Refuses an edition that fails the schema, a blocking draft-stage check or the `issue_url` match. Settings in `config/site.yaml` (`noindex: true` during the experiment) |
 | `brief site deploy --preview\|--production [--dist DIR] [--record EDITION]` | 1 | wrangler Direct Upload of `dist/` (P1-12): preview → `preview.ai-daily-brief-7vb.pages.dev`, production → `ai-daily-brief-7vb.pages.dev`; refuses a preview build for production; then checks `/`, noindex, `/today` → newest issue; `--record` writes `deployment` into the edition. Credentials from `.env` |
 | `brief linkcheck <edition.json \| --date D>` | 1 | Check C02 |
+| `brief sources check [--file sources.yaml] [--only KEY]` | 1 | P1-01: for each enabled source, reads robots.txt (RFC 9309, our own matcher) and never fetches a disallowed URL, then fetches the feed or page and checks it parses and matches its declared type; warns on empty or stale feeds and redirects. GitHub releases come from the REST API (github.com's robots.txt disallows `.atom`). Exit 1 if any source fails |
 | `brief caption <edition.json> [--write] [--posting]` | 1 | Caption generated from the edition record (fixed format that C10 checks); `--write` stores it; `--posting` adds hashtags for pasting into Instagram |
 | `brief db migrate` | 2 | Applies `migrations/` |
 | `brief issue import <edition.json>` / `brief issue export --date D` | 2 | Phase 1 JSON ↔ DB |
@@ -225,7 +226,7 @@ Each step is timed into `production_log` in the edition JSON. During the 14-day 
 4. **Render (≤15 min, mostly unattended):** run `brief render editions/D.json` and watch the MP4 in full.
 5. **Site (≤10 min):** set `status` to `in_review`, run `brief site build --preview`, then `brief site deploy --preview`, then `brief linkcheck`.
 6. **Review (≤15 min):** fill the `review` checklist block (decision `approved`, `status` `approved`), then run `brief site build` and `brief site deploy --production`.
-7. **Publish / distribute (≤10 min):** during the experiment, send the private page and MP4 links to the reader panel. During the soft launch, run `brief caption editions/D.json`, upload the MP4 by hand in the Instagram app, then paste the permalink into the JSON.
+7. **Publish / distribute (≤10 min):** during the experiment, send the private page and MP4 links to the reader panel. During the soft launch, run `brief caption editions/D.json`, upload the MP4 by hand in the Instagram app, then paste the permalink into the JSON ([manual-publish runbook](runbooks/manual-publish.md)).
 8. Commit `editions/D.json` (it contains no secrets).
 
 The target total is under 150 minutes. The Phase 1 exit gate uses the averages from these logs.

@@ -27,6 +27,26 @@ Related: [VALIDATION_EXPERIMENT](../VALIDATION_EXPERIMENT.md) · [TASKS §A](../
 | M17 | **Pre-registered thresholds signed** *(added: required by the approved plan)* | VALIDATION_EXPERIMENT §3, including PD-05 (median of the final five editions ≤ 130 min), copied unchanged into `docs/gates/phase-1.md`, signed and dated | Signed section | User + eng | P1-25 | ☐ |
 | M18 | **Spend limits and budget tracker in place** *(added: required to enforce the ₹15,000 ceiling from Day 1)* | Every paid account in use has a vendor spend limit (no voice account is needed unless the paid fallback is approved); `config/budget_periods.yaml` caps are LLM $10 and voice $10 for Days 1–30; `brief cost report` shows actual spend plus the projected max against ₹15,000, including preparation spend | Cost report output | User + eng | P1-26, P1-27, P1-36 | ☐ |
 
+## Engineering pre-check (2026-11-14)
+
+Evidence gathered by engineering ahead of Day 0. **It does not tick the boxes above:** the founder re-runs or accepts each item on Day 0 and signs below.
+
+| # | Result on 2026-11-14 | Still needed for Day 0 |
+|---|---|---|
+| M1 | Draft `sources.yaml` (27 sources) and `docs/EDITORIAL_CHARTER.md`. `uv run brief sources check`: 27 checked, 0 failed (robots.txt allows each URL; each feed or page fetches and parses) | Founder approval in the charter's §6 |
+| M2 | Table ready in `docs/gates/phase-1.md` §3 | Founder chooses the two roundups |
+| M7 | Rubric v1.1 summary and a SHA-256 fingerprint of EDITORIAL_PIPELINE §5–§6 in `docs/gates/phase-1.md` §2; `tests/test_gate_records.py` fails if the rubric changes | Founder signature |
+| M8 | `uv run pytest tests/test_checks.py -k "audit_trail or c01 or c03"`: 20 passed (each of the 14 audit-trail items blocks, unfetched evidence blocks, discovery-only evidence blocks) | Re-run on Day 0 |
+| M9 | `editions/_template.json` has every audit-trail field (template test passes at draft, fails at review); `brief site build` of the two fixtures built both issue pages, with 5 "Read original" links on 2026-11-20 and `/today` → `/issues/2026-11-23/` | — |
+| M10 | `brief caption tests/fixtures/editions/normal.json` lists the 5 stories in rank order with publishers; `brief validate --stage published`: 0 blocking, 0 warnings (C09, C10 pass) | — |
+| M11 | Three consecutive fixture renders (`brief render tests/fixtures/editions/normal.json`): all passed first time with **identical ffprobe manifests**: 1080×1920, 30/1 fps, H.264 High yuv420p, AAC 48 kHz, 82.07 s, A/V difference 19 ms, −14.0 LUFS, true peak −4.3 dBTP, 0 clipped; about 50 s each. Voice C (Kokoro `am_adam`) in `config/tts.yaml`; lexicon `video_templates/lexicon.yaml` | Founder watches one render of **real** content in full (dress rehearsal, O3) |
+| M12 | `brief linkcheck` is ready (P1-04) | Needs a real dry-run edition (O3) |
+| M13 | P1-12 live runs (2026-11-13): preview `https://preview.ai-daily-brief-7vb.pages.dev` passed every check including `/today/` 302 → newest issue; production `https://ai-daily-brief-7vb.pages.dev` passed (`/` 200, `noindex`) | Re-run with the dry-run edition |
+| M14 | `uv run brief experiment verify-log`: "error log intact"; tests for refused edits, deletions and tampering pass | — |
+| M15 | Templates present in `experiment/`; `test_experiment_report_dry_run_computes_every_metric` passes (26 experiment and error-log tests) | — |
+| M17 | §3 copied into `docs/gates/phase-1.md` §1 between markers; `tests/test_gate_records.py` fails on any difference (checked by loosening H4 to 3.5: the test failed) | Founder signature |
+| M18 | Caps in `config/budget_periods.yaml`: Days 1–30 LLM $10, voice $10. `brief cost report`: actual ₹187 (preparation LLM $2.13 of $7), projected max ₹13,380 against ₹15,000 | Anthropic Console spend limit confirmed (P1-26); set `day1` in `config/budget_periods.yaml` once Day 1 is fixed |
+
 ## Optional improvements (they do not block Day 1)
 
 | # | Improvement | Why it helps |

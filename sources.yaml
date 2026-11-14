@@ -1,0 +1,294 @@
+# Source allow-list (P1-01). DRAFT until the founder approves it in docs/EDITORIAL_CHARTER.md.
+#
+# Fields mirror the `sources` table (docs/DATABASE_DESIGN.md §4.1). Tiers and categories:
+# docs/EDITORIAL_PIPELINE.md §2 and §3.1. Check every enabled source with
+#   uv run brief sources check        (makes web requests: robots.txt + fetch + parse)
+#
+# What we take from every source (EDITORIAL_PIPELINE §2, DATABASE_DESIGN §1): the title,
+# link, dates, a summary of at most 1,000 characters and verification excerpts of at most
+# 300 characters. Copy is written in our own words (R09) and always links to the original.
+# Login walls and bot protection are never bypassed. `terms_note` records what was
+# checked; "robots allowed" means `brief sources check` found no rule against our URL
+# (RFC 9309) on the date below. Terms of use were not reviewed clause by clause.
+#
+# Feeds and robots.txt verified: 2026-11-14.
+
+sources:
+  # ------------------------------------------------------------- tier 1: labs and companies
+  - key: openai-news
+    name: OpenAI News
+    publisher: OpenAI
+    source_type: rss
+    tier: 1
+    category: model_release
+    base_url: https://openai.com/news/
+    feed_url: https://openai.com/news/rss.xml
+    terms_note: Official RSS feed; robots allowed. Many items are customer stories, filtered by the rubric.
+
+  - key: anthropic-news
+    name: Anthropic News
+    publisher: Anthropic
+    source_type: html_page
+    tier: 1
+    category: model_release
+    base_url: https://www.anthropic.com/news
+    terms_note: No official feed found (rss.xml paths return 404); robots.txt allows all paths. Read the news index page.
+
+  - key: google-deepmind-blog
+    name: Google DeepMind Blog
+    publisher: Google DeepMind
+    source_type: rss
+    tier: 1
+    category: research
+    base_url: https://deepmind.google/blog/
+    feed_url: https://deepmind.google/blog/rss.xml
+    terms_note: Official RSS feed; robots allowed.
+
+  - key: google-ai-blog
+    name: Google Blog, AI
+    publisher: Google
+    source_type: rss
+    tier: 1
+    category: model_release
+    base_url: https://blog.google/technology/ai/
+    feed_url: https://blog.google/innovation-and-ai/technology/ai/rss/
+    terms_note: Official RSS feed (the old /technology/ai/rss/ URL redirects here); robots allowed.
+
+  - key: google-research-blog
+    name: Google Research Blog
+    publisher: Google Research
+    source_type: rss
+    tier: 1
+    category: research
+    base_url: https://research.google/blog/
+    feed_url: https://research.google/blog/rss/
+    terms_note: Official RSS feed; robots allowed.
+
+  - key: meta-ai-blog
+    name: Meta AI Blog
+    publisher: Meta
+    source_type: html_page
+    tier: 1
+    category: model_release
+    base_url: https://ai.meta.com/blog/
+    terms_note: No official feed found (/blog/rss/ returns 404); robots allowed. Read the blog index page.
+
+  - key: microsoft-research-blog
+    name: Microsoft Research Blog
+    publisher: Microsoft Research
+    source_type: rss
+    tier: 1
+    category: research
+    base_url: https://www.microsoft.com/en-us/research/blog/
+    feed_url: https://www.microsoft.com/en-us/research/feed/
+    terms_note: Official RSS feed; robots allowed.
+
+  - key: nvidia-technical-blog
+    name: NVIDIA Technical Blog
+    publisher: NVIDIA
+    source_type: atom
+    tier: 1
+    category: business
+    base_url: https://developer.nvidia.com/blog/
+    feed_url: https://developer.nvidia.com/blog/feed
+    terms_note: Official feed (Atom); robots allowed. Vendor content, so capability claims need the vendor-claim label (R08).
+
+  - key: mistral-news
+    name: Mistral AI News
+    publisher: Mistral AI
+    source_type: rss
+    tier: 1
+    category: model_release
+    base_url: https://mistral.ai/news/
+    feed_url: https://mistral.ai/news/rss
+    terms_note: Official RSS feed (/rss.xml redirects here); robots allowed.
+
+  - key: huggingface-blog
+    name: Hugging Face Blog
+    publisher: Hugging Face
+    source_type: rss
+    tier: 1
+    category: open_source
+    base_url: https://huggingface.co/blog
+    feed_url: https://huggingface.co/blog/feed.xml
+    terms_note: Official RSS feed; robots allowed. Community posts are mixed in; only official Hugging Face posts are tier 1.
+
+  - key: aws-ml-blog
+    name: AWS Machine Learning Blog
+    publisher: Amazon Web Services
+    source_type: rss
+    tier: 1
+    category: business
+    base_url: https://aws.amazon.com/blogs/machine-learning/
+    feed_url: https://aws.amazon.com/blogs/machine-learning/feed/
+    terms_note: Official RSS feed; robots allowed.
+
+  - key: apple-ml-research
+    name: Apple Machine Learning Research
+    publisher: Apple
+    source_type: rss
+    tier: 1
+    category: research
+    base_url: https://machinelearning.apple.com/
+    feed_url: https://machinelearning.apple.com/rss.xml
+    terms_note: Official RSS feed; robots allowed.
+
+  # ------------------------------------------------------------- tier 1: research
+  - key: arxiv-ai
+    name: arXiv cs.AI, cs.CL, cs.LG, cs.CV
+    publisher: arXiv
+    source_type: arxiv
+    tier: 1
+    category: research
+    base_url: https://arxiv.org/
+    feed_url: https://rss.arxiv.org/rss/cs.AI+cs.CL+cs.LG+cs.CV
+    fetch_interval_minutes: 360
+    terms_note: Official arXiv RSS (no robots.txt on rss.arxiv.org); metadata is CC0, each paper has its own licence. Empty at weekends. High volume, so filtered by keyword and capped per day.
+
+  # ------------------------------------------------------------- tier 1: open source
+  - key: gh-transformers
+    name: transformers releases
+    publisher: Hugging Face (GitHub)
+    source_type: github_releases
+    tier: 1
+    category: open_source
+    base_url: https://github.com/huggingface/transformers
+    feed_url: https://api.github.com/repos/huggingface/transformers/releases?per_page=10
+    fetch_interval_minutes: 120
+    terms_note: GitHub REST API (no robots.txt on api.github.com; github.com's robots.txt disallows .atom feeds, so they are not used). Unauthenticated limit 60 requests/hour; we use 5 every 2 hours. The repo list is reviewed monthly.
+
+  - key: gh-vllm
+    name: vLLM releases
+    publisher: vLLM project (GitHub)
+    source_type: github_releases
+    tier: 1
+    category: open_source
+    base_url: https://github.com/vllm-project/vllm
+    feed_url: https://api.github.com/repos/vllm-project/vllm/releases?per_page=10
+    fetch_interval_minutes: 120
+    terms_note: GitHub REST API, as for gh-transformers.
+
+  - key: gh-llama-cpp
+    name: llama.cpp releases
+    publisher: ggml-org (GitHub)
+    source_type: github_releases
+    tier: 1
+    category: open_source
+    base_url: https://github.com/ggml-org/llama.cpp
+    feed_url: https://api.github.com/repos/ggml-org/llama.cpp/releases?per_page=10
+    fetch_interval_minutes: 120
+    terms_note: GitHub REST API, as for gh-transformers. Releases are very frequent; only notable ones qualify.
+
+  - key: gh-ollama
+    name: Ollama releases
+    publisher: Ollama (GitHub)
+    source_type: github_releases
+    tier: 1
+    category: open_source
+    base_url: https://github.com/ollama/ollama
+    feed_url: https://api.github.com/repos/ollama/ollama/releases?per_page=10
+    fetch_interval_minutes: 120
+    terms_note: GitHub REST API, as for gh-transformers.
+
+  - key: gh-pytorch
+    name: PyTorch releases
+    publisher: PyTorch (GitHub)
+    source_type: github_releases
+    tier: 1
+    category: open_source
+    base_url: https://github.com/pytorch/pytorch
+    feed_url: https://api.github.com/repos/pytorch/pytorch/releases?per_page=10
+    fetch_interval_minutes: 120
+    terms_note: GitHub REST API, as for gh-transformers.
+
+  # ------------------------------------------------------------- tier 1: policy
+  - key: nist-news
+    name: NIST News
+    publisher: NIST
+    source_type: rss
+    tier: 1
+    category: policy
+    base_url: https://www.nist.gov/news-events/news
+    feed_url: https://www.nist.gov/news-events/news/rss.xml
+    terms_note: Official RSS feed; robots allowed. US federal government work (generally public domain). All NIST news, so filtered to AI by keyword.
+
+  - key: uk-aisi
+    name: UK AI Security Institute
+    publisher: GOV.UK
+    source_type: atom
+    tier: 1
+    category: policy
+    base_url: https://www.gov.uk/government/organisations/ai-security-institute
+    feed_url: https://www.gov.uk/government/organisations/ai-security-institute.atom
+    terms_note: Official GOV.UK Atom feed; robots allowed. GOV.UK text is under the Open Government Licence v3.0 unless stated otherwise.
+
+  - key: eu-ai-office
+    name: EU AI Office
+    publisher: European Commission
+    source_type: html_page
+    tier: 1
+    category: policy
+    base_url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+    fetch_interval_minutes: 360
+    terms_note: No feed found; robots allowed. Commission content is reusable with attribution (Decision 2011/833/EU) unless stated otherwise.
+
+  - key: indiaai
+    name: IndiaAI (MeitY)
+    publisher: Government of India, MeitY
+    source_type: html_page
+    tier: 1
+    category: policy
+    base_url: https://indiaai.gov.in/
+    fetch_interval_minutes: 360
+    terms_note: No feed found; no robots.txt (404, so no rules). Government portal; check each item against the original MeitY or PIB release.
+
+  # ------------------------------------------------------------- tier 2: publications
+  - key: verge-ai
+    name: The Verge, AI
+    publisher: The Verge
+    source_type: atom
+    tier: 2
+    category: business
+    base_url: https://www.theverge.com/ai-artificial-intelligence
+    feed_url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    terms_note: Official section feed (Atom); robots allowed. Copyrighted reporting; attribute ("according to The Verge") and link.
+
+  - key: techcrunch-ai
+    name: TechCrunch, AI
+    publisher: TechCrunch
+    source_type: rss
+    tier: 2
+    category: business
+    base_url: https://techcrunch.com/category/artificial-intelligence/
+    feed_url: https://techcrunch.com/category/artificial-intelligence/feed/
+    terms_note: Official category RSS feed; robots allowed. Copyrighted reporting; attribute and link.
+
+  - key: mit-tr-ai
+    name: MIT Technology Review, AI
+    publisher: MIT Technology Review
+    source_type: rss
+    tier: 2
+    category: research
+    base_url: https://www.technologyreview.com/topic/artificial-intelligence/
+    feed_url: https://www.technologyreview.com/topic/artificial-intelligence/feed
+    terms_note: Official topic RSS feed; robots allowed. Some articles are paywalled; use only what the feed and open pages show.
+
+  - key: wired-ai
+    name: WIRED, AI
+    publisher: WIRED
+    source_type: rss
+    tier: 2
+    category: business
+    base_url: https://www.wired.com/tag/ai/
+    feed_url: https://www.wired.com/feed/tag/ai/latest/rss
+    terms_note: Official tag RSS feed; robots allowed. Some articles are paywalled; use only what the feed and open pages show.
+
+  # ------------------------------------------------------------- tier 3: discovery only
+  - key: hacker-news
+    name: Hacker News front page
+    publisher: Y Combinator
+    source_type: rss
+    tier: 3
+    base_url: https://news.ycombinator.com/
+    feed_url: https://news.ycombinator.com/rss
+    terms_note: Official RSS; robots allows /rss (Crawl-delay 30 s; we fetch hourly). Discovery only, never evidence (R01).
