@@ -16,13 +16,13 @@ language: en
 noindex: true
 
 # Shown on /contact/; required for the indexable build (P1-20U).
-contact_email: null
+contact_email: akash265457k@gmail.com
 
 # Founder approval date (YYYY-MM-DD) for each policy page's text (P1-20U). A page without
 # a date shows a "Draft page" note, and `noindex: false` refuses to build until all are set.
 policy_pages:
-  about: null
-  editorial-standards: null
-  corrections-policy: null
-  privacy: null
-  contact: null
+  about: 2026-11-14
+  editorial-standards: 2026-11-14
+  corrections-policy: 2026-11-14
+  privacy: 2026-11-14
+  contact: 2026-11-14

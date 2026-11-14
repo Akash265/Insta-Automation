@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import dataclasses
 import json
+import re
 import xml.etree.ElementTree as ET  # parses our own build output only
 from html.parser import HTMLParser
 from pathlib import Path
@@ -167,8 +168,8 @@ def test_noindex_during_the_experiment(tmp_path: Path) -> None:
 
 
 def test_policy_pages_are_drafts_until_approved(tmp_path: Path) -> None:
-    assert not CFG.policy_approved and CFG.contact_email is None  # nothing approved yet
-    dist = build(tmp_path, NORMAL)
+    draft = dataclasses.replace(CFG, contact_email=None, policy_approved={})  # nothing approved
+    dist = build(tmp_path, NORMAL, cfg=draft)
     for slug in POLICY_PAGES:
         page = read(dist, f"{slug}/index.html")
         assert "Draft page" in page
@@ -192,7 +193,10 @@ def test_indexable_build_needs_approved_policies(tmp_path: Path, change: dict[st
 
 
 def test_policy_settings_are_validated(tmp_path: Path) -> None:
+    # independent of what the live config currently approves
     text = (ROOT / "config" / "site.yaml").read_text(encoding="utf-8")
+    text = re.sub(r"(?m)^  privacy: .*$", "  privacy: null", text)
+    text = re.sub(r"(?m)^contact_email: .*$", "contact_email: null", text)
     bad = tmp_path / "site.yaml"
     bad.write_text(text.replace("  privacy: null", "  privacy: soon"), encoding="utf-8")
     with pytest.raises(SiteBuildError, match="approval date"):
